@@ -101,6 +101,17 @@ cash_prd =PIL.Image.open("images\prodcuct.webp")
 resized_prd= cash_prd.resize((620,400))
 des_prd=ImageTk.PhotoImage(resized_prd)
 
+exp =PIL.Image.open("images/time.png")
+exp_tm= exp.resize((500,600))
+exp_tab=ImageTk.PhotoImage(exp_tm)
+
+
+adv =PIL.Image.open("images/advance.png")
+advmj= adv.resize((400,500))
+advance=ImageTk.PhotoImage(advmj)
+
+
+
 logo =PIL.Image.open("images\logo-icon.png")
 resized_image= logo.resize((50,50))
 mai_logo= ImageTk.PhotoImage(resized_image)
@@ -1953,94 +1964,15 @@ def main_sign_in():
                     exp_mod_frm.grid_columnconfigure(0,weight=1)
 
                     def new_registre(event):
+
                         
                         if add_exp_var.get()=="Expense":
-
-                            def res_exp1_chld(event):
-                                dwidth = event.width
-                                dheight = event.height
-                                dcanvas = event.widget
-                                
-                                
-                                
-                                r1 = 25
-                                x1 = dwidth/63
-                                x2 = dwidth/1.021
-                                y1 = dheight/13
-                                y2 = dheight/4
-
-                                dcanvas.coords("bg_polygen_flow",x1 + r1,y1,
-                                x1 + r1,y1,
-                                x2 - r1,y1,
-                                x2 - r1,y1,     
-                                x2,y1,     
-                                #--------------------
-                                x2,y1 + r1,     
-                                x2,y1 + r1,     
-                                x2,y2 - r1,     
-                                x2,y2 - r1,     
-                                x2,y2,
-                                #--------------------
-                                x2 - r1,y2,     
-                                x2 - r1,y2,     
-                                x1 + r1,y2,
-                                x1 + r1,y2,
-                                x1,y2,
-                                #--------------------
-                                x1,y2 - r1,
-                                x1,y2 - r1,
-                                x1,y1 + r1,
-                                x1,y1 + r1,
-                                x1,y1,
-                                )   
-
-                                r1 = 25
-                                x1 = dwidth/63
-                                x2 = dwidth/1.021
-                                y1 = dheight/3.5
-                                y2 = dheight/.70
-
-                                dcanvas.coords("bg_polygen_flow2",x1 + r1,y1,
-                                x1 + r1,y1,
-                                x2 - r1,y1,
-                                x2 - r1,y1,     
-                                x2,y1,     
-                                #--------------------
-                                x2,y1 + r1,     
-                                x2,y1 + r1,     
-                                x2,y2 - r1,     
-                                x2,y2 - r1,     
-                                x2,y2,
-                                #--------------------
-                                x2 - r1,y2,     
-                                x2 - r1,y2,     
-                                x1 + r1,y2,
-                                x1 + r1,y2,
-                                x1,y2,
-                                #--------------------
-                                x1,y2 - r1,
-                                x1,y2 - r1,
-                                x1,y1 + r1,
-                                x1,y1 + r1,
-                                x1,y1,
-                                )   
-                                dcanvas.coords("btn_pr_ed",dwidth/20,dheight/3)
-                                dcanvas.coords("leb_hdd",dwidth/2,dheight/7)
-                                dcanvas.coords("flow_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
-
-                                
-                                dcanvas.coords("exp_nm_lb",dwidth/23,dheight/2.1)
-                                dcanvas.coords("exp_ent_nm",dwidth/40,dheight/2)
-                                
-                                dcanvas.coords("exp_dt_lb",dwidth/15,dheight/1.67)
-                                dcanvas.coords("exp_ent_dt",dwidth/40,dheight/1.6)
-                                
-                                
-                                
+                            exp_chld_scrl.grid_forget()
+  
                             def back_exp1_add():
-                                exp1_frm_chld.grid_forget()
-                                exp1_chld_scrl.grid_forget()
-                                scrollPexp.grid(row=0,column=1,sticky='ns')
+                                inv_canvas_1.grid_forget()
+                                vertibar.grid_forget()
+                                exp_chld_scrl.grid(row=0,column=2,sticky='ns')
                                 
                             def inv_responsive_widgets2(event):
                                 try:
@@ -2196,10 +2128,12 @@ def main_sign_in():
                                     dcanvas.coords("lb_hd_r1_c2",dwidth/8.8,dheight/1.18)
                                     dcanvas.coords("lb_hd_r1_c3",dwidth/3.2,dheight/1.18)
                                     dcanvas.coords("lb_hd_r1_c4",dwidth/2.1,dheight/1.18)
-                                    dcanvas.coords("lb_hd_r1_c5",dwidth/1.4,dheight/1.18)
-                                    dcanvas.coords("lb_hd_r1_c6",dwidth/1.1,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c5",dwidth/1.45,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c6",dwidth/1.16,dheight/1.18)
                                     
                                     #first tables
+                                    
+                                    dcanvas.coords("no_lv_r1",dwidth/28,dheight/1.085)
                                     dcanvas.coords("cmbost_r1_c1",dwidth/16,dheight/1.085)
                                     dcanvas.coords("ents_r1_c2",dwidth/3.74,dheight/1.085)
                                     dcanvas.coords("ents_r1_c3",dwidth/2.26,dheight/1.085)
@@ -2207,6 +2141,7 @@ def main_sign_in():
                                     dcanvas.coords("ents_r1_c5",dwidth/1.25,dheight/1.085)
 
                                     #second row
+                                    dcanvas.coords("no_lv_r2",dwidth/28,dheight/.999)
                                     dcanvas.coords("cmbost_r2_c1",dwidth/16,dheight/.999)
 
                                     dcanvas.coords("ents_r2_c2",dwidth/3.74,dheight/.999)
@@ -2215,6 +2150,7 @@ def main_sign_in():
                                     dcanvas.coords("ents_r2_c5",dwidth/1.25,dheight/.999)
 
                                     #third row
+                                    dcanvas.coords("no_lv_r3",dwidth/28,dheight/.928)
                                     dcanvas.coords("cmbost_r3_c1",dwidth/16,dheight/.928)
 
                                     dcanvas.coords("ents_r3_c2",dwidth/3.74,dheight/.928)
@@ -2223,6 +2159,7 @@ def main_sign_in():
                                     dcanvas.coords("ents_r3_c5",dwidth/1.25,dheight/.928)
 
                                     #forth row
+                                    dcanvas.coords("no_lv_r4",dwidth/28,dheight/.862)
                                     dcanvas.coords("cmbost_r4_c1",dwidth/16,dheight/.862)
                                     dcanvas.coords("ents_r4_c2",dwidth/3.74,dheight/.862)
                                     dcanvas.coords("ents_r4_c3",dwidth/2.26,dheight/.862)
@@ -2245,8 +2182,8 @@ def main_sign_in():
                                     dcanvas.coords("aicombo11",dwidth/1.21,dheight/0.496)
 
                                     dcanvas.coords("aibutton1",dwidth/2.95,dheight/1.9)
-                                    dcanvas.coords("aibutton2",dwidth/1.28,dheight/0.377)
-                                    dcanvas.coords("aibutton3",dwidth/23,dheight/3.415)
+                                    dcanvas.coords("aibutton2",dwidth/1.28,dheight/0.395)
+                                    dcanvas.coords("aibutton3",dwidth/20,dheight/2.6)
 
                                     #-------------------------------H Lines-----------------------------------#
                                     dcanvas.coords("ailine1",dwidth/21,dheight/0.645,dwidth/1.055,dheight/0.645)
@@ -2267,9 +2204,9 @@ def main_sign_in():
                                     dcanvas.coords("ailine15",dwidth/1.22,dheight/0.645,dwidth/1.22,dheight/0.476)
 
                                     #-------------------------------V Lines-----------------------------------#
-                                    dcanvas.coords("ailine16",dwidth/1.58,dheight/0.455,dwidth/1.58,dheight/0.383)
-                                    dcanvas.coords("ailine17",dwidth/1.348,dheight/0.455,dwidth/1.348,dheight/0.383)
-                                    dcanvas.coords("ailine18",dwidth/1.084,dheight/0.455,dwidth/1.084,dheight/0.383)
+                                    dcanvas.coords("ailine16",dwidth/1.58,dheight/0.455,dwidth/1.58,dheight/0.41)
+                                    dcanvas.coords("ailine17",dwidth/1.348,dheight/0.455,dwidth/1.348,dheight/0.41)
+                                    dcanvas.coords("ailine18",dwidth/1.084,dheight/0.455,dwidth/1.084,dheight/0.41)
                                     #-------------------------------H Lines-----------------------------------#
                                     dcanvas.coords("ailine19",dwidth/1.58,dheight/0.455,dwidth/1.084,dheight/0.455)
                                     dcanvas.coords("ailine20",dwidth/1.58,dheight/0.383,dwidth/1.084,dheight/0.383)
@@ -2338,21 +2275,15 @@ def main_sign_in():
                                     dcanvas.coords("bilabl1",dwidth/1.53,dheight/0.355)
                                     dcanvas.coords("bilabl2",dwidth/1.53,dheight/0.340)
                                     dcanvas.coords("bilabl3",dwidth/1.53,dheight/0.325)
-                                    dcanvas.coords("bilabl4",dwidth/1.53,dheight/0.310)
-                                    dcanvas.coords("bilabl5",dwidth/1.53,dheight/0.298)
+                                   
 
-                                    dcanvas.coords("bient29",dwidth/1.33,dheight/0.355)
-                                    dcanvas.coords("bient30",dwidth/1.33,dheight/0.340)
+                                  
                                     dcanvas.coords("bient31",dwidth/1.33,dheight/0.325)
                                     dcanvas.coords("bient32",dwidth/1.33,dheight/0.312)
                                     dcanvas.coords("bient33",dwidth/1.33,dheight/0.298)
-                                    dcanvas.coords("bbutn1",dwidth/1.28,dheight/0.282)
+                                    dcanvas.coords("bbutn1",dwidth/1.28,dheight/0.29)
                                 except:
                                     pass
-
-                                
-
-
 
                             inv_canvas_1=Canvas(exp_mod_frm, bg='#2f516f', width=953, height=600, scrollregion=(0,0,700,2100))
 
@@ -2589,6 +2520,9 @@ def main_sign_in():
                             window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c6,tags=('lb_hd_r1_c6'))
                             #First row
 
+                            no_lv_r1 = Label(inv_canvas_1,height=1,text="1", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r1,tags=('no_lv_r1'))
+
                             cmbost_r1_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
                             window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r1_c1,tags=('cmbost_r1_c1'))
                             cmbost_r1_c1.bind("<<ComboboxSelected>>","i_details_1")
@@ -2611,6 +2545,9 @@ def main_sign_in():
 
                             #second row
 
+                            no_lv_r2 = Label(inv_canvas_1,height=1,text="2", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r2,tags=('no_lv_r2'))
+
                             cmbost_r2_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
                             window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r2_c1,tags=('cmbost_r2_c1'))
                             cmbost_r2_c1.bind("<<ComboboxSelected>>","i_details_1")
@@ -2630,7 +2567,10 @@ def main_sign_in():
                             ents_r2_c5=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
                             window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r2_c5,tags=('ents_r2_c5'))
 
-                            #second row
+                            #3rd row
+
+                            no_lv_r3 = Label(inv_canvas_1,height=1,text="3", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r3,tags=('no_lv_r3'))
 
                             cmbost_r3_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
                             window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r3_c1,tags=('cmbost_r3_c1'))
@@ -2652,7 +2592,10 @@ def main_sign_in():
                             window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r3_c5,tags=('ents_r3_c5'))
 
 
-                            #second row
+                            #4th row
+
+                            no_lv_r4 = Label(inv_canvas_1,height=1,text="4", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r4,tags=('no_lv_r4'))
 
                             cmbost_r4_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
                             window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r4_c1,tags=('cmbost_r4_c1'))
@@ -3160,8 +3103,9 @@ def main_sign_in():
                                 window_ic_cus_btn2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_cus_btn2,tags=("acbutton1"))
 
                                 def inv_back_1_():
-                                    inv_frame_2.grid_forget()
-                                    inv_frame_1.grid(row=0,column=0,sticky='nsew')
+                                    inv_canvas_1.grid_forget()
+                                    vertibar.grid_forget()
+                                    exp_chld_scrl.grid(row=0,column=2,sticky='ns')
 
                                 bck_btn1=Button(inv_canvas_2,text='← Back', bd=0, foreground="white",background="#2f516f",font='arial 10 bold',activebackground="#1b3857",command=inv_back_1_)
                                 window_bck_btn1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=bck_btn1,tags=('acbutton2'))
@@ -5497,11 +5441,11 @@ def main_sign_in():
                             inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine17'))
                             inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine18'))
                             inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine19'))
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine20'))
+                            
                             inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine21'))
                             inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine22'))
                             inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine23'))
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine24'))
+                            
                             
 
                             label_5 = Label(inv_canvas_1,width=10,height=1,text="Sub Total", font=('arial 10'),background="#1b3857",fg="white") 
@@ -5513,11 +5457,7 @@ def main_sign_in():
                             label_5 = Label(inv_canvas_1,width=12,height=1,text="Grand Total", font=('arial 10'),background="#1b3857",fg="white") 
                             window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('ailabel25'))
 
-                            label_5 = Label(inv_canvas_1,width=12,height=1,text="Amount Received", font=('arial 10'),background="#1b3857",fg="white") 
-                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('ailabel26'))
-
-                            label_5 = Label(inv_canvas_1,width=12,height=1,text="Balance Due", font=('arial 10'),background="#1b3857",fg="white") 
-                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('ailabel27'))
+                            
 
                             
                             sub_str=StringVar()
@@ -5533,932 +5473,14 @@ def main_sign_in():
                             window_grand_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=grand_entry_1,tags=('aientry25'))
 
                             
-                            amount_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                            window_amount_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=amount_entry_1,tags=('aientry26'))
-
-                            bal_str=StringVar()
-                            bal_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT, background='#2f516f',foreground="white",textvariable=bal_str)
-                            window_bal_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bal_entry_1,tags=('aientry27'))
+                           
 
                             ai_save_btn1=Button(inv_canvas_1,text='Save', width=15,height=2,foreground="white",background="#1b3857",font='arial 12',command=sales_add_new_inv)
                             window_ai_save_btn1 = inv_canvas_1.create_window(0, 0, anchor="nw", window=ai_save_btn1,tags=('aibutton2'))
 
 
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine25'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine26'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine27'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine28'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine29'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine30'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine31'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine32'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine33'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine34'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine35'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine36'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine37'),state=HIDDEN)
-
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine38'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine39'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine40'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine41'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine42'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine43'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine44'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine45'),state=HIDDEN)
-                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine46'),state=HIDDEN)
-
-                            
-                            bu_inv_1 = Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_1 = inv_canvas_1.create_window(0, 0, anchor="nw",height=30,window=bu_inv_1,tags=('bient1'),state=HIDDEN)
-
-                            bu_inv_1_1 = Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_1_1 = inv_canvas_1.create_window(0, 0, anchor="nw",height=30,window=bu_inv_1_1,tags=('bient5'),state=HIDDEN)
-
-                            bu_inv_1_2=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
-                            window_bu_inv_1_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_1_2,tags=('bient9'),state=HIDDEN)
-
-                            bu_inv_1_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
-                            window_bu_inv_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_1_3,tags=('bient13'),state=HIDDEN)
-
-                            def multiply_num_i5(event):
-
-                                try:
-                                    n1 = float(en_str_1.get())
-                                except:
-                                    n1=0.0
-                                try:
-                                    n2 = float(en_str_2.get())
-                                except:
-                                    n2 = 0.0
-                                try:
-                                    n3 = float(en_str_3.get())
-                                except:
-                                    n3 = 0.0
-                                try:
-                                    n4 = float(en_str_4.get())
-                                except:
-                                    n4 = 0.0
-                                try:
-                                    n5 = float(en_str_5.get())
-                                except:
-                                    n5 = 0.0 
-                                try:
-                                    n6 = float(en_str_6.get())
-                                except:
-                                    n6 = 0.0 
-                                try:
-                                    n7 = float(en_str_7.get())
-                                except:
-                                    n7 = 0.0 
-                                try:
-                                    n8 = float(en_str_8.get())
-                                except:
-                                    n8 = 0.0 
-
-                                sum_i = n1+n2+n3+n4+n5+n6+n7+n8
-                                bsub_entry_1.delete(0, END)
-                                bsub_entry_1.insert(0,round(sum_i,2))
-
-                                global t1,t2,t3,t4,t5,t6,t7,t8
-                                if bu_inv_1_6.get() == '28.0% GST (28%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(28/100)
-                                elif bu_inv_1_6.get() == '28.0% IGST (28%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(28/100)
-                                elif bu_inv_1_6.get() == '18.0% GST (18%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(18/100)
-                                elif bu_inv_1_6.get() == '18.0% IGST (18%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(18/100)
-                                elif bu_inv_1_6.get() == '15.0% ST (100%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(15/100)
-                                elif bu_inv_1_6.get() == '14.5% ST (100%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(14.5/100)
-                                elif bu_inv_1_6.get() == '14.00% ST (100%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(14/100)
-                                elif bu_inv_1_6.get() == '14.0% VAT (100%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(14/100)
-                                elif bu_inv_1_6.get() == '12.36% ST (100%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(12.36/100)
-                                elif bu_inv_1_6.get() == '12.0% GST (12%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(12/100)
-                                elif bu_inv_1_6.get() == '12.0% IGST (12%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(12/100)
-                                elif bu_inv_1_6.get() == '6.0% GST (6%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(6/100)
-                                elif bu_inv_1_6.get() == '6.0% IGST (6%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(6/100)
-                                elif bu_inv_1_6.get() == '5.0% GST (5%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(5/100)
-                                elif bu_inv_1_6.get() == '5.0% IGST (5%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(5/100)
-                                elif bu_inv_1_6.get() == '5.0% VAT (100%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(5/100)
-                                elif bu_inv_1_6.get() == '4.0% VAT (100%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(4/100)
-                                elif bu_inv_1_6.get() == '3.0% GST (3%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(3/100)
-                                elif bu_inv_1_6.get() == '3.0% IGST (3%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(3/100)
-                                elif bu_inv_1_6.get() == '2.0% CST (100%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(2/100)
-                                elif bu_inv_1_6.get() == '0.25% GST (O.25%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(0.25/100)
-                                elif bu_inv_1_6.get() == '0.25% IGST (0.25%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(0.25/100)
-                                elif bu_inv_1_6.get() == '0% GST (0%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(0/100)
-                                elif bu_inv_1_6.get() == '0% IGST (0%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(0/100)
-                                elif bu_inv_1_6.get() == 'Exempt GST (0%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(0/100)
-                                elif bu_inv_1_6.get() == 'Exempt IGST (0%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(0/100)
-                                elif bu_inv_1_6.get() == 'Out of Scope(0%)':
-                                    y5 = float(en_str_5.get())
-                                    t5 = y5*(0/100)
-                                else:
-                                    pass
-
-                                try:
-                                    tm1  = t1
-                                except:
-                                    tm2 = 0.0
-                                try:
-                                    tm2 = t2
-                                except:
-                                    tm2 = 0.0
-                                try:
-                                    tm3 = t3
-                                except:
-                                    tm3 = 0.0
-                                try:
-                                    tm4  = t4
-                                except:
-                                    tm4 = 0.0
-                                try:
-                                    tm5  = t5
-                                except:
-                                    pass
-                                try:
-                                    tm6  = t6
-                                except:
-                                    tm6 = 0.0
-                                try:
-                                    tm7  = t7
-                                except:
-                                    tm7 = 0.0
-                                try:
-                                    tm8  = t8
-                                except:
-                                    tm8 = 0.0
-                                
-                                
-                                sum_ii = tm1+tm2+tm3+tm4+tm5+tm6+tm7+tm8
-                                btax_entry_1.delete(0, END)
-                                btax_entry_1.insert(0,round(sum_ii,2))
-
-                                try:
-                                    m1 = float(bsub_str.get())
-                                except:
-                                    m1 =0.0
-                                try:
-                                    m2 = float(btax_str.get())
-                                except:
-                                    m2 =0.0
-
-                                sum_iii = m1+m2
-                                bgrand_entry_1.delete(0, END)
-                                bgrand_entry_1.insert(0,round(sum_iii,2))
-
-
-                                try:
-                                    x1 = float(bgrd_str.get())
-                                except:
-                                    x1 = 0.0
-                                try:
-                                    x2 = float(bamount_entry_1.get())
-                                except:
-                                    x2 = 0.0
-                                sum_iv = x1-x2
-                                bbal_entry_1.delete(0, END)
-                                bbal_entry_1.insert(0,round(sum_iv,2))
-
-                            bu_inv_1_4=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
-                            window_bu_inv_1_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_1_4,tags=('bient17'),state=HIDDEN)
-                            bu_inv_1_4.bind("<Button-1>",multiply_num_i5)
-
-                            en_str_5 = StringVar()
-                            bu_inv_1_5=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_5)
-                            window_bu_inv_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_1_5,tags=('bient21'),state=HIDDEN)
-
-                            bu_inv_1_6=Entry(inv_canvas_1,width=25,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_1_6 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_1_6,tags=('bient25'),state=HIDDEN)
-
-                            bu_inv_2 = Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_2 = inv_canvas_1.create_window(0, 0, anchor="nw",height=30,window=bu_inv_2,tags=('bient2'),state=HIDDEN)
-
-                            bu_inv_2_1 = Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_2_1 = inv_canvas_1.create_window(0, 0, anchor="nw",height=30,window=bu_inv_2_1,tags=('bient6'),state=HIDDEN)
-
-                            bu_inv_2_2=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
-                            window_bu_inv_2_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_2_2,tags=('bient10'),state=HIDDEN)
-
-                            bu_inv_2_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
-                            window_bu_inv_2_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_2_3,tags=('bient14'),state=HIDDEN)
-
-                            def multiply_num_i6(event):
-
-                                try:
-                                    n1 = float(en_str_1.get())
-                                except:
-                                    n1=0.0
-                                try:
-                                    n2 = float(en_str_2.get())
-                                except:
-                                    n2 = 0.0
-                                try:
-                                    n3 = float(en_str_3.get())
-                                except:
-                                    n3 = 0.0
-                                try:
-                                    n4 = float(en_str_4.get())
-                                except:
-                                    n4 = 0.0
-                                try:
-                                    n5 = float(en_str_5.get())
-                                except:
-                                    n5 = 0.0 
-                                try:
-                                    n6 = float(en_str_6.get())
-                                except:
-                                    n6 = 0.0 
-                                try:
-                                    n7 = float(en_str_7.get())
-                                except:
-                                    n7 = 0.0 
-                                try:
-                                    n8 = float(en_str_8.get())
-                                except:
-                                    n8 = 0.0 
-
-                                sum_i = n1+n2+n3+n4+n5+n6+n7+n8
-                                bsub_entry_1.delete(0, END)
-                                bsub_entry_1.insert(0,round(sum_i,2))
-
-                                global t1,t2,t3,t4,t5,t6,t7,t8
-                                if bu_inv_2_6.get() == '28.0% GST (28%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(28/100)
-                                elif bu_inv_2_6.get() == '28.0% IGST (28%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(28/100)
-                                elif bu_inv_2_6.get() == '18.0% GST (18%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(18/100)
-                                elif bu_inv_2_6.get() == '18.0% IGST (18%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(18/100)
-                                elif bu_inv_2_6.get() == '15.0% ST (100%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(15/100)
-                                elif bu_inv_2_6.get() == '14.5% ST (100%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(14.5/100)
-                                elif bu_inv_2_6.get() == '14.00% ST (100%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(14/100)
-                                elif bu_inv_2_6.get() == '14.0% VAT (100%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(14/100)
-                                elif bu_inv_2_6.get() == '12.36% ST (100%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(12.36/100)
-                                elif bu_inv_2_6.get() == '12.0% GST (12%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(12/100)
-                                elif bu_inv_2_6.get() == '12.0% IGST (12%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(12/100)
-                                elif bu_inv_2_6.get() == '6.0% GST (6%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(6/100)
-                                elif bu_inv_2_6.get() == '6.0% IGST (6%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(6/100)
-                                elif bu_inv_2_6.get() == '5.0% GST (5%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(5/100)
-                                elif bu_inv_2_6.get() == '5.0% IGST (5%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(5/100)
-                                elif bu_inv_2_6.get() == '5.0% VAT (100%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(5/100)
-                                elif bu_inv_2_6.get() == '4.0% VAT (100%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(4/100)
-                                elif bu_inv_2_6.get() == '3.0% GST (3%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(3/100)
-                                elif bu_inv_2_6.get() == '3.0% IGST (3%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(3/100)
-                                elif bu_inv_2_6.get() == '2.0% CST (100%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(2/100)
-                                elif bu_inv_2_6.get() == '0.25% GST (O.25%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(0.25/100)
-                                elif bu_inv_2_6.get() == '0.25% IGST (0.25%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(0.25/100)
-                                elif bu_inv_2_6.get() == '0% GST (0%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(0/100)
-                                elif bu_inv_2_6.get() == '0% IGST (0%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(0/100)
-                                elif bu_inv_2_6.get() == 'Exempt GST (0%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(0/100)
-                                elif bu_inv_2_6.get() == 'Exempt IGST (0%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(0/100)
-                                elif bu_inv_2_6.get() == 'Out of Scope(0%)':
-                                    y6 = float(en_str_6.get())
-                                    t6 = y6*(0/100)
-                                else:
-                                    pass
-
-                                try:
-                                    tm1  = t1
-                                except:
-                                    tm2 = 0.0
-                                try:
-                                    tm2 = t2
-                                except:
-                                    tm2 = 0.0
-                                try:
-                                    tm3 = t3
-                                except:
-                                    tm3 = 0.0
-                                try:
-                                    tm4  = t4
-                                except:
-                                    tm4 = 0.0
-                                try:
-                                    tm5  = t5
-                                except:
-                                    pass
-                                try:
-                                    tm6  = t6
-                                except:
-                                    pass
-                                try:
-                                    tm7  = t7
-                                except:
-                                    tm7 = 0.0
-                                try:
-                                    tm8  = t8
-                                except:
-                                    tm8 = 0.0
-                                
-                                
-                                sum_ii = tm1+tm2+tm3+tm4+tm5+tm6+tm7+tm8
-                                btax_entry_1.delete(0, END)
-                                btax_entry_1.insert(0,round(sum_ii,2))
-
-                                try:
-                                    m1 = float(bsub_str.get())
-                                except:
-                                    m1 =0.0
-                                try:
-                                    m2 = float(btax_str.get())
-                                except:
-                                    m2 =0.0
-
-                                sum_iii = m1+m2
-                                bgrand_entry_1.delete(0, END)
-                                bgrand_entry_1.insert(0,round(sum_iii,2))
-
-
-                                try:
-                                    x1 = float(bgrd_str.get())
-                                except:
-                                    x1 = 0.0
-                                try:
-                                    x2 = float(bamount_entry_1.get())
-                                except:
-                                    x2 = 0.0
-                                sum_iv = x1-x2
-                                bbal_entry_1.delete(0, END)
-                                bbal_entry_1.insert(0,round(sum_iv,2))
-
-                            bu_inv_2_4=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
-                            window_bu_inv_2_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_2_4,tags=('bient18'),state=HIDDEN)
-                            bu_inv_2_4.bind("<Button-1>",multiply_num_i6)
-
-                            en_str_6 = StringVar()
-                            bu_inv_2_5=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_6)
-                            window_bu_inv_2_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_2_5,tags=('bient22'),state=HIDDEN)
-
-                            bu_inv_2_6=Entry(inv_canvas_1,width=25,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_2_6 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_2_6,tags=('bient26'),state=HIDDEN)
-
-                            bu_inv_3 = Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_3 = inv_canvas_1.create_window(0, 0, anchor="nw",height=30,window=bu_inv_3,tags=('bient3'),state=HIDDEN)
-
-                            bu_inv_3_1 = Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_3_1 = inv_canvas_1.create_window(0, 0, anchor="nw",height=30,window=bu_inv_3_1,tags=('bient7'),state=HIDDEN)
-
-                            bu_inv_3_2=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
-                            window_bu_inv_3_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_3_2,tags=('bient11'),state=HIDDEN)
-
-                            bu_inv_3_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
-                            window_bu_inv_3_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_3_3,tags=('bient15'),state=HIDDEN)
-
-                            def multiply_num_i7(event):
-
-                                try:
-                                    n1 = float(en_str_1.get())
-                                except:
-                                    n1=0.0
-                                try:
-                                    n2 = float(en_str_2.get())
-                                except:
-                                    n2 = 0.0
-                                try:
-                                    n3 = float(en_str_3.get())
-                                except:
-                                    n3 = 0.0
-                                try:
-                                    n4 = float(en_str_4.get())
-                                except:
-                                    n4 = 0.0
-                                try:
-                                    n5 = float(en_str_5.get())
-                                except:
-                                    n5 = 0.0 
-                                try:
-                                    n6 = float(en_str_6.get())
-                                except:
-                                    n6 = 0.0 
-                                try:
-                                    n7 = float(en_str_7.get())
-                                except:
-                                    n7 = 0.0 
-                                try:
-                                    n8 = float(en_str_8.get())
-                                except:
-                                    n8 = 0.0 
-
-                                sum_i = n1+n2+n3+n4+n5+n6+n7+n8
-                                bsub_entry_1.delete(0, END)
-                                bsub_entry_1.insert(0,round(sum_i,2))
-
-                                global t1,t2,t3,t4,t5,t6,t7,t8
-                                if bu_inv_3_6.get() == '28.0% GST (28%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(28/100)
-                                elif bu_inv_3_6.get() == '28.0% IGST (28%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(28/100)
-                                elif bu_inv_3_6.get() == '18.0% GST (18%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(18/100)
-                                elif bu_inv_3_6.get() == '18.0% IGST (18%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(18/100)
-                                elif bu_inv_3_6.get() == '15.0% ST (100%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(15/100)
-                                elif bu_inv_3_6.get() == '14.5% ST (100%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(14.5/100)
-                                elif bu_inv_3_6.get() == '14.00% ST (100%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(14/100)
-                                elif bu_inv_3_6.get() == '14.0% VAT (100%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(14/100)
-                                elif bu_inv_3_6.get() == '12.36% ST (100%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(12.36/100)
-                                elif bu_inv_3_6.get() == '12.0% GST (12%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(12/100)
-                                elif bu_inv_3_6.get() == '12.0% IGST (12%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(12/100)
-                                elif bu_inv_3_6.get() == '6.0% GST (6%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(6/100)
-                                elif bu_inv_3_6.get() == '6.0% IGST (6%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(6/100)
-                                elif bu_inv_3_6.get() == '5.0% GST (5%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(5/100)
-                                elif bu_inv_3_6.get() == '5.0% IGST (5%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(5/100)
-                                elif bu_inv_3_6.get() == '5.0% VAT (100%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(5/100)
-                                elif bu_inv_3_6.get() == '4.0% VAT (100%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(4/100)
-                                elif bu_inv_3_6.get() == '3.0% GST (3%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(3/100)
-                                elif bu_inv_3_6.get() == '3.0% IGST (3%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(3/100)
-                                elif bu_inv_3_6.get() == '2.0% CST (100%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(2/100)
-                                elif bu_inv_3_6.get() == '0.25% GST (O.25%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(0.25/100)
-                                elif bu_inv_3_6.get() == '0.25% IGST (0.25%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(0.25/100)
-                                elif bu_inv_3_6.get() == '0% GST (0%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(0/100)
-                                elif bu_inv_3_6.get() == '0% IGST (0%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(0/100)
-                                elif bu_inv_3_6.get() == 'Exempt GST (0%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(0/100)
-                                elif bu_inv_3_6.get() == 'Exempt IGST (0%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(0/100)
-                                elif bu_inv_3_6.get() == 'Out of Scope(0%)':
-                                    y7 = float(en_str_7.get())
-                                    t7 = y7*(0/100)
-                                else:
-                                    pass
-
-                                try:
-                                    tm1  = t1
-                                except:
-                                    tm2 = 0.0
-                                try:
-                                    tm2 = t2
-                                except:
-                                    tm2 = 0.0
-                                try:
-                                    tm3 = t3
-                                except:
-                                    tm3 = 0.0
-                                try:
-                                    tm4  = t4
-                                except:
-                                    tm4 = 0.0
-                                try:
-                                    tm5  = t5
-                                except:
-                                    pass
-                                try:
-                                    tm6  = t6
-                                except:
-                                    pass
-                                try:
-                                    tm7  = t7
-                                except:
-                                    pass
-                                try:
-                                    tm8  = t8
-                                except:
-                                    tm8 = 0.0
-                                
-                                
-                                sum_ii = tm1+tm2+tm3+tm4+tm5+tm6+tm7+tm8
-                                btax_entry_1.delete(0, END)
-                                btax_entry_1.insert(0,round(sum_ii,2))
-
-                                try:
-                                    m1 = float(bsub_str.get())
-                                except:
-                                    m1 =0.0
-                                try:
-                                    m2 = float(btax_str.get())
-                                except:
-                                    m2 =0.0
-
-                                sum_iii = m1+m2
-                                bgrand_entry_1.delete(0, END)
-                                bgrand_entry_1.insert(0,round(sum_iii,2))
-
-
-                                try:
-                                    x1 = float(bgrd_str.get())
-                                except:
-                                    x1 = 0.0
-                                try:
-                                    x2 = float(bamount_entry_1.get())
-                                except:
-                                    x2 = 0.0
-                                sum_iv = x1-x2
-                                bbal_entry_1.delete(0, END)
-                                bbal_entry_1.insert(0,round(sum_iv,2))
-
-                            bu_inv_3_4=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
-                            window_bu_inv_3_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_3_4,tags=('bient19'),state=HIDDEN)
-                            bu_inv_3_4.bind("<Button-1>",multiply_num_i7)
-
-                            en_str_7 = StringVar()
-                            bu_inv_3_5=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_7)
-                            window_bu_inv_3_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_3_5,tags=('bient23'),state=HIDDEN)
-
-                            bu_inv_3_6=Entry(inv_canvas_1,width=25,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_3_6 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_3_6,tags=('bient27'),state=HIDDEN)
-
-                            bu_inv_4 = Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_4 = inv_canvas_1.create_window(0, 0, anchor="nw",height=30,window=bu_inv_4,tags=('bient4'),state=HIDDEN)
-
-                            bu_inv_4_1 = Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_4_1 = inv_canvas_1.create_window(0, 0, anchor="nw",height=30,window=bu_inv_4_1,tags=('bient8'),state=HIDDEN)
-
-                            bu_inv_4_2=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
-                            window_bu_inv_4_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_4_2,tags=('bient12'),state=HIDDEN)
-
-                            bu_inv_4_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
-                            window_bu_inv_4_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_4_3,tags=('bient16'),state=HIDDEN)
-
-                            def multiply_num_i8(event):
-
-                                try:
-                                    n1 = float(en_str_1.get())
-                                except:
-                                    n1=0.0
-                                try:
-                                    n2 = float(en_str_2.get())
-                                except:
-                                    n2 = 0.0
-                                try:
-                                    n3 = float(en_str_3.get())
-                                except:
-                                    n3 = 0.0
-                                try:
-                                    n4 = float(en_str_4.get())
-                                except:
-                                    n4 = 0.0
-                                try:
-                                    n5 = float(en_str_5.get())
-                                except:
-                                    n5 = 0.0 
-                                try:
-                                    n6 = float(en_str_6.get())
-                                except:
-                                    n6 = 0.0 
-                                try:
-                                    n7 = float(en_str_7.get())
-                                except:
-                                    n7 = 0.0 
-                                try:
-                                    n8 = float(en_str_8.get())
-                                except:
-                                    n8 = 0.0 
-
-                                sum_i = n1+n2+n3+n4+n5+n6+n7+n8
-                                bsub_entry_1.delete(0, END)
-                                bsub_entry_1.insert(0,round(sum_i,2))
-
-                                global t1,t2,t3,t4,t5,t6,t7,t8
-                                if bu_inv_4_6.get() == '28.0% GST (28%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(28/100)
-                                elif bu_inv_4_6.get() == '28.0% IGST (28%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(28/100)
-                                elif bu_inv_4_6.get() == '18.0% GST (18%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(18/100)
-                                elif bu_inv_4_6.get() == '18.0% IGST (18%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(18/100)
-                                elif bu_inv_4_6.get() == '15.0% ST (100%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(15/100)
-                                elif bu_inv_4_6.get() == '14.5% ST (100%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(14.5/100)
-                                elif bu_inv_4_6.get() == '14.00% ST (100%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(14/100)
-                                elif bu_inv_4_6.get() == '14.0% VAT (100%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(14/100)
-                                elif bu_inv_4_6.get() == '12.36% ST (100%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(12.36/100)
-                                elif bu_inv_4_6.get() == '12.0% GST (12%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(12/100)
-                                elif bu_inv_4_6.get() == '12.0% IGST (12%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(12/100)
-                                elif bu_inv_4_6.get() == '6.0% GST (6%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(6/100)
-                                elif bu_inv_4_6.get() == '6.0% IGST (6%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(6/100)
-                                elif bu_inv_4_6.get() == '5.0% GST (5%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(5/100)
-                                elif bu_inv_4_6.get() == '5.0% IGST (5%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(5/100)
-                                elif bu_inv_4_6.get() == '5.0% VAT (100%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(5/100)
-                                elif bu_inv_4_6.get() == '4.0% VAT (100%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(4/100)
-                                elif bu_inv_4_6.get() == '3.0% GST (3%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(3/100)
-                                elif bu_inv_4_6.get() == '3.0% IGST (3%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(3/100)
-                                elif bu_inv_4_6.get() == '2.0% CST (100%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(2/100)
-                                elif bu_inv_4_6.get() == '0.25% GST (O.25%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(0.25/100)
-                                elif bu_inv_4_6.get() == '0.25% IGST (0.25%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(0.25/100)
-                                elif bu_inv_4_6.get() == '0% GST (0%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(0/100)
-                                elif bu_inv_4_6.get() == '0% IGST (0%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(0/100)
-                                elif bu_inv_4_6.get() == 'Exempt GST (0%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(0/100)
-                                elif bu_inv_4_6.get() == 'Exempt IGST (0%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(0/100)
-                                elif bu_inv_4_6.get() == 'Out of Scope(0%)':
-                                    y8 = float(en_str_8.get())
-                                    t8 = y8*(0/100)
-                                else:
-                                    pass
-
-                                try:
-                                    tm1  = t1
-                                except:
-                                    tm2 = 0.0
-                                try:
-                                    tm2 = t2
-                                except:
-                                    tm2 = 0.0
-                                try:
-                                    tm3 = t3
-                                except:
-                                    tm3 = 0.0
-                                try:
-                                    tm4  = t4
-                                except:
-                                    tm4 = 0.0
-                                try:
-                                    tm5  = t5
-                                except:
-                                    pass
-                                try:
-                                    tm6  = t6
-                                except:
-                                    pass
-                                try:
-                                    tm7  = t7
-                                except:
-                                    pass
-                                try:
-                                    tm8  = t8
-                                except:
-                                    pass
-                                
-                                
-                                sum_ii = tm1+tm2+tm3+tm4+tm5+tm6+tm7+tm8
-                                btax_entry_1.delete(0, END)
-                                btax_entry_1.insert(0,round(sum_ii,2))
-
-                                try:
-                                    m1 = float(bsub_str.get())
-                                except:
-                                    m1 =0.0
-                                try:
-                                    m2 = float(btax_str.get())
-                                except:
-                                    m2 =0.0
-
-                                sum_iii = m1+m2
-                                bgrand_entry_1.delete(0, END)
-                                bgrand_entry_1.insert(0,round(sum_iii,2))
-
-
-                                try:
-                                    x1 = float(bgrd_str.get())
-                                except:
-                                    x1 = 0.0
-                                try:
-                                    x2 = float(bamount_entry_1.get())
-                                except:
-                                    x2 = 0.0
-                                sum_iv = x1-x2
-                                bbal_entry_1.delete(0, END)
-                                bbal_entry_1.insert(0,round(sum_iv,2))
-
-
-                            bu_inv_4_4=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
-                            window_bu_inv_4_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_4_4,tags=('bient20'),state=HIDDEN)
-                            bu_inv_4_4.bind("<Button-1>",multiply_num_i8)
-
-                            en_str_8 = StringVar()
-                            bu_inv_4_5=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_8)
-                            window_bu_inv_4_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_4_5,tags=('bient24'),state=HIDDEN)
-
-                            bu_inv_4_6=Entry(inv_canvas_1,width=25,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bu_inv_4_6 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bu_inv_4_6,tags=('bient28'),state=HIDDEN)
-
-                            label_5 = Label(inv_canvas_1,width=10,height=1,text="Sub Total", font=('arial 10'),background="#1b3857",fg="white") 
-                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('bilabl1'),state=HIDDEN)
-
-                            label_5 = Label(inv_canvas_1,width=12,height=1,text="Tax Amount", font=('arial 10'),background="#1b3857",fg="white") 
-                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('bilabl2'),state=HIDDEN)
-
-                            label_5 = Label(inv_canvas_1,width=12,height=1,text="Grand Total", font=('arial 10'),background="#1b3857",fg="white") 
-                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('bilabl3'),state=HIDDEN)
-
-                            label_5 = Label(inv_canvas_1,width=12,height=1,text="Amount Received", font=('arial 10'),background="#1b3857",fg="white") 
-                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('bilabl4'),state=HIDDEN)
-
-                            label_5 = Label(inv_canvas_1,width=12,height=1,text="Balance Due", font=('arial 10'),background="#1b3857",fg="white") 
-                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('bilabl5'),state=HIDDEN)
-
-                            bsub_str=StringVar()
-                            bsub_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white",textvariable=bsub_str)
-                            window_bsub_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bsub_entry_1,tags=('bient29'),state=HIDDEN)
-                            
-                            btax_str=StringVar()
-                            btax_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white",textvariable=btax_str)
-                            window_btax_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=btax_entry_1,tags=('bient30'),state=HIDDEN)
-
-                            bgrd_str=StringVar()
-                            bgrand_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white",textvariable=bgrd_str)
-                            window_bgrand_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bgrand_entry_1,tags=('bient31'),state=HIDDEN)
-
-                            
-                            bamount_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                            window_bamount_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bamount_entry_1,tags=('bient32'),state=HIDDEN)
-
-                            bbal_str=StringVar()
-                            bbal_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT, background='#2f516f',foreground="white",textvariable=bbal_str)
-                            window_bbal_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=bbal_entry_1,tags=('bient33'),state=HIDDEN)
-
-                            bai_save_btn1=Button(inv_canvas_1,text='Save', width=15,height=2,foreground="white",background="#1b3857",font='arial 12',command=sales_add_new_inv)
-                            window_bai_save_btn1 = inv_canvas_1.create_window(0, 0, anchor="nw", window=bai_save_btn1,tags=('bbutn1'),state=HIDDEN)
-
-                            
-                            def inv_back_1_():
-                                inv_frame_1.grid_forget()
-                                inv_frame.grid(row=0,column=0,sticky='nsew')
-
-                            bck_btn1=Button(inv_canvas_1,text='← Back', bd=0, foreground="white",background="#2f516f",font='arial 10 bold',activebackground="#1b3857",command=inv_back_1_)
-                            window_bck_btn1 = inv_canvas_1.create_window(0, 0, anchor="nw", window=bck_btn1,tags=('aibutton3'))
+                            btn_pr_ed=Button(inv_canvas_1,text="← Back", command=back_exp1_add, bd=0, bg="#1b3857",fg="white",font=('Calibri 14 bold'))
+                            win_inv1 = inv_canvas_1.create_window(0, 0, anchor="center", window=btn_pr_ed,tag= ('aibutton3'))
 
                             
 
@@ -6487,207 +5509,7040 @@ def main_sign_in():
                                     pass
                                 else:
                                     pass
-
-                            
-
+     
                         elif add_exp_var.get()=="Payment":
-
-                            def res_pay_exp_chld(event):
-                                dwidth = event.width
-                                dheight = event.height
-                                dcanvas = event.widget
-                                
-                                
-                                
-                                r1 = 25
-                                x1 = dwidth/63
-                                x2 = dwidth/1.021
-                                y1 = dheight/13
-                                y2 = dheight/4
-
-                                dcanvas.coords("bg_polygen_flow",x1 + r1,y1,
-                                x1 + r1,y1,
-                                x2 - r1,y1,
-                                x2 - r1,y1,     
-                                x2,y1,     
-                                #--------------------
-                                x2,y1 + r1,     
-                                x2,y1 + r1,     
-                                x2,y2 - r1,     
-                                x2,y2 - r1,     
-                                x2,y2,
-                                #--------------------
-                                x2 - r1,y2,     
-                                x2 - r1,y2,     
-                                x1 + r1,y2,
-                                x1 + r1,y2,
-                                x1,y2,
-                                #--------------------
-                                x1,y2 - r1,
-                                x1,y2 - r1,
-                                x1,y1 + r1,
-                                x1,y1 + r1,
-                                x1,y1,
-                                )   
-
-                                r1 = 25
-                                x1 = dwidth/63
-                                x2 = dwidth/1.021
-                                y1 = dheight/3.5
-                                y2 = dheight/.70
-
-                                dcanvas.coords("bg_polygen_flow2",x1 + r1,y1,
-                                x1 + r1,y1,
-                                x2 - r1,y1,
-                                x2 - r1,y1,     
-                                x2,y1,     
-                                #--------------------
-                                x2,y1 + r1,     
-                                x2,y1 + r1,     
-                                x2,y2 - r1,     
-                                x2,y2 - r1,     
-                                x2,y2,
-                                #--------------------
-                                x2 - r1,y2,     
-                                x2 - r1,y2,     
-                                x1 + r1,y2,
-                                x1 + r1,y2,
-                                x1,y2,
-                                #--------------------
-                                x1,y2 - r1,
-                                x1,y2 - r1,
-                                x1,y1 + r1,
-                                x1,y1 + r1,
-                                x1,y1,
-                                )   
-                                dcanvas.coords("btn_pr_ed",dwidth/20,dheight/3)
-                                dcanvas.coords("leb_hdd",dwidth/2,dheight/7)
-                                dcanvas.coords("flow_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
-                                
+                            exp_chld_scrl.grid_forget()
+  
                             def back_exp1_add():
-                                pay_exp_frm_chld.grid_forget()
-                                pay_exp_chld_scrl.grid_forget()
-                                scrollPexp.grid(row=0,column=1,sticky='ns')
+                                inv_canvas_1.grid_forget()
+                                vertibar.grid_forget()
+                                exp_chld_scrl.grid(row=0,column=2,sticky='ns')
                                 
-                                
-                            pay_exp_frm_chld = Canvas(exp_mod_frm,height=700,bg='#2f516f',scrollregion=(0,0,700,900))
-                            pay_exp_chld_scrl = Scrollbar(exp_mod_frm,orient=VERTICAL)
-                            pay_exp_chld_scrl.grid(row=0,column=1,sticky='ns')
-                            pay_exp_chld_scrl.config(command=pay_exp_frm_chld.yview)
-                            pay_exp_frm_chld.bind("<Configure>", res_pay_exp_chld)
-                            pay_exp_frm_chld.config(yscrollcommand=pay_exp_chld_scrl.set)
-                            pay_exp_frm_chld.grid(row=0,column=0,sticky='nsew')
-                           
-                            #----------------------------------------------------------------------------------heder 1
-                            rth2 = pay_exp_frm_chld.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_polygen_flow"),smooth=True,)
+                            def inv_responsive_widgets2(event):
+                                try:
+                                    dwidth = event.width
+                                    dheight = event.height
+                                    dcanvas = event.widget
+                                    
+                                    r1 = 25
+                                    x1 = dwidth/63
+                                    x2 = dwidth/1.021
+                                    y1 = dheight/14 
+                                    y2 = dheight/3.505
 
-                            lv_name=Label(pay_exp_frm_chld, text="ADD PAYMENT",bg="#213b52", fg="White", anchor="e",font=('Calibri 24 bold'))
-                            win_inv1 = pay_exp_frm_chld.create_window(0, 0, anchor="center", window=lv_name,tag=("leb_hdd"))
-                            pay_exp_frm_chld.create_line(0, 0, 0, 0,fill="gray", tag=("flow_hr") )
+                                    dcanvas.coords("aipoly1",x1 + r1,y1,
+                                    x1 + r1,y1,
+                                    x2 - r1,y1,
+                                    x2 - r1,y1,     
+                                    x2,y1,     
+                                    #--------------------
+                                    x2,y1 + r1,     
+                                    x2,y1 + r1,     
+                                    x2,y2 - r1,     
+                                    x2,y2 - r1,     
+                                    x2,y2,
+                                    #--------------------
+                                    x2 - r1,y2,     
+                                    x2 - r1,y2,     
+                                    x1 + r1,y2,
+                                    x1 + r1,y2,
+                                    x1,y2,
+                                    #--------------------
+                                    x1,y2 - r1,
+                                    x1,y2 - r1,
+                                    x1,y1 + r1,
+                                    x1,y1 + r1,
+                                    x1,y1,
+                                    )
 
-                            rth2 = pay_exp_frm_chld.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_polygen_flow2"),smooth=True,)
+                                    dcanvas.coords("ailabel1",dwidth/2.45,dheight/8.24)
+                                    dcanvas.coords("aihline",dwidth/40,dheight/4.67,dwidth/1.03,dheight/4.67)
 
-                            btn_pr_ed=Button(pay_exp_frm_chld,text="← Back", command=back_exp1_add, bd=0, bg="#213b52",fg="white",font=('Calibri 14 bold'))
-                            win_inv1 = pay_exp_frm_chld.create_window(0, 0, anchor="center", window=btn_pr_ed,tag=("btn_pr_ed")) 
-                        elif add_exp_var.get()=="Debit Note":
-                            def res_db_chld(event):
-                                dwidth = event.width
-                                dheight = event.height
-                                dcanvas = event.widget
-                                
-                                
-                                
-                                r1 = 25
-                                x1 = dwidth/63
-                                x2 = dwidth/1.021
-                                y1 = dheight/13
-                                y2 = dheight/4
+                                    r2 = 25
+                                    x11 = dwidth/63
+                                    x21 = dwidth/1.021
+                                    y11 = dheight/2.8
+                                    y21 = dheight/0.20
 
-                                dcanvas.coords("bg_polygen_flow",x1 + r1,y1,
-                                x1 + r1,y1,
-                                x2 - r1,y1,
-                                x2 - r1,y1,     
-                                x2,y1,     
-                                #--------------------
-                                x2,y1 + r1,     
-                                x2,y1 + r1,     
-                                x2,y2 - r1,     
-                                x2,y2 - r1,     
-                                x2,y2,
-                                #--------------------
-                                x2 - r1,y2,     
-                                x2 - r1,y2,     
-                                x1 + r1,y2,
-                                x1 + r1,y2,
-                                x1,y2,
-                                #--------------------
-                                x1,y2 - r1,
-                                x1,y2 - r1,
-                                x1,y1 + r1,
-                                x1,y1 + r1,
-                                x1,y1,
-                                )   
 
-                                r1 = 25
-                                x1 = dwidth/63
-                                x2 = dwidth/1.021
-                                y1 = dheight/3.5
-                                y2 = dheight/.70
+                                    dcanvas.coords("aipoly2",x11 + r2,y11,
+                                    x11 + r2,y11,
+                                    x21 - r2,y11,
+                                    x21 - r2,y11,     
+                                    x21,y11,     
+                                    #--------------------
+                                    x21,y11 + r2,     
+                                    x21,y11 + r2,     
+                                    x21,y21 - r2,     
+                                    x21,y21 - r2,     
+                                    x21,y21,
+                                    #--------------------
+                                    x21 - r2,y21,     
+                                    x21 - r2,y21,     
+                                    x11 + r2,y21,
+                                    x11 + r2,y21,
+                                    x11,y21,
+                                    #--------------------
+                                    x11,y21 - r2,
+                                    x11,y21 - r2,
+                                    x11,y11 + r2,
+                                    x11,y11 + r2,
+                                    x11,y11,
+                                    )
 
-                                dcanvas.coords("bg_polygen_flow2",x1 + r1,y1,
-                                x1 + r1,y1,
-                                x2 - r1,y1,
-                                x2 - r1,y1,     
-                                x2,y1,     
-                                #--------------------
-                                x2,y1 + r1,     
-                                x2,y1 + r1,     
-                                x2,y2 - r1,     
-                                x2,y2 - r1,     
-                                x2,y2,
-                                #--------------------
-                                x2 - r1,y2,     
-                                x2 - r1,y2,     
-                                x1 + r1,y2,
-                                x1 + r1,y2,
-                                x1,y2,
-                                #--------------------
-                                x1,y2 - r1,
-                                x1,y2 - r1,
-                                x1,y1 + r1,
-                                x1,y1 + r1,
-                                x1,y1,
-                                )   
-                                dcanvas.coords("btn_pr_ed",dwidth/20,dheight/3)
-                                dcanvas.coords("leb_hdd",dwidth/2,dheight/7)
-                                dcanvas.coords("flow_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
-                                
-                            def back_exp1_add():
-                                db_frm_chld.grid_forget()
-                                db_chld_scrl.grid_forget()
-                                scrollPexp.grid(row=0,column=1,sticky='ns')
-                                
-                            db_frm_chld = Canvas(exp_mod_frm,height=700,bg='#2f516f',scrollregion=(0,0,700,900))
-                            db_chld_scrl = Scrollbar(exp_mod_frm,orient=VERTICAL)
-                            db_chld_scrl.grid(row=0,column=1,sticky='ns')
-                            db_chld_scrl.config(command=db_frm_chld.yview)
-                            db_frm_chld.bind("<Configure>", res_db_chld)
-                            db_frm_chld.config(yscrollcommand=db_chld_scrl.set)
-                            db_frm_chld.grid(row=0,column=0,sticky='nsew')
+ 
+                                 
+                                    dcanvas.coords("ailabel5",dwidth/63,dheight/2.1)
+                               
+                                    dcanvas.coords("ailabel11",dwidth/16.50,dheight/0.638)
+                                    dcanvas.coords("ailabel12",dwidth/8.40,dheight/0.638)
+                                    dcanvas.coords("ailabel13",dwidth/3.34,dheight/0.638)
+                                    dcanvas.coords("ailabel14",dwidth/2.28,dheight/0.638)
+                                    dcanvas.coords("ailabel15",dwidth/1.73,dheight/0.638)
+                                    dcanvas.coords("ailabel16",dwidth/1.52,dheight/0.638)
+                                    dcanvas.coords("ailabel17",dwidth/1.325,dheight/0.638)
+                                    dcanvas.coords("ailabel18",dwidth/1.165,dheight/0.638)
+                                    dcanvas.coords("ailabel19",dwidth/16.50,dheight/0.604)
+                                    dcanvas.coords("ailabel20",dwidth/16.50,dheight/0.562)
+                                    dcanvas.coords("ailabel21",dwidth/16.50,dheight/0.526)
+                                    dcanvas.coords("ailabel22",dwidth/16.50,dheight/0.496)
+                                    dcanvas.coords("ailabel23",dwidth/1.53,dheight/0.45)
+                                    dcanvas.coords("ailabel24",dwidth/1.54,dheight/0.435)
+                                    dcanvas.coords("ailabel25",dwidth/1.54,dheight/0.42)
+                                    dcanvas.coords("ailabel26",dwidth/1.54,dheight/0.406)
+                                    dcanvas.coords("ailabel27",dwidth/1.54,dheight/0.392)
+                       
+
+                                 
+                                    dcanvas.coords("aientry3",dwidth/4.00,dheight/0.604)
+                                    dcanvas.coords("aientry4",dwidth/2.51,dheight/0.604)
+                                    dcanvas.coords("aientry5",dwidth/1.8,dheight/0.604)
+                                    dcanvas.coords("aientry6",dwidth/1.565,dheight/0.604)
+                                    dcanvas.coords("aientry7",dwidth/1.357,dheight/0.604)
+                                    dcanvas.coords("aientry8",dwidth/4.00,dheight/0.562)
+                                    dcanvas.coords("aientry9",dwidth/4.00,dheight/0.526)
+                                    dcanvas.coords("aientry10",dwidth/4.00,dheight/0.496)
+                                    dcanvas.coords("aientry11",dwidth/2.51,dheight/0.562)
+                                    dcanvas.coords("aientry12",dwidth/2.51,dheight/0.526)
+                                    dcanvas.coords("aientry13",dwidth/2.51,dheight/0.496)
+                                    dcanvas.coords("aientry14",dwidth/1.8,dheight/0.562)
+                                    dcanvas.coords("aientry15",dwidth/1.8,dheight/0.526)
+                                    dcanvas.coords("aientry16",dwidth/1.8,dheight/0.496)
+                                    dcanvas.coords("aientry17",dwidth/1.565,dheight/0.562)
+                                    dcanvas.coords("aientry18",dwidth/1.565,dheight/0.526)
+                                    dcanvas.coords("aientry19",dwidth/1.565,dheight/0.496)
+                                    dcanvas.coords("aientry20",dwidth/1.357,dheight/0.562)
+                                    dcanvas.coords("aientry21",dwidth/1.357,dheight/0.526)
+                                    dcanvas.coords("aientry22",dwidth/1.357,dheight/0.496)
+                                    dcanvas.coords("aientry23",dwidth/1.33,dheight/0.452)
+                                    dcanvas.coords("aientry24",dwidth/1.33,dheight/0.4365)
+                                    dcanvas.coords("aientry25",dwidth/1.33,dheight/0.4215)
+                                    dcanvas.coords("aientry26",dwidth/1.33,dheight/0.407)
+                                    dcanvas.coords("aientry27",dwidth/1.33,dheight/0.393)
+
+                                    dcanvas.coords("aicombo1",dwidth/28,dheight/1.8)
+                                    dcanvas.coords("hd_date",dwidth/28,dheight/1.55)
+                                    dcanvas.coords("hd_lbs",dwidth/50,dheight/1.65)
+
+                                    dcanvas.coords("aicomb_2",dwidth/2.6,dheight/1.55)
+                                    dcanvas.coords("hd_lbs2",dwidth/2.65,dheight/1.65)
+
+                                    dcanvas.coords("aihline2",dwidth/40,dheight/1.4,dwidth/1.03,dheight/1.4)
+                                    dcanvas.coords("hd_lbs3",dwidth/40,dheight/1.35)
+                                    
+                                    dcanvas.coords("aihline3",dwidth/40,dheight/1.2,dwidth/1.03,dheight/1.2)
+                                    dcanvas.coords("aihline4",dwidth/40,dheight/1.1,dwidth/1.03,dheight/1.1)
+                                    dcanvas.coords("aihline5",dwidth/40,dheight/1.015,dwidth/1.03,dheight/1.015)
+                                    dcanvas.coords("aihline6",dwidth/40,dheight/0.94,dwidth/1.03,dheight/0.94)
+                                    dcanvas.coords("aihline7",dwidth/40,dheight/0.875,dwidth/1.03,dheight/0.875)
+                                    dcanvas.coords("aihline8",dwidth/40,dheight/.818,dwidth/1.03,dheight/.818)
+                                    #vertical line
+                                    dcanvas.coords("aihline9",dwidth/40,dheight/1.2,dwidth/40,dheight/.818)
+                                    dcanvas.coords("aihline10",dwidth/3.8,dheight/1.2,dwidth/3.8,dheight/.818)
+                                    dcanvas.coords("aihline11",dwidth/2.3,dheight/1.2,dwidth/2.3,dheight/.818)
+                                    dcanvas.coords("aihline12",dwidth/1.615,dheight/1.2,dwidth/1.615,dheight/.818)
+                                    dcanvas.coords("aihline13",dwidth/1.26,dheight/1.2,dwidth/1.26,dheight/.818)
+                                    dcanvas.coords("aihline14",dwidth/1.03,dheight/1.2,dwidth/1.03,dheight/.818)
+
+                                    dcanvas.coords("aihline15",dwidth/19,dheight/1.2,dwidth/19,dheight/.818)
+
+
+                                    #head labels:
+                                    dcanvas.coords("lb_hd_r1_c1",dwidth/28,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c2",dwidth/8.8,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c3",dwidth/3.2,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c4",dwidth/2.1,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c5",dwidth/1.45,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c6",dwidth/1.16,dheight/1.18)
+                                    
+                                    #first tables
+                                    
+                                    dcanvas.coords("no_lv_r1",dwidth/28,dheight/1.085)
+                                    dcanvas.coords("cmbost_r1_c1",dwidth/16,dheight/1.085)
+                                    dcanvas.coords("ents_r1_c2",dwidth/3.74,dheight/1.085)
+                                    dcanvas.coords("ents_r1_c3",dwidth/2.26,dheight/1.085)
+                                    dcanvas.coords("ents_r1_c4",dwidth/1.6,dheight/1.085)
+                                    dcanvas.coords("ents_r1_c5",dwidth/1.25,dheight/1.085)
+
+                                    #second row
+                                    dcanvas.coords("no_lv_r2",dwidth/28,dheight/.999)
+                                    dcanvas.coords("cmbost_r2_c1",dwidth/16,dheight/.999)
+
+                                    dcanvas.coords("ents_r2_c2",dwidth/3.74,dheight/.999)
+                                    dcanvas.coords("ents_r2_c3",dwidth/2.26,dheight/.999)
+                                    dcanvas.coords("ents_r2_c4",dwidth/1.6,dheight/.999)
+                                    dcanvas.coords("ents_r2_c5",dwidth/1.25,dheight/.999)
+
+                                    #third row
+                                    dcanvas.coords("no_lv_r3",dwidth/28,dheight/.928)
+                                    dcanvas.coords("cmbost_r3_c1",dwidth/16,dheight/.928)
+
+                                    dcanvas.coords("ents_r3_c2",dwidth/3.74,dheight/.928)
+                                    dcanvas.coords("ents_r3_c3",dwidth/2.26,dheight/.928)
+                                    dcanvas.coords("ents_r3_c4",dwidth/1.6,dheight/.928)
+                                    dcanvas.coords("ents_r3_c5",dwidth/1.25,dheight/.928)
+
+                                    #forth row
+                                    dcanvas.coords("no_lv_r4",dwidth/28,dheight/.862)
+                                    dcanvas.coords("cmbost_r4_c1",dwidth/16,dheight/.862)
+                                    dcanvas.coords("ents_r4_c2",dwidth/3.74,dheight/.862)
+                                    dcanvas.coords("ents_r4_c3",dwidth/2.26,dheight/.862)
+                                    dcanvas.coords("ents_r4_c4",dwidth/1.6,dheight/.862)
+                                    dcanvas.coords("ents_r4_c5",dwidth/1.25,dheight/.862)
+
+                                    #--------------------------------------------------------
+                                    dcanvas.coords("aihline_r12",dwidth/40,dheight/.78,dwidth/1.03,dheight/.78)
+
+                                    dcanvas.coords("hd_lbsr21",dwidth/40,dheight/.68)
+                                    
+
+                                    dcanvas.coords("aicombo4",dwidth/10.10,dheight/0.604)
+                                    dcanvas.coords("aicombo5",dwidth/1.21,dheight/0.604)
+                                    dcanvas.coords("aicombo6",dwidth/10.10,dheight/0.562)
+                                    dcanvas.coords("aicombo7",dwidth/10.10,dheight/0.526)
+                                    dcanvas.coords("aicombo8",dwidth/10.10,dheight/0.496)
+                                    dcanvas.coords("aicombo9",dwidth/1.21,dheight/0.562)
+                                    dcanvas.coords("aicombo10",dwidth/1.21,dheight/0.526)
+                                    dcanvas.coords("aicombo11",dwidth/1.21,dheight/0.496)
+
+                                    dcanvas.coords("aibutton1",dwidth/2.95,dheight/1.9)
+                                    dcanvas.coords("aibutton2",dwidth/1.28,dheight/0.395)
+                                    dcanvas.coords("aibutton3",dwidth/20,dheight/2.6)
+
+                                    #-------------------------------H Lines-----------------------------------#
+                                    dcanvas.coords("ailine1",dwidth/21,dheight/0.645,dwidth/1.055,dheight/0.645)
+                                    dcanvas.coords("ailine2",dwidth/21,dheight/0.617,dwidth/1.055,dheight/0.617)
+                                    dcanvas.coords("ailine3",dwidth/21,dheight/0.576,dwidth/1.055,dheight/0.576)
+                                    dcanvas.coords("ailine4",dwidth/21,dheight/0.536,dwidth/1.055,dheight/0.536)
+                                    dcanvas.coords("ailine5",dwidth/21,dheight/0.506,dwidth/1.055,dheight/0.506)
+                                    dcanvas.coords("ailine6",dwidth/21,dheight/0.476,dwidth/1.055,dheight/0.476)
+                                    #-------------------------------V Lines-----------------------------------#
+                                    dcanvas.coords("ailine7",dwidth/21,dheight/0.645,dwidth/21,dheight/0.476)
+                                    dcanvas.coords("ailine8",dwidth/1.055,dheight/0.645,dwidth/1.055,dheight/0.476)
+                                    dcanvas.coords("ailine9",dwidth/11,dheight/0.645,dwidth/11,dheight/0.476)
+                                    dcanvas.coords("ailine10",dwidth/4.15,dheight/0.645,dwidth/4.15,dheight/0.476)
+                                    dcanvas.coords("ailine11",dwidth/2.55,dheight/0.645,dwidth/2.55,dheight/0.476)
+                                    dcanvas.coords("ailine12",dwidth/1.83,dheight/0.645,dwidth/1.83,dheight/0.476)
+                                    dcanvas.coords("ailine13",dwidth/1.58,dheight/0.645,dwidth/1.58,dheight/0.476)
+                                    dcanvas.coords("ailine14",dwidth/1.37,dheight/0.645,dwidth/1.37,dheight/0.476)
+                                    dcanvas.coords("ailine15",dwidth/1.22,dheight/0.645,dwidth/1.22,dheight/0.476)
+
+                                    #-------------------------------V Lines-----------------------------------#
+                                    dcanvas.coords("ailine16",dwidth/1.58,dheight/0.455,dwidth/1.58,dheight/0.41)
+                                    dcanvas.coords("ailine17",dwidth/1.348,dheight/0.455,dwidth/1.348,dheight/0.41)
+                                    dcanvas.coords("ailine18",dwidth/1.084,dheight/0.455,dwidth/1.084,dheight/0.41)
+                                    #-------------------------------H Lines-----------------------------------#
+                                    dcanvas.coords("ailine19",dwidth/1.58,dheight/0.455,dwidth/1.084,dheight/0.455)
+                                    dcanvas.coords("ailine20",dwidth/1.58,dheight/0.383,dwidth/1.084,dheight/0.383)
+                                    dcanvas.coords("ailine21",dwidth/1.58,dheight/0.439,dwidth/1.084,dheight/0.439)
+                                    dcanvas.coords("ailine22",dwidth/1.58,dheight/0.424,dwidth/1.084,dheight/0.424)
+                                    dcanvas.coords("ailine23",dwidth/1.58,dheight/0.41,dwidth/1.084,dheight/0.41)
+                                    dcanvas.coords("ailine24",dwidth/1.58,dheight/0.396,dwidth/1.084,dheight/0.396)
+
+                                    #-------------------------------H Lines-----------------------------------#
+                                    dcanvas.coords("ailine25",dwidth/21,dheight/0.446,dwidth/1.055,dheight/0.446)
+                                    dcanvas.coords("ailine26",dwidth/21,dheight/0.416,dwidth/1.055,dheight/0.416)
+                                    dcanvas.coords("ailine27",dwidth/21,dheight/0.390,dwidth/1.055,dheight/0.390)
+                                    dcanvas.coords("ailine28",dwidth/21,dheight/0.366,dwidth/1.055,dheight/0.366)
+                                    #-------------------------------V Lines-----------------------------------#
+                                    dcanvas.coords("ailine29",dwidth/21,dheight/0.476,dwidth/21,dheight/0.366)
+                                    dcanvas.coords("ailine30",dwidth/1.055,dheight/0.476,dwidth/1.055,dheight/0.366)
+                                    dcanvas.coords("ailine31",dwidth/11,dheight/0.476,dwidth/11,dheight/0.366)
+                                    dcanvas.coords("ailine32",dwidth/4.15,dheight/0.476,dwidth/4.15,dheight/0.366)
+                                    dcanvas.coords("ailine33",dwidth/2.55,dheight/0.476,dwidth/2.55,dheight/0.366)
+                                    dcanvas.coords("ailine34",dwidth/1.83,dheight/0.476,dwidth/1.83,dheight/0.366)
+                                    dcanvas.coords("ailine35",dwidth/1.58,dheight/0.476,dwidth/1.58,dheight/0.366)
+                                    dcanvas.coords("ailine36",dwidth/1.37,dheight/0.476,dwidth/1.37,dheight/0.366)
+                                    dcanvas.coords("ailine37",dwidth/1.22,dheight/0.476,dwidth/1.22,dheight/0.366)
+
+                                    #-------------------------------V Lines-----------------------------------#
+                                    dcanvas.coords("ailine38",dwidth/1.58,dheight/0.360,dwidth/1.58,dheight/0.290)
+                                    dcanvas.coords("ailine39",dwidth/1.348,dheight/0.360,dwidth/1.348,dheight/0.290)
+                                    dcanvas.coords("ailine40",dwidth/1.084,dheight/0.360,dwidth/1.084,dheight/0.290)
+                                    #-------------------------------H Lines-----------------------------------#
+                                    dcanvas.coords("ailine41",dwidth/1.58,dheight/0.360,dwidth/1.084,dheight/0.360)
+                                    dcanvas.coords("ailine43",dwidth/1.58,dheight/0.345,dwidth/1.084,dheight/0.345)
+                                    dcanvas.coords("ailine44",dwidth/1.58,dheight/0.330,dwidth/1.084,dheight/0.330)
+                                    dcanvas.coords("ailine45",dwidth/1.58,dheight/0.315,dwidth/1.084,dheight/0.315)
+                                    dcanvas.coords("ailine46",dwidth/1.58,dheight/0.303,dwidth/1.084,dheight/0.303)
+                                    dcanvas.coords("ailine42",dwidth/1.58,dheight/0.290,dwidth/1.084,dheight/0.290)
+
+                                    dcanvas.coords("bient1",dwidth/10.10,dheight/0.466)
+                                    dcanvas.coords("bient2",dwidth/10.10,dheight/0.436)
+                                    dcanvas.coords("bient3",dwidth/10.10,dheight/0.406)
+                                    dcanvas.coords("bient4",dwidth/10.10,dheight/0.382)
+                                    dcanvas.coords("bient5",dwidth/4.00,dheight/0.466)
+                                    dcanvas.coords("bient6",dwidth/4.00,dheight/0.436)
+                                    dcanvas.coords("bient7",dwidth/4.00,dheight/0.406)
+                                    dcanvas.coords("bient8",dwidth/4.00,dheight/0.382)
+                                    dcanvas.coords("bient9",dwidth/2.51,dheight/0.466)
+                                    dcanvas.coords("bient10",dwidth/2.51,dheight/0.436)
+                                    dcanvas.coords("bient11",dwidth/2.51,dheight/0.406)
+                                    dcanvas.coords("bient12",dwidth/2.51,dheight/0.382)
+                                    dcanvas.coords("bient13",dwidth/1.565,dheight/0.466)
+                                    dcanvas.coords("bient14",dwidth/1.565,dheight/0.436)
+                                    dcanvas.coords("bient15",dwidth/1.565,dheight/0.406)
+                                    dcanvas.coords("bient16",dwidth/1.565,dheight/0.382)
+                                    dcanvas.coords("bient17",dwidth/1.8,dheight/0.466)
+                                    dcanvas.coords("bient18",dwidth/1.8,dheight/0.436)
+                                    dcanvas.coords("bient19",dwidth/1.8,dheight/0.406)
+                                    dcanvas.coords("bient20",dwidth/1.8,dheight/0.382)
+                                    dcanvas.coords("bient21",dwidth/1.357,dheight/0.466)
+                                    dcanvas.coords("bient22",dwidth/1.357,dheight/0.436)
+                                    dcanvas.coords("bient23",dwidth/1.357,dheight/0.406)
+                                    dcanvas.coords("bient24",dwidth/1.357,dheight/0.382)
+                                    dcanvas.coords("bient25",dwidth/1.21,dheight/0.466)
+                                    dcanvas.coords("bient26",dwidth/1.21,dheight/0.436)
+                                    dcanvas.coords("bient27",dwidth/1.21,dheight/0.406)
+                                    dcanvas.coords("bient28",dwidth/1.21,dheight/0.382)
+
+                                    dcanvas.coords("bilabl1",dwidth/1.53,dheight/0.355)
+                                    dcanvas.coords("bilabl2",dwidth/1.53,dheight/0.340)
+                                    dcanvas.coords("bilabl3",dwidth/1.53,dheight/0.325)
+                                   
+
+                                  
+                                    dcanvas.coords("bient31",dwidth/1.33,dheight/0.325)
+                                    dcanvas.coords("bient32",dwidth/1.33,dheight/0.312)
+                                    dcanvas.coords("bient33",dwidth/1.33,dheight/0.298)
+                                    dcanvas.coords("bbutn1",dwidth/1.28,dheight/0.29)
+                                except:
+                                    pass
+
+                            inv_canvas_1=Canvas(exp_mod_frm, bg='#2f516f', width=953, height=600, scrollregion=(0,0,700,2100))
+
+                       
                             
-                            #----------------------------------------------------------------------------------heder 1
-                            rth2 = db_frm_chld.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_polygen_flow"),smooth=True,)
+                            vertibar=Scrollbar(exp_mod_frm, orient=VERTICAL)
+                            vertibar.grid(row=0,column=1,sticky='ns')
+                            vertibar.config(command=inv_canvas_1.yview)
 
-                            lv_name=Label(db_frm_chld, text="ADD DEBIT NOTE",bg="#213b52", fg="White", anchor="e",font=('Calibri 24 bold'))
-                            win_inv1 = db_frm_chld.create_window(0, 0, anchor="center", window=lv_name,tag=("leb_hdd"))
-                            db_frm_chld.create_line(0, 0, 0, 0,fill="gray", tag=("flow_hr") )
+                            inv_canvas_1.bind("<Configure>", inv_responsive_widgets2)
+                            inv_canvas_1.config(yscrollcommand=vertibar.set)
+                            inv_canvas_1.grid(row=0,column=0,sticky='nsew')
 
-                            rth2 = db_frm_chld.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, fill="#213b52",tags=("bg_polygen_flow2"),smooth=True,)
+                            def sales_add_new_inv():
 
-                            btn_pr_ed=Button(db_frm_chld,text="← Back", command=back_exp1_add, bd=0, bg="#213b52",fg="white",font=('Calibri 14 bold'))
-                            win_inv1 = db_frm_chld.create_window(0, 0, anchor="center", window=btn_pr_ed,tag=("btn_pr_ed")) 
+                                customername = aicomb_1.get()
+                                email = aientry_1.get()
+                                terms = comb_t_2.get()
+                                invoicedate = aid_entry_1.get_date()
+                                duedate = aid_entry_2.get_date()
+                                bname = ai_b_entry_1.get('1.0', 'end-1c')
+                                placosupply = ai_p_comb_2.get()
+                                product = ai_comb_p_1.get()
+                                hsn = ai_entry_p_1.get()
+                                description = ai_entry_p_1_2.get('1.0', 'end-1c')
+                                qty = ai_entry_p_1_3.get()
+                                price = ai_entry_p_1_4.get()
+                                total = ai_entry_p_1_5.get()
+                                tax = ai_comb_p_1_2.get()
+                                if sub_entry_1 is not None:
+                                    subtotal = sub_entry_1.get()
+                                else:
+                                    subtotal = bsub_entry_1.get()
+                                if grand_entry_1 is not None:
+                                    grandtotal = grand_entry_1.get()
+                                else:
+                                    grandtotal = bgrand_entry_1.get()
+                                product2 = ai_comb_p_2.get()
+                                hsn2 = ai_entry_p_2.get()
+                                description2 = ai_entry_p_2_1.get('1.0', 'end-1c')
+                                qty2 = ai_entry_2_2.get()
+                                price2 = ai_entry_2_3.get()
+                                total2 = ai_entry_2_4.get()
+                                tax2 = ai_comb_P_2_2.get()
+                                product3 = ai_comb_p_3.get()
+                                hsn3 = ai_entry_3.get()
+                                description3 = ai_entry_3_1.get('1.0', 'end-1c')
+                                qty3 = ai_entry_3_2.get()
+                                price3 = ai_entry_3_3.get()
+                                total3 = ai_entry_3_4.get()
+                                tax3 = ai_comb_P_3_2.get()
+                                product4 = ai_comb_p_4.get()
+                                hsn4 = ai_entry_4.get()
+                                description4 = ai_entry_4_1.get('1.0', 'end-1c')
+                                qty4 = ai_entry_4_2.get()
+                                price4 = ai_entry_4_3.get()
+                                total4 = ai_entry_4_4.get()
+                                tax4 = ai_comb_P_4_2.get()
+                                if amount_entry_1 is not None:
+                                    amtrecvd = amount_entry_1.get()
+                                else:
+                                    amtrecvd = bamount_entry_1.get()
+                                if tax_entry_1 is not None:
+                                    taxamount = tax_entry_1.get()
+                                else:
+                                    taxamount = btax_entry_1.get()
+                                if bal_entry_1 is not None:
+                                    baldue = bal_entry_1.get()
+                                else:
+                                    baldue = bbal_entry_1.get()
+
+
+                                usr_sql = "SELECT id FROM auth_user WHERE username=%s"
+                                usr_val = (nm_ent.get(),)
+                                fbcursor.execute(usr_sql,usr_val)
+                                usr_data = fbcursor.fetchone()
+
+                                cmp_sql = "SELECT cid FROM app1_company WHERE id_id=%s"
+                                cmp_val = (usr_data[0],)
+                                fbcursor.execute(cmp_sql,cmp_val)
+                                cmp_data = fbcursor.fetchone()
+                                cid = cmp_data[0]
+
+                                inv_sql_1 = "INSERT INTO app1_invoice (customername,email,terms,invoicedate,duedate,bname,placosupply,product,hsn,description,qty,price,total,tax,subtotal,grandtotal,product2,hsn2,description2,qty2,price2,total2,tax2,product3,hsn3,description3,qty3,price3,total3,tax3,product4,hsn4,description4,qty4,price4,total4,tax4,amtrecvd,taxamount,baldue,cid_id) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                                inv_val_1=(customername,email,terms,invoicedate,duedate,bname,placosupply,product,hsn,description,qty,price,total,tax,subtotal,grandtotal,product2,hsn2,description2,qty2,price2,total2,tax2,product3,hsn3,description3,qty3,price3,total3,tax3,product4,hsn4,description4,qty4,price4,total4,tax4,amtrecvd,taxamount,baldue,cid)
+                                fbcursor.execute(inv_sql_1,inv_val_1)
+                                finsysdb.commit()
+
+                                #----------Refresh Insert Tree--------#
+
+                                for record in inv_tree.get_children():
+                                        inv_tree.delete(record)
+
+                                sql_pr="select * from auth_user where username=%s"
+                                sql_pr_val=(nm_ent.get(),)
+                                fbcursor.execute(sql_pr,sql_pr_val,)
+                                pr_dtl=fbcursor.fetchone()
+
+                                sql = "select * from app1_company where id_id=%s"
+                                val = (pr_dtl[0],)
+                                fbcursor.execute(sql, val,)
+                                cmp_dtl=fbcursor.fetchone()
+
+                                c_sql_1 = "SELECT * FROM app1_invoice where cid_id=%s"
+                                c_val_1 = (cmp_dtl[0],)
+                                fbcursor.execute(c_sql_1,c_val_1,)
+                                i_data_1 = fbcursor.fetchall()
+
+                                count0 = 0
+                                for i in i_data_1:
+                                    if True:
+                                        inv_tree.insert(parent='',index='end',iid=i,text='',values=(i[0],i[5],i[1],i[2],i[6],i[17],i[41]))
+                                    else:
+                                        pass
+                                count0 += 1
+
+                                    
+                                inv_frame_1.destroy()
+                                inv_frame.grid(row=0,column=0,sticky='nsew')
+
+
+                            inv_canvas_1.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("aipoly1"))
+
+                            
+                            label_1 = Label(inv_canvas_1,width=10,height=1,text="Payment", font=('arial 20'),background="#1b3857",fg="white") 
+                            window_label_1 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_1, tags=("ailabel1"))
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline"))
+
+                            inv_canvas_1.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("aipoly2"))
+
+
+                            label_2 = Label(inv_canvas_1,width=15,height=1,text="Payee", font=('arial 12'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2, tags=("ailabel5"))
+
+                            def inv_c_details(event):
+                                inv_to_str = aicomb_1.get()
+                                x = inv_to_str.split(" ", 1)
+                                sql = "select * from app1_customer where firstname=%s  and cid_id=%s"
+                                val = (x[0],cmp_dtl[0],)
+                                fbcursor.execute(sql,val)
+                                inv_c_sel = fbcursor.fetchone()
+                                aientry_1.delete(0,END)
+                                aientry_1.insert(0,inv_c_sel[9])
+                                ai_b_entry_1.delete('1.0',END)
+                                ai_b_entry_1.insert('1.0',inv_c_sel[2]+" "+inv_c_sel[3]+ '\n' +inv_c_sel[4]+ '\n' +inv_c_sel[12]+ '\n' +inv_c_sel[13]+ '\n' +inv_c_sel[14]+ '\n' +inv_c_sel[15]+ '\n' +inv_c_sel[16])
+                                
+
+                            sql_pr="select * from auth_user where username=%s"
+                            sql_pr_val=(nm_ent.get(),)
+                            fbcursor.execute(sql_pr,sql_pr_val,)
+                            pr_dtl=fbcursor.fetchone()
+
+                            sql = "select * from app1_company where id_id=%s"
+                            val = (pr_dtl[0],)
+                            fbcursor.execute(sql, val,)
+                            cmp_dtl=fbcursor.fetchone()
+                            
+
+                            sql_pr_cmp="select firstname,lastname from app1_customer where cid_id=%s"
+                            sql_pr_cmp_val=(cmp_dtl[0],)
+                            fbcursor.execute(sql_pr_cmp,sql_pr_cmp_val,)
+                            pr_cmp_dtl=fbcursor.fetchall()
+                            p_i1 = []
+
+                            for i in pr_cmp_dtl:
+                                p_i1.append(str(i[0])+" "+str(i[1]))
+                                
+
+                            
+                            
+                            aicomb_1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            aicomb_1["values"] = p_i1
+                            aicomb_1.bind("<<ComboboxSelected>>",inv_c_details)
+                            window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=400, height=30,window=aicomb_1, tags=("aicombo1"))
+                            
+
+                            hd_date=Entry(inv_canvas_1,width=75,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=hd_date,tags=('hd_date'))
+
+                            hd_lbs = Label(inv_canvas_1,width=15,height=1,text="Payment Date", font=('arial 12'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=hd_lbs, tags=("hd_lbs"))
+
+                            aicomb_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            aicomb_2["values"] = p_i1
+                            aicomb_1.bind("<<ComboboxSelected>>",inv_c_details)
+                            window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=400, height=30,window=aicomb_2, tags=("aicomb_2"))
+
+                            hd_lbs = Label(inv_canvas_1,width=15,height=1,text="Payment Method", font=('arial 12'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=hd_lbs, tags=("hd_lbs2"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline2"))
+
+                            hd_lbs3 = Label(inv_canvas_1,width=15,height=1,text="Category Details", font=('arial 18'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=hd_lbs3, tags=("hd_lbs3"))
+                            
+                            #First table section
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline3"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline4"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline5"))
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline6"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline7"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline8"))
+
+                            #vertical
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline9"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline15"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline10"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline11"))
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline12"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline13"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline14"))
+
+                            #heads
+
+                            lb_hd_r1_c1 = Label(inv_canvas_1,height=1,text="#", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c1,tags=('lb_hd_r1_c1'))
+
+                            lb_hd_r1_c2 = Label(inv_canvas_1,height=1,text="CATEGORY", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c2,tags=('lb_hd_r1_c2'))
+
+                            lb_hd_r1_c3 = Label(inv_canvas_1,height=1,text="DESCRIPTION", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c3,tags=('lb_hd_r1_c3'))
+
+                            lb_hd_r1_c4 = Label(inv_canvas_1,height=1,text="NOT APPLICABLE", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c4,tags=('lb_hd_r1_c4'))
+
+                            lb_hd_r1_c5 = Label(inv_canvas_1,height=1,text="PRICE", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c5,tags=('lb_hd_r1_c5'))
+
+                            lb_hd_r1_c6 = Label(inv_canvas_1,height=1,text="TOTAL", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c6,tags=('lb_hd_r1_c6'))
+                            #First row
+
+                            no_lv_r1 = Label(inv_canvas_1,height=1,text="1", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r1,tags=('no_lv_r1'))
+
+                            cmbost_r1_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r1_c1,tags=('cmbost_r1_c1'))
+                            cmbost_r1_c1.bind("<<ComboboxSelected>>","i_details_1")
+
+                            en_str_1 = StringVar()
+                            ents_r1_c2=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c2,tags=('ents_r1_c2'))
+
+                            ents_r1_c3=Spinbox(inv_canvas_1,width=35,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c3,tags=('ents_r1_c3'))
+                            
+                                
+                            en_str_1 = StringVar()
+                            ents_r1_c4=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c4,tags=('ents_r1_c4'))
+
+                            ents_r1_c5=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c5,tags=('ents_r1_c5'))
+                            
+
+                            #second row
+
+                            no_lv_r2 = Label(inv_canvas_1,height=1,text="2", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r2,tags=('no_lv_r2'))
+
+                            cmbost_r2_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r2_c1,tags=('cmbost_r2_c1'))
+                            cmbost_r2_c1.bind("<<ComboboxSelected>>","i_details_1")
+
+                            en_str_1 = StringVar()
+                            ents_r2_c2=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r2_c2,tags=('ents_r2_c2'))
+
+                            ents_r2_c3=Spinbox(inv_canvas_1,width=35,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r2_c3,tags=('ents_r2_c3'))
+                            
+                                
+                            en_str_1 = StringVar()
+                            ents_r2_c4=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r2_c4,tags=('ents_r2_c4'))
+
+                            ents_r2_c5=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r2_c5,tags=('ents_r2_c5'))
+
+                            #3rd row
+
+                            no_lv_r3 = Label(inv_canvas_1,height=1,text="3", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r3,tags=('no_lv_r3'))
+
+                            cmbost_r3_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r3_c1,tags=('cmbost_r3_c1'))
+                            cmbost_r3_c1.bind("<<ComboboxSelected>>","i_details_1")
+
+                            en_str_1 = StringVar()
+                            ents_r3_c2=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r3_c2,tags=('ents_r3_c2'))
+
+                            ents_r3_c3=Spinbox(inv_canvas_1,width=35,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r3_c3,tags=('ents_r3_c3'))
+                            
+                                
+                            en_str_1 = StringVar()
+                            ents_r3_c4=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r3_c4,tags=('ents_r3_c4'))
+
+                            ents_r3_c5=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r3_c5,tags=('ents_r3_c5'))
+
+
+                            #4th row
+
+                            no_lv_r4 = Label(inv_canvas_1,height=1,text="4", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r4,tags=('no_lv_r4'))
+
+                            cmbost_r4_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r4_c1,tags=('cmbost_r4_c1'))
+                            cmbost_r4_c1.bind("<<ComboboxSelected>>","i_details_1")
+
+                            en_str_1 = StringVar()
+                            ents_r4_c2=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r4_c2,tags=('ents_r4_c2'))
+
+                            ents_r4_c3=Spinbox(inv_canvas_1,width=35,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r4_c3,tags=('ents_r4_c3'))
+                            
+                                
+                            en_str_1 = StringVar()
+                            ents_r4_c4=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r4_c4,tags=('ents_r4_c4'))
+
+                            ents_r4_c5=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r4_c5,tags=('ents_r4_c5'))
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline_r12"))
+
+
+                            hd_lbsr21 = Label(inv_canvas_1,width=15,height=1,text="Item Details", font=('arial 18'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=hd_lbsr21, tags=("hd_lbsr21"))
+                            
+
+                            
+
+                            
+
+                            def add_inv_customer():
+                                
+                                inv_canvas_1.grid_forget()
+                               
+
+                                def inc_responsive_widgets2(event):
+                                    dwidth = event.width
+                                    dheight = event.height
+                                    dcanvas = event.widget
+                                
+                                    r1 = 25
+                                    x1 = dwidth/63
+                                    x2 = dwidth/1.021
+                                    y1 = dheight/14 
+                                    y2 = dheight/3.505
+
+                                    dcanvas.coords("acpoly1",x1 + r1,y1,
+                                    x1 + r1,y1,
+                                    x2 - r1,y1,
+                                    x2 - r1,y1,     
+                                    x2,y1,     
+                                    #--------------------
+                                    x2,y1 + r1,     
+                                    x2,y1 + r1,     
+                                    x2,y2 - r1,     
+                                    x2,y2 - r1,     
+                                    x2,y2,
+                                    #--------------------
+                                    x2 - r1,y2,     
+                                    x2 - r1,y2,     
+                                    x1 + r1,y2,
+                                    x1 + r1,y2,
+                                    x1,y2,
+                                    #--------------------
+                                    x1,y2 - r1,
+                                    x1,y2 - r1,
+                                    x1,y1 + r1,
+                                    x1,y1 + r1,
+                                    x1,y1,
+                                    )
+
+                                    dcanvas.coords("aclabel1",dwidth/2.5,dheight/8.24)
+                                    dcanvas.coords("achline",dwidth/21,dheight/4.67,dwidth/1.055,dheight/4.67)
+
+                                    r2 = 25
+                                    x11 = dwidth/63
+                                    x21 = dwidth/1.021
+                                    y11 = dheight/2.8
+                                    y21 = dheight/0.45
+
+
+                                    dcanvas.coords("acpoly2",x11 + r2,y11,
+                                    x11 + r2,y11,
+                                    x21 - r2,y11,
+                                    x21 - r2,y11,     
+                                    x21,y11,     
+                                    #--------------------
+                                    x21,y11 + r2,     
+                                    x21,y11 + r2,     
+                                    x21,y21 - r2,     
+                                    x21,y21 - r2,     
+                                    x21,y21,
+                                    #--------------------
+                                    x21 - r2,y21,     
+                                    x21 - r2,y21,     
+                                    x11 + r2,y21,
+                                    x11 + r2,y21,
+                                    x11,y21,
+                                    #--------------------
+                                    x11,y21 - r2,
+                                    x11,y21 - r2,
+                                    x11,y11 + r2,
+                                    x11,y11 + r2,
+                                    x11,y11,
+                                    )
+
+                                    dcanvas.coords("aclabel2",dwidth/17.0,dheight/2.35)
+                                    dcanvas.coords("achline1",dwidth/21,dheight/1.95,dwidth/1.055,dheight/1.95)
+                                    dcanvas.coords("aclabel3",dwidth/20.2,dheight/1.69)
+                                    dcanvas.coords("aclabel4",dwidth/3.35,dheight/1.69)
+                                    dcanvas.coords("aclabel5",dwidth/1.8,dheight/1.69)
+                                    dcanvas.coords("aclabel6",dwidth/20.2,dheight/1.32)
+                                    dcanvas.coords("aclabel7",dwidth/3.375,dheight/1.32)
+                                    dcanvas.coords("aclabel8",dwidth/20.2,dheight/1.088)
+                                    dcanvas.coords("aclabel9",dwidth/3.48,dheight/1.088)
+                                    dcanvas.coords("aclabel10",dwidth/1.82,dheight/1.088)
+                                    dcanvas.coords("aclabel11",dwidth/18.7,dheight/0.92)
+                                    dcanvas.coords("aclabel12",dwidth/3.40,dheight/0.92)
+                                    dcanvas.coords("aclabel13",dwidth/1.83,dheight/0.92)
+                                    dcanvas.coords("aclabel14",dwidth/55.5,dheight/0.79)
+                                    dcanvas.coords("aclabel15",dwidth/2.09,dheight/0.79)
+                                    dcanvas.coords("aclabel16",dwidth/19.5,dheight/0.74)
+                                    dcanvas.coords("aclabel17",dwidth/1.97,dheight/0.74)
+                                    dcanvas.coords("aclabel18",dwidth/19.49,dheight/0.645)
+                                    dcanvas.coords("aclabel19",dwidth/3.40,dheight/0.645)
+                                    dcanvas.coords("aclabel20",dwidth/2.0,dheight/0.645)
+                                    dcanvas.coords("aclabel21",dwidth/1.33,dheight/0.645)
+                                    dcanvas.coords("aclabel22",dwidth/21.0,dheight/0.58)
+                                    dcanvas.coords("aclabel23",dwidth/3.42,dheight/0.58)
+                                    dcanvas.coords("aclabel24",dwidth/2.0,dheight/0.58)
+                                    dcanvas.coords("aclabel25",dwidth/1.34,dheight/0.58)
+
+                                    dcanvas.coords("accombo1",dwidth/18.5,dheight/1.55)
+                                    dcanvas.coords("accombo2",dwidth/18.5,dheight/1.027)
+
+                                    dcanvas.coords("acentry1",dwidth/3.30,dheight/1.55)
+                                    dcanvas.coords("acentry2",dwidth/1.785,dheight/1.55)
+                                    dcanvas.coords("acentry3",dwidth/18.5,dheight/1.24)
+                                    dcanvas.coords("acentry4",dwidth/3.30,dheight/1.24)
+                                    dcanvas.coords("acentry5",dwidth/3.30,dheight/1.027)
+                                    dcanvas.coords("acentry6",dwidth/1.785,dheight/1.027)
+                                    dcanvas.coords("acentry7",dwidth/18.5,dheight/0.88)
+                                    dcanvas.coords("acentry8",dwidth/3.30,dheight/0.88)
+                                    dcanvas.coords("acentry9",dwidth/1.785,dheight/0.88)
+                                    dcanvas.coords("acentry10",dwidth/18.5,dheight/0.715)
+                                    dcanvas.coords("acentry11",dwidth/1.97,dheight/0.715)
+                                    dcanvas.coords("acentry12",dwidth/18.5,dheight/0.625)
+                                    dcanvas.coords("acentry13",dwidth/3.40,dheight/0.625)
+                                    dcanvas.coords("acentry14",dwidth/1.98,dheight/0.625)
+                                    dcanvas.coords("acentry15",dwidth/1.33,dheight/0.625)
+                                    dcanvas.coords("acentry16",dwidth/19.51,dheight/0.565)
+                                    dcanvas.coords("acentry17",dwidth/3.40,dheight/0.565)
+                                    dcanvas.coords("acentry18",dwidth/1.98,dheight/0.565)
+                                    dcanvas.coords("acentry19",dwidth/1.33,dheight/0.565)
+
+                                    dcanvas.coords("accheck1",dwidth/1.55,dheight/0.79)
+                                    dcanvas.coords("accheck2",dwidth/19.0,dheight/0.546)
+
+                                    dcanvas.coords("acbutton1",dwidth/2.5,dheight/0.5)
+                                    dcanvas.coords("acbutton2",dwidth/23,dheight/3.415)
+
+
+                                inv_canvas_2=Canvas(exp_mod_frm, bg='#2f516f', width=953, height=600, scrollregion=(0,0,700,1600))
+
+                                
+
+                                
+                                vertibar=Scrollbar(exp_mod_frm, orient=VERTICAL)
+                                vertibar.grid(row=0,column=1,sticky='ns')
+                                vertibar.config(command=inv_canvas_2.yview)
+
+                                inv_canvas_2.bind("<Configure>", inc_responsive_widgets2)
+                                inv_canvas_2.config(yscrollcommand=vertibar.set)
+                                inv_canvas_2.grid(row=0,column=0,sticky='nsew')
+
+                                def sales_add_inv_cus():
+                                    title = ic_comb_cus_1.get()
+                                    firstname = ic_entry_cus_1.get()
+                                    lastname = ic_entry_cus_2.get()
+                                    company = ic_entry_cus_3.get()
+                                    location = ic_cus_4.get()
+                                    gsttype = ic_comb_cus_2.get()
+                                    gstin = ic_entry_cus_5.get()
+                                    panno = ic_entry_cus_6.get()
+                                    email = ic_entry_cus_7.get()
+                                    website = ic_entry_cus_8.get()
+                                    mobile = ic_entry_cus_9.get()
+                                    street = ic_entry_cus_10.get()
+                                    city = ic_entry_cus_12.get()
+                                    state = ic_entry_cus_13.get()
+                                    pincode = ic_entry_cus_p12.get()
+                                    country = ic_entry_cus_c13.get()
+                                    shipstreet = ic_entry_cus_11.get()
+                                    shipcity = ic_entry_cus_14.get()
+                                    shipstate = ic_entry_cus_15.get()
+                                    shippincode = ic_entry_cus_p14.get()
+                                    shipcountry = ic_entry_cus_c15.get()
+
+                                    usri_sql = "SELECT id FROM auth_user WHERE username=%s"
+                                    usri_val = (nm_ent.get(),)
+                                    fbcursor.execute(usri_sql,usri_val)
+                                    usri_data = fbcursor.fetchone()
+
+                                    cmpi_sql = "SELECT cid FROM app1_company WHERE id_id=%s"
+                                    cmpi_val = (usri_data[0],)
+                                    fbcursor.execute(cmpi_sql,cmpi_val)
+                                    cmpi_data = fbcursor.fetchone()
+                                    cid = cmpi_data[0]
+
+                                    if ic_chk_str_1.get() == True:
+
+                                        cus_sql = "INSERT INTO app1_customer (title,firstname,lastname,company,location,gsttype,gstin,panno,email,website,mobile,street,city,state,pincode,country,shipstreet,shipcity,shipstate,shippincode,shipcountry,cid_id) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                                        cus_val=(title,firstname,lastname,company,location,gsttype,gstin,panno,email,website,mobile,street,city,state,pincode,country,shipstreet,shipcity,shipstate,shippincode,shipcountry,cid)
+                                        fbcursor.execute(cus_sql,cus_val)
+                                        finsysdb.commit()
+
+                                        #----------Refresh Insert Tree--------#
+
+                                        for record in cus_tree.get_children():
+                                                cus_tree.delete(record)
+
+                                        sql_pr="select * from auth_user where username=%s"
+                                        sql_pr_val=(nm_ent.get(),)
+                                        fbcursor.execute(sql_pr,sql_pr_val,)
+                                        pr_dtl=fbcursor.fetchone()
+
+                                        sql = "select * from app1_company where id_id=%s"
+                                        val = (pr_dtl[0],)
+                                        fbcursor.execute(sql, val,)
+                                        cmp_dtl=fbcursor.fetchone()
+
+                                        c_sql_1 = "SELECT * FROM app1_customer where cid_id=%s"
+                                        c_val_1 = (cmp_dtl[0],)
+                                        fbcursor.execute(c_sql_1,c_val_1,)
+                                        c_data_1 = fbcursor.fetchall()
+
+                                        count0 = 0
+                                        for i in c_data_1:
+                                            if True:
+                                                cus_tree.insert(parent='',index='end',iid=i,text='',values=('',i[2]+" "+i[3],i[6],i[7],i[8],i[9],i[11])) 
+                                            else:
+                                                pass
+                                        count0 += 1
+
+                                        inv_frame_2.destroy()
+                                        inv_frame_1.grid(row=0,column=0,sticky='nsew')
+                                    
+                                    else:
+                                        pass
+                                
+
+                                inv_canvas_2.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("acpoly1"))
+
+                                label_1 = Label(inv_canvas_2,width=15,height=1,text="ADD CUSTOMER", font=('arial 20'),background="#1b3857",fg="white") 
+                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel1"))
+
+                                inv_canvas_2.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("achline"))
+
+                                inv_canvas_2.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("acpoly2"))
+
+                                label_1 = Label(inv_canvas_2,width=20,height=1,text="Customer Information", font=('arial 20'),background="#1b3857",fg="white") 
+                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel2"))
+
+                                inv_canvas_2.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("achline1"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Title", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel3"))
+
+                                ic_comb_cus_1 = ttk.Combobox(inv_canvas_2, font=('arial 10'),foreground="white")
+                                ic_comb_cus_1['values'] = ("Mr","Mrs","Miss","Ms",)
+                                ic_comb_cus_1.current(0)
+                                window_ic_comb_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", width=245, height=30,window=ic_comb_cus_1, tags=("accombo1"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="First name", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel4"))
+
+                                ic_entry_cus_1=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_1, tags=("acentry1"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Last name", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel5"))
+
+                                ic_entry_cus_2=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_2 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_2, tags=("acentry2"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Company", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel6"))
+
+                                ic_entry_cus_3=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_3 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_3, tags=("acentry3"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Location", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel7"))
+
+                                ic_cus_4=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_cus_4 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_cus_4, tags=("acentry4"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="GST type", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel8"))
+
+                                ic_comb_cus_2 = ttk.Combobox(inv_canvas_2, font=('arial 10'),foreground="white")
+                                ic_comb_cus_2['values'] = ("Choose...","GST registered Regular","GST registered-Composition","GST unregistered","Consumer","Overseas","SEZ","Deemed exports-EOU's STP's EHTP's etc",)
+                                ic_comb_cus_2.current(0)
+                                window_ic_comb_cus_2 = inv_canvas_2.create_window(0, 0, anchor="nw", width=245, height=30,window=ic_comb_cus_2, tags=("accombo2"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="GSTIN", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel9"))
+
+                                def igst_validate(value):
+                
+                                    """
+                                    Validat the email entry
+                                    :param value:
+                                    :return:
+                                    """
+                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+                                    if re.fullmatch(pattern, value) is None:
+                                        
+                                        return False
+
+                                    ic_entry_cus_5.config(fg="white")
+                                    return True
+
+                                def igst_invalidate():
+                                    ic_entry_cus_5.config(fg="red")
+
+
+                                def ic_gst_in(event):
+                                    if ic_entry_cus_5.get()=="29APPCK7465F1Z1":
+                                        ic_entry_cus_5.delete(0,END)
+                                    else:
+                                        pass
+                                
+                                ic_entry_cus_5=Entry(inv_canvas_2,width=34,justify=LEFT,background='#2f516f',font=('arial 10'))
+                                ival_gst = (inv_canvas_2.register(igst_validate), '%P')
+                                iival_gst = (inv_canvas_2.register(igst_invalidate),)
+                                ic_entry_cus_5.config(validate='focusout', validatecommand=ival_gst, invalidcommand=iival_gst)
+                                window_ic_entry_cus_5 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_5, tags=("acentry5"))
+                                ic_entry_cus_5.insert(0,"29APPCK7465F1Z1")
+                                ic_entry_cus_5.bind("<Button-1>",ic_gst_in)
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="PAN NO", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel10"))
+
+                                def ic_pan_no(event):
+                                    if ic_entry_cus_6.get()=="APPCK7465F":
+                                        ic_entry_cus_6.delete(0,END)
+                                    else:
+                                        pass
+
+                                def ipan_validate(value):
+                
+                                    """
+                                    Validat the email entry
+                                    :param value:
+                                    :return:
+                                    """
+                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+                                    if re.fullmatch(pattern, value) is None:
+                                        
+                                        return False
+
+                                    ic_entry_cus_6.config(fg="white")
+                                    return True
+
+                                def ipan_invalidate():
+                                    ic_entry_cus_6.config(fg="red")
+
+                                ic_entry_cus_6=Entry(inv_canvas_2,width=34,justify=LEFT,background='#2f516f',font=('arial 10'))
+                                ival_pan = (inv_canvas_2.register(ipan_validate), '%P')
+                                iival_pan = (inv_canvas_2.register(ipan_invalidate),)
+                                ic_entry_cus_6.config(validate='focusout', validatecommand=ival_pan, invalidcommand=iival_pan)
+                                window_ic_entry_cus_6 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_6, tags=("acentry6"))
+                                ic_entry_cus_6.insert(0,"APPCK7465F")
+                                ic_entry_cus_6.bind("<Button-1>",ic_pan_no)
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Email", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel11"))
+
+                                def iemail_validate(value):
+                
+                                    """
+                                    Validat the email entry
+                                    :param value:
+                                    :return:
+                                    """
+                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+                                    if re.fullmatch(pattern, value) is None:
+                                        
+                                        return False
+
+                                    ic_entry_cus_7.config(fg="white")
+                                    return True
+
+                                def iemail_invalidate():
+                                    ic_entry_cus_7.config(fg="red")
+
+                                ic_entry_cus_7=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f')
+                                ival_email = (inv_canvas_2.register(iemail_validate), '%P')
+                                iival_email = (inv_canvas_2.register(iemail_invalidate),)
+                                ic_entry_cus_7.config(validate='focusout', validatecommand=ival_email, invalidcommand=iival_email)
+                                window_ic_entry_cus_7 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_7, tags=("acentry7"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Website", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel12"))
+
+                                ic_entry_cus_8=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_8 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_8, tags=("acentry8"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Mobile", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel13"))
+
+                                ic_entry_cus_9=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_9 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_9, tags=("acentry9"))
+
+                                def copy_icus_details():
+                                    ic_entry_cus_11.delete(0, END)
+                                    ic_entry_cus_11.insert(0,ic_entry_cus_10.get())
+                                    ic_entry_cus_14.delete(0, END)
+                                    ic_entry_cus_14.insert(0,ic_entry_cus_12.get())
+                                    ic_entry_cus_15.delete(0, END)
+                                    ic_entry_cus_15.insert(0,ic_entry_cus_13.get())
+                                    ic_entry_cus_p14.delete(0, END)
+                                    ic_entry_cus_p14.insert(0,ic_entry_cus_p12.get())
+                                    ic_entry_cus_c15.delete(0, END)
+                                    ic_entry_cus_c15.insert(0,ic_entry_cus_c13.get())
+
+                                label_1 = Label(inv_canvas_2,width=20,height=1,text="Billing Address", font=('arial 16'),background="#1b3857",fg="white") 
+                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel14"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Street", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel16"))
+
+                                ic_entry_cus_10=Entry(inv_canvas_2,width=95,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_10 = inv_canvas_2.create_window(0, 0, anchor="nw", height=60,window=ic_entry_cus_10, tags=("acentry10"))
+
+                                label_1 = Label(inv_canvas_2,width=20,height=1,text="Shipping Address", font=('arial 16'),background="#1b3857",fg="white") 
+                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel15"))
+
+                                ic_chk_str = StringVar()
+                                ic_chkbtn1 = Checkbutton(inv_canvas_2, text = "Same As Billing Address", variable = ic_chk_str, onvalue = 1, offvalue = 0, font=("arial", 10),background="#1b3857",foreground="white",selectcolor="#2f516f",command=copy_icus_details)
+                                ic_chkbtn1.select()
+                                window_ic_chkbtn_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_chkbtn1, tags=("accheck1"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Street", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel17"))
+
+                                ic_entry_cus_11=Entry(inv_canvas_2,width=95,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_11 = inv_canvas_2.create_window(0, 0, anchor="nw", height=60,window=ic_entry_cus_11, tags=("acentry11"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="City", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel18"))
+
+                                ic_entry_cus_12=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_12 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_12, tags=("acentry12"))
+                                
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="State", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel19"))
+
+                                ic_entry_cus_13=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_13 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_13, tags=("acentry13"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="City", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2,tags=("aclabel20"))
+
+                                ic_entry_cus_14=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_14 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_14, tags=("acentry14"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="State", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2,tags=("aclabel21"))
+
+                                ic_entry_cus_15=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_15 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_15, tags=("acentry15"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Pin Code", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel22"))
+
+                                ic_entry_cus_p12=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_p12 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_p12, tags=("acentry16"))
+                                
+                                label_2 = Label(inv_canvas_2,width=8,height=1,text="Country", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel23"))
+
+                                ic_entry_cus_c13=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_c13 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_c13, tags=("acentry17"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Pin Code", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel24"))
+
+                                ic_entry_cus_p14=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_p14 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_p14, tags=("acentry18"))
+
+                                label_2 = Label(inv_canvas_2,width=8,height=1,text="Country", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel25"))
+
+                                ic_entry_cus_c15=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_c15 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_c15, tags=("acentry19"))
+
+                                ic_chk_str_1 = BooleanVar()
+                                ic_chkbtn2 = Checkbutton(inv_canvas_2, text = "Agree to terms and conditions", variable = ic_chk_str_1, font=("arial", 10),background="#1b3857",foreground="white",selectcolor="#2f516f")
+                                window_ic_chkbtn_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_chkbtn2,tags=("accheck2"))
+
+                                ic_cus_btn2=Button(inv_canvas_2,text='Submit Form', width=25,height=2,foreground="white",background="#1b3857",font='arial 12',command=sales_add_inv_cus)
+                                window_ic_cus_btn2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_cus_btn2,tags=("acbutton1"))
+
+                                def inv_back_1_():
+                                    inv_canvas_1.grid_forget()
+                                    vertibar.grid_forget()
+                                    exp_chld_scrl.grid(row=0,column=2,sticky='ns')
+
+                                bck_btn1=Button(inv_canvas_2,text='← Back', bd=0, foreground="white",background="#2f516f",font='arial 10 bold',activebackground="#1b3857",command=inv_back_1_)
+                                window_bck_btn1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=bck_btn1,tags=('acbutton2'))
+                                
+
+
+                            aibtn2=Button(inv_canvas_1,text='+', width=5,height=1,foreground="white",background="#1b3857",font='arial 12',command=add_inv_customer)
+                            window_aibtn2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=aibtn2, tags=('aibutton1'))
+
+                            
+                            
+
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine1'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine2'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine3'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine4'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine5'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine6'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine7'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine8'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine9'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine10'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine11'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine12'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine13'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine14'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine15'))
+
+
+                            label_2 = Label(inv_canvas_1,width=2,height=1,text="#", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel11'))
+
+                            label_3 = Label(inv_canvas_1,width=15,height=1,text="PRODUCT/SERVICE", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_3,tags=('ailabel12'))
+
+                            label_4 = Label(inv_canvas_1,width=4,height=1,text="HSN", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel13'))
+
+                            label_4 = Label(inv_canvas_1,width=11,height=1,text="DESCRIPTION", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel14'))
+
+                            label_4 = Label(inv_canvas_1,width=4,height=1,text="QTY", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel15'))
+
+                            label_4 = Label(inv_canvas_1,width=8,height=1,text="PRICE", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel16'))
+
+                            label_4 = Label(inv_canvas_1,width=6,height=1,text="TOTAL", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel17'))
+
+                            label_4 = Label(inv_canvas_1,width=7,height=1,text="TAX (%)", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel18'))
+
+                            def i_details_1(event):
+                                inv_to_str_1 = ai_comb_p_1.get()
+
+                                sql = "select * from app1_inventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_1,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_sel_1 = fbcursor.fetchone()
+
+                                sql = "select * from app1_noninventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_1,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_sel_2 = fbcursor.fetchone()
+
+                                sql = "select * from app1_bundle where name=%s and cid_id=%s"
+                                val = (inv_to_str_1,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_sel_3 = fbcursor.fetchone() 
+
+                                if inv_sel_1 is not None:
+                                    
+                                    ai_entry_p_1.delete(0,END)
+                                    ai_entry_p_1.insert(0,inv_sel_1[4])
+                                    ai_entry_p_1_2.delete('1.0',END)
+                                    ai_entry_p_1_2.insert('1.0',inv_sel_1[11])
+                                    ai_entry_p_1_4.delete(0,END)
+                                    ai_entry_p_1_4.insert(0,round(float(inv_sel_1[12]),2))
+                                    ai_comb_p_1_2.delete(0,'end')
+                                    ai_comb_p_1_2.insert(0, inv_sel_1[14])
+                                    inv_canvas_1.itemconfig('aientry6',state='normal')
+                                    inv_canvas_1.itemconfig('aientry7',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo5',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_sel_2 is not None:
+                                    
+                                    ai_entry_p_1.delete(0,END)
+                                    ai_entry_p_1.insert(0,inv_sel_2[4])
+                                    ai_entry_p_1_2.delete('1.0',END)
+                                    ai_entry_p_1_2.insert('1.0',inv_sel_2[7])
+                                    ai_entry_p_1_4.delete(0,END)
+                                    ai_entry_p_1_4.insert(0,round(float(inv_sel_2[8]),2))
+                                    ai_comb_p_1_2.delete(0,'end')
+                                    ai_comb_p_1_2.insert(0, inv_sel_2[10])
+                                    inv_canvas_1.itemconfig('aientry6',state='normal')
+                                    inv_canvas_1.itemconfig('aientry7',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo5',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_sel_3 is not None:
+                                    
+                                    ai_entry_p_1.delete(0,END)
+                                    ai_entry_p_1.insert(0,inv_sel_3[3])
+                                    ai_entry_p_1_2.delete('1.0',END)
+                                    ai_entry_p_1_2.insert('1.0',inv_sel_3[4])
+                                    inv_canvas_1.itemconfig('aientry6',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry7',state='hidden')
+                                    inv_canvas_1.itemconfig('aicombo5',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='normal')
+                                    inv_canvas_1.itemconfig('ailine26',state='normal')
+                                    inv_canvas_1.itemconfig('ailine27',state='normal')
+                                    inv_canvas_1.itemconfig('ailine28',state='normal')
+                                    inv_canvas_1.itemconfig('ailine29',state='normal')
+                                    inv_canvas_1.itemconfig('ailine30',state='normal')
+                                    inv_canvas_1.itemconfig('ailine31',state='normal')
+                                    inv_canvas_1.itemconfig('ailine32',state='normal')
+                                    inv_canvas_1.itemconfig('ailine33',state='normal')
+                                    inv_canvas_1.itemconfig('ailine34',state='normal')
+                                    inv_canvas_1.itemconfig('ailine35',state='normal')
+                                    inv_canvas_1.itemconfig('ailine36',state='normal')
+                                    inv_canvas_1.itemconfig('ailine37',state='normal')
+                                    inv_canvas_1.itemconfig('ailine38',state='normal')
+                                    inv_canvas_1.itemconfig('ailine39',state='normal')
+                                    inv_canvas_1.itemconfig('ailine40',state='normal')
+                                    inv_canvas_1.itemconfig('ailine41',state='normal')
+                                    inv_canvas_1.itemconfig('ailine42',state='normal')
+                                    inv_canvas_1.itemconfig('ailine43',state='normal')
+                                    inv_canvas_1.itemconfig('ailine44',state='normal')
+                                    inv_canvas_1.itemconfig('ailine45',state='normal')
+                                    inv_canvas_1.itemconfig('ailine46',state='normal')
+                                    inv_canvas_1.itemconfig('bient1',state='normal')
+                                    inv_canvas_1.itemconfig('bient5',state='normal')
+                                    inv_canvas_1.itemconfig('bient9',state='normal')
+                                    inv_canvas_1.itemconfig('bient13',state='normal')
+                                    inv_canvas_1.itemconfig('bient17',state='normal')
+                                    inv_canvas_1.itemconfig('bient21',state='normal')
+                                    inv_canvas_1.itemconfig('bient25',state='normal')
+                                    inv_canvas_1.itemconfig('bient2',state='normal')
+                                    inv_canvas_1.itemconfig('bient6',state='normal')
+                                    inv_canvas_1.itemconfig('bient10',state='normal')
+                                    inv_canvas_1.itemconfig('bient14',state='normal')
+                                    inv_canvas_1.itemconfig('bient18',state='normal')
+                                    inv_canvas_1.itemconfig('bient22',state='normal')
+                                    inv_canvas_1.itemconfig('bient26',state='normal')
+                                    inv_canvas_1.itemconfig('bient3',state='normal')
+                                    inv_canvas_1.itemconfig('bient7',state='normal')
+                                    inv_canvas_1.itemconfig('bient11',state='normal')
+                                    inv_canvas_1.itemconfig('bient15',state='normal')
+                                    inv_canvas_1.itemconfig('bient19',state='normal')
+                                    inv_canvas_1.itemconfig('bient23',state='normal')
+                                    inv_canvas_1.itemconfig('bient27',state='normal')
+                                    inv_canvas_1.itemconfig('bient4',state='normal')
+                                    inv_canvas_1.itemconfig('bient8',state='normal')
+                                    inv_canvas_1.itemconfig('bient12',state='normal')
+                                    inv_canvas_1.itemconfig('bient16',state='normal')
+                                    inv_canvas_1.itemconfig('bient20',state='normal')
+                                    inv_canvas_1.itemconfig('bient24',state='normal')
+                                    inv_canvas_1.itemconfig('bient28',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl1',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl2',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl3',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl4',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl5',state='normal')
+                                    inv_canvas_1.itemconfig('bient29',state='normal')
+                                    inv_canvas_1.itemconfig('bient30',state='normal')
+                                    inv_canvas_1.itemconfig('bient31',state='normal')
+                                    inv_canvas_1.itemconfig('bient32',state='normal')
+                                    inv_canvas_1.itemconfig('bient33',state='normal')
+                                    inv_canvas_1.itemconfig('bbutn1',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine17',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine18',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine19',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine20',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine21',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine22',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel27',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry23',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry24',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry25',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry26',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry27',state='hidden')
+                                    inv_canvas_1.itemconfig('aibutton2',state='hidden')
+                                    
+                                    bu_inv_1.delete(0,END)
+                                    bu_inv_1.insert(0,inv_sel_3[5])
+                                    bu_inv_1_1.delete(0,END)
+                                    bu_inv_1_1.insert(0,inv_sel_3[9])
+                                    bu_inv_1_2.delete('1.0',END)
+                                    bu_inv_1_2.insert('1.0',inv_sel_3[13])
+                                    bu_inv_1_3.delete(0,END)
+                                    bu_inv_1_3.insert(0,round(inv_sel_3[21],2))
+                                    bu_inv_1_4.delete(0,END)
+                                    bu_inv_1_4.insert(0,inv_sel_3[17])
+                                    bu_inv_1_5.delete(0,END)
+                                    bu_inv_1_5.insert(0,round(inv_sel_3[25],2))
+                                    bu_inv_1_6.delete(0,END)
+                                    bu_inv_1_6.insert(0,inv_sel_3[29])
+                                    bu_inv_2.delete(0,END)
+                                    bu_inv_2.insert(0,inv_sel_3[6])
+                                    bu_inv_2_1.delete(0,END)
+                                    bu_inv_2_1.insert(0,inv_sel_3[10])
+                                    bu_inv_2_2.delete('1.0',END)
+                                    bu_inv_2_2.insert('1.0',inv_sel_3[14])
+                                    bu_inv_2_3.delete(0,END)
+                                    bu_inv_2_3.insert(0,round(inv_sel_3[22],2))
+                                    bu_inv_2_4.delete(0,END)
+                                    bu_inv_2_4.insert(0,inv_sel_3[18])
+                                    bu_inv_2_5.delete(0,END)
+                                    bu_inv_2_5.insert(0,round(inv_sel_3[26],2))
+                                    bu_inv_2_6.delete(0,END)
+                                    bu_inv_2_6.insert(0,inv_sel_3[30])
+                                    bu_inv_3.delete(0,END)
+                                    bu_inv_3.insert(0,inv_sel_3[7])
+                                    bu_inv_3_1.delete(0,END)
+                                    bu_inv_3_1.insert(0,inv_sel_3[11])
+                                    bu_inv_3_2.delete('1.0',END)
+                                    bu_inv_3_2.insert('1.0',inv_sel_3[15])
+                                    bu_inv_3_3.delete(0,END)
+                                    bu_inv_3_3.insert(0,round(inv_sel_3[23],2))
+                                    bu_inv_3_4.delete(0,END)
+                                    bu_inv_3_4.insert(0,inv_sel_3[19])
+                                    bu_inv_3_5.delete(0,END)
+                                    bu_inv_3_5.insert(0,round(inv_sel_3[27],2))
+                                    bu_inv_3_6.delete(0,END)
+                                    bu_inv_3_6.insert(0,inv_sel_3[31])
+                                    bu_inv_4.delete(0,END)
+                                    bu_inv_4.insert(0,inv_sel_3[8])
+                                    bu_inv_4_1.delete(0,END)
+                                    bu_inv_4_1.insert(0,inv_sel_3[12])
+                                    bu_inv_4_2.delete('1.0',END)
+                                    bu_inv_4_2.insert('1.0',inv_sel_3[16])
+                                    bu_inv_4_3.delete(0,END)
+                                    bu_inv_4_3.insert(0,round(inv_sel_3[24],2))
+                                    bu_inv_4_4.delete(0,END)
+                                    bu_inv_4_4.insert(0,inv_sel_3[20])
+                                    bu_inv_4_5.delete(0,END)
+                                    bu_inv_4_5.insert(0,round(inv_sel_3[28],2))
+                                    bu_inv_4_6.delete(0,END)
+                                    bu_inv_4_6.insert(0,inv_sel_3[32])
+
+                                else:
+                                    pass
+
+                            def i_details_2(event):
+                                inv_to_str_2 = ai_comb_p_2.get()
+
+                                sql = "select * from app1_inventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_2,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_se_1 = fbcursor.fetchone()
+
+                                sql = "select * from app1_noninventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_2,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_se_2 = fbcursor.fetchone()
+
+                                sql = "select * from app1_bundle where name=%s and cid_id=%s"
+                                val = (inv_to_str_2,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_se_3 = fbcursor.fetchone() 
+
+                                if inv_se_1 is not None:
+                                    
+                                    ai_entry_p_2.delete(0,END)
+                                    ai_entry_p_2.insert(0,inv_se_1[4])
+                                    ai_entry_p_2_1.delete('1.0',END)
+                                    ai_entry_p_2_1.insert('1.0',inv_se_1[11])
+                                    ai_entry_2_3.delete(0,END)
+                                    ai_entry_2_3.insert(0,round(float(inv_se_1[12]),2))
+                                    ai_comb_P_2_2.delete(0,'end')
+                                    ai_comb_P_2_2.insert(0, inv_se_1[14])
+                                    inv_canvas_1.itemconfig('aientry17',state='normal')
+                                    inv_canvas_1.itemconfig('aientry20',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo9',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_se_2 is not None:
+                                    
+                                    ai_entry_p_2.delete(0,END)
+                                    ai_entry_p_2.insert(0,inv_se_2[4])
+                                    ai_entry_p_2_1.delete('1.0',END)
+                                    ai_entry_p_2_1.insert('1.0',inv_se_2[7])
+                                    ai_entry_2_3.delete(0,END)
+                                    ai_entry_2_3.insert(0,round(float(inv_se_2[8]),2))
+                                    ai_comb_P_2_2.delete(0,'end')
+                                    ai_comb_P_2_2.insert(0, inv_se_2[10])
+                                    inv_canvas_1.itemconfig('aientry17',state='normal')
+                                    inv_canvas_1.itemconfig('aientry20',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo9',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_se_3 is not None:
+                                    
+                                    ai_entry_p_2.delete(0,END)
+                                    ai_entry_p_2.insert(0,inv_se_3[3])
+                                    ai_entry_p_2_1.delete('1.0',END)
+                                    ai_entry_p_2_1.insert('1.0',inv_se_3[4])
+                                    inv_canvas_1.itemconfig('aientry17',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry20',state='hidden')
+                                    inv_canvas_1.itemconfig('aicombo9',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='normal')
+                                    inv_canvas_1.itemconfig('ailine26',state='normal')
+                                    inv_canvas_1.itemconfig('ailine27',state='normal')
+                                    inv_canvas_1.itemconfig('ailine28',state='normal')
+                                    inv_canvas_1.itemconfig('ailine29',state='normal')
+                                    inv_canvas_1.itemconfig('ailine30',state='normal')
+                                    inv_canvas_1.itemconfig('ailine31',state='normal')
+                                    inv_canvas_1.itemconfig('ailine32',state='normal')
+                                    inv_canvas_1.itemconfig('ailine33',state='normal')
+                                    inv_canvas_1.itemconfig('ailine34',state='normal')
+                                    inv_canvas_1.itemconfig('ailine35',state='normal')
+                                    inv_canvas_1.itemconfig('ailine36',state='normal')
+                                    inv_canvas_1.itemconfig('ailine37',state='normal')
+                                    inv_canvas_1.itemconfig('ailine38',state='normal')
+                                    inv_canvas_1.itemconfig('ailine39',state='normal')
+                                    inv_canvas_1.itemconfig('ailine40',state='normal')
+                                    inv_canvas_1.itemconfig('ailine41',state='normal')
+                                    inv_canvas_1.itemconfig('ailine42',state='normal')
+                                    inv_canvas_1.itemconfig('ailine43',state='normal')
+                                    inv_canvas_1.itemconfig('ailine44',state='normal')
+                                    inv_canvas_1.itemconfig('ailine45',state='normal')
+                                    inv_canvas_1.itemconfig('ailine46',state='normal')
+                                    inv_canvas_1.itemconfig('bient1',state='normal')
+                                    inv_canvas_1.itemconfig('bient5',state='normal')
+                                    inv_canvas_1.itemconfig('bient9',state='normal')
+                                    inv_canvas_1.itemconfig('bient13',state='normal')
+                                    inv_canvas_1.itemconfig('bient17',state='normal')
+                                    inv_canvas_1.itemconfig('bient21',state='normal')
+                                    inv_canvas_1.itemconfig('bient25',state='normal')
+                                    inv_canvas_1.itemconfig('bient2',state='normal')
+                                    inv_canvas_1.itemconfig('bient6',state='normal')
+                                    inv_canvas_1.itemconfig('bient10',state='normal')
+                                    inv_canvas_1.itemconfig('bient14',state='normal')
+                                    inv_canvas_1.itemconfig('bient18',state='normal')
+                                    inv_canvas_1.itemconfig('bient22',state='normal')
+                                    inv_canvas_1.itemconfig('bient26',state='normal')
+                                    inv_canvas_1.itemconfig('bient3',state='normal')
+                                    inv_canvas_1.itemconfig('bient7',state='normal')
+                                    inv_canvas_1.itemconfig('bient11',state='normal')
+                                    inv_canvas_1.itemconfig('bient15',state='normal')
+                                    inv_canvas_1.itemconfig('bient19',state='normal')
+                                    inv_canvas_1.itemconfig('bient23',state='normal')
+                                    inv_canvas_1.itemconfig('bient27',state='normal')
+                                    inv_canvas_1.itemconfig('bient4',state='normal')
+                                    inv_canvas_1.itemconfig('bient8',state='normal')
+                                    inv_canvas_1.itemconfig('bient12',state='normal')
+                                    inv_canvas_1.itemconfig('bient16',state='normal')
+                                    inv_canvas_1.itemconfig('bient20',state='normal')
+                                    inv_canvas_1.itemconfig('bient24',state='normal')
+                                    inv_canvas_1.itemconfig('bient28',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl1',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl2',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl3',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl4',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl5',state='normal')
+                                    inv_canvas_1.itemconfig('bient29',state='normal')
+                                    inv_canvas_1.itemconfig('bient30',state='normal')
+                                    inv_canvas_1.itemconfig('bient31',state='normal')
+                                    inv_canvas_1.itemconfig('bient32',state='normal')
+                                    inv_canvas_1.itemconfig('bient33',state='normal')
+                                    inv_canvas_1.itemconfig('bbutn1',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine17',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine18',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine19',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine20',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine21',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine22',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel27',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry23',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry24',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry25',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry26',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry27',state='hidden')
+                                    inv_canvas_1.itemconfig('aibutton2',state='hidden')
+
+                                    bu_inv_1.delete(0,END)
+                                    bu_inv_1.insert(0,inv_se_3[5])
+                                    bu_inv_1_1.delete(0,END)
+                                    bu_inv_1_1.insert(0,inv_se_3[9])
+                                    bu_inv_1_2.delete('1.0',END)
+                                    bu_inv_1_2.insert('1.0',inv_se_3[13])
+                                    bu_inv_1_3.delete(0,END)
+                                    bu_inv_1_3.insert(0,round(inv_se_3[21],2))
+                                    bu_inv_1_4.delete(0,END)
+                                    bu_inv_1_4.insert(0,inv_se_3[17])
+                                    bu_inv_1_5.delete(0,END)
+                                    bu_inv_1_5.insert(0,round(inv_se_3[25],2))
+                                    bu_inv_1_6.delete(0,END)
+                                    bu_inv_1_6.insert(0,inv_se_3[29])
+                                    bu_inv_2.delete(0,END)
+                                    bu_inv_2.insert(0,inv_se_3[6])
+                                    bu_inv_2_1.delete(0,END)
+                                    bu_inv_2_1.insert(0,inv_se_3[10])
+                                    bu_inv_2_2.delete('1.0',END)
+                                    bu_inv_2_2.insert('1.0',inv_se_3[14])
+                                    bu_inv_2_3.delete(0,END)
+                                    bu_inv_2_3.insert(0,round(inv_se_3[22],2))
+                                    bu_inv_2_4.delete(0,END)
+                                    bu_inv_2_4.insert(0,inv_se_3[18])
+                                    bu_inv_2_5.delete(0,END)
+                                    bu_inv_2_5.insert(0,round(inv_se_3[26],2))
+                                    bu_inv_2_6.delete(0,END)
+                                    bu_inv_2_6.insert(0,inv_se_3[30])
+                                    bu_inv_3.delete(0,END)
+                                    bu_inv_3.insert(0,inv_se_3[7])
+                                    bu_inv_3_1.delete(0,END)
+                                    bu_inv_3_1.insert(0,inv_se_3[11])
+                                    bu_inv_3_2.delete('1.0',END)
+                                    bu_inv_3_2.insert('1.0',inv_se_3[15])
+                                    bu_inv_3_3.delete(0,END)
+                                    bu_inv_3_3.insert(0,round(inv_se_3[23],2))
+                                    bu_inv_3_4.delete(0,END)
+                                    bu_inv_3_4.insert(0,inv_se_3[19])
+                                    bu_inv_3_5.delete(0,END)
+                                    bu_inv_3_5.insert(0,round(inv_se_3[27],2))
+                                    bu_inv_3_6.delete(0,END)
+                                    bu_inv_3_6.insert(0,inv_se_3[31])
+                                    bu_inv_4.delete(0,END)
+                                    bu_inv_4.insert(0,inv_se_3[8])
+                                    bu_inv_4_1.delete(0,END)
+                                    bu_inv_4_1.insert(0,inv_se_3[12])
+                                    bu_inv_4_2.delete('1.0',END)
+                                    bu_inv_4_2.insert('1.0',inv_se_3[16])
+                                    bu_inv_4_3.delete(0,END)
+                                    bu_inv_4_3.insert(0,round(inv_se_3[24],2))
+                                    bu_inv_4_4.delete(0,END)
+                                    bu_inv_4_4.insert(0,inv_se_3[20])
+                                    bu_inv_4_5.delete(0,END)
+                                    bu_inv_4_5.insert(0,round(inv_se_3[28],2))
+                                    bu_inv_4_6.delete(0,END)
+                                    bu_inv_4_6.insert(0,inv_se_3[32])
+                                    
+                                else:
+                                    pass
+
+                            def i_details_3(event):
+                                inv_to_str_3 = ai_comb_p_3.get()
+
+                                sql = "select * from app1_inventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_3,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_s_1 = fbcursor.fetchone()
+
+                                sql = "select * from app1_noninventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_3,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_s_2 = fbcursor.fetchone()
+
+                                sql = "select * from app1_bundle where name=%s and cid_id=%s"
+                                val = (inv_to_str_3,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_s_3 = fbcursor.fetchone() 
+
+                                if inv_s_1 is not None:
+                                    
+                                    ai_entry_3.delete(0,END)
+                                    ai_entry_3.insert(0,inv_s_1[4])
+                                    ai_entry_3_1.delete('1.0',END)
+                                    ai_entry_3_1.insert('1.0',inv_s_1[11])
+                                    ai_entry_3_3.delete(0,END)
+                                    ai_entry_3_3.insert(0,round(float(inv_s_1[12]),2))
+                                    ai_comb_P_3_2.delete(0,'end')
+                                    ai_comb_P_3_2.insert(0, inv_s_1[14])
+                                    inv_canvas_1.itemconfig('aientry18',state='normal')
+                                    inv_canvas_1.itemconfig('aientry21',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo10',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_s_2 is not None:
+                                    
+                                    ai_entry_3.delete(0,END)
+                                    ai_entry_3.insert(0,inv_s_2[4])
+                                    ai_entry_3_1.delete('1.0',END)
+                                    ai_entry_3_1.insert('1.0',inv_s_2[7])
+                                    ai_entry_3_3.delete(0,END)
+                                    ai_entry_3_3.insert(0,round(float(inv_s_2[8]),2))
+                                    ai_comb_P_3_2.delete(0,'end')
+                                    ai_comb_P_3_2.insert(0, inv_s_2[10])
+                                    inv_canvas_1.itemconfig('aientry18',state='normal')
+                                    inv_canvas_1.itemconfig('aientry21',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo10',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_s_3 is not None:
+                                    
+                                    ai_entry_3.delete(0,END)
+                                    ai_entry_3.insert(0,inv_s_3[3])
+                                    ai_entry_3_1.delete('1.0',END)
+                                    ai_entry_3_1.insert('1.0',inv_s_3[4])
+                                    inv_canvas_1.itemconfig('aientry18',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry21',state='hidden')
+                                    inv_canvas_1.itemconfig('aicombo10',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='normal')
+                                    inv_canvas_1.itemconfig('ailine26',state='normal')
+                                    inv_canvas_1.itemconfig('ailine27',state='normal')
+                                    inv_canvas_1.itemconfig('ailine28',state='normal')
+                                    inv_canvas_1.itemconfig('ailine29',state='normal')
+                                    inv_canvas_1.itemconfig('ailine30',state='normal')
+                                    inv_canvas_1.itemconfig('ailine31',state='normal')
+                                    inv_canvas_1.itemconfig('ailine32',state='normal')
+                                    inv_canvas_1.itemconfig('ailine33',state='normal')
+                                    inv_canvas_1.itemconfig('ailine34',state='normal')
+                                    inv_canvas_1.itemconfig('ailine35',state='normal')
+                                    inv_canvas_1.itemconfig('ailine36',state='normal')
+                                    inv_canvas_1.itemconfig('ailine37',state='normal')
+                                    inv_canvas_1.itemconfig('ailine38',state='normal')
+                                    inv_canvas_1.itemconfig('ailine39',state='normal')
+                                    inv_canvas_1.itemconfig('ailine40',state='normal')
+                                    inv_canvas_1.itemconfig('ailine41',state='normal')
+                                    inv_canvas_1.itemconfig('ailine42',state='normal')
+                                    inv_canvas_1.itemconfig('ailine43',state='normal')
+                                    inv_canvas_1.itemconfig('ailine44',state='normal')
+                                    inv_canvas_1.itemconfig('ailine45',state='normal')
+                                    inv_canvas_1.itemconfig('ailine46',state='normal')
+                                    inv_canvas_1.itemconfig('bient1',state='normal')
+                                    inv_canvas_1.itemconfig('bient5',state='normal')
+                                    inv_canvas_1.itemconfig('bient9',state='normal')
+                                    inv_canvas_1.itemconfig('bient13',state='normal')
+                                    inv_canvas_1.itemconfig('bient17',state='normal')
+                                    inv_canvas_1.itemconfig('bient21',state='normal')
+                                    inv_canvas_1.itemconfig('bient25',state='normal')
+                                    inv_canvas_1.itemconfig('bient2',state='normal')
+                                    inv_canvas_1.itemconfig('bient6',state='normal')
+                                    inv_canvas_1.itemconfig('bient10',state='normal')
+                                    inv_canvas_1.itemconfig('bient14',state='normal')
+                                    inv_canvas_1.itemconfig('bient18',state='normal')
+                                    inv_canvas_1.itemconfig('bient22',state='normal')
+                                    inv_canvas_1.itemconfig('bient26',state='normal')
+                                    inv_canvas_1.itemconfig('bient3',state='normal')
+                                    inv_canvas_1.itemconfig('bient7',state='normal')
+                                    inv_canvas_1.itemconfig('bient11',state='normal')
+                                    inv_canvas_1.itemconfig('bient15',state='normal')
+                                    inv_canvas_1.itemconfig('bient19',state='normal')
+                                    inv_canvas_1.itemconfig('bient23',state='normal')
+                                    inv_canvas_1.itemconfig('bient27',state='normal')
+                                    inv_canvas_1.itemconfig('bient4',state='normal')
+                                    inv_canvas_1.itemconfig('bient8',state='normal')
+                                    inv_canvas_1.itemconfig('bient12',state='normal')
+                                    inv_canvas_1.itemconfig('bient16',state='normal')
+                                    inv_canvas_1.itemconfig('bient20',state='normal')
+                                    inv_canvas_1.itemconfig('bient24',state='normal')
+                                    inv_canvas_1.itemconfig('bient28',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl1',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl2',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl3',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl4',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl5',state='normal')
+                                    inv_canvas_1.itemconfig('bient29',state='normal')
+                                    inv_canvas_1.itemconfig('bient30',state='normal')
+                                    inv_canvas_1.itemconfig('bient31',state='normal')
+                                    inv_canvas_1.itemconfig('bient32',state='normal')
+                                    inv_canvas_1.itemconfig('bient33',state='normal')
+                                    inv_canvas_1.itemconfig('bbutn1',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine17',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine18',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine19',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine20',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine21',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine22',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel27',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry23',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry24',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry25',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry26',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry27',state='hidden')
+                                    inv_canvas_1.itemconfig('aibutton2',state='hidden')
+
+                                    bu_inv_1.delete(0,END)
+                                    bu_inv_1.insert(0,inv_s_3[5])
+                                    bu_inv_1_1.delete(0,END)
+                                    bu_inv_1_1.insert(0,inv_s_3[9])
+                                    bu_inv_1_2.delete('1.0',END)
+                                    bu_inv_1_2.insert('1.0',inv_s_3[13])
+                                    bu_inv_1_3.delete(0,END)
+                                    bu_inv_1_3.insert(0,round(inv_s_3[21],2))
+                                    bu_inv_1_4.delete(0,END)
+                                    bu_inv_1_4.insert(0,inv_s_3[17])
+                                    bu_inv_1_5.delete(0,END)
+                                    bu_inv_1_5.insert(0,round(inv_s_3[25],2))
+                                    bu_inv_1_6.delete(0,END)
+                                    bu_inv_1_6.insert(0,inv_s_3[29])
+                                    bu_inv_2.delete(0,END)
+                                    bu_inv_2.insert(0,inv_s_3[6])
+                                    bu_inv_2_1.delete(0,END)
+                                    bu_inv_2_1.insert(0,inv_s_3[10])
+                                    bu_inv_2_2.delete('1.0',END)
+                                    bu_inv_2_2.insert('1.0',inv_s_3[14])
+                                    bu_inv_2_3.delete(0,END)
+                                    bu_inv_2_3.insert(0,round(inv_s_3[22],2))
+                                    bu_inv_2_4.delete(0,END)
+                                    bu_inv_2_4.insert(0,inv_s_3[18])
+                                    bu_inv_2_5.delete(0,END)
+                                    bu_inv_2_5.insert(0,round(inv_s_3[26],2))
+                                    bu_inv_2_6.delete(0,END)
+                                    bu_inv_2_6.insert(0,inv_s_3[30])
+                                    bu_inv_3.delete(0,END)
+                                    bu_inv_3.insert(0,inv_s_3[7])
+                                    bu_inv_3_1.delete(0,END)
+                                    bu_inv_3_1.insert(0,inv_s_3[11])
+                                    bu_inv_3_2.delete('1.0',END)
+                                    bu_inv_3_2.insert('1.0',inv_s_3[15])
+                                    bu_inv_3_3.delete(0,END)
+                                    bu_inv_3_3.insert(0,round(inv_s_3[23],2))
+                                    bu_inv_3_4.delete(0,END)
+                                    bu_inv_3_4.insert(0,inv_s_3[19])
+                                    bu_inv_3_5.delete(0,END)
+                                    bu_inv_3_5.insert(0,round(inv_s_3[27],2))
+                                    bu_inv_3_6.delete(0,END)
+                                    bu_inv_3_6.insert(0,inv_s_3[31])
+                                    bu_inv_4.delete(0,END)
+                                    bu_inv_4.insert(0,inv_s_3[8])
+                                    bu_inv_4_1.delete(0,END)
+                                    bu_inv_4_1.insert(0,inv_s_3[12])
+                                    bu_inv_4_2.delete('1.0',END)
+                                    bu_inv_4_2.insert('1.0',inv_s_3[16])
+                                    bu_inv_4_3.delete(0,END)
+                                    bu_inv_4_3.insert(0,round(inv_s_3[24],2))
+                                    bu_inv_4_4.delete(0,END)
+                                    bu_inv_4_4.insert(0,inv_s_3[20])
+                                    bu_inv_4_5.delete(0,END)
+                                    bu_inv_4_5.insert(0,round(inv_s_3[28],2))
+                                    bu_inv_4_6.delete(0,END)
+                                    bu_inv_4_6.insert(0,inv_s_3[32])
+                                    
+                                else:
+                                    pass
+
+                            def i_details_4(event):
+                                inv_to_str_4 = ai_comb_p_4.get()
+
+                                sql = "select * from app1_inventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_4,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_ss_1 = fbcursor.fetchone()
+
+                                sql = "select * from app1_noninventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_4,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_ss_2 = fbcursor.fetchone()
+
+                                sql = "select * from app1_bundle where name=%s and cid_id=%s"
+                                val = (inv_to_str_4,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_ss_3 = fbcursor.fetchone() 
+
+                                if inv_ss_1 is not None:
+                                    
+                                    ai_entry_4.delete(0,END)
+                                    ai_entry_4.insert(0,inv_ss_1[4])
+                                    ai_entry_4_1.delete('1.0',END)
+                                    ai_entry_4_1.insert('1.0',inv_ss_1[11])
+                                    ai_entry_4_3.delete(0,END)
+                                    ai_entry_4_3.insert(0,round(float(inv_ss_1[12]),2))
+                                    ai_comb_P_4_2.delete(0,'end')
+                                    ai_comb_P_4_2.insert(0, inv_ss_1[14])
+                                    inv_canvas_1.itemconfig('aientry19',state='normal')
+                                    inv_canvas_1.itemconfig('aientry22',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo11',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_ss_2 is not None:
+                                    
+                                    ai_entry_4.delete(0,END)
+                                    ai_entry_4.insert(0,inv_ss_2[4])
+                                    ai_entry_4_1.delete('1.0',END)
+                                    ai_entry_4_1.insert('1.0',inv_ss_2[7])
+                                    ai_entry_4_3.delete(0,END)
+                                    ai_entry_4_3.insert(0,round(float(inv_ss_2[8]),2))
+                                    ai_comb_P_4_2.delete(0,'end')
+                                    ai_comb_P_4_2.insert(0, inv_ss_2[10])
+                                    inv_canvas_1.itemconfig('aientry19',state='normal')
+                                    inv_canvas_1.itemconfig('aientry22',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo11',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_ss_3 is not None:
+                                    
+                                    ai_entry_4.delete(0,END)
+                                    ai_entry_4.insert(0,inv_ss_3[3])
+                                    ai_entry_4_1.delete('1.0',END)
+                                    ai_entry_4_1.insert('1.0',inv_ss_3[4])
+                                    inv_canvas_1.itemconfig('aientry19',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry22',state='hidden')
+                                    inv_canvas_1.itemconfig('aicombo11',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='normal')
+                                    inv_canvas_1.itemconfig('ailine26',state='normal')
+                                    inv_canvas_1.itemconfig('ailine27',state='normal')
+                                    inv_canvas_1.itemconfig('ailine28',state='normal')
+                                    inv_canvas_1.itemconfig('ailine29',state='normal')
+                                    inv_canvas_1.itemconfig('ailine30',state='normal')
+                                    inv_canvas_1.itemconfig('ailine31',state='normal')
+                                    inv_canvas_1.itemconfig('ailine32',state='normal')
+                                    inv_canvas_1.itemconfig('ailine33',state='normal')
+                                    inv_canvas_1.itemconfig('ailine34',state='normal')
+                                    inv_canvas_1.itemconfig('ailine35',state='normal')
+                                    inv_canvas_1.itemconfig('ailine36',state='normal')
+                                    inv_canvas_1.itemconfig('ailine37',state='normal')
+                                    inv_canvas_1.itemconfig('ailine38',state='normal')
+                                    inv_canvas_1.itemconfig('ailine39',state='normal')
+                                    inv_canvas_1.itemconfig('ailine40',state='normal')
+                                    inv_canvas_1.itemconfig('ailine41',state='normal')
+                                    inv_canvas_1.itemconfig('ailine42',state='normal')
+                                    inv_canvas_1.itemconfig('ailine43',state='normal')
+                                    inv_canvas_1.itemconfig('ailine44',state='normal')
+                                    inv_canvas_1.itemconfig('ailine45',state='normal')
+                                    inv_canvas_1.itemconfig('ailine46',state='normal')
+                                    inv_canvas_1.itemconfig('bient1',state='normal')
+                                    inv_canvas_1.itemconfig('bient5',state='normal')
+                                    inv_canvas_1.itemconfig('bient9',state='normal')
+                                    inv_canvas_1.itemconfig('bient13',state='normal')
+                                    inv_canvas_1.itemconfig('bient17',state='normal')
+                                    inv_canvas_1.itemconfig('bient21',state='normal')
+                                    inv_canvas_1.itemconfig('bient25',state='normal')
+                                    inv_canvas_1.itemconfig('bient2',state='normal')
+                                    inv_canvas_1.itemconfig('bient6',state='normal')
+                                    inv_canvas_1.itemconfig('bient10',state='normal')
+                                    inv_canvas_1.itemconfig('bient14',state='normal')
+                                    inv_canvas_1.itemconfig('bient18',state='normal')
+                                    inv_canvas_1.itemconfig('bient22',state='normal')
+                                    inv_canvas_1.itemconfig('bient26',state='normal')
+                                    inv_canvas_1.itemconfig('bient3',state='normal')
+                                    inv_canvas_1.itemconfig('bient7',state='normal')
+                                    inv_canvas_1.itemconfig('bient11',state='normal')
+                                    inv_canvas_1.itemconfig('bient15',state='normal')
+                                    inv_canvas_1.itemconfig('bient19',state='normal')
+                                    inv_canvas_1.itemconfig('bient23',state='normal')
+                                    inv_canvas_1.itemconfig('bient27',state='normal')
+                                    inv_canvas_1.itemconfig('bient4',state='normal')
+                                    inv_canvas_1.itemconfig('bient8',state='normal')
+                                    inv_canvas_1.itemconfig('bient12',state='normal')
+                                    inv_canvas_1.itemconfig('bient16',state='normal')
+                                    inv_canvas_1.itemconfig('bient20',state='normal')
+                                    inv_canvas_1.itemconfig('bient24',state='normal')
+                                    inv_canvas_1.itemconfig('bient28',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl1',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl2',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl3',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl4',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl5',state='normal')
+                                    inv_canvas_1.itemconfig('bient29',state='normal')
+                                    inv_canvas_1.itemconfig('bient30',state='normal')
+                                    inv_canvas_1.itemconfig('bient31',state='normal')
+                                    inv_canvas_1.itemconfig('bient32',state='normal')
+                                    inv_canvas_1.itemconfig('bient33',state='normal')
+                                    inv_canvas_1.itemconfig('bbutn1',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine17',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine18',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine19',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine20',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine21',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine22',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel27',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry23',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry24',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry25',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry26',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry27',state='hidden')
+                                    inv_canvas_1.itemconfig('aibutton2',state='hidden')
+
+                                    bu_inv_1.delete(0,END)
+                                    bu_inv_1.insert(0,inv_ss_3[5])
+                                    bu_inv_1_1.delete(0,END)
+                                    bu_inv_1_1.insert(0,inv_ss_3[9])
+                                    bu_inv_1_2.delete('1.0',END)
+                                    bu_inv_1_2.insert('1.0',inv_ss_3[13])
+                                    bu_inv_1_3.delete(0,END)
+                                    bu_inv_1_3.insert(0,round(inv_ss_3[21],2))
+                                    bu_inv_1_4.delete(0,END)
+                                    bu_inv_1_4.insert(0,inv_ss_3[17])
+                                    bu_inv_1_5.delete(0,END)
+                                    bu_inv_1_5.insert(0,round(inv_ss_3[25],2))
+                                    bu_inv_1_6.delete(0,END)
+                                    bu_inv_1_6.insert(0,inv_ss_3[29])
+                                    bu_inv_2.delete(0,END)
+                                    bu_inv_2.insert(0,inv_ss_3[6])
+                                    bu_inv_2_1.delete(0,END)
+                                    bu_inv_2_1.insert(0,inv_ss_3[10])
+                                    bu_inv_2_2.delete('1.0',END)
+                                    bu_inv_2_2.insert('1.0',inv_ss_3[14])
+                                    bu_inv_2_3.delete(0,END)
+                                    bu_inv_2_3.insert(0,round(inv_ss_3[22],2))
+                                    bu_inv_2_4.delete(0,END)
+                                    bu_inv_2_4.insert(0,inv_ss_3[18])
+                                    bu_inv_2_5.delete(0,END)
+                                    bu_inv_2_5.insert(0,round(inv_ss_3[26],2))
+                                    bu_inv_2_6.delete(0,END)
+                                    bu_inv_2_6.insert(0,inv_ss_3[30])
+                                    bu_inv_3.delete(0,END)
+                                    bu_inv_3.insert(0,inv_ss_3[7])
+                                    bu_inv_3_1.delete(0,END)
+                                    bu_inv_3_1.insert(0,inv_ss_3[11])
+                                    bu_inv_3_2.delete('1.0',END)
+                                    bu_inv_3_2.insert('1.0',inv_ss_3[15])
+                                    bu_inv_3_3.delete(0,END)
+                                    bu_inv_3_3.insert(0,round(inv_ss_3[23],2))
+                                    bu_inv_3_4.delete(0,END)
+                                    bu_inv_3_4.insert(0,inv_ss_3[19])
+                                    bu_inv_3_5.delete(0,END)
+                                    bu_inv_3_5.insert(0,round(inv_ss_3[27],2))
+                                    bu_inv_3_6.delete(0,END)
+                                    bu_inv_3_6.insert(0,inv_ss_3[31])
+                                    bu_inv_4.delete(0,END)
+                                    bu_inv_4.insert(0,inv_ss_3[8])
+                                    bu_inv_4_1.delete(0,END)
+                                    bu_inv_4_1.insert(0,inv_ss_3[12])
+                                    bu_inv_4_2.delete('1.0',END)
+                                    bu_inv_4_2.insert('1.0',inv_ss_3[16])
+                                    bu_inv_4_3.delete(0,END)
+                                    bu_inv_4_3.insert(0,round(inv_ss_3[24],2))
+                                    bu_inv_4_4.delete(0,END)
+                                    bu_inv_4_4.insert(0,inv_ss_3[20])
+                                    bu_inv_4_5.delete(0,END)
+                                    bu_inv_4_5.insert(0,round(inv_ss_3[28],2))
+                                    bu_inv_4_6.delete(0,END)
+                                    bu_inv_4_6.insert(0,inv_ss_3[32])
+                                    
+                                else:
+                                    pass
+                                
+                                
+
+                            sql_i="select * from auth_user where username=%s"
+                            val_i=(nm_ent.get(),)
+                            fbcursor.execute(sql_i,val_i,)
+                            p_dtl=fbcursor.fetchone()
+
+                            sql = "select * from app1_company where id_id=%s"
+                            val = (p_dtl[0],)
+                            fbcursor.execute(sql, val,)
+                            cmp_dtl_i=fbcursor.fetchone()
+                            
+
+                            i_sql = "SELECT name FROM app1_inventory where cid_id=%s"
+                            i_val = (cmp_dtl_i[0],)
+                            fbcursor.execute(i_sql,i_val)
+                            i_data = fbcursor.fetchall()
+                            
+                            ii_sql = "SELECT name FROM app1_noninventory where cid_id=%s"
+                            ii_val = (cmp_dtl_i[0],)
+                            fbcursor.execute(ii_sql,ii_val)
+                            ii_data = fbcursor.fetchall()
+
+                            iii_sql = "SELECT name FROM app1_bundle where cid_id=%s"
+                            iii_val = (cmp_dtl_i[0],)
+                            fbcursor.execute(iii_sql,iii_val)
+                            iii_data = fbcursor.fetchall()
+
+                            inv_data = []   
+                            
+                            for i in i_data:
+                                inv_data.append(i[0])
+                            for i in ii_data:
+                                inv_data.append(i[0])
+                            for i in iii_data:
+                                inv_data.append(i[0])
+
+                            label_2 = Label(inv_canvas_1,width=2,height=1,text="1", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(90, 1020, anchor="nw", window=label_2,tags=('ailabel19'))
+
+                            ai_comb_p_1 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data)
+                            window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_1,tags=('aicombo4'))
+                            ai_comb_p_1.bind("<<ComboboxSelected>>",i_details_1)
+
+                            ai_entry_p_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1,tags=('aientry3'))
+
+                            ai_entry_p_1_2=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_2,tags=('aientry4'))
+
+                            
+
+                            ai_entry_p_1_4=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_4,tags=('aientry6'))
+
+                            def multiply_num_i1(event):
+                                num1= float(ai_entry_p_1_3.get())
+                                num2= float(ai_entry_p_1_4.get())
+                                mul_i= round(num1 * num2,2)
+                                ai_entry_p_1_5.delete(0, END)
+                                ai_entry_p_1_5.insert(0,mul_i)
+
+                                
+                                try:
+                                    n1 = float(en_str_1.get())
+                                except:
+                                    n1=0.0
+                                try:
+                                    n2 = float(en_str_2.get())
+                                except:
+                                    n2 = 0.0
+                                try:
+                                    n3 = float(en_str_3.get())
+                                except:
+                                    n3 = 0.0
+                                try:
+                                    n4 = float(en_str_4.get())
+                                except:
+                                    n4 = 0.0
+                                
+                                sum_i = n1+n2+n3+n4
+                                sub_entry_1.delete(0, END)
+                                sub_entry_1.insert(0,round(sum_i,2))
+                            
+
+                                global t1,t2,t3,t4
+                                if ai_comb_p_1_2.get() == '28.0% GST (28%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(28/100)
+                                elif ai_comb_p_1_2.get() == '28.0% IGST (28%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(28/100)
+                                elif ai_comb_p_1_2.get() == '18.0% GST (18%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(18/100)
+                                elif ai_comb_p_1_2.get() == '18.0% IGST (18%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(18/100)
+                                elif ai_comb_p_1_2.get() == '15.0% ST (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(15/100)
+                                elif ai_comb_p_1_2.get() == '14.5% ST (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(14.5/100)
+                                elif ai_comb_p_1_2.get() == '14.00% ST (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(14/100)
+                                elif ai_comb_p_1_2.get() == '14.0% VAT (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(14/100)
+                                elif ai_comb_p_1_2.get() == '12.36% ST (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(12.36/100)
+                                elif ai_comb_p_1_2.get() == '12.0% GST (12%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(12/100)
+                                elif ai_comb_p_1_2.get() == '12.0% IGST (12%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(12/100)
+                                elif ai_comb_p_1_2.get() == '6.0% GST (6%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(6/100)
+                                elif ai_comb_p_1_2.get() == '6.0% IGST (6%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(6/100)
+                                elif ai_comb_p_1_2.get() == '5.0% GST (5%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(5/100)
+                                elif ai_comb_p_1_2.get() == '5.0% IGST (5%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(5/100)
+                                elif ai_comb_p_1_2.get() == '5.0% VAT (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(5/100)
+                                elif ai_comb_p_1_2.get() == '4.0% VAT (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(4/100)
+                                elif ai_comb_p_1_2.get() == '3.0% GST (3%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(3/100)
+                                elif ai_comb_p_1_2.get() == '3.0% IGST (3%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(3/100)
+                                elif ai_comb_p_1_2.get() == '2.0% CST (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(2/100)
+                                elif ai_comb_p_1_2.get() == '0.25% GST (O.25%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0.25/100)
+                                elif ai_comb_p_1_2.get() == '0.25% IGST (0.25%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0.25/100)
+                                elif ai_comb_p_1_2.get() == '0% GST (0%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0/100)
+                                elif ai_comb_p_1_2.get() == '0% IGST (0%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0/100)
+                                elif ai_comb_p_1_2.get() == 'Exempt GST (0%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0/100)
+                                elif ai_comb_p_1_2.get() == 'Exempt IGST (0%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0/100)
+                                elif ai_comb_p_1_2.get() == 'Out of Scope(0%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0/100)
+                                else:
+                                    pass
+
+                                try:
+                                    tm1  = t1
+                                except:
+                                    pass
+                                try:
+                                    tm2 = t2
+                                except:
+                                    tm2 = 0.0
+                                try:
+                                    tm3 = t3
+                                except:
+                                    tm3 = 0.0
+                                try:
+                                    tm4  = t4
+                                except:
+                                    tm4 = 0.0
+                                
+                                
+                                sum_ii = tm1+tm2+tm3+tm4
+                                tax_entry_1.delete(0, END)
+                                tax_entry_1.insert(0,round(sum_ii,2))
+
+                                try:
+                                    m1 = float(sub_str.get())
+                                except:
+                                    m1 =0.0
+                                try:
+                                    m2 = float(tax_str.get())
+                                except:
+                                    m2 =0.0
+
+                                sum_iii = m1+m2
+                                grand_entry_1.delete(0, END)
+                                grand_entry_1.insert(0,round(sum_iii,2))
+
+
+                                try:
+                                    x1 = float(grd_str.get())
+                                except:
+                                    x1 = 0.0
+                                try:
+                                    x2 = float(amount_entry_1.get())
+                                except:
+                                    x2 = 0.0
+                                sum_iv = x1-x2
+                                bal_entry_1.delete(0, END)
+                                bal_entry_1.insert(0,round(sum_iv,2))
+
+                                
+                            ai_entry_p_1_3=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_3,tags=('aientry5'))
+                            ai_entry_p_1_3.bind("<Button-1>",multiply_num_i1)
+                                
+                            en_str_1 = StringVar()
+                            ai_entry_p_1_5=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_5,tags=('aientry7'))
+                            
+
+
+                            ai_comb_p_1_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            ai_comb_p_1_2['values'] = ("Choose","28.0%\n GST(28%)","18.0%\n GST(18%)","12.0%\n GST(12%)","06.0%\n GST(06%)","05.0%\n GST(05%)","03.0%\n GST(03%)","0.25%\n GST(0.25%)","0.0%\n GST(0%)","Exempt GST(0%)","Out of Scope(0%)",)
+                            ai_comb_p_1_2.current(0)
+                            window_ai_comb_p_1_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_p_1_2,tags=('aicombo5'))
+
+
+                            label_2 = Label(inv_canvas_1,width=2,height=1,text="2", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel20'))
+
+                            ai_comb_p_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data)
+                            window_ai_comb_p_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_2,tags=('aicombo6'))
+                            ai_comb_p_2.bind("<<ComboboxSelected>>",i_details_2)
+
+                            ai_entry_p_2=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_2,tags=('aientry8'))
+
+                            ai_entry_p_2_1=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
+                            window_ai_entry_p_2_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_2_1,tags=('aientry11'))
+
+                            
+
+                            ai_entry_2_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_2_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_3,tags=('aientry17'))
+
+                            def multiply_num_i2(event):
+                                num1= float(ai_entry_2_2.get())
+                                num2= float(ai_entry_2_3.get())
+                                mul_i= round(num1 * num2,2)
+                                ai_entry_2_4.delete(0, END)
+                                ai_entry_2_4.insert(0,mul_i)
+
+                                
+                                try:
+                                    n1 = float(en_str_1.get())
+                                except:
+                                    n1=0.0
+                                try:
+                                    n2 = float(en_str_2.get())
+                                except:
+                                    n2 = 0.0
+                                try:
+                                    n3 = float(en_str_3.get())
+                                except:
+                                    n3 = 0.0
+                                try:
+                                    n4 = float(en_str_4.get())
+                                except:
+                                    n4 = 0.0
+                                
+                                sum_i = n1+n2+n3+n4
+                                sub_entry_1.delete(0, END)
+                                sub_entry_1.insert(0,round(sum_i,2))
+                                
+
+                                global t1,t2,t3,t4
+                                if ai_comb_P_2_2.get() == '28.0% GST (28%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(28/100)
+                                elif ai_comb_P_2_2.get() == '28.0% IGST (28%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(28/100)
+                                elif ai_comb_P_2_2.get() == '18.0% GST (18%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(18/100)
+                                elif ai_comb_P_2_2.get() == '18.0% IGST (18%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(18/100)
+                                elif ai_comb_P_2_2.get() == '15.0% ST (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(15/100)
+                                elif ai_comb_P_2_2.get() == '14.5% ST (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(14.5/100)
+                                elif ai_comb_P_2_2.get() == '14.00% ST (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(14/100)
+                                elif ai_comb_P_2_2.get() == '14.0% VAT (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(14/100)
+                                elif ai_comb_P_2_2.get() == '12.36% ST (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(12.36/100)
+                                elif ai_comb_P_2_2.get() == '12.0% GST (12%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(12/100)
+                                elif ai_comb_P_2_2.get() == '12.0% IGST (12%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(12/100)
+                                elif ai_comb_P_2_2.get() == '6.0% GST (6%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(6/100)
+                                elif ai_comb_P_2_2.get() == '6.0% IGST (6%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(6/100)
+                                elif ai_comb_P_2_2.get() == '5.0% GST (5%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(5/100)
+                                elif ai_comb_P_2_2.get() == '5.0% IGST (5%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(5/100)
+                                elif ai_comb_P_2_2.get() == '5.0% VAT (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(5/100)
+                                elif ai_comb_P_2_2.get() == '4.0% VAT (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(4/100)
+                                elif ai_comb_P_2_2.get() == '3.0% GST (3%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(3/100)
+                                elif ai_comb_P_2_2.get() == '3.0% IGST (3%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(3/100)
+                                elif ai_comb_P_2_2.get() == '2.0% CST (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(2/100)
+                                elif ai_comb_P_2_2.get() == '0.25% GST (O.25%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0.25/100)
+                                elif ai_comb_P_2_2.get() == '0.25% IGST (0.25%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0.25/100)
+                                elif ai_comb_P_2_2.get() == '0% GST (0%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0/100)
+                                elif ai_comb_P_2_2.get() == '0% IGST (0%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0/100)
+                                elif ai_comb_P_2_2.get() == 'Exempt GST (0%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0/100)
+                                elif ai_comb_P_2_2.get() == 'Exempt IGST (0%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0/100)
+                                elif ai_comb_P_2_2.get() == 'Out of Scope(0%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0/100)
+                                else:
+                                    pass
+
+                                try:
+                                    tm1  = t1
+                                except:
+                                    pass
+                                try:
+                                    tm2 = t2
+                                except:
+                                    pass
+                                try:
+                                    tm3 = t3
+                                except:
+                                    tm3 = 0.0
+                                try:
+                                    tm4  = t4
+                                except:
+                                    tm4 = 0.0
+                                
+                                
+                                sum_ii = tm1+tm2+tm3+tm4
+                                tax_entry_1.delete(0, END)
+                                tax_entry_1.insert(0,round(sum_ii,2))
+
+                                try:
+                                    m1 = float(sub_str.get())
+                                except:
+                                    m1 =0.0
+                                try:
+                                    m2 = float(tax_str.get())
+                                except:
+                                    m2 =0.0
+
+                                sum_iii = m1+m2
+                                grand_entry_1.delete(0, END)
+                                grand_entry_1.insert(0,round(sum_iii,2))
+
+                                try:
+                                    x1 = float(grd_str.get())
+                                except:
+                                    x1 = 0.0
+                                try:
+                                    x2 = float(amount_entry_1.get())
+                                except:
+                                    x2 = 0.0
+                                sum_iv = x1-x2
+                                bal_entry_1.delete(0, END)
+                                bal_entry_1.insert(0,round(sum_iv,2))
+
+                            ai_entry_2_2=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_2_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_2,tags=('aientry14'))
+                            ai_entry_2_2.bind("<Button-1>",multiply_num_i2)
+            
+                            en_str_2 = StringVar()
+                            ai_entry_2_4=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_2)
+                            window_ai_entry_2_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_4,tags=('aientry20'))
+                            
+
+                            ai_comb_P_2_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            ai_comb_P_2_2['values'] = ("Choose","28.0%\n GST(28%)","18.0%\n GST(18%)","12.0%\n GST(12%)","06.0%\n GST(06%)","05.0%\n GST(05%)","03.0%\n GST(03%)","0.25%\n GST(0.25%)","0.0%\n GST(0%)","Exempt GST(0%)","Out of Scope(0%)",)
+                            ai_comb_P_2_2.current(0)
+                            window_ai_comb_P_2_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_P_2_2,tags=('aicombo9'))
+
+
+                            label_2 = Label(inv_canvas_1,width=2,height=1,text="3", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel21'))
+
+                            ai_comb_p_3 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data)
+                            window_ai_comb_p_3 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_3,tags=('aicombo7'))
+                            ai_comb_p_3.bind("<<ComboboxSelected>>",i_details_3)
+
+                            ai_entry_3=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3,tags=('aientry9'))
+
+                            ai_entry_3_1=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
+                            window_ai_entry_3_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_1,tags=('aientry12'))
+
+                            
+
+                            ai_entry_3_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_3_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_3,tags=('aientry18'))
+
+                            def multiply_num_i3(event):
+                                num1= float(ai_entry_3_2.get())
+                                num2= float(ai_entry_3_3.get())
+                                mul_i= round(num1 * num2,2)
+                                ai_entry_3_4.delete(0, END)
+                                ai_entry_3_4.insert(0,mul_i)
+
+                                
+                                try:
+                                    n1 = float(en_str_1.get())
+                                except:
+                                    n1=0.0
+                                try:
+                                    n2 = float(en_str_2.get())
+                                except:
+                                    n2 = 0.0
+                                try:
+                                    n3 = float(en_str_3.get())
+                                except:
+                                    n3 = 0.0
+                                try:
+                                    n4 = float(en_str_4.get())
+                                except:
+                                    n4 = 0.0
+                                
+                                sum_i = n1+n2+n3+n4
+                                sub_entry_1.delete(0, END)
+                                sub_entry_1.insert(0,round(sum_i,2))
+                                
+                                global t1,t2,t3,t4
+                                if ai_comb_P_3_2.get() == '28.0% GST (28%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(28/100)
+                                elif ai_comb_P_3_2.get() == '28.0% IGST (28%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(28/100)
+                                elif ai_comb_P_3_2.get() == '18.0% GST (18%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(18/100)
+                                elif ai_comb_P_3_2.get() == '18.0% IGST (18%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(18/100)
+                                elif ai_comb_P_3_2.get() == '15.0% ST (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(15/100)
+                                elif ai_comb_P_3_2.get() == '14.5% ST (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(14.5/100)
+                                elif ai_comb_P_3_2.get() == '14.00% ST (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(14/100)
+                                elif ai_comb_P_3_2.get() == '14.0% VAT (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(14/100)
+                                elif ai_comb_P_3_2.get() == '12.36% ST (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(12.36/100)
+                                elif ai_comb_P_3_2.get() == '12.0% GST (12%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(12/100)
+                                elif ai_comb_P_3_2.get() == '12.0% IGST (12%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(12/100)
+                                elif ai_comb_P_3_2.get() == '6.0% GST (6%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(6/100)
+                                elif ai_comb_P_3_2.get() == '6.0% IGST (6%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(6/100)
+                                elif ai_comb_P_3_2.get() == '5.0% GST (5%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(5/100)
+                                elif ai_comb_P_3_2.get() == '5.0% IGST (5%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(5/100)
+                                elif ai_comb_P_3_2.get() == '5.0% VAT (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(5/100)
+                                elif ai_comb_P_3_2.get() == '4.0% VAT (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(4/100)
+                                elif ai_comb_P_3_2.get() == '3.0% GST (3%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(3/100)
+                                elif ai_comb_P_3_2.get() == '3.0% IGST (3%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(3/100)
+                                elif ai_comb_P_3_2.get() == '2.0% CST (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(2/100)
+                                elif ai_comb_P_3_2.get() == '0.25% GST (O.25%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0.25/100)
+                                elif ai_comb_P_3_2.get() == '0.25% IGST (0.25%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0.25/100)
+                                elif ai_comb_P_3_2.get() == '0% GST (0%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0/100)
+                                elif ai_comb_P_3_2.get() == '0% IGST (0%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0/100)
+                                elif ai_comb_P_3_2.get() == 'Exempt GST (0%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0/100)
+                                elif ai_comb_P_3_2.get() == 'Exempt IGST (0%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0/100)
+                                elif ai_comb_P_3_2.get() == 'Out of Scope(0%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0/100)
+                                else:
+                                    pass
+
+                                try:
+                                    tm1  = t1
+                                except:
+                                    pass
+                                try:
+                                    tm2 = t2
+                                except:
+                                    pass
+                                try:
+                                    tm3 = t3
+                                except:
+                                    pass
+                                try:
+                                    tm4  = t4
+                                except:
+                                    tm4 = 0.0
+                                
+                                
+                                sum_ii = tm1+tm2+tm3+tm4
+                                tax_entry_1.delete(0, END)
+                                tax_entry_1.insert(0,round(sum_ii,2))
+
+                                try:
+                                    m1 = float(sub_str.get())
+                                except:
+                                    m1 =0.0
+                                try:
+                                    m2 = float(tax_str.get())
+                                except:
+                                    m2 =0.0
+
+                                sum_iii = m1+m2
+                                grand_entry_1.delete(0, END)
+                                grand_entry_1.insert(0,round(sum_iii,2))
+
+                                try:
+                                    x1 = float(grd_str.get())
+                                except:
+                                    x1 = 0.0
+                                try:
+                                    x2 = float(amount_entry_1.get())
+                                except:
+                                    x2 = 0.0
+                                sum_iv = x1-x2
+                                bal_entry_1.delete(0, END)
+                                bal_entry_1.insert(0,round(sum_iv,2))
+
+                                
+                            en_str_3 = StringVar()
+                            ai_entry_3_4=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_3)
+                            window_ai_entry_3_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_4,tags=('aientry21'))
+
+                            ai_entry_3_2=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_3_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_2,tags=('aientry15'))
+                            ai_entry_3_2.bind("<Button-1>",multiply_num_i3)
+                            
+
+                            ai_comb_P_3_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            ai_comb_P_3_2['values'] = ("Choose","28.0%\n GST(28%)","18.0%\n GST(18%)","12.0%\n GST(12%)","06.0%\n GST(06%)","05.0%\n GST(05%)","03.0%\n GST(03%)","0.25%\n GST(0.25%)","0.0%\n GST(0%)","Exempt GST(0%)","Out of Scope(0%)",)
+                            ai_comb_P_3_2.current(0)
+                            window_ai_comb_P_3_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_P_3_2,tags=('aicombo10'))
+
+                            label_2 = Label(inv_canvas_1,width=2,height=1,text="4", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel22'))
+
+                            ai_comb_p_4 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data)
+                            window_ai_comb_p_4 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_4,tags=('aicombo8'))
+                            ai_comb_p_4.bind("<<ComboboxSelected>>",i_details_4)
+
+                            ai_entry_4=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_4,tags=('aientry10'))
+
+                            ai_entry_4_1=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
+                            window_ai_entry_4_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_4_1,tags=('aientry13'))
+
+                            
+
+                            ai_entry_4_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_4_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_4_3,tags=('aientry19'))
+
+                            def multiply_num_i4(event):
+                                num1= float(ai_entry_4_2.get())
+                                num2= float(ai_entry_4_3.get())
+                                mul_i= round(num1 * num2,2)
+                                ai_entry_4_4.delete(0, END)
+                                ai_entry_4_4.insert(0,mul_i)
+
+                                
+                                try:
+                                    n1 = float(en_str_1.get())
+                                except:
+                                    n1=0.0
+                                try:
+                                    n2 = float(en_str_2.get())
+                                except:
+                                    n2 = 0.0
+                                try:
+                                    n3 = float(en_str_3.get())
+                                except:
+                                    n3 = 0.0
+                                try:
+                                    n4 = float(en_str_4.get())
+                                except:
+                                    n4 = 0.0
+                                
+                                sum_i = n1+n2+n3+n4
+                                sub_entry_1.delete(0, END)
+                                sub_entry_1.insert(0,round(sum_i,2))
+                                
+                                global t1,t2,t3,t4
+                                if ai_comb_P_4_2.get() == '28.0% GST (28%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(28/100)
+                                elif ai_comb_P_4_2.get() == '28.0% IGST (28%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(28/100)
+                                elif ai_comb_P_4_2.get() == '18.0% GST (18%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(18/100)
+                                elif ai_comb_P_4_2.get() == '18.0% IGST (18%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(18/100)
+                                elif ai_comb_P_4_2.get() == '15.0% ST (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(15/100)
+                                elif ai_comb_P_4_2.get() == '14.5% ST (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(14.5/100)
+                                elif ai_comb_P_4_2.get() == '14.00% ST (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(14/100)
+                                elif ai_comb_P_4_2.get() == '14.0% VAT (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(14/100)
+                                elif ai_comb_P_4_2.get() == '12.36% ST (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(12.36/100)
+                                elif ai_comb_P_4_2.get() == '12.0% GST (12%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(12/100)
+                                elif ai_comb_P_4_2.get() == '12.0% IGST (12%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(12/100)
+                                elif ai_comb_P_4_2.get() == '6.0% GST (6%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(6/100)
+                                elif ai_comb_P_4_2.get() == '6.0% IGST (6%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(6/100)
+                                elif ai_comb_P_4_2.get() == '5.0% GST (5%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(5/100)
+                                elif ai_comb_P_4_2.get() == '5.0% IGST (5%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(5/100)
+                                elif ai_comb_P_4_2.get() == '5.0% VAT (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(5/100)
+                                elif ai_comb_P_4_2.get() == '4.0% VAT (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(4/100)
+                                elif ai_comb_P_4_2.get() == '3.0% GST (3%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(3/100)
+                                elif ai_comb_P_4_2.get() == '3.0% IGST (3%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(3/100)
+                                elif ai_comb_P_4_2.get() == '2.0% CST (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(2/100)
+                                elif ai_comb_P_4_2.get() == '0.25% GST (O.25%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0.25/100)
+                                elif ai_comb_P_4_2.get() == '0.25% IGST (0.25%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0.25/100)
+                                elif ai_comb_P_4_2.get() == '0% GST (0%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0/100)
+                                elif ai_comb_P_4_2.get() == '0% IGST (0%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0/100)
+                                elif ai_comb_P_4_2.get() == 'Exempt GST (0%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0/100)
+                                elif ai_comb_P_4_2.get() == 'Exempt IGST (0%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0/100)
+                                elif ai_comb_P_4_2.get() == 'Out of Scope(0%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0/100)
+                                else:
+                                    pass
+
+                                try:
+                                    tm1  = t1
+                                except:
+                                    pass
+                                try:
+                                    tm2 = t2
+                                except:
+                                    pass
+                                try:
+                                    tm3 = t3
+                                except:
+                                    pass
+                                try:
+                                    tm4  = t4
+                                except:
+                                    pass
+                                
+                                
+                                sum_ii = tm1+tm2+tm3+tm4
+                                tax_entry_1.delete(0, END)
+                                tax_entry_1.insert(0,round(sum_ii,2))
+
+                                try:
+                                    m1 = float(sub_str.get())
+                                except:
+                                    m1 =0.0
+                                try:
+                                    m2 = float(tax_str.get())
+                                except:
+                                    m2 =0.0
+
+                                sum_iii = m1+m2
+                                grand_entry_1.delete(0, END)
+                                grand_entry_1.insert(0,round(sum_iii,2))
+
+                                try:
+                                    x1 = float(grd_str.get())
+                                except:
+                                    x1 = 0.0
+                                try:
+                                    x2 = float(amount_entry_1.get())
+                                except:
+                                    x2 = 0.0
+                                sum_iv = x1-x2
+                                bal_entry_1.delete(0, END)
+                                bal_entry_1.insert(0,round(sum_iv,2))
+
+                            ai_entry_4_2=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_4_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_4_2,tags=('aientry16'))
+                            ai_entry_4_2.bind("<Button-1>",multiply_num_i4)
+            
+                            en_str_4 = StringVar()
+                            ai_entry_4_4=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_4)
+                            window_ai_entry_4_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_4_4,tags=('aientry22'))
+                            
+
+                            ai_comb_P_4_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            ai_comb_P_4_2['values'] = ("Choose","28.0%\n GST(28%)","18.0%\n GST(18%)","12.0%\n GST(12%)","06.0%\n GST(06%)","05.0%\n GST(05%)","03.0%\n GST(03%)","0.25%\n GST(0.25%)","0.0%\n GST(0%)","Exempt GST(0%)","Out of Scope(0%)",)
+                            ai_comb_P_4_2.current(0)
+                            window_ai_comb_P_4_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_P_4_2,tags=('aicombo11'))
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine16'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine17'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine18'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine19'))
+                            
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine21'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine22'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine23'))
+                            
+                            
+
+                            label_5 = Label(inv_canvas_1,width=10,height=1,text="Sub Total", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('ailabel23'))
+
+                            label_5 = Label(inv_canvas_1,width=12,height=1,text="Tax Amount", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('ailabel24'))
+
+                            label_5 = Label(inv_canvas_1,width=12,height=1,text="Grand Total", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('ailabel25'))
+
+                            
+
+                            
+                            sub_str=StringVar()
+                            sub_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white",textvariable=sub_str)
+                            window_sub_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=sub_entry_1,tags=('aientry23'))
+                            
+                            tax_str=StringVar()
+                            tax_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white",textvariable=tax_str)
+                            window_tax_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=tax_entry_1,tags=('aientry24'))
+
+                            grd_str=StringVar()
+                            grand_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white",textvariable=grd_str)
+                            window_grand_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=grand_entry_1,tags=('aientry25'))
+
+                            
+                           
+
+                            ai_save_btn1=Button(inv_canvas_1,text='Save', width=15,height=2,foreground="white",background="#1b3857",font='arial 12',command=sales_add_new_inv)
+                            window_ai_save_btn1 = inv_canvas_1.create_window(0, 0, anchor="nw", window=ai_save_btn1,tags=('aibutton2'))
+
+
+                            btn_pr_ed=Button(inv_canvas_1,text="← Back", command=back_exp1_add, bd=0, bg="#1b3857",fg="white",font=('Calibri 14 bold'))
+                            win_inv1 = inv_canvas_1.create_window(0, 0, anchor="center", window=btn_pr_ed,tag= ('aibutton3'))
+                        elif add_exp_var.get()=="Debit Note":
+                            exp_chld_scrl.grid_forget()
+  
+                            def back_exp1_add():
+                                inv_canvas_1.grid_forget()
+                                vertibar.grid_forget()
+                                exp_chld_scrl.grid(row=0,column=2,sticky='ns')
+                                
+                            def inv_responsive_widgets2(event):
+                                try:
+                                    dwidth = event.width
+                                    dheight = event.height
+                                    dcanvas = event.widget
+                                    
+                                    r1 = 25
+                                    x1 = dwidth/63
+                                    x2 = dwidth/1.021
+                                    y1 = dheight/14 
+                                    y2 = dheight/3.505
+
+                                    dcanvas.coords("aipoly1",x1 + r1,y1,
+                                    x1 + r1,y1,
+                                    x2 - r1,y1,
+                                    x2 - r1,y1,     
+                                    x2,y1,     
+                                    #--------------------
+                                    x2,y1 + r1,     
+                                    x2,y1 + r1,     
+                                    x2,y2 - r1,     
+                                    x2,y2 - r1,     
+                                    x2,y2,
+                                    #--------------------
+                                    x2 - r1,y2,     
+                                    x2 - r1,y2,     
+                                    x1 + r1,y2,
+                                    x1 + r1,y2,
+                                    x1,y2,
+                                    #--------------------
+                                    x1,y2 - r1,
+                                    x1,y2 - r1,
+                                    x1,y1 + r1,
+                                    x1,y1 + r1,
+                                    x1,y1,
+                                    )
+
+                                    dcanvas.coords("ailabel1",dwidth/2.45,dheight/8.24)
+                                    dcanvas.coords("aihline",dwidth/40,dheight/4.67,dwidth/1.03,dheight/4.67)
+
+                                    r2 = 25
+                                    x11 = dwidth/63
+                                    x21 = dwidth/1.021
+                                    y11 = dheight/2.8
+                                    y21 = dheight/0.20
+
+
+                                    dcanvas.coords("aipoly2",x11 + r2,y11,
+                                    x11 + r2,y11,
+                                    x21 - r2,y11,
+                                    x21 - r2,y11,     
+                                    x21,y11,     
+                                    #--------------------
+                                    x21,y11 + r2,     
+                                    x21,y11 + r2,     
+                                    x21,y21 - r2,     
+                                    x21,y21 - r2,     
+                                    x21,y21,
+                                    #--------------------
+                                    x21 - r2,y21,     
+                                    x21 - r2,y21,     
+                                    x11 + r2,y21,
+                                    x11 + r2,y21,
+                                    x11,y21,
+                                    #--------------------
+                                    x11,y21 - r2,
+                                    x11,y21 - r2,
+                                    x11,y11 + r2,
+                                    x11,y11 + r2,
+                                    x11,y11,
+                                    )
+
+ 
+                                 
+                                    dcanvas.coords("ailabel5",dwidth/63,dheight/2.1)
+                               
+                                    dcanvas.coords("ailabel11",dwidth/16.50,dheight/0.638)
+                                    dcanvas.coords("ailabel12",dwidth/8.40,dheight/0.638)
+                                    dcanvas.coords("ailabel13",dwidth/3.34,dheight/0.638)
+                                    dcanvas.coords("ailabel14",dwidth/2.28,dheight/0.638)
+                                    dcanvas.coords("ailabel15",dwidth/1.73,dheight/0.638)
+                                    dcanvas.coords("ailabel16",dwidth/1.52,dheight/0.638)
+                                    dcanvas.coords("ailabel17",dwidth/1.325,dheight/0.638)
+                                    dcanvas.coords("ailabel18",dwidth/1.165,dheight/0.638)
+                                    dcanvas.coords("ailabel19",dwidth/16.50,dheight/0.604)
+                                    dcanvas.coords("ailabel20",dwidth/16.50,dheight/0.562)
+                                    dcanvas.coords("ailabel21",dwidth/16.50,dheight/0.526)
+                                    dcanvas.coords("ailabel22",dwidth/16.50,dheight/0.496)
+                                    dcanvas.coords("ailabel23",dwidth/1.53,dheight/0.45)
+                                    dcanvas.coords("ailabel24",dwidth/1.54,dheight/0.435)
+                                    dcanvas.coords("ailabel25",dwidth/1.54,dheight/0.42)
+                                    dcanvas.coords("ailabel26",dwidth/1.54,dheight/0.406)
+                                    dcanvas.coords("ailabel27",dwidth/1.54,dheight/0.392)
+                       
+
+                                 
+                                    dcanvas.coords("aientry3",dwidth/4.00,dheight/0.604)
+                                    dcanvas.coords("aientry4",dwidth/2.51,dheight/0.604)
+                                    dcanvas.coords("aientry5",dwidth/1.8,dheight/0.604)
+                                    dcanvas.coords("aientry6",dwidth/1.565,dheight/0.604)
+                                    dcanvas.coords("aientry7",dwidth/1.357,dheight/0.604)
+                                    dcanvas.coords("aientry8",dwidth/4.00,dheight/0.562)
+                                    dcanvas.coords("aientry9",dwidth/4.00,dheight/0.526)
+                                    dcanvas.coords("aientry10",dwidth/4.00,dheight/0.496)
+                                    dcanvas.coords("aientry11",dwidth/2.51,dheight/0.562)
+                                    dcanvas.coords("aientry12",dwidth/2.51,dheight/0.526)
+                                    dcanvas.coords("aientry13",dwidth/2.51,dheight/0.496)
+                                    dcanvas.coords("aientry14",dwidth/1.8,dheight/0.562)
+                                    dcanvas.coords("aientry15",dwidth/1.8,dheight/0.526)
+                                    dcanvas.coords("aientry16",dwidth/1.8,dheight/0.496)
+                                    dcanvas.coords("aientry17",dwidth/1.565,dheight/0.562)
+                                    dcanvas.coords("aientry18",dwidth/1.565,dheight/0.526)
+                                    dcanvas.coords("aientry19",dwidth/1.565,dheight/0.496)
+                                    dcanvas.coords("aientry20",dwidth/1.357,dheight/0.562)
+                                    dcanvas.coords("aientry21",dwidth/1.357,dheight/0.526)
+                                    dcanvas.coords("aientry22",dwidth/1.357,dheight/0.496)
+                                    dcanvas.coords("aientry23",dwidth/1.33,dheight/0.452)
+                                    dcanvas.coords("aientry24",dwidth/1.33,dheight/0.4365)
+                                    dcanvas.coords("aientry25",dwidth/1.33,dheight/0.4215)
+                                    dcanvas.coords("aientry26",dwidth/1.33,dheight/0.407)
+                                    dcanvas.coords("aientry27",dwidth/1.33,dheight/0.393)
+
+                                    dcanvas.coords("aicombo1",dwidth/28,dheight/1.9)
+                                    dcanvas.coords("hd_date",dwidth/28,dheight/1.55)
+                                    dcanvas.coords("hd_lbs",dwidth/50,dheight/1.65)
+
+                                    dcanvas.coords("aicomb_2",dwidth/2.6,dheight/1.55)
+                                    dcanvas.coords("hd_lbs2",dwidth/2.65,dheight/1.65)
+
+                                    dcanvas.coords("aihline2",dwidth/40,dheight/1.4,dwidth/1.03,dheight/1.4)
+                                    dcanvas.coords("hd_lbs3",dwidth/40,dheight/1.35)
+                                    
+                                    dcanvas.coords("aihline3",dwidth/40,dheight/1.2,dwidth/1.03,dheight/1.2)
+                                    dcanvas.coords("aihline4",dwidth/40,dheight/1.1,dwidth/1.03,dheight/1.1)
+                                    dcanvas.coords("aihline5",dwidth/40,dheight/1.015,dwidth/1.03,dheight/1.015)
+                                    dcanvas.coords("aihline6",dwidth/40,dheight/0.94,dwidth/1.03,dheight/0.94)
+                                    dcanvas.coords("aihline7",dwidth/40,dheight/0.875,dwidth/1.03,dheight/0.875)
+                                    dcanvas.coords("aihline8",dwidth/40,dheight/.818,dwidth/1.03,dheight/.818)
+                                    #vertical line
+                                    dcanvas.coords("aihline9",dwidth/40,dheight/1.2,dwidth/40,dheight/.818)
+                                    dcanvas.coords("aihline10",dwidth/3.8,dheight/1.2,dwidth/3.8,dheight/.818)
+                                    dcanvas.coords("aihline11",dwidth/2.3,dheight/1.2,dwidth/2.3,dheight/.818)
+                                    dcanvas.coords("aihline12",dwidth/1.615,dheight/1.2,dwidth/1.615,dheight/.818)
+                                    dcanvas.coords("aihline13",dwidth/1.26,dheight/1.2,dwidth/1.26,dheight/.818)
+                                    dcanvas.coords("aihline14",dwidth/1.03,dheight/1.2,dwidth/1.03,dheight/.818)
+
+                                    dcanvas.coords("aihline15",dwidth/19,dheight/1.2,dwidth/19,dheight/.818)
+
+
+                                    #head labels:
+                                    dcanvas.coords("lb_hd_r1_c1",dwidth/28,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c2",dwidth/8.8,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c3",dwidth/3.2,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c4",dwidth/2.1,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c5",dwidth/1.45,dheight/1.18)
+                                    dcanvas.coords("lb_hd_r1_c6",dwidth/1.16,dheight/1.18)
+                                    
+                                    #first tables
+                                    
+                                    dcanvas.coords("no_lv_r1",dwidth/28,dheight/1.085)
+                                    dcanvas.coords("cmbost_r1_c1",dwidth/16,dheight/1.085)
+                                    dcanvas.coords("ents_r1_c2",dwidth/3.74,dheight/1.085)
+                                    dcanvas.coords("ents_r1_c3",dwidth/2.26,dheight/1.085)
+                                    dcanvas.coords("ents_r1_c4",dwidth/1.6,dheight/1.085)
+                                    dcanvas.coords("ents_r1_c5",dwidth/1.25,dheight/1.085)
+
+                                    #second row
+                                    dcanvas.coords("no_lv_r2",dwidth/28,dheight/.999)
+                                    dcanvas.coords("cmbost_r2_c1",dwidth/16,dheight/.999)
+
+                                    dcanvas.coords("ents_r2_c2",dwidth/3.74,dheight/.999)
+                                    dcanvas.coords("ents_r2_c3",dwidth/2.26,dheight/.999)
+                                    dcanvas.coords("ents_r2_c4",dwidth/1.6,dheight/.999)
+                                    dcanvas.coords("ents_r2_c5",dwidth/1.25,dheight/.999)
+
+                                    #third row
+                                    dcanvas.coords("no_lv_r3",dwidth/28,dheight/.928)
+                                    dcanvas.coords("cmbost_r3_c1",dwidth/16,dheight/.928)
+
+                                    dcanvas.coords("ents_r3_c2",dwidth/3.74,dheight/.928)
+                                    dcanvas.coords("ents_r3_c3",dwidth/2.26,dheight/.928)
+                                    dcanvas.coords("ents_r3_c4",dwidth/1.6,dheight/.928)
+                                    dcanvas.coords("ents_r3_c5",dwidth/1.25,dheight/.928)
+
+                                    #forth row
+                                    dcanvas.coords("no_lv_r4",dwidth/28,dheight/.862)
+                                    dcanvas.coords("cmbost_r4_c1",dwidth/16,dheight/.862)
+                                    dcanvas.coords("ents_r4_c2",dwidth/3.74,dheight/.862)
+                                    dcanvas.coords("ents_r4_c3",dwidth/2.26,dheight/.862)
+                                    dcanvas.coords("ents_r4_c4",dwidth/1.6,dheight/.862)
+                                    dcanvas.coords("ents_r4_c5",dwidth/1.25,dheight/.862)
+
+                                    #--------------------------------------------------------
+                                    dcanvas.coords("aihline_r12",dwidth/40,dheight/.78,dwidth/1.03,dheight/.78)
+
+                                    dcanvas.coords("hd_lbsr21",dwidth/40,dheight/.68)
+                                    
+
+                                    dcanvas.coords("aicombo4",dwidth/10.10,dheight/0.604)
+                                    dcanvas.coords("aicombo5",dwidth/1.21,dheight/0.604)
+                                    dcanvas.coords("aicombo6",dwidth/10.10,dheight/0.562)
+                                    dcanvas.coords("aicombo7",dwidth/10.10,dheight/0.526)
+                                    dcanvas.coords("aicombo8",dwidth/10.10,dheight/0.496)
+                                    dcanvas.coords("aicombo9",dwidth/1.21,dheight/0.562)
+                                    dcanvas.coords("aicombo10",dwidth/1.21,dheight/0.526)
+                                    dcanvas.coords("aicombo11",dwidth/1.21,dheight/0.496)
+
+                                    dcanvas.coords("aibutton1",dwidth/2.95,dheight/1.9)
+                                    dcanvas.coords("aibutton2",dwidth/1.28,dheight/0.395)
+                                    dcanvas.coords("aibutton3",dwidth/20,dheight/2.6)
+
+                                    #-------------------------------H Lines-----------------------------------#
+                                    dcanvas.coords("ailine1",dwidth/21,dheight/0.645,dwidth/1.055,dheight/0.645)
+                                    dcanvas.coords("ailine2",dwidth/21,dheight/0.617,dwidth/1.055,dheight/0.617)
+                                    dcanvas.coords("ailine3",dwidth/21,dheight/0.576,dwidth/1.055,dheight/0.576)
+                                    dcanvas.coords("ailine4",dwidth/21,dheight/0.536,dwidth/1.055,dheight/0.536)
+                                    dcanvas.coords("ailine5",dwidth/21,dheight/0.506,dwidth/1.055,dheight/0.506)
+                                    dcanvas.coords("ailine6",dwidth/21,dheight/0.476,dwidth/1.055,dheight/0.476)
+                                    #-------------------------------V Lines-----------------------------------#
+                                    dcanvas.coords("ailine7",dwidth/21,dheight/0.645,dwidth/21,dheight/0.476)
+                                    dcanvas.coords("ailine8",dwidth/1.055,dheight/0.645,dwidth/1.055,dheight/0.476)
+                                    dcanvas.coords("ailine9",dwidth/11,dheight/0.645,dwidth/11,dheight/0.476)
+                                    dcanvas.coords("ailine10",dwidth/4.15,dheight/0.645,dwidth/4.15,dheight/0.476)
+                                    dcanvas.coords("ailine11",dwidth/2.55,dheight/0.645,dwidth/2.55,dheight/0.476)
+                                    dcanvas.coords("ailine12",dwidth/1.83,dheight/0.645,dwidth/1.83,dheight/0.476)
+                                    dcanvas.coords("ailine13",dwidth/1.58,dheight/0.645,dwidth/1.58,dheight/0.476)
+                                    dcanvas.coords("ailine14",dwidth/1.37,dheight/0.645,dwidth/1.37,dheight/0.476)
+                                    dcanvas.coords("ailine15",dwidth/1.22,dheight/0.645,dwidth/1.22,dheight/0.476)
+
+                                    #-------------------------------V Lines-----------------------------------#
+                                    dcanvas.coords("ailine16",dwidth/1.58,dheight/0.455,dwidth/1.58,dheight/0.41)
+                                    dcanvas.coords("ailine17",dwidth/1.348,dheight/0.455,dwidth/1.348,dheight/0.41)
+                                    dcanvas.coords("ailine18",dwidth/1.084,dheight/0.455,dwidth/1.084,dheight/0.41)
+                                    #-------------------------------H Lines-----------------------------------#
+                                    dcanvas.coords("ailine19",dwidth/1.58,dheight/0.455,dwidth/1.084,dheight/0.455)
+                                    dcanvas.coords("ailine20",dwidth/1.58,dheight/0.383,dwidth/1.084,dheight/0.383)
+                                    dcanvas.coords("ailine21",dwidth/1.58,dheight/0.439,dwidth/1.084,dheight/0.439)
+                                    dcanvas.coords("ailine22",dwidth/1.58,dheight/0.424,dwidth/1.084,dheight/0.424)
+                                    dcanvas.coords("ailine23",dwidth/1.58,dheight/0.41,dwidth/1.084,dheight/0.41)
+                                    dcanvas.coords("ailine24",dwidth/1.58,dheight/0.396,dwidth/1.084,dheight/0.396)
+
+                                    #-------------------------------H Lines-----------------------------------#
+                                    dcanvas.coords("ailine25",dwidth/21,dheight/0.446,dwidth/1.055,dheight/0.446)
+                                    dcanvas.coords("ailine26",dwidth/21,dheight/0.416,dwidth/1.055,dheight/0.416)
+                                    dcanvas.coords("ailine27",dwidth/21,dheight/0.390,dwidth/1.055,dheight/0.390)
+                                    dcanvas.coords("ailine28",dwidth/21,dheight/0.366,dwidth/1.055,dheight/0.366)
+                                    #-------------------------------V Lines-----------------------------------#
+                                    dcanvas.coords("ailine29",dwidth/21,dheight/0.476,dwidth/21,dheight/0.366)
+                                    dcanvas.coords("ailine30",dwidth/1.055,dheight/0.476,dwidth/1.055,dheight/0.366)
+                                    dcanvas.coords("ailine31",dwidth/11,dheight/0.476,dwidth/11,dheight/0.366)
+                                    dcanvas.coords("ailine32",dwidth/4.15,dheight/0.476,dwidth/4.15,dheight/0.366)
+                                    dcanvas.coords("ailine33",dwidth/2.55,dheight/0.476,dwidth/2.55,dheight/0.366)
+                                    dcanvas.coords("ailine34",dwidth/1.83,dheight/0.476,dwidth/1.83,dheight/0.366)
+                                    dcanvas.coords("ailine35",dwidth/1.58,dheight/0.476,dwidth/1.58,dheight/0.366)
+                                    dcanvas.coords("ailine36",dwidth/1.37,dheight/0.476,dwidth/1.37,dheight/0.366)
+                                    dcanvas.coords("ailine37",dwidth/1.22,dheight/0.476,dwidth/1.22,dheight/0.366)
+
+                                    #-------------------------------V Lines-----------------------------------#
+                                    dcanvas.coords("ailine38",dwidth/1.58,dheight/0.360,dwidth/1.58,dheight/0.290)
+                                    dcanvas.coords("ailine39",dwidth/1.348,dheight/0.360,dwidth/1.348,dheight/0.290)
+                                    dcanvas.coords("ailine40",dwidth/1.084,dheight/0.360,dwidth/1.084,dheight/0.290)
+                                    #-------------------------------H Lines-----------------------------------#
+                                    dcanvas.coords("ailine41",dwidth/1.58,dheight/0.360,dwidth/1.084,dheight/0.360)
+                                    dcanvas.coords("ailine43",dwidth/1.58,dheight/0.345,dwidth/1.084,dheight/0.345)
+                                    dcanvas.coords("ailine44",dwidth/1.58,dheight/0.330,dwidth/1.084,dheight/0.330)
+                                    dcanvas.coords("ailine45",dwidth/1.58,dheight/0.315,dwidth/1.084,dheight/0.315)
+                                    dcanvas.coords("ailine46",dwidth/1.58,dheight/0.303,dwidth/1.084,dheight/0.303)
+                                    dcanvas.coords("ailine42",dwidth/1.58,dheight/0.290,dwidth/1.084,dheight/0.290)
+
+                                    dcanvas.coords("bient1",dwidth/10.10,dheight/0.466)
+                                    dcanvas.coords("bient2",dwidth/10.10,dheight/0.436)
+                                    dcanvas.coords("bient3",dwidth/10.10,dheight/0.406)
+                                    dcanvas.coords("bient4",dwidth/10.10,dheight/0.382)
+                                    dcanvas.coords("bient5",dwidth/4.00,dheight/0.466)
+                                    dcanvas.coords("bient6",dwidth/4.00,dheight/0.436)
+                                    dcanvas.coords("bient7",dwidth/4.00,dheight/0.406)
+                                    dcanvas.coords("bient8",dwidth/4.00,dheight/0.382)
+                                    dcanvas.coords("bient9",dwidth/2.51,dheight/0.466)
+                                    dcanvas.coords("bient10",dwidth/2.51,dheight/0.436)
+                                    dcanvas.coords("bient11",dwidth/2.51,dheight/0.406)
+                                    dcanvas.coords("bient12",dwidth/2.51,dheight/0.382)
+                                    dcanvas.coords("bient13",dwidth/1.565,dheight/0.466)
+                                    dcanvas.coords("bient14",dwidth/1.565,dheight/0.436)
+                                    dcanvas.coords("bient15",dwidth/1.565,dheight/0.406)
+                                    dcanvas.coords("bient16",dwidth/1.565,dheight/0.382)
+                                    dcanvas.coords("bient17",dwidth/1.8,dheight/0.466)
+                                    dcanvas.coords("bient18",dwidth/1.8,dheight/0.436)
+                                    dcanvas.coords("bient19",dwidth/1.8,dheight/0.406)
+                                    dcanvas.coords("bient20",dwidth/1.8,dheight/0.382)
+                                    dcanvas.coords("bient21",dwidth/1.357,dheight/0.466)
+                                    dcanvas.coords("bient22",dwidth/1.357,dheight/0.436)
+                                    dcanvas.coords("bient23",dwidth/1.357,dheight/0.406)
+                                    dcanvas.coords("bient24",dwidth/1.357,dheight/0.382)
+                                    dcanvas.coords("bient25",dwidth/1.21,dheight/0.466)
+                                    dcanvas.coords("bient26",dwidth/1.21,dheight/0.436)
+                                    dcanvas.coords("bient27",dwidth/1.21,dheight/0.406)
+                                    dcanvas.coords("bient28",dwidth/1.21,dheight/0.382)
+
+                                    dcanvas.coords("bilabl1",dwidth/1.53,dheight/0.355)
+                                    dcanvas.coords("bilabl2",dwidth/1.53,dheight/0.340)
+                                    dcanvas.coords("bilabl3",dwidth/1.53,dheight/0.325)
+                                   
+
+                                  
+                                    dcanvas.coords("bient31",dwidth/1.33,dheight/0.325)
+                                    dcanvas.coords("bient32",dwidth/1.33,dheight/0.312)
+                                    dcanvas.coords("bient33",dwidth/1.33,dheight/0.298)
+                                    dcanvas.coords("bbutn1",dwidth/1.28,dheight/0.29)
+                                except:
+                                    pass
+
+                            inv_canvas_1=Canvas(exp_mod_frm, bg='#2f516f', width=953, height=600, scrollregion=(0,0,700,2100))
+
+                       
+                            
+                            vertibar=Scrollbar(exp_mod_frm, orient=VERTICAL)
+                            vertibar.grid(row=0,column=1,sticky='ns')
+                            vertibar.config(command=inv_canvas_1.yview)
+
+                            inv_canvas_1.bind("<Configure>", inv_responsive_widgets2)
+                            inv_canvas_1.config(yscrollcommand=vertibar.set)
+                            inv_canvas_1.grid(row=0,column=0,sticky='nsew')
+
+                            def sales_add_new_inv():
+
+                                customername = aicomb_1.get()
+                                email = aientry_1.get()
+                                terms = comb_t_2.get()
+                                invoicedate = aid_entry_1.get_date()
+                                duedate = aid_entry_2.get_date()
+                                bname = ai_b_entry_1.get('1.0', 'end-1c')
+                                placosupply = ai_p_comb_2.get()
+                                product = ai_comb_p_1.get()
+                                hsn = ai_entry_p_1.get()
+                                description = ai_entry_p_1_2.get('1.0', 'end-1c')
+                                qty = ai_entry_p_1_3.get()
+                                price = ai_entry_p_1_4.get()
+                                total = ai_entry_p_1_5.get()
+                                tax = ai_comb_p_1_2.get()
+                                if sub_entry_1 is not None:
+                                    subtotal = sub_entry_1.get()
+                                else:
+                                    subtotal = bsub_entry_1.get()
+                                if grand_entry_1 is not None:
+                                    grandtotal = grand_entry_1.get()
+                                else:
+                                    grandtotal = bgrand_entry_1.get()
+                                product2 = ai_comb_p_2.get()
+                                hsn2 = ai_entry_p_2.get()
+                                description2 = ai_entry_p_2_1.get('1.0', 'end-1c')
+                                qty2 = ai_entry_2_2.get()
+                                price2 = ai_entry_2_3.get()
+                                total2 = ai_entry_2_4.get()
+                                tax2 = ai_comb_P_2_2.get()
+                                product3 = ai_comb_p_3.get()
+                                hsn3 = ai_entry_3.get()
+                                description3 = ai_entry_3_1.get('1.0', 'end-1c')
+                                qty3 = ai_entry_3_2.get()
+                                price3 = ai_entry_3_3.get()
+                                total3 = ai_entry_3_4.get()
+                                tax3 = ai_comb_P_3_2.get()
+                                product4 = ai_comb_p_4.get()
+                                hsn4 = ai_entry_4.get()
+                                description4 = ai_entry_4_1.get('1.0', 'end-1c')
+                                qty4 = ai_entry_4_2.get()
+                                price4 = ai_entry_4_3.get()
+                                total4 = ai_entry_4_4.get()
+                                tax4 = ai_comb_P_4_2.get()
+                                if amount_entry_1 is not None:
+                                    amtrecvd = amount_entry_1.get()
+                                else:
+                                    amtrecvd = bamount_entry_1.get()
+                                if tax_entry_1 is not None:
+                                    taxamount = tax_entry_1.get()
+                                else:
+                                    taxamount = btax_entry_1.get()
+                                if bal_entry_1 is not None:
+                                    baldue = bal_entry_1.get()
+                                else:
+                                    baldue = bbal_entry_1.get()
+
+
+                                usr_sql = "SELECT id FROM auth_user WHERE username=%s"
+                                usr_val = (nm_ent.get(),)
+                                fbcursor.execute(usr_sql,usr_val)
+                                usr_data = fbcursor.fetchone()
+
+                                cmp_sql = "SELECT cid FROM app1_company WHERE id_id=%s"
+                                cmp_val = (usr_data[0],)
+                                fbcursor.execute(cmp_sql,cmp_val)
+                                cmp_data = fbcursor.fetchone()
+                                cid = cmp_data[0]
+
+                                inv_sql_1 = "INSERT INTO app1_invoice (customername,email,terms,invoicedate,duedate,bname,placosupply,product,hsn,description,qty,price,total,tax,subtotal,grandtotal,product2,hsn2,description2,qty2,price2,total2,tax2,product3,hsn3,description3,qty3,price3,total3,tax3,product4,hsn4,description4,qty4,price4,total4,tax4,amtrecvd,taxamount,baldue,cid_id) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                                inv_val_1=(customername,email,terms,invoicedate,duedate,bname,placosupply,product,hsn,description,qty,price,total,tax,subtotal,grandtotal,product2,hsn2,description2,qty2,price2,total2,tax2,product3,hsn3,description3,qty3,price3,total3,tax3,product4,hsn4,description4,qty4,price4,total4,tax4,amtrecvd,taxamount,baldue,cid)
+                                fbcursor.execute(inv_sql_1,inv_val_1)
+                                finsysdb.commit()
+
+                                #----------Refresh Insert Tree--------#
+
+                                for record in inv_tree.get_children():
+                                        inv_tree.delete(record)
+
+                                sql_pr="select * from auth_user where username=%s"
+                                sql_pr_val=(nm_ent.get(),)
+                                fbcursor.execute(sql_pr,sql_pr_val,)
+                                pr_dtl=fbcursor.fetchone()
+
+                                sql = "select * from app1_company where id_id=%s"
+                                val = (pr_dtl[0],)
+                                fbcursor.execute(sql, val,)
+                                cmp_dtl=fbcursor.fetchone()
+
+                                c_sql_1 = "SELECT * FROM app1_invoice where cid_id=%s"
+                                c_val_1 = (cmp_dtl[0],)
+                                fbcursor.execute(c_sql_1,c_val_1,)
+                                i_data_1 = fbcursor.fetchall()
+
+                                count0 = 0
+                                for i in i_data_1:
+                                    if True:
+                                        inv_tree.insert(parent='',index='end',iid=i,text='',values=(i[0],i[5],i[1],i[2],i[6],i[17],i[41]))
+                                    else:
+                                        pass
+                                count0 += 1
+
+                                    
+                                inv_frame_1.destroy()
+                                inv_frame.grid(row=0,column=0,sticky='nsew')
+
+
+                            inv_canvas_1.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("aipoly1"))
+
+                            
+                            label_1 = Label(inv_canvas_1,width=10,height=1,text="Debit Note", font=('arial 20'),background="#1b3857",fg="white") 
+                            window_label_1 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_1, tags=("ailabel1"))
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline"))
+
+                            inv_canvas_1.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("aipoly2"))
+
+
+                            label_2 = Label(inv_canvas_1,width=15,height=1,text="Payee", font=('arial 12'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2, tags=("ailabel5"))
+
+                            def inv_c_details(event):
+                                inv_to_str = aicomb_1.get()
+                                x = inv_to_str.split(" ", 1)
+                                sql = "select * from app1_customer where firstname=%s  and cid_id=%s"
+                                val = (x[0],cmp_dtl[0],)
+                                fbcursor.execute(sql,val)
+                                inv_c_sel = fbcursor.fetchone()
+                                aientry_1.delete(0,END)
+                                aientry_1.insert(0,inv_c_sel[9])
+                                ai_b_entry_1.delete('1.0',END)
+                                ai_b_entry_1.insert('1.0',inv_c_sel[2]+" "+inv_c_sel[3]+ '\n' +inv_c_sel[4]+ '\n' +inv_c_sel[12]+ '\n' +inv_c_sel[13]+ '\n' +inv_c_sel[14]+ '\n' +inv_c_sel[15]+ '\n' +inv_c_sel[16])
+                                
+
+                            sql_pr="select * from auth_user where username=%s"
+                            sql_pr_val=(nm_ent.get(),)
+                            fbcursor.execute(sql_pr,sql_pr_val,)
+                            pr_dtl=fbcursor.fetchone()
+
+                            sql = "select * from app1_company where id_id=%s"
+                            val = (pr_dtl[0],)
+                            fbcursor.execute(sql, val,)
+                            cmp_dtl=fbcursor.fetchone()
+                            
+
+                            sql_pr_cmp="select firstname,lastname from app1_customer where cid_id=%s"
+                            sql_pr_cmp_val=(cmp_dtl[0],)
+                            fbcursor.execute(sql_pr_cmp,sql_pr_cmp_val,)
+                            pr_cmp_dtl=fbcursor.fetchall()
+                            p_i1 = []
+
+                            for i in pr_cmp_dtl:
+                                p_i1.append(str(i[0])+" "+str(i[1]))
+                                
+
+                            
+                            
+                            aicomb_1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            aicomb_1["values"] = p_i1
+                            aicomb_1.bind("<<ComboboxSelected>>",inv_c_details)
+                            window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=400, height=30,window=aicomb_1, tags=("aicombo1"))
+                            
+
+                            hd_date=Entry(inv_canvas_1,width=75,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=hd_date,tags=('hd_date'))
+
+                            hd_lbs = Label(inv_canvas_1,width=15,height=1,text="Payment Date", font=('arial 12'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=hd_lbs, tags=("hd_lbs"))
+
+                            aicomb_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            aicomb_2["values"] = p_i1
+                            aicomb_1.bind("<<ComboboxSelected>>",inv_c_details)
+                            window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=400, height=30,window=aicomb_2, tags=("aicomb_2"))
+
+                            hd_lbs = Label(inv_canvas_1,width=15,height=1,text="Payment Method", font=('arial 12'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=hd_lbs, tags=("hd_lbs2"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline2"))
+
+                            hd_lbs3 = Label(inv_canvas_1,width=15,height=1,text="Category Details", font=('arial 18'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=hd_lbs3, tags=("hd_lbs3"))
+                            
+                            #First table section
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline3"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline4"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline5"))
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline6"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline7"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline8"))
+
+                            #vertical
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline9"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline15"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline10"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline11"))
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline12"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline13"))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline14"))
+
+                            #heads
+
+                            lb_hd_r1_c1 = Label(inv_canvas_1,height=1,text="#", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c1,tags=('lb_hd_r1_c1'))
+
+                            lb_hd_r1_c2 = Label(inv_canvas_1,height=1,text="CATEGORY", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c2,tags=('lb_hd_r1_c2'))
+
+                            lb_hd_r1_c3 = Label(inv_canvas_1,height=1,text="DESCRIPTION", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c3,tags=('lb_hd_r1_c3'))
+
+                            lb_hd_r1_c4 = Label(inv_canvas_1,height=1,text="NOT APPLICABLE", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c4,tags=('lb_hd_r1_c4'))
+
+                            lb_hd_r1_c5 = Label(inv_canvas_1,height=1,text="PRICE", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c5,tags=('lb_hd_r1_c5'))
+
+                            lb_hd_r1_c6 = Label(inv_canvas_1,height=1,text="TOTAL", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=lb_hd_r1_c6,tags=('lb_hd_r1_c6'))
+                            #First row
+
+                            no_lv_r1 = Label(inv_canvas_1,height=1,text="1", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r1,tags=('no_lv_r1'))
+
+                            cmbost_r1_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r1_c1,tags=('cmbost_r1_c1'))
+                            cmbost_r1_c1.bind("<<ComboboxSelected>>","i_details_1")
+
+                            en_str_1 = StringVar()
+                            ents_r1_c2=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c2,tags=('ents_r1_c2'))
+
+                            ents_r1_c3=Spinbox(inv_canvas_1,width=35,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c3,tags=('ents_r1_c3'))
+                            
+                                
+                            en_str_1 = StringVar()
+                            ents_r1_c4=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c4,tags=('ents_r1_c4'))
+
+                            ents_r1_c5=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c5,tags=('ents_r1_c5'))
+                            
+
+                            #second row
+
+                            no_lv_r2 = Label(inv_canvas_1,height=1,text="2", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r2,tags=('no_lv_r2'))
+
+                            cmbost_r2_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r2_c1,tags=('cmbost_r2_c1'))
+                            cmbost_r2_c1.bind("<<ComboboxSelected>>","i_details_1")
+
+                            en_str_1 = StringVar()
+                            ents_r2_c2=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r2_c2,tags=('ents_r2_c2'))
+
+                            ents_r2_c3=Spinbox(inv_canvas_1,width=35,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r2_c3,tags=('ents_r2_c3'))
+                            
+                                
+                            en_str_1 = StringVar()
+                            ents_r2_c4=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r2_c4,tags=('ents_r2_c4'))
+
+                            ents_r2_c5=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r2_c5,tags=('ents_r2_c5'))
+
+                            #3rd row
+
+                            no_lv_r3 = Label(inv_canvas_1,height=1,text="3", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r3,tags=('no_lv_r3'))
+
+                            cmbost_r3_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r3_c1,tags=('cmbost_r3_c1'))
+                            cmbost_r3_c1.bind("<<ComboboxSelected>>","i_details_1")
+
+                            en_str_1 = StringVar()
+                            ents_r3_c2=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r3_c2,tags=('ents_r3_c2'))
+
+                            ents_r3_c3=Spinbox(inv_canvas_1,width=35,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r3_c3,tags=('ents_r3_c3'))
+                            
+                                
+                            en_str_1 = StringVar()
+                            ents_r3_c4=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r3_c4,tags=('ents_r3_c4'))
+
+                            ents_r3_c5=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r3_c5,tags=('ents_r3_c5'))
+
+
+                            #4th row
+
+                            no_lv_r4 = Label(inv_canvas_1,height=1,text="4", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=no_lv_r4,tags=('no_lv_r4'))
+
+                            cmbost_r4_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r4_c1,tags=('cmbost_r4_c1'))
+                            cmbost_r4_c1.bind("<<ComboboxSelected>>","i_details_1")
+
+                            en_str_1 = StringVar()
+                            ents_r4_c2=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r4_c2,tags=('ents_r4_c2'))
+
+                            ents_r4_c3=Spinbox(inv_canvas_1,width=35,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r4_c3,tags=('ents_r4_c3'))
+                            
+                                
+                            en_str_1 = StringVar()
+                            ents_r4_c4=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r4_c4,tags=('ents_r4_c4'))
+
+                            ents_r4_c5=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r4_c5,tags=('ents_r4_c5'))
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("aihline_r12"))
+
+
+                            hd_lbsr21 = Label(inv_canvas_1,width=15,height=1,text="Item Details", font=('arial 18'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=hd_lbsr21, tags=("hd_lbsr21"))
+                            
+
+                            
+
+                            
+
+                            def add_inv_customer():
+                                
+                                inv_canvas_1.grid_forget()
+                               
+
+                                def inc_responsive_widgets2(event):
+                                    dwidth = event.width
+                                    dheight = event.height
+                                    dcanvas = event.widget
+                                
+                                    r1 = 25
+                                    x1 = dwidth/63
+                                    x2 = dwidth/1.021
+                                    y1 = dheight/14 
+                                    y2 = dheight/3.505
+
+                                    dcanvas.coords("acpoly1",x1 + r1,y1,
+                                    x1 + r1,y1,
+                                    x2 - r1,y1,
+                                    x2 - r1,y1,     
+                                    x2,y1,     
+                                    #--------------------
+                                    x2,y1 + r1,     
+                                    x2,y1 + r1,     
+                                    x2,y2 - r1,     
+                                    x2,y2 - r1,     
+                                    x2,y2,
+                                    #--------------------
+                                    x2 - r1,y2,     
+                                    x2 - r1,y2,     
+                                    x1 + r1,y2,
+                                    x1 + r1,y2,
+                                    x1,y2,
+                                    #--------------------
+                                    x1,y2 - r1,
+                                    x1,y2 - r1,
+                                    x1,y1 + r1,
+                                    x1,y1 + r1,
+                                    x1,y1,
+                                    )
+
+                                    dcanvas.coords("aclabel1",dwidth/2.5,dheight/8.24)
+                                    dcanvas.coords("achline",dwidth/21,dheight/4.67,dwidth/1.055,dheight/4.67)
+
+                                    r2 = 25
+                                    x11 = dwidth/63
+                                    x21 = dwidth/1.021
+                                    y11 = dheight/2.8
+                                    y21 = dheight/0.45
+
+
+                                    dcanvas.coords("acpoly2",x11 + r2,y11,
+                                    x11 + r2,y11,
+                                    x21 - r2,y11,
+                                    x21 - r2,y11,     
+                                    x21,y11,     
+                                    #--------------------
+                                    x21,y11 + r2,     
+                                    x21,y11 + r2,     
+                                    x21,y21 - r2,     
+                                    x21,y21 - r2,     
+                                    x21,y21,
+                                    #--------------------
+                                    x21 - r2,y21,     
+                                    x21 - r2,y21,     
+                                    x11 + r2,y21,
+                                    x11 + r2,y21,
+                                    x11,y21,
+                                    #--------------------
+                                    x11,y21 - r2,
+                                    x11,y21 - r2,
+                                    x11,y11 + r2,
+                                    x11,y11 + r2,
+                                    x11,y11,
+                                    )
+
+                                    dcanvas.coords("aclabel2",dwidth/17.0,dheight/2.35)
+                                    dcanvas.coords("achline1",dwidth/21,dheight/1.95,dwidth/1.055,dheight/1.95)
+                                    dcanvas.coords("aclabel3",dwidth/20.2,dheight/1.69)
+                                    dcanvas.coords("aclabel4",dwidth/3.35,dheight/1.69)
+                                    dcanvas.coords("aclabel5",dwidth/1.8,dheight/1.69)
+                                    dcanvas.coords("aclabel6",dwidth/20.2,dheight/1.32)
+                                    dcanvas.coords("aclabel7",dwidth/3.375,dheight/1.32)
+                                    dcanvas.coords("aclabel8",dwidth/20.2,dheight/1.088)
+                                    dcanvas.coords("aclabel9",dwidth/3.48,dheight/1.088)
+                                    dcanvas.coords("aclabel10",dwidth/1.82,dheight/1.088)
+                                    dcanvas.coords("aclabel11",dwidth/18.7,dheight/0.92)
+                                    dcanvas.coords("aclabel12",dwidth/3.40,dheight/0.92)
+                                    dcanvas.coords("aclabel13",dwidth/1.83,dheight/0.92)
+                                    dcanvas.coords("aclabel14",dwidth/55.5,dheight/0.79)
+                                    dcanvas.coords("aclabel15",dwidth/2.09,dheight/0.79)
+                                    dcanvas.coords("aclabel16",dwidth/19.5,dheight/0.74)
+                                    dcanvas.coords("aclabel17",dwidth/1.97,dheight/0.74)
+                                    dcanvas.coords("aclabel18",dwidth/19.49,dheight/0.645)
+                                    dcanvas.coords("aclabel19",dwidth/3.40,dheight/0.645)
+                                    dcanvas.coords("aclabel20",dwidth/2.0,dheight/0.645)
+                                    dcanvas.coords("aclabel21",dwidth/1.33,dheight/0.645)
+                                    dcanvas.coords("aclabel22",dwidth/21.0,dheight/0.58)
+                                    dcanvas.coords("aclabel23",dwidth/3.42,dheight/0.58)
+                                    dcanvas.coords("aclabel24",dwidth/2.0,dheight/0.58)
+                                    dcanvas.coords("aclabel25",dwidth/1.34,dheight/0.58)
+
+                                    dcanvas.coords("accombo1",dwidth/18.5,dheight/1.55)
+                                    dcanvas.coords("accombo2",dwidth/18.5,dheight/1.027)
+
+                                    dcanvas.coords("acentry1",dwidth/3.30,dheight/1.55)
+                                    dcanvas.coords("acentry2",dwidth/1.785,dheight/1.55)
+                                    dcanvas.coords("acentry3",dwidth/18.5,dheight/1.24)
+                                    dcanvas.coords("acentry4",dwidth/3.30,dheight/1.24)
+                                    dcanvas.coords("acentry5",dwidth/3.30,dheight/1.027)
+                                    dcanvas.coords("acentry6",dwidth/1.785,dheight/1.027)
+                                    dcanvas.coords("acentry7",dwidth/18.5,dheight/0.88)
+                                    dcanvas.coords("acentry8",dwidth/3.30,dheight/0.88)
+                                    dcanvas.coords("acentry9",dwidth/1.785,dheight/0.88)
+                                    dcanvas.coords("acentry10",dwidth/18.5,dheight/0.715)
+                                    dcanvas.coords("acentry11",dwidth/1.97,dheight/0.715)
+                                    dcanvas.coords("acentry12",dwidth/18.5,dheight/0.625)
+                                    dcanvas.coords("acentry13",dwidth/3.40,dheight/0.625)
+                                    dcanvas.coords("acentry14",dwidth/1.98,dheight/0.625)
+                                    dcanvas.coords("acentry15",dwidth/1.33,dheight/0.625)
+                                    dcanvas.coords("acentry16",dwidth/19.51,dheight/0.565)
+                                    dcanvas.coords("acentry17",dwidth/3.40,dheight/0.565)
+                                    dcanvas.coords("acentry18",dwidth/1.98,dheight/0.565)
+                                    dcanvas.coords("acentry19",dwidth/1.33,dheight/0.565)
+
+                                    dcanvas.coords("accheck1",dwidth/1.55,dheight/0.79)
+                                    dcanvas.coords("accheck2",dwidth/19.0,dheight/0.546)
+
+                                    dcanvas.coords("acbutton1",dwidth/2.5,dheight/0.5)
+                                    dcanvas.coords("acbutton2",dwidth/23,dheight/3.415)
+
+
+                                inv_canvas_2=Canvas(exp_mod_frm, bg='#2f516f', width=953, height=600, scrollregion=(0,0,700,1600))
+
+                                
+
+                                
+                                vertibar=Scrollbar(exp_mod_frm, orient=VERTICAL)
+                                vertibar.grid(row=0,column=1,sticky='ns')
+                                vertibar.config(command=inv_canvas_2.yview)
+
+                                inv_canvas_2.bind("<Configure>", inc_responsive_widgets2)
+                                inv_canvas_2.config(yscrollcommand=vertibar.set)
+                                inv_canvas_2.grid(row=0,column=0,sticky='nsew')
+
+                                def sales_add_inv_cus():
+                                    title = ic_comb_cus_1.get()
+                                    firstname = ic_entry_cus_1.get()
+                                    lastname = ic_entry_cus_2.get()
+                                    company = ic_entry_cus_3.get()
+                                    location = ic_cus_4.get()
+                                    gsttype = ic_comb_cus_2.get()
+                                    gstin = ic_entry_cus_5.get()
+                                    panno = ic_entry_cus_6.get()
+                                    email = ic_entry_cus_7.get()
+                                    website = ic_entry_cus_8.get()
+                                    mobile = ic_entry_cus_9.get()
+                                    street = ic_entry_cus_10.get()
+                                    city = ic_entry_cus_12.get()
+                                    state = ic_entry_cus_13.get()
+                                    pincode = ic_entry_cus_p12.get()
+                                    country = ic_entry_cus_c13.get()
+                                    shipstreet = ic_entry_cus_11.get()
+                                    shipcity = ic_entry_cus_14.get()
+                                    shipstate = ic_entry_cus_15.get()
+                                    shippincode = ic_entry_cus_p14.get()
+                                    shipcountry = ic_entry_cus_c15.get()
+
+                                    usri_sql = "SELECT id FROM auth_user WHERE username=%s"
+                                    usri_val = (nm_ent.get(),)
+                                    fbcursor.execute(usri_sql,usri_val)
+                                    usri_data = fbcursor.fetchone()
+
+                                    cmpi_sql = "SELECT cid FROM app1_company WHERE id_id=%s"
+                                    cmpi_val = (usri_data[0],)
+                                    fbcursor.execute(cmpi_sql,cmpi_val)
+                                    cmpi_data = fbcursor.fetchone()
+                                    cid = cmpi_data[0]
+
+                                    if ic_chk_str_1.get() == True:
+
+                                        cus_sql = "INSERT INTO app1_customer (title,firstname,lastname,company,location,gsttype,gstin,panno,email,website,mobile,street,city,state,pincode,country,shipstreet,shipcity,shipstate,shippincode,shipcountry,cid_id) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                                        cus_val=(title,firstname,lastname,company,location,gsttype,gstin,panno,email,website,mobile,street,city,state,pincode,country,shipstreet,shipcity,shipstate,shippincode,shipcountry,cid)
+                                        fbcursor.execute(cus_sql,cus_val)
+                                        finsysdb.commit()
+
+                                        #----------Refresh Insert Tree--------#
+
+                                        for record in cus_tree.get_children():
+                                                cus_tree.delete(record)
+
+                                        sql_pr="select * from auth_user where username=%s"
+                                        sql_pr_val=(nm_ent.get(),)
+                                        fbcursor.execute(sql_pr,sql_pr_val,)
+                                        pr_dtl=fbcursor.fetchone()
+
+                                        sql = "select * from app1_company where id_id=%s"
+                                        val = (pr_dtl[0],)
+                                        fbcursor.execute(sql, val,)
+                                        cmp_dtl=fbcursor.fetchone()
+
+                                        c_sql_1 = "SELECT * FROM app1_customer where cid_id=%s"
+                                        c_val_1 = (cmp_dtl[0],)
+                                        fbcursor.execute(c_sql_1,c_val_1,)
+                                        c_data_1 = fbcursor.fetchall()
+
+                                        count0 = 0
+                                        for i in c_data_1:
+                                            if True:
+                                                cus_tree.insert(parent='',index='end',iid=i,text='',values=('',i[2]+" "+i[3],i[6],i[7],i[8],i[9],i[11])) 
+                                            else:
+                                                pass
+                                        count0 += 1
+
+                                        inv_frame_2.destroy()
+                                        inv_frame_1.grid(row=0,column=0,sticky='nsew')
+                                    
+                                    else:
+                                        pass
+                                
+
+                                inv_canvas_2.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("acpoly1"))
+
+                                label_1 = Label(inv_canvas_2,width=15,height=1,text="ADD CUSTOMER", font=('arial 20'),background="#1b3857",fg="white") 
+                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel1"))
+
+                                inv_canvas_2.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("achline"))
+
+                                inv_canvas_2.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("acpoly2"))
+
+                                label_1 = Label(inv_canvas_2,width=20,height=1,text="Customer Information", font=('arial 20'),background="#1b3857",fg="white") 
+                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel2"))
+
+                                inv_canvas_2.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("achline1"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Title", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel3"))
+
+                                ic_comb_cus_1 = ttk.Combobox(inv_canvas_2, font=('arial 10'),foreground="white")
+                                ic_comb_cus_1['values'] = ("Mr","Mrs","Miss","Ms",)
+                                ic_comb_cus_1.current(0)
+                                window_ic_comb_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", width=245, height=30,window=ic_comb_cus_1, tags=("accombo1"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="First name", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel4"))
+
+                                ic_entry_cus_1=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_1, tags=("acentry1"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Last name", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel5"))
+
+                                ic_entry_cus_2=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_2 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_2, tags=("acentry2"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Company", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel6"))
+
+                                ic_entry_cus_3=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_3 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_3, tags=("acentry3"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Location", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel7"))
+
+                                ic_cus_4=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_cus_4 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_cus_4, tags=("acentry4"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="GST type", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel8"))
+
+                                ic_comb_cus_2 = ttk.Combobox(inv_canvas_2, font=('arial 10'),foreground="white")
+                                ic_comb_cus_2['values'] = ("Choose...","GST registered Regular","GST registered-Composition","GST unregistered","Consumer","Overseas","SEZ","Deemed exports-EOU's STP's EHTP's etc",)
+                                ic_comb_cus_2.current(0)
+                                window_ic_comb_cus_2 = inv_canvas_2.create_window(0, 0, anchor="nw", width=245, height=30,window=ic_comb_cus_2, tags=("accombo2"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="GSTIN", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel9"))
+
+                                def igst_validate(value):
+                
+                                    """
+                                    Validat the email entry
+                                    :param value:
+                                    :return:
+                                    """
+                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+                                    if re.fullmatch(pattern, value) is None:
+                                        
+                                        return False
+
+                                    ic_entry_cus_5.config(fg="white")
+                                    return True
+
+                                def igst_invalidate():
+                                    ic_entry_cus_5.config(fg="red")
+
+
+                                def ic_gst_in(event):
+                                    if ic_entry_cus_5.get()=="29APPCK7465F1Z1":
+                                        ic_entry_cus_5.delete(0,END)
+                                    else:
+                                        pass
+                                
+                                ic_entry_cus_5=Entry(inv_canvas_2,width=34,justify=LEFT,background='#2f516f',font=('arial 10'))
+                                ival_gst = (inv_canvas_2.register(igst_validate), '%P')
+                                iival_gst = (inv_canvas_2.register(igst_invalidate),)
+                                ic_entry_cus_5.config(validate='focusout', validatecommand=ival_gst, invalidcommand=iival_gst)
+                                window_ic_entry_cus_5 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_5, tags=("acentry5"))
+                                ic_entry_cus_5.insert(0,"29APPCK7465F1Z1")
+                                ic_entry_cus_5.bind("<Button-1>",ic_gst_in)
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="PAN NO", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel10"))
+
+                                def ic_pan_no(event):
+                                    if ic_entry_cus_6.get()=="APPCK7465F":
+                                        ic_entry_cus_6.delete(0,END)
+                                    else:
+                                        pass
+
+                                def ipan_validate(value):
+                
+                                    """
+                                    Validat the email entry
+                                    :param value:
+                                    :return:
+                                    """
+                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+                                    if re.fullmatch(pattern, value) is None:
+                                        
+                                        return False
+
+                                    ic_entry_cus_6.config(fg="white")
+                                    return True
+
+                                def ipan_invalidate():
+                                    ic_entry_cus_6.config(fg="red")
+
+                                ic_entry_cus_6=Entry(inv_canvas_2,width=34,justify=LEFT,background='#2f516f',font=('arial 10'))
+                                ival_pan = (inv_canvas_2.register(ipan_validate), '%P')
+                                iival_pan = (inv_canvas_2.register(ipan_invalidate),)
+                                ic_entry_cus_6.config(validate='focusout', validatecommand=ival_pan, invalidcommand=iival_pan)
+                                window_ic_entry_cus_6 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_6, tags=("acentry6"))
+                                ic_entry_cus_6.insert(0,"APPCK7465F")
+                                ic_entry_cus_6.bind("<Button-1>",ic_pan_no)
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Email", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel11"))
+
+                                def iemail_validate(value):
+                
+                                    """
+                                    Validat the email entry
+                                    :param value:
+                                    :return:
+                                    """
+                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+                                    if re.fullmatch(pattern, value) is None:
+                                        
+                                        return False
+
+                                    ic_entry_cus_7.config(fg="white")
+                                    return True
+
+                                def iemail_invalidate():
+                                    ic_entry_cus_7.config(fg="red")
+
+                                ic_entry_cus_7=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f')
+                                ival_email = (inv_canvas_2.register(iemail_validate), '%P')
+                                iival_email = (inv_canvas_2.register(iemail_invalidate),)
+                                ic_entry_cus_7.config(validate='focusout', validatecommand=ival_email, invalidcommand=iival_email)
+                                window_ic_entry_cus_7 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_7, tags=("acentry7"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Website", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel12"))
+
+                                ic_entry_cus_8=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_8 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_8, tags=("acentry8"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Mobile", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel13"))
+
+                                ic_entry_cus_9=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_9 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_9, tags=("acentry9"))
+
+                                def copy_icus_details():
+                                    ic_entry_cus_11.delete(0, END)
+                                    ic_entry_cus_11.insert(0,ic_entry_cus_10.get())
+                                    ic_entry_cus_14.delete(0, END)
+                                    ic_entry_cus_14.insert(0,ic_entry_cus_12.get())
+                                    ic_entry_cus_15.delete(0, END)
+                                    ic_entry_cus_15.insert(0,ic_entry_cus_13.get())
+                                    ic_entry_cus_p14.delete(0, END)
+                                    ic_entry_cus_p14.insert(0,ic_entry_cus_p12.get())
+                                    ic_entry_cus_c15.delete(0, END)
+                                    ic_entry_cus_c15.insert(0,ic_entry_cus_c13.get())
+
+                                label_1 = Label(inv_canvas_2,width=20,height=1,text="Billing Address", font=('arial 16'),background="#1b3857",fg="white") 
+                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel14"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Street", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel16"))
+
+                                ic_entry_cus_10=Entry(inv_canvas_2,width=95,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_10 = inv_canvas_2.create_window(0, 0, anchor="nw", height=60,window=ic_entry_cus_10, tags=("acentry10"))
+
+                                label_1 = Label(inv_canvas_2,width=20,height=1,text="Shipping Address", font=('arial 16'),background="#1b3857",fg="white") 
+                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel15"))
+
+                                ic_chk_str = StringVar()
+                                ic_chkbtn1 = Checkbutton(inv_canvas_2, text = "Same As Billing Address", variable = ic_chk_str, onvalue = 1, offvalue = 0, font=("arial", 10),background="#1b3857",foreground="white",selectcolor="#2f516f",command=copy_icus_details)
+                                ic_chkbtn1.select()
+                                window_ic_chkbtn_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_chkbtn1, tags=("accheck1"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Street", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel17"))
+
+                                ic_entry_cus_11=Entry(inv_canvas_2,width=95,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_11 = inv_canvas_2.create_window(0, 0, anchor="nw", height=60,window=ic_entry_cus_11, tags=("acentry11"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="City", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel18"))
+
+                                ic_entry_cus_12=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_12 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_12, tags=("acentry12"))
+                                
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="State", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel19"))
+
+                                ic_entry_cus_13=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_13 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_13, tags=("acentry13"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="City", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2,tags=("aclabel20"))
+
+                                ic_entry_cus_14=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_14 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_14, tags=("acentry14"))
+
+                                label_2 = Label(inv_canvas_2,width=5,height=1,text="State", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2,tags=("aclabel21"))
+
+                                ic_entry_cus_15=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_15 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_15, tags=("acentry15"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Pin Code", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel22"))
+
+                                ic_entry_cus_p12=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_p12 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_p12, tags=("acentry16"))
+                                
+                                label_2 = Label(inv_canvas_2,width=8,height=1,text="Country", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel23"))
+
+                                ic_entry_cus_c13=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_c13 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_c13, tags=("acentry17"))
+
+                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Pin Code", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel24"))
+
+                                ic_entry_cus_p14=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_p14 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_p14, tags=("acentry18"))
+
+                                label_2 = Label(inv_canvas_2,width=8,height=1,text="Country", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel25"))
+
+                                ic_entry_cus_c15=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_c15 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_c15, tags=("acentry19"))
+
+                                ic_chk_str_1 = BooleanVar()
+                                ic_chkbtn2 = Checkbutton(inv_canvas_2, text = "Agree to terms and conditions", variable = ic_chk_str_1, font=("arial", 10),background="#1b3857",foreground="white",selectcolor="#2f516f")
+                                window_ic_chkbtn_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_chkbtn2,tags=("accheck2"))
+
+                                ic_cus_btn2=Button(inv_canvas_2,text='Submit Form', width=25,height=2,foreground="white",background="#1b3857",font='arial 12',command=sales_add_inv_cus)
+                                window_ic_cus_btn2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_cus_btn2,tags=("acbutton1"))
+
+                                def inv_back_1_():
+                                    inv_canvas_1.grid_forget()
+                                    vertibar.grid_forget()
+                                    exp_chld_scrl.grid(row=0,column=2,sticky='ns')
+
+                                bck_btn1=Button(inv_canvas_2,text='← Back', bd=0, foreground="white",background="#2f516f",font='arial 10 bold',activebackground="#1b3857",command=inv_back_1_)
+                                window_bck_btn1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=bck_btn1,tags=('acbutton2'))
+                                
+
+
+                            aibtn2=Button(inv_canvas_1,text='+', width=5,height=1,foreground="white",background="#1b3857",font='arial 12',command=add_inv_customer)
+                            window_aibtn2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=aibtn2, tags=('aibutton1'))
+
+                            
+                            
+
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine1'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine2'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine3'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine4'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine5'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine6'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine7'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine8'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine9'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine10'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine11'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine12'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine13'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine14'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine15'))
+
+
+                            label_2 = Label(inv_canvas_1,width=2,height=1,text="#", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel11'))
+
+                            label_3 = Label(inv_canvas_1,width=15,height=1,text="PRODUCT/SERVICE", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_3 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_3,tags=('ailabel12'))
+
+                            label_4 = Label(inv_canvas_1,width=4,height=1,text="HSN", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel13'))
+
+                            label_4 = Label(inv_canvas_1,width=11,height=1,text="DESCRIPTION", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel14'))
+
+                            label_4 = Label(inv_canvas_1,width=4,height=1,text="QTY", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel15'))
+
+                            label_4 = Label(inv_canvas_1,width=8,height=1,text="PRICE", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel16'))
+
+                            label_4 = Label(inv_canvas_1,width=6,height=1,text="TOTAL", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel17'))
+
+                            label_4 = Label(inv_canvas_1,width=7,height=1,text="TAX (%)", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_4 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_4,tags=('ailabel18'))
+
+                            def i_details_1(event):
+                                inv_to_str_1 = ai_comb_p_1.get()
+
+                                sql = "select * from app1_inventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_1,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_sel_1 = fbcursor.fetchone()
+
+                                sql = "select * from app1_noninventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_1,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_sel_2 = fbcursor.fetchone()
+
+                                sql = "select * from app1_bundle where name=%s and cid_id=%s"
+                                val = (inv_to_str_1,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_sel_3 = fbcursor.fetchone() 
+
+                                if inv_sel_1 is not None:
+                                    
+                                    ai_entry_p_1.delete(0,END)
+                                    ai_entry_p_1.insert(0,inv_sel_1[4])
+                                    ai_entry_p_1_2.delete('1.0',END)
+                                    ai_entry_p_1_2.insert('1.0',inv_sel_1[11])
+                                    ai_entry_p_1_4.delete(0,END)
+                                    ai_entry_p_1_4.insert(0,round(float(inv_sel_1[12]),2))
+                                    ai_comb_p_1_2.delete(0,'end')
+                                    ai_comb_p_1_2.insert(0, inv_sel_1[14])
+                                    inv_canvas_1.itemconfig('aientry6',state='normal')
+                                    inv_canvas_1.itemconfig('aientry7',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo5',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_sel_2 is not None:
+                                    
+                                    ai_entry_p_1.delete(0,END)
+                                    ai_entry_p_1.insert(0,inv_sel_2[4])
+                                    ai_entry_p_1_2.delete('1.0',END)
+                                    ai_entry_p_1_2.insert('1.0',inv_sel_2[7])
+                                    ai_entry_p_1_4.delete(0,END)
+                                    ai_entry_p_1_4.insert(0,round(float(inv_sel_2[8]),2))
+                                    ai_comb_p_1_2.delete(0,'end')
+                                    ai_comb_p_1_2.insert(0, inv_sel_2[10])
+                                    inv_canvas_1.itemconfig('aientry6',state='normal')
+                                    inv_canvas_1.itemconfig('aientry7',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo5',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_sel_3 is not None:
+                                    
+                                    ai_entry_p_1.delete(0,END)
+                                    ai_entry_p_1.insert(0,inv_sel_3[3])
+                                    ai_entry_p_1_2.delete('1.0',END)
+                                    ai_entry_p_1_2.insert('1.0',inv_sel_3[4])
+                                    inv_canvas_1.itemconfig('aientry6',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry7',state='hidden')
+                                    inv_canvas_1.itemconfig('aicombo5',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='normal')
+                                    inv_canvas_1.itemconfig('ailine26',state='normal')
+                                    inv_canvas_1.itemconfig('ailine27',state='normal')
+                                    inv_canvas_1.itemconfig('ailine28',state='normal')
+                                    inv_canvas_1.itemconfig('ailine29',state='normal')
+                                    inv_canvas_1.itemconfig('ailine30',state='normal')
+                                    inv_canvas_1.itemconfig('ailine31',state='normal')
+                                    inv_canvas_1.itemconfig('ailine32',state='normal')
+                                    inv_canvas_1.itemconfig('ailine33',state='normal')
+                                    inv_canvas_1.itemconfig('ailine34',state='normal')
+                                    inv_canvas_1.itemconfig('ailine35',state='normal')
+                                    inv_canvas_1.itemconfig('ailine36',state='normal')
+                                    inv_canvas_1.itemconfig('ailine37',state='normal')
+                                    inv_canvas_1.itemconfig('ailine38',state='normal')
+                                    inv_canvas_1.itemconfig('ailine39',state='normal')
+                                    inv_canvas_1.itemconfig('ailine40',state='normal')
+                                    inv_canvas_1.itemconfig('ailine41',state='normal')
+                                    inv_canvas_1.itemconfig('ailine42',state='normal')
+                                    inv_canvas_1.itemconfig('ailine43',state='normal')
+                                    inv_canvas_1.itemconfig('ailine44',state='normal')
+                                    inv_canvas_1.itemconfig('ailine45',state='normal')
+                                    inv_canvas_1.itemconfig('ailine46',state='normal')
+                                    inv_canvas_1.itemconfig('bient1',state='normal')
+                                    inv_canvas_1.itemconfig('bient5',state='normal')
+                                    inv_canvas_1.itemconfig('bient9',state='normal')
+                                    inv_canvas_1.itemconfig('bient13',state='normal')
+                                    inv_canvas_1.itemconfig('bient17',state='normal')
+                                    inv_canvas_1.itemconfig('bient21',state='normal')
+                                    inv_canvas_1.itemconfig('bient25',state='normal')
+                                    inv_canvas_1.itemconfig('bient2',state='normal')
+                                    inv_canvas_1.itemconfig('bient6',state='normal')
+                                    inv_canvas_1.itemconfig('bient10',state='normal')
+                                    inv_canvas_1.itemconfig('bient14',state='normal')
+                                    inv_canvas_1.itemconfig('bient18',state='normal')
+                                    inv_canvas_1.itemconfig('bient22',state='normal')
+                                    inv_canvas_1.itemconfig('bient26',state='normal')
+                                    inv_canvas_1.itemconfig('bient3',state='normal')
+                                    inv_canvas_1.itemconfig('bient7',state='normal')
+                                    inv_canvas_1.itemconfig('bient11',state='normal')
+                                    inv_canvas_1.itemconfig('bient15',state='normal')
+                                    inv_canvas_1.itemconfig('bient19',state='normal')
+                                    inv_canvas_1.itemconfig('bient23',state='normal')
+                                    inv_canvas_1.itemconfig('bient27',state='normal')
+                                    inv_canvas_1.itemconfig('bient4',state='normal')
+                                    inv_canvas_1.itemconfig('bient8',state='normal')
+                                    inv_canvas_1.itemconfig('bient12',state='normal')
+                                    inv_canvas_1.itemconfig('bient16',state='normal')
+                                    inv_canvas_1.itemconfig('bient20',state='normal')
+                                    inv_canvas_1.itemconfig('bient24',state='normal')
+                                    inv_canvas_1.itemconfig('bient28',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl1',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl2',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl3',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl4',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl5',state='normal')
+                                    inv_canvas_1.itemconfig('bient29',state='normal')
+                                    inv_canvas_1.itemconfig('bient30',state='normal')
+                                    inv_canvas_1.itemconfig('bient31',state='normal')
+                                    inv_canvas_1.itemconfig('bient32',state='normal')
+                                    inv_canvas_1.itemconfig('bient33',state='normal')
+                                    inv_canvas_1.itemconfig('bbutn1',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine17',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine18',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine19',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine20',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine21',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine22',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel27',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry23',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry24',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry25',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry26',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry27',state='hidden')
+                                    inv_canvas_1.itemconfig('aibutton2',state='hidden')
+                                    
+                                    bu_inv_1.delete(0,END)
+                                    bu_inv_1.insert(0,inv_sel_3[5])
+                                    bu_inv_1_1.delete(0,END)
+                                    bu_inv_1_1.insert(0,inv_sel_3[9])
+                                    bu_inv_1_2.delete('1.0',END)
+                                    bu_inv_1_2.insert('1.0',inv_sel_3[13])
+                                    bu_inv_1_3.delete(0,END)
+                                    bu_inv_1_3.insert(0,round(inv_sel_3[21],2))
+                                    bu_inv_1_4.delete(0,END)
+                                    bu_inv_1_4.insert(0,inv_sel_3[17])
+                                    bu_inv_1_5.delete(0,END)
+                                    bu_inv_1_5.insert(0,round(inv_sel_3[25],2))
+                                    bu_inv_1_6.delete(0,END)
+                                    bu_inv_1_6.insert(0,inv_sel_3[29])
+                                    bu_inv_2.delete(0,END)
+                                    bu_inv_2.insert(0,inv_sel_3[6])
+                                    bu_inv_2_1.delete(0,END)
+                                    bu_inv_2_1.insert(0,inv_sel_3[10])
+                                    bu_inv_2_2.delete('1.0',END)
+                                    bu_inv_2_2.insert('1.0',inv_sel_3[14])
+                                    bu_inv_2_3.delete(0,END)
+                                    bu_inv_2_3.insert(0,round(inv_sel_3[22],2))
+                                    bu_inv_2_4.delete(0,END)
+                                    bu_inv_2_4.insert(0,inv_sel_3[18])
+                                    bu_inv_2_5.delete(0,END)
+                                    bu_inv_2_5.insert(0,round(inv_sel_3[26],2))
+                                    bu_inv_2_6.delete(0,END)
+                                    bu_inv_2_6.insert(0,inv_sel_3[30])
+                                    bu_inv_3.delete(0,END)
+                                    bu_inv_3.insert(0,inv_sel_3[7])
+                                    bu_inv_3_1.delete(0,END)
+                                    bu_inv_3_1.insert(0,inv_sel_3[11])
+                                    bu_inv_3_2.delete('1.0',END)
+                                    bu_inv_3_2.insert('1.0',inv_sel_3[15])
+                                    bu_inv_3_3.delete(0,END)
+                                    bu_inv_3_3.insert(0,round(inv_sel_3[23],2))
+                                    bu_inv_3_4.delete(0,END)
+                                    bu_inv_3_4.insert(0,inv_sel_3[19])
+                                    bu_inv_3_5.delete(0,END)
+                                    bu_inv_3_5.insert(0,round(inv_sel_3[27],2))
+                                    bu_inv_3_6.delete(0,END)
+                                    bu_inv_3_6.insert(0,inv_sel_3[31])
+                                    bu_inv_4.delete(0,END)
+                                    bu_inv_4.insert(0,inv_sel_3[8])
+                                    bu_inv_4_1.delete(0,END)
+                                    bu_inv_4_1.insert(0,inv_sel_3[12])
+                                    bu_inv_4_2.delete('1.0',END)
+                                    bu_inv_4_2.insert('1.0',inv_sel_3[16])
+                                    bu_inv_4_3.delete(0,END)
+                                    bu_inv_4_3.insert(0,round(inv_sel_3[24],2))
+                                    bu_inv_4_4.delete(0,END)
+                                    bu_inv_4_4.insert(0,inv_sel_3[20])
+                                    bu_inv_4_5.delete(0,END)
+                                    bu_inv_4_5.insert(0,round(inv_sel_3[28],2))
+                                    bu_inv_4_6.delete(0,END)
+                                    bu_inv_4_6.insert(0,inv_sel_3[32])
+
+                                else:
+                                    pass
+
+                            def i_details_2(event):
+                                inv_to_str_2 = ai_comb_p_2.get()
+
+                                sql = "select * from app1_inventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_2,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_se_1 = fbcursor.fetchone()
+
+                                sql = "select * from app1_noninventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_2,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_se_2 = fbcursor.fetchone()
+
+                                sql = "select * from app1_bundle where name=%s and cid_id=%s"
+                                val = (inv_to_str_2,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_se_3 = fbcursor.fetchone() 
+
+                                if inv_se_1 is not None:
+                                    
+                                    ai_entry_p_2.delete(0,END)
+                                    ai_entry_p_2.insert(0,inv_se_1[4])
+                                    ai_entry_p_2_1.delete('1.0',END)
+                                    ai_entry_p_2_1.insert('1.0',inv_se_1[11])
+                                    ai_entry_2_3.delete(0,END)
+                                    ai_entry_2_3.insert(0,round(float(inv_se_1[12]),2))
+                                    ai_comb_P_2_2.delete(0,'end')
+                                    ai_comb_P_2_2.insert(0, inv_se_1[14])
+                                    inv_canvas_1.itemconfig('aientry17',state='normal')
+                                    inv_canvas_1.itemconfig('aientry20',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo9',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_se_2 is not None:
+                                    
+                                    ai_entry_p_2.delete(0,END)
+                                    ai_entry_p_2.insert(0,inv_se_2[4])
+                                    ai_entry_p_2_1.delete('1.0',END)
+                                    ai_entry_p_2_1.insert('1.0',inv_se_2[7])
+                                    ai_entry_2_3.delete(0,END)
+                                    ai_entry_2_3.insert(0,round(float(inv_se_2[8]),2))
+                                    ai_comb_P_2_2.delete(0,'end')
+                                    ai_comb_P_2_2.insert(0, inv_se_2[10])
+                                    inv_canvas_1.itemconfig('aientry17',state='normal')
+                                    inv_canvas_1.itemconfig('aientry20',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo9',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_se_3 is not None:
+                                    
+                                    ai_entry_p_2.delete(0,END)
+                                    ai_entry_p_2.insert(0,inv_se_3[3])
+                                    ai_entry_p_2_1.delete('1.0',END)
+                                    ai_entry_p_2_1.insert('1.0',inv_se_3[4])
+                                    inv_canvas_1.itemconfig('aientry17',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry20',state='hidden')
+                                    inv_canvas_1.itemconfig('aicombo9',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='normal')
+                                    inv_canvas_1.itemconfig('ailine26',state='normal')
+                                    inv_canvas_1.itemconfig('ailine27',state='normal')
+                                    inv_canvas_1.itemconfig('ailine28',state='normal')
+                                    inv_canvas_1.itemconfig('ailine29',state='normal')
+                                    inv_canvas_1.itemconfig('ailine30',state='normal')
+                                    inv_canvas_1.itemconfig('ailine31',state='normal')
+                                    inv_canvas_1.itemconfig('ailine32',state='normal')
+                                    inv_canvas_1.itemconfig('ailine33',state='normal')
+                                    inv_canvas_1.itemconfig('ailine34',state='normal')
+                                    inv_canvas_1.itemconfig('ailine35',state='normal')
+                                    inv_canvas_1.itemconfig('ailine36',state='normal')
+                                    inv_canvas_1.itemconfig('ailine37',state='normal')
+                                    inv_canvas_1.itemconfig('ailine38',state='normal')
+                                    inv_canvas_1.itemconfig('ailine39',state='normal')
+                                    inv_canvas_1.itemconfig('ailine40',state='normal')
+                                    inv_canvas_1.itemconfig('ailine41',state='normal')
+                                    inv_canvas_1.itemconfig('ailine42',state='normal')
+                                    inv_canvas_1.itemconfig('ailine43',state='normal')
+                                    inv_canvas_1.itemconfig('ailine44',state='normal')
+                                    inv_canvas_1.itemconfig('ailine45',state='normal')
+                                    inv_canvas_1.itemconfig('ailine46',state='normal')
+                                    inv_canvas_1.itemconfig('bient1',state='normal')
+                                    inv_canvas_1.itemconfig('bient5',state='normal')
+                                    inv_canvas_1.itemconfig('bient9',state='normal')
+                                    inv_canvas_1.itemconfig('bient13',state='normal')
+                                    inv_canvas_1.itemconfig('bient17',state='normal')
+                                    inv_canvas_1.itemconfig('bient21',state='normal')
+                                    inv_canvas_1.itemconfig('bient25',state='normal')
+                                    inv_canvas_1.itemconfig('bient2',state='normal')
+                                    inv_canvas_1.itemconfig('bient6',state='normal')
+                                    inv_canvas_1.itemconfig('bient10',state='normal')
+                                    inv_canvas_1.itemconfig('bient14',state='normal')
+                                    inv_canvas_1.itemconfig('bient18',state='normal')
+                                    inv_canvas_1.itemconfig('bient22',state='normal')
+                                    inv_canvas_1.itemconfig('bient26',state='normal')
+                                    inv_canvas_1.itemconfig('bient3',state='normal')
+                                    inv_canvas_1.itemconfig('bient7',state='normal')
+                                    inv_canvas_1.itemconfig('bient11',state='normal')
+                                    inv_canvas_1.itemconfig('bient15',state='normal')
+                                    inv_canvas_1.itemconfig('bient19',state='normal')
+                                    inv_canvas_1.itemconfig('bient23',state='normal')
+                                    inv_canvas_1.itemconfig('bient27',state='normal')
+                                    inv_canvas_1.itemconfig('bient4',state='normal')
+                                    inv_canvas_1.itemconfig('bient8',state='normal')
+                                    inv_canvas_1.itemconfig('bient12',state='normal')
+                                    inv_canvas_1.itemconfig('bient16',state='normal')
+                                    inv_canvas_1.itemconfig('bient20',state='normal')
+                                    inv_canvas_1.itemconfig('bient24',state='normal')
+                                    inv_canvas_1.itemconfig('bient28',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl1',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl2',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl3',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl4',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl5',state='normal')
+                                    inv_canvas_1.itemconfig('bient29',state='normal')
+                                    inv_canvas_1.itemconfig('bient30',state='normal')
+                                    inv_canvas_1.itemconfig('bient31',state='normal')
+                                    inv_canvas_1.itemconfig('bient32',state='normal')
+                                    inv_canvas_1.itemconfig('bient33',state='normal')
+                                    inv_canvas_1.itemconfig('bbutn1',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine17',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine18',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine19',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine20',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine21',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine22',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel27',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry23',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry24',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry25',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry26',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry27',state='hidden')
+                                    inv_canvas_1.itemconfig('aibutton2',state='hidden')
+
+                                    bu_inv_1.delete(0,END)
+                                    bu_inv_1.insert(0,inv_se_3[5])
+                                    bu_inv_1_1.delete(0,END)
+                                    bu_inv_1_1.insert(0,inv_se_3[9])
+                                    bu_inv_1_2.delete('1.0',END)
+                                    bu_inv_1_2.insert('1.0',inv_se_3[13])
+                                    bu_inv_1_3.delete(0,END)
+                                    bu_inv_1_3.insert(0,round(inv_se_3[21],2))
+                                    bu_inv_1_4.delete(0,END)
+                                    bu_inv_1_4.insert(0,inv_se_3[17])
+                                    bu_inv_1_5.delete(0,END)
+                                    bu_inv_1_5.insert(0,round(inv_se_3[25],2))
+                                    bu_inv_1_6.delete(0,END)
+                                    bu_inv_1_6.insert(0,inv_se_3[29])
+                                    bu_inv_2.delete(0,END)
+                                    bu_inv_2.insert(0,inv_se_3[6])
+                                    bu_inv_2_1.delete(0,END)
+                                    bu_inv_2_1.insert(0,inv_se_3[10])
+                                    bu_inv_2_2.delete('1.0',END)
+                                    bu_inv_2_2.insert('1.0',inv_se_3[14])
+                                    bu_inv_2_3.delete(0,END)
+                                    bu_inv_2_3.insert(0,round(inv_se_3[22],2))
+                                    bu_inv_2_4.delete(0,END)
+                                    bu_inv_2_4.insert(0,inv_se_3[18])
+                                    bu_inv_2_5.delete(0,END)
+                                    bu_inv_2_5.insert(0,round(inv_se_3[26],2))
+                                    bu_inv_2_6.delete(0,END)
+                                    bu_inv_2_6.insert(0,inv_se_3[30])
+                                    bu_inv_3.delete(0,END)
+                                    bu_inv_3.insert(0,inv_se_3[7])
+                                    bu_inv_3_1.delete(0,END)
+                                    bu_inv_3_1.insert(0,inv_se_3[11])
+                                    bu_inv_3_2.delete('1.0',END)
+                                    bu_inv_3_2.insert('1.0',inv_se_3[15])
+                                    bu_inv_3_3.delete(0,END)
+                                    bu_inv_3_3.insert(0,round(inv_se_3[23],2))
+                                    bu_inv_3_4.delete(0,END)
+                                    bu_inv_3_4.insert(0,inv_se_3[19])
+                                    bu_inv_3_5.delete(0,END)
+                                    bu_inv_3_5.insert(0,round(inv_se_3[27],2))
+                                    bu_inv_3_6.delete(0,END)
+                                    bu_inv_3_6.insert(0,inv_se_3[31])
+                                    bu_inv_4.delete(0,END)
+                                    bu_inv_4.insert(0,inv_se_3[8])
+                                    bu_inv_4_1.delete(0,END)
+                                    bu_inv_4_1.insert(0,inv_se_3[12])
+                                    bu_inv_4_2.delete('1.0',END)
+                                    bu_inv_4_2.insert('1.0',inv_se_3[16])
+                                    bu_inv_4_3.delete(0,END)
+                                    bu_inv_4_3.insert(0,round(inv_se_3[24],2))
+                                    bu_inv_4_4.delete(0,END)
+                                    bu_inv_4_4.insert(0,inv_se_3[20])
+                                    bu_inv_4_5.delete(0,END)
+                                    bu_inv_4_5.insert(0,round(inv_se_3[28],2))
+                                    bu_inv_4_6.delete(0,END)
+                                    bu_inv_4_6.insert(0,inv_se_3[32])
+                                    
+                                else:
+                                    pass
+
+                            def i_details_3(event):
+                                inv_to_str_3 = ai_comb_p_3.get()
+
+                                sql = "select * from app1_inventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_3,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_s_1 = fbcursor.fetchone()
+
+                                sql = "select * from app1_noninventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_3,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_s_2 = fbcursor.fetchone()
+
+                                sql = "select * from app1_bundle where name=%s and cid_id=%s"
+                                val = (inv_to_str_3,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_s_3 = fbcursor.fetchone() 
+
+                                if inv_s_1 is not None:
+                                    
+                                    ai_entry_3.delete(0,END)
+                                    ai_entry_3.insert(0,inv_s_1[4])
+                                    ai_entry_3_1.delete('1.0',END)
+                                    ai_entry_3_1.insert('1.0',inv_s_1[11])
+                                    ai_entry_3_3.delete(0,END)
+                                    ai_entry_3_3.insert(0,round(float(inv_s_1[12]),2))
+                                    ai_comb_P_3_2.delete(0,'end')
+                                    ai_comb_P_3_2.insert(0, inv_s_1[14])
+                                    inv_canvas_1.itemconfig('aientry18',state='normal')
+                                    inv_canvas_1.itemconfig('aientry21',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo10',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_s_2 is not None:
+                                    
+                                    ai_entry_3.delete(0,END)
+                                    ai_entry_3.insert(0,inv_s_2[4])
+                                    ai_entry_3_1.delete('1.0',END)
+                                    ai_entry_3_1.insert('1.0',inv_s_2[7])
+                                    ai_entry_3_3.delete(0,END)
+                                    ai_entry_3_3.insert(0,round(float(inv_s_2[8]),2))
+                                    ai_comb_P_3_2.delete(0,'end')
+                                    ai_comb_P_3_2.insert(0, inv_s_2[10])
+                                    inv_canvas_1.itemconfig('aientry18',state='normal')
+                                    inv_canvas_1.itemconfig('aientry21',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo10',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_s_3 is not None:
+                                    
+                                    ai_entry_3.delete(0,END)
+                                    ai_entry_3.insert(0,inv_s_3[3])
+                                    ai_entry_3_1.delete('1.0',END)
+                                    ai_entry_3_1.insert('1.0',inv_s_3[4])
+                                    inv_canvas_1.itemconfig('aientry18',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry21',state='hidden')
+                                    inv_canvas_1.itemconfig('aicombo10',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='normal')
+                                    inv_canvas_1.itemconfig('ailine26',state='normal')
+                                    inv_canvas_1.itemconfig('ailine27',state='normal')
+                                    inv_canvas_1.itemconfig('ailine28',state='normal')
+                                    inv_canvas_1.itemconfig('ailine29',state='normal')
+                                    inv_canvas_1.itemconfig('ailine30',state='normal')
+                                    inv_canvas_1.itemconfig('ailine31',state='normal')
+                                    inv_canvas_1.itemconfig('ailine32',state='normal')
+                                    inv_canvas_1.itemconfig('ailine33',state='normal')
+                                    inv_canvas_1.itemconfig('ailine34',state='normal')
+                                    inv_canvas_1.itemconfig('ailine35',state='normal')
+                                    inv_canvas_1.itemconfig('ailine36',state='normal')
+                                    inv_canvas_1.itemconfig('ailine37',state='normal')
+                                    inv_canvas_1.itemconfig('ailine38',state='normal')
+                                    inv_canvas_1.itemconfig('ailine39',state='normal')
+                                    inv_canvas_1.itemconfig('ailine40',state='normal')
+                                    inv_canvas_1.itemconfig('ailine41',state='normal')
+                                    inv_canvas_1.itemconfig('ailine42',state='normal')
+                                    inv_canvas_1.itemconfig('ailine43',state='normal')
+                                    inv_canvas_1.itemconfig('ailine44',state='normal')
+                                    inv_canvas_1.itemconfig('ailine45',state='normal')
+                                    inv_canvas_1.itemconfig('ailine46',state='normal')
+                                    inv_canvas_1.itemconfig('bient1',state='normal')
+                                    inv_canvas_1.itemconfig('bient5',state='normal')
+                                    inv_canvas_1.itemconfig('bient9',state='normal')
+                                    inv_canvas_1.itemconfig('bient13',state='normal')
+                                    inv_canvas_1.itemconfig('bient17',state='normal')
+                                    inv_canvas_1.itemconfig('bient21',state='normal')
+                                    inv_canvas_1.itemconfig('bient25',state='normal')
+                                    inv_canvas_1.itemconfig('bient2',state='normal')
+                                    inv_canvas_1.itemconfig('bient6',state='normal')
+                                    inv_canvas_1.itemconfig('bient10',state='normal')
+                                    inv_canvas_1.itemconfig('bient14',state='normal')
+                                    inv_canvas_1.itemconfig('bient18',state='normal')
+                                    inv_canvas_1.itemconfig('bient22',state='normal')
+                                    inv_canvas_1.itemconfig('bient26',state='normal')
+                                    inv_canvas_1.itemconfig('bient3',state='normal')
+                                    inv_canvas_1.itemconfig('bient7',state='normal')
+                                    inv_canvas_1.itemconfig('bient11',state='normal')
+                                    inv_canvas_1.itemconfig('bient15',state='normal')
+                                    inv_canvas_1.itemconfig('bient19',state='normal')
+                                    inv_canvas_1.itemconfig('bient23',state='normal')
+                                    inv_canvas_1.itemconfig('bient27',state='normal')
+                                    inv_canvas_1.itemconfig('bient4',state='normal')
+                                    inv_canvas_1.itemconfig('bient8',state='normal')
+                                    inv_canvas_1.itemconfig('bient12',state='normal')
+                                    inv_canvas_1.itemconfig('bient16',state='normal')
+                                    inv_canvas_1.itemconfig('bient20',state='normal')
+                                    inv_canvas_1.itemconfig('bient24',state='normal')
+                                    inv_canvas_1.itemconfig('bient28',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl1',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl2',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl3',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl4',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl5',state='normal')
+                                    inv_canvas_1.itemconfig('bient29',state='normal')
+                                    inv_canvas_1.itemconfig('bient30',state='normal')
+                                    inv_canvas_1.itemconfig('bient31',state='normal')
+                                    inv_canvas_1.itemconfig('bient32',state='normal')
+                                    inv_canvas_1.itemconfig('bient33',state='normal')
+                                    inv_canvas_1.itemconfig('bbutn1',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine17',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine18',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine19',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine20',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine21',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine22',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel27',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry23',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry24',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry25',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry26',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry27',state='hidden')
+                                    inv_canvas_1.itemconfig('aibutton2',state='hidden')
+
+                                    bu_inv_1.delete(0,END)
+                                    bu_inv_1.insert(0,inv_s_3[5])
+                                    bu_inv_1_1.delete(0,END)
+                                    bu_inv_1_1.insert(0,inv_s_3[9])
+                                    bu_inv_1_2.delete('1.0',END)
+                                    bu_inv_1_2.insert('1.0',inv_s_3[13])
+                                    bu_inv_1_3.delete(0,END)
+                                    bu_inv_1_3.insert(0,round(inv_s_3[21],2))
+                                    bu_inv_1_4.delete(0,END)
+                                    bu_inv_1_4.insert(0,inv_s_3[17])
+                                    bu_inv_1_5.delete(0,END)
+                                    bu_inv_1_5.insert(0,round(inv_s_3[25],2))
+                                    bu_inv_1_6.delete(0,END)
+                                    bu_inv_1_6.insert(0,inv_s_3[29])
+                                    bu_inv_2.delete(0,END)
+                                    bu_inv_2.insert(0,inv_s_3[6])
+                                    bu_inv_2_1.delete(0,END)
+                                    bu_inv_2_1.insert(0,inv_s_3[10])
+                                    bu_inv_2_2.delete('1.0',END)
+                                    bu_inv_2_2.insert('1.0',inv_s_3[14])
+                                    bu_inv_2_3.delete(0,END)
+                                    bu_inv_2_3.insert(0,round(inv_s_3[22],2))
+                                    bu_inv_2_4.delete(0,END)
+                                    bu_inv_2_4.insert(0,inv_s_3[18])
+                                    bu_inv_2_5.delete(0,END)
+                                    bu_inv_2_5.insert(0,round(inv_s_3[26],2))
+                                    bu_inv_2_6.delete(0,END)
+                                    bu_inv_2_6.insert(0,inv_s_3[30])
+                                    bu_inv_3.delete(0,END)
+                                    bu_inv_3.insert(0,inv_s_3[7])
+                                    bu_inv_3_1.delete(0,END)
+                                    bu_inv_3_1.insert(0,inv_s_3[11])
+                                    bu_inv_3_2.delete('1.0',END)
+                                    bu_inv_3_2.insert('1.0',inv_s_3[15])
+                                    bu_inv_3_3.delete(0,END)
+                                    bu_inv_3_3.insert(0,round(inv_s_3[23],2))
+                                    bu_inv_3_4.delete(0,END)
+                                    bu_inv_3_4.insert(0,inv_s_3[19])
+                                    bu_inv_3_5.delete(0,END)
+                                    bu_inv_3_5.insert(0,round(inv_s_3[27],2))
+                                    bu_inv_3_6.delete(0,END)
+                                    bu_inv_3_6.insert(0,inv_s_3[31])
+                                    bu_inv_4.delete(0,END)
+                                    bu_inv_4.insert(0,inv_s_3[8])
+                                    bu_inv_4_1.delete(0,END)
+                                    bu_inv_4_1.insert(0,inv_s_3[12])
+                                    bu_inv_4_2.delete('1.0',END)
+                                    bu_inv_4_2.insert('1.0',inv_s_3[16])
+                                    bu_inv_4_3.delete(0,END)
+                                    bu_inv_4_3.insert(0,round(inv_s_3[24],2))
+                                    bu_inv_4_4.delete(0,END)
+                                    bu_inv_4_4.insert(0,inv_s_3[20])
+                                    bu_inv_4_5.delete(0,END)
+                                    bu_inv_4_5.insert(0,round(inv_s_3[28],2))
+                                    bu_inv_4_6.delete(0,END)
+                                    bu_inv_4_6.insert(0,inv_s_3[32])
+                                    
+                                else:
+                                    pass
+
+                            def i_details_4(event):
+                                inv_to_str_4 = ai_comb_p_4.get()
+
+                                sql = "select * from app1_inventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_4,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_ss_1 = fbcursor.fetchone()
+
+                                sql = "select * from app1_noninventory where name=%s and cid_id=%s"
+                                val = (inv_to_str_4,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_ss_2 = fbcursor.fetchone()
+
+                                sql = "select * from app1_bundle where name=%s and cid_id=%s"
+                                val = (inv_to_str_4,cmp_dtl_i[0],)
+                                fbcursor.execute(sql,val)
+                                inv_ss_3 = fbcursor.fetchone() 
+
+                                if inv_ss_1 is not None:
+                                    
+                                    ai_entry_4.delete(0,END)
+                                    ai_entry_4.insert(0,inv_ss_1[4])
+                                    ai_entry_4_1.delete('1.0',END)
+                                    ai_entry_4_1.insert('1.0',inv_ss_1[11])
+                                    ai_entry_4_3.delete(0,END)
+                                    ai_entry_4_3.insert(0,round(float(inv_ss_1[12]),2))
+                                    ai_comb_P_4_2.delete(0,'end')
+                                    ai_comb_P_4_2.insert(0, inv_ss_1[14])
+                                    inv_canvas_1.itemconfig('aientry19',state='normal')
+                                    inv_canvas_1.itemconfig('aientry22',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo11',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_ss_2 is not None:
+                                    
+                                    ai_entry_4.delete(0,END)
+                                    ai_entry_4.insert(0,inv_ss_2[4])
+                                    ai_entry_4_1.delete('1.0',END)
+                                    ai_entry_4_1.insert('1.0',inv_ss_2[7])
+                                    ai_entry_4_3.delete(0,END)
+                                    ai_entry_4_3.insert(0,round(float(inv_ss_2[8]),2))
+                                    ai_comb_P_4_2.delete(0,'end')
+                                    ai_comb_P_4_2.insert(0, inv_ss_2[10])
+                                    inv_canvas_1.itemconfig('aientry19',state='normal')
+                                    inv_canvas_1.itemconfig('aientry22',state='normal')
+                                    inv_canvas_1.itemconfig('aicombo11',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine27',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine28',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine29',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine30',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine31',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine32',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine33',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine34',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine35',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine36',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine37',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine38',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine39',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine40',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine41',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine42',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine43',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine44',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine45',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine46',state='hidden')
+                                    inv_canvas_1.itemconfig('bient1',state='hidden')
+                                    inv_canvas_1.itemconfig('bient5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient9',state='hidden')
+                                    inv_canvas_1.itemconfig('bient13',state='hidden')
+                                    inv_canvas_1.itemconfig('bient17',state='hidden')
+                                    inv_canvas_1.itemconfig('bient21',state='hidden')
+                                    inv_canvas_1.itemconfig('bient25',state='hidden')
+                                    inv_canvas_1.itemconfig('bient2',state='hidden')
+                                    inv_canvas_1.itemconfig('bient6',state='hidden')
+                                    inv_canvas_1.itemconfig('bient10',state='hidden')
+                                    inv_canvas_1.itemconfig('bient14',state='hidden')
+                                    inv_canvas_1.itemconfig('bient18',state='hidden')
+                                    inv_canvas_1.itemconfig('bient22',state='hidden')
+                                    inv_canvas_1.itemconfig('bient26',state='hidden')
+                                    inv_canvas_1.itemconfig('bient3',state='hidden')
+                                    inv_canvas_1.itemconfig('bient7',state='hidden')
+                                    inv_canvas_1.itemconfig('bient11',state='hidden')
+                                    inv_canvas_1.itemconfig('bient15',state='hidden')
+                                    inv_canvas_1.itemconfig('bient19',state='hidden')
+                                    inv_canvas_1.itemconfig('bient23',state='hidden')
+                                    inv_canvas_1.itemconfig('bient27',state='hidden')
+                                    inv_canvas_1.itemconfig('bient4',state='hidden')
+                                    inv_canvas_1.itemconfig('bient8',state='hidden')
+                                    inv_canvas_1.itemconfig('bient12',state='hidden')
+                                    inv_canvas_1.itemconfig('bient16',state='hidden')
+                                    inv_canvas_1.itemconfig('bient20',state='hidden')
+                                    inv_canvas_1.itemconfig('bient24',state='hidden')
+                                    inv_canvas_1.itemconfig('bient28',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl1',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl2',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl3',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl4',state='hidden')
+                                    inv_canvas_1.itemconfig('bilabl5',state='hidden')
+                                    inv_canvas_1.itemconfig('bient29',state='hidden')
+                                    inv_canvas_1.itemconfig('bient30',state='hidden')
+                                    inv_canvas_1.itemconfig('bient31',state='hidden')
+                                    inv_canvas_1.itemconfig('bient32',state='hidden')
+                                    inv_canvas_1.itemconfig('bient33',state='hidden')
+                                    inv_canvas_1.itemconfig('bbutn1',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='normal')
+                                    inv_canvas_1.itemconfig('ailine17',state='normal')
+                                    inv_canvas_1.itemconfig('ailine18',state='normal')
+                                    inv_canvas_1.itemconfig('ailine19',state='normal')
+                                    inv_canvas_1.itemconfig('ailine20',state='normal')
+                                    inv_canvas_1.itemconfig('ailine21',state='normal')
+                                    inv_canvas_1.itemconfig('ailine22',state='normal')
+                                    inv_canvas_1.itemconfig('ailine23',state='normal')
+                                    inv_canvas_1.itemconfig('ailine24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel23',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel24',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel25',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel26',state='normal')
+                                    inv_canvas_1.itemconfig('ailabel27',state='normal')
+                                    inv_canvas_1.itemconfig('aientry23',state='normal')
+                                    inv_canvas_1.itemconfig('aientry24',state='normal')
+                                    inv_canvas_1.itemconfig('aientry25',state='normal')
+                                    inv_canvas_1.itemconfig('aientry26',state='normal')
+                                    inv_canvas_1.itemconfig('aientry27',state='normal')
+                                    inv_canvas_1.itemconfig('aibutton2',state='normal')
+
+                                elif inv_ss_3 is not None:
+                                    
+                                    ai_entry_4.delete(0,END)
+                                    ai_entry_4.insert(0,inv_ss_3[3])
+                                    ai_entry_4_1.delete('1.0',END)
+                                    ai_entry_4_1.insert('1.0',inv_ss_3[4])
+                                    inv_canvas_1.itemconfig('aientry19',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry22',state='hidden')
+                                    inv_canvas_1.itemconfig('aicombo11',state='hidden')
+
+                                    inv_canvas_1.itemconfig('ailine25',state='normal')
+                                    inv_canvas_1.itemconfig('ailine26',state='normal')
+                                    inv_canvas_1.itemconfig('ailine27',state='normal')
+                                    inv_canvas_1.itemconfig('ailine28',state='normal')
+                                    inv_canvas_1.itemconfig('ailine29',state='normal')
+                                    inv_canvas_1.itemconfig('ailine30',state='normal')
+                                    inv_canvas_1.itemconfig('ailine31',state='normal')
+                                    inv_canvas_1.itemconfig('ailine32',state='normal')
+                                    inv_canvas_1.itemconfig('ailine33',state='normal')
+                                    inv_canvas_1.itemconfig('ailine34',state='normal')
+                                    inv_canvas_1.itemconfig('ailine35',state='normal')
+                                    inv_canvas_1.itemconfig('ailine36',state='normal')
+                                    inv_canvas_1.itemconfig('ailine37',state='normal')
+                                    inv_canvas_1.itemconfig('ailine38',state='normal')
+                                    inv_canvas_1.itemconfig('ailine39',state='normal')
+                                    inv_canvas_1.itemconfig('ailine40',state='normal')
+                                    inv_canvas_1.itemconfig('ailine41',state='normal')
+                                    inv_canvas_1.itemconfig('ailine42',state='normal')
+                                    inv_canvas_1.itemconfig('ailine43',state='normal')
+                                    inv_canvas_1.itemconfig('ailine44',state='normal')
+                                    inv_canvas_1.itemconfig('ailine45',state='normal')
+                                    inv_canvas_1.itemconfig('ailine46',state='normal')
+                                    inv_canvas_1.itemconfig('bient1',state='normal')
+                                    inv_canvas_1.itemconfig('bient5',state='normal')
+                                    inv_canvas_1.itemconfig('bient9',state='normal')
+                                    inv_canvas_1.itemconfig('bient13',state='normal')
+                                    inv_canvas_1.itemconfig('bient17',state='normal')
+                                    inv_canvas_1.itemconfig('bient21',state='normal')
+                                    inv_canvas_1.itemconfig('bient25',state='normal')
+                                    inv_canvas_1.itemconfig('bient2',state='normal')
+                                    inv_canvas_1.itemconfig('bient6',state='normal')
+                                    inv_canvas_1.itemconfig('bient10',state='normal')
+                                    inv_canvas_1.itemconfig('bient14',state='normal')
+                                    inv_canvas_1.itemconfig('bient18',state='normal')
+                                    inv_canvas_1.itemconfig('bient22',state='normal')
+                                    inv_canvas_1.itemconfig('bient26',state='normal')
+                                    inv_canvas_1.itemconfig('bient3',state='normal')
+                                    inv_canvas_1.itemconfig('bient7',state='normal')
+                                    inv_canvas_1.itemconfig('bient11',state='normal')
+                                    inv_canvas_1.itemconfig('bient15',state='normal')
+                                    inv_canvas_1.itemconfig('bient19',state='normal')
+                                    inv_canvas_1.itemconfig('bient23',state='normal')
+                                    inv_canvas_1.itemconfig('bient27',state='normal')
+                                    inv_canvas_1.itemconfig('bient4',state='normal')
+                                    inv_canvas_1.itemconfig('bient8',state='normal')
+                                    inv_canvas_1.itemconfig('bient12',state='normal')
+                                    inv_canvas_1.itemconfig('bient16',state='normal')
+                                    inv_canvas_1.itemconfig('bient20',state='normal')
+                                    inv_canvas_1.itemconfig('bient24',state='normal')
+                                    inv_canvas_1.itemconfig('bient28',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl1',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl2',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl3',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl4',state='normal')
+                                    inv_canvas_1.itemconfig('bilabl5',state='normal')
+                                    inv_canvas_1.itemconfig('bient29',state='normal')
+                                    inv_canvas_1.itemconfig('bient30',state='normal')
+                                    inv_canvas_1.itemconfig('bient31',state='normal')
+                                    inv_canvas_1.itemconfig('bient32',state='normal')
+                                    inv_canvas_1.itemconfig('bient33',state='normal')
+                                    inv_canvas_1.itemconfig('bbutn1',state='normal')
+
+                                    inv_canvas_1.itemconfig('ailine16',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine17',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine18',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine19',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine20',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine21',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine22',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailine24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel23',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel24',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel25',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel26',state='hidden')
+                                    inv_canvas_1.itemconfig('ailabel27',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry23',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry24',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry25',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry26',state='hidden')
+                                    inv_canvas_1.itemconfig('aientry27',state='hidden')
+                                    inv_canvas_1.itemconfig('aibutton2',state='hidden')
+
+                                    bu_inv_1.delete(0,END)
+                                    bu_inv_1.insert(0,inv_ss_3[5])
+                                    bu_inv_1_1.delete(0,END)
+                                    bu_inv_1_1.insert(0,inv_ss_3[9])
+                                    bu_inv_1_2.delete('1.0',END)
+                                    bu_inv_1_2.insert('1.0',inv_ss_3[13])
+                                    bu_inv_1_3.delete(0,END)
+                                    bu_inv_1_3.insert(0,round(inv_ss_3[21],2))
+                                    bu_inv_1_4.delete(0,END)
+                                    bu_inv_1_4.insert(0,inv_ss_3[17])
+                                    bu_inv_1_5.delete(0,END)
+                                    bu_inv_1_5.insert(0,round(inv_ss_3[25],2))
+                                    bu_inv_1_6.delete(0,END)
+                                    bu_inv_1_6.insert(0,inv_ss_3[29])
+                                    bu_inv_2.delete(0,END)
+                                    bu_inv_2.insert(0,inv_ss_3[6])
+                                    bu_inv_2_1.delete(0,END)
+                                    bu_inv_2_1.insert(0,inv_ss_3[10])
+                                    bu_inv_2_2.delete('1.0',END)
+                                    bu_inv_2_2.insert('1.0',inv_ss_3[14])
+                                    bu_inv_2_3.delete(0,END)
+                                    bu_inv_2_3.insert(0,round(inv_ss_3[22],2))
+                                    bu_inv_2_4.delete(0,END)
+                                    bu_inv_2_4.insert(0,inv_ss_3[18])
+                                    bu_inv_2_5.delete(0,END)
+                                    bu_inv_2_5.insert(0,round(inv_ss_3[26],2))
+                                    bu_inv_2_6.delete(0,END)
+                                    bu_inv_2_6.insert(0,inv_ss_3[30])
+                                    bu_inv_3.delete(0,END)
+                                    bu_inv_3.insert(0,inv_ss_3[7])
+                                    bu_inv_3_1.delete(0,END)
+                                    bu_inv_3_1.insert(0,inv_ss_3[11])
+                                    bu_inv_3_2.delete('1.0',END)
+                                    bu_inv_3_2.insert('1.0',inv_ss_3[15])
+                                    bu_inv_3_3.delete(0,END)
+                                    bu_inv_3_3.insert(0,round(inv_ss_3[23],2))
+                                    bu_inv_3_4.delete(0,END)
+                                    bu_inv_3_4.insert(0,inv_ss_3[19])
+                                    bu_inv_3_5.delete(0,END)
+                                    bu_inv_3_5.insert(0,round(inv_ss_3[27],2))
+                                    bu_inv_3_6.delete(0,END)
+                                    bu_inv_3_6.insert(0,inv_ss_3[31])
+                                    bu_inv_4.delete(0,END)
+                                    bu_inv_4.insert(0,inv_ss_3[8])
+                                    bu_inv_4_1.delete(0,END)
+                                    bu_inv_4_1.insert(0,inv_ss_3[12])
+                                    bu_inv_4_2.delete('1.0',END)
+                                    bu_inv_4_2.insert('1.0',inv_ss_3[16])
+                                    bu_inv_4_3.delete(0,END)
+                                    bu_inv_4_3.insert(0,round(inv_ss_3[24],2))
+                                    bu_inv_4_4.delete(0,END)
+                                    bu_inv_4_4.insert(0,inv_ss_3[20])
+                                    bu_inv_4_5.delete(0,END)
+                                    bu_inv_4_5.insert(0,round(inv_ss_3[28],2))
+                                    bu_inv_4_6.delete(0,END)
+                                    bu_inv_4_6.insert(0,inv_ss_3[32])
+                                    
+                                else:
+                                    pass
+                                
+                                
+
+                            sql_i="select * from auth_user where username=%s"
+                            val_i=(nm_ent.get(),)
+                            fbcursor.execute(sql_i,val_i,)
+                            p_dtl=fbcursor.fetchone()
+
+                            sql = "select * from app1_company where id_id=%s"
+                            val = (p_dtl[0],)
+                            fbcursor.execute(sql, val,)
+                            cmp_dtl_i=fbcursor.fetchone()
+                            
+
+                            i_sql = "SELECT name FROM app1_inventory where cid_id=%s"
+                            i_val = (cmp_dtl_i[0],)
+                            fbcursor.execute(i_sql,i_val)
+                            i_data = fbcursor.fetchall()
+                            
+                            ii_sql = "SELECT name FROM app1_noninventory where cid_id=%s"
+                            ii_val = (cmp_dtl_i[0],)
+                            fbcursor.execute(ii_sql,ii_val)
+                            ii_data = fbcursor.fetchall()
+
+                            iii_sql = "SELECT name FROM app1_bundle where cid_id=%s"
+                            iii_val = (cmp_dtl_i[0],)
+                            fbcursor.execute(iii_sql,iii_val)
+                            iii_data = fbcursor.fetchall()
+
+                            inv_data = []   
+                            
+                            for i in i_data:
+                                inv_data.append(i[0])
+                            for i in ii_data:
+                                inv_data.append(i[0])
+                            for i in iii_data:
+                                inv_data.append(i[0])
+
+                            label_2 = Label(inv_canvas_1,width=2,height=1,text="1", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(90, 1020, anchor="nw", window=label_2,tags=('ailabel19'))
+
+                            ai_comb_p_1 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data)
+                            window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_1,tags=('aicombo4'))
+                            ai_comb_p_1.bind("<<ComboboxSelected>>",i_details_1)
+
+                            ai_entry_p_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1,tags=('aientry3'))
+
+                            ai_entry_p_1_2=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_2,tags=('aientry4'))
+
+                            
+
+                            ai_entry_p_1_4=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_4,tags=('aientry6'))
+
+                            def multiply_num_i1(event):
+                                num1= float(ai_entry_p_1_3.get())
+                                num2= float(ai_entry_p_1_4.get())
+                                mul_i= round(num1 * num2,2)
+                                ai_entry_p_1_5.delete(0, END)
+                                ai_entry_p_1_5.insert(0,mul_i)
+
+                                
+                                try:
+                                    n1 = float(en_str_1.get())
+                                except:
+                                    n1=0.0
+                                try:
+                                    n2 = float(en_str_2.get())
+                                except:
+                                    n2 = 0.0
+                                try:
+                                    n3 = float(en_str_3.get())
+                                except:
+                                    n3 = 0.0
+                                try:
+                                    n4 = float(en_str_4.get())
+                                except:
+                                    n4 = 0.0
+                                
+                                sum_i = n1+n2+n3+n4
+                                sub_entry_1.delete(0, END)
+                                sub_entry_1.insert(0,round(sum_i,2))
+                            
+
+                                global t1,t2,t3,t4
+                                if ai_comb_p_1_2.get() == '28.0% GST (28%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(28/100)
+                                elif ai_comb_p_1_2.get() == '28.0% IGST (28%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(28/100)
+                                elif ai_comb_p_1_2.get() == '18.0% GST (18%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(18/100)
+                                elif ai_comb_p_1_2.get() == '18.0% IGST (18%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(18/100)
+                                elif ai_comb_p_1_2.get() == '15.0% ST (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(15/100)
+                                elif ai_comb_p_1_2.get() == '14.5% ST (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(14.5/100)
+                                elif ai_comb_p_1_2.get() == '14.00% ST (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(14/100)
+                                elif ai_comb_p_1_2.get() == '14.0% VAT (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(14/100)
+                                elif ai_comb_p_1_2.get() == '12.36% ST (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(12.36/100)
+                                elif ai_comb_p_1_2.get() == '12.0% GST (12%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(12/100)
+                                elif ai_comb_p_1_2.get() == '12.0% IGST (12%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(12/100)
+                                elif ai_comb_p_1_2.get() == '6.0% GST (6%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(6/100)
+                                elif ai_comb_p_1_2.get() == '6.0% IGST (6%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(6/100)
+                                elif ai_comb_p_1_2.get() == '5.0% GST (5%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(5/100)
+                                elif ai_comb_p_1_2.get() == '5.0% IGST (5%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(5/100)
+                                elif ai_comb_p_1_2.get() == '5.0% VAT (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(5/100)
+                                elif ai_comb_p_1_2.get() == '4.0% VAT (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(4/100)
+                                elif ai_comb_p_1_2.get() == '3.0% GST (3%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(3/100)
+                                elif ai_comb_p_1_2.get() == '3.0% IGST (3%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(3/100)
+                                elif ai_comb_p_1_2.get() == '2.0% CST (100%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(2/100)
+                                elif ai_comb_p_1_2.get() == '0.25% GST (O.25%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0.25/100)
+                                elif ai_comb_p_1_2.get() == '0.25% IGST (0.25%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0.25/100)
+                                elif ai_comb_p_1_2.get() == '0% GST (0%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0/100)
+                                elif ai_comb_p_1_2.get() == '0% IGST (0%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0/100)
+                                elif ai_comb_p_1_2.get() == 'Exempt GST (0%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0/100)
+                                elif ai_comb_p_1_2.get() == 'Exempt IGST (0%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0/100)
+                                elif ai_comb_p_1_2.get() == 'Out of Scope(0%)':
+                                    y1 = float(en_str_1.get())
+                                    t1 = y1*(0/100)
+                                else:
+                                    pass
+
+                                try:
+                                    tm1  = t1
+                                except:
+                                    pass
+                                try:
+                                    tm2 = t2
+                                except:
+                                    tm2 = 0.0
+                                try:
+                                    tm3 = t3
+                                except:
+                                    tm3 = 0.0
+                                try:
+                                    tm4  = t4
+                                except:
+                                    tm4 = 0.0
+                                
+                                
+                                sum_ii = tm1+tm2+tm3+tm4
+                                tax_entry_1.delete(0, END)
+                                tax_entry_1.insert(0,round(sum_ii,2))
+
+                                try:
+                                    m1 = float(sub_str.get())
+                                except:
+                                    m1 =0.0
+                                try:
+                                    m2 = float(tax_str.get())
+                                except:
+                                    m2 =0.0
+
+                                sum_iii = m1+m2
+                                grand_entry_1.delete(0, END)
+                                grand_entry_1.insert(0,round(sum_iii,2))
+
+
+                                try:
+                                    x1 = float(grd_str.get())
+                                except:
+                                    x1 = 0.0
+                                try:
+                                    x2 = float(amount_entry_1.get())
+                                except:
+                                    x2 = 0.0
+                                sum_iv = x1-x2
+                                bal_entry_1.delete(0, END)
+                                bal_entry_1.insert(0,round(sum_iv,2))
+
+                                
+                            ai_entry_p_1_3=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_3,tags=('aientry5'))
+                            ai_entry_p_1_3.bind("<Button-1>",multiply_num_i1)
+                                
+                            en_str_1 = StringVar()
+                            ai_entry_p_1_5=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_1)
+                            window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_5,tags=('aientry7'))
+                            
+
+
+                            ai_comb_p_1_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            ai_comb_p_1_2['values'] = ("Choose","28.0%\n GST(28%)","18.0%\n GST(18%)","12.0%\n GST(12%)","06.0%\n GST(06%)","05.0%\n GST(05%)","03.0%\n GST(03%)","0.25%\n GST(0.25%)","0.0%\n GST(0%)","Exempt GST(0%)","Out of Scope(0%)",)
+                            ai_comb_p_1_2.current(0)
+                            window_ai_comb_p_1_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_p_1_2,tags=('aicombo5'))
+
+
+                            label_2 = Label(inv_canvas_1,width=2,height=1,text="2", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel20'))
+
+                            ai_comb_p_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data)
+                            window_ai_comb_p_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_2,tags=('aicombo6'))
+                            ai_comb_p_2.bind("<<ComboboxSelected>>",i_details_2)
+
+                            ai_entry_p_2=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_2,tags=('aientry8'))
+
+                            ai_entry_p_2_1=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
+                            window_ai_entry_p_2_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_2_1,tags=('aientry11'))
+
+                            
+
+                            ai_entry_2_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_2_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_3,tags=('aientry17'))
+
+                            def multiply_num_i2(event):
+                                num1= float(ai_entry_2_2.get())
+                                num2= float(ai_entry_2_3.get())
+                                mul_i= round(num1 * num2,2)
+                                ai_entry_2_4.delete(0, END)
+                                ai_entry_2_4.insert(0,mul_i)
+
+                                
+                                try:
+                                    n1 = float(en_str_1.get())
+                                except:
+                                    n1=0.0
+                                try:
+                                    n2 = float(en_str_2.get())
+                                except:
+                                    n2 = 0.0
+                                try:
+                                    n3 = float(en_str_3.get())
+                                except:
+                                    n3 = 0.0
+                                try:
+                                    n4 = float(en_str_4.get())
+                                except:
+                                    n4 = 0.0
+                                
+                                sum_i = n1+n2+n3+n4
+                                sub_entry_1.delete(0, END)
+                                sub_entry_1.insert(0,round(sum_i,2))
+                                
+
+                                global t1,t2,t3,t4
+                                if ai_comb_P_2_2.get() == '28.0% GST (28%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(28/100)
+                                elif ai_comb_P_2_2.get() == '28.0% IGST (28%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(28/100)
+                                elif ai_comb_P_2_2.get() == '18.0% GST (18%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(18/100)
+                                elif ai_comb_P_2_2.get() == '18.0% IGST (18%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(18/100)
+                                elif ai_comb_P_2_2.get() == '15.0% ST (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(15/100)
+                                elif ai_comb_P_2_2.get() == '14.5% ST (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(14.5/100)
+                                elif ai_comb_P_2_2.get() == '14.00% ST (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(14/100)
+                                elif ai_comb_P_2_2.get() == '14.0% VAT (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(14/100)
+                                elif ai_comb_P_2_2.get() == '12.36% ST (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(12.36/100)
+                                elif ai_comb_P_2_2.get() == '12.0% GST (12%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(12/100)
+                                elif ai_comb_P_2_2.get() == '12.0% IGST (12%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(12/100)
+                                elif ai_comb_P_2_2.get() == '6.0% GST (6%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(6/100)
+                                elif ai_comb_P_2_2.get() == '6.0% IGST (6%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(6/100)
+                                elif ai_comb_P_2_2.get() == '5.0% GST (5%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(5/100)
+                                elif ai_comb_P_2_2.get() == '5.0% IGST (5%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(5/100)
+                                elif ai_comb_P_2_2.get() == '5.0% VAT (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(5/100)
+                                elif ai_comb_P_2_2.get() == '4.0% VAT (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(4/100)
+                                elif ai_comb_P_2_2.get() == '3.0% GST (3%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(3/100)
+                                elif ai_comb_P_2_2.get() == '3.0% IGST (3%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(3/100)
+                                elif ai_comb_P_2_2.get() == '2.0% CST (100%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(2/100)
+                                elif ai_comb_P_2_2.get() == '0.25% GST (O.25%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0.25/100)
+                                elif ai_comb_P_2_2.get() == '0.25% IGST (0.25%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0.25/100)
+                                elif ai_comb_P_2_2.get() == '0% GST (0%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0/100)
+                                elif ai_comb_P_2_2.get() == '0% IGST (0%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0/100)
+                                elif ai_comb_P_2_2.get() == 'Exempt GST (0%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0/100)
+                                elif ai_comb_P_2_2.get() == 'Exempt IGST (0%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0/100)
+                                elif ai_comb_P_2_2.get() == 'Out of Scope(0%)':
+                                    y2 = float(en_str_2.get())
+                                    t2 = y2*(0/100)
+                                else:
+                                    pass
+
+                                try:
+                                    tm1  = t1
+                                except:
+                                    pass
+                                try:
+                                    tm2 = t2
+                                except:
+                                    pass
+                                try:
+                                    tm3 = t3
+                                except:
+                                    tm3 = 0.0
+                                try:
+                                    tm4  = t4
+                                except:
+                                    tm4 = 0.0
+                                
+                                
+                                sum_ii = tm1+tm2+tm3+tm4
+                                tax_entry_1.delete(0, END)
+                                tax_entry_1.insert(0,round(sum_ii,2))
+
+                                try:
+                                    m1 = float(sub_str.get())
+                                except:
+                                    m1 =0.0
+                                try:
+                                    m2 = float(tax_str.get())
+                                except:
+                                    m2 =0.0
+
+                                sum_iii = m1+m2
+                                grand_entry_1.delete(0, END)
+                                grand_entry_1.insert(0,round(sum_iii,2))
+
+                                try:
+                                    x1 = float(grd_str.get())
+                                except:
+                                    x1 = 0.0
+                                try:
+                                    x2 = float(amount_entry_1.get())
+                                except:
+                                    x2 = 0.0
+                                sum_iv = x1-x2
+                                bal_entry_1.delete(0, END)
+                                bal_entry_1.insert(0,round(sum_iv,2))
+
+                            ai_entry_2_2=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_2_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_2,tags=('aientry14'))
+                            ai_entry_2_2.bind("<Button-1>",multiply_num_i2)
+            
+                            en_str_2 = StringVar()
+                            ai_entry_2_4=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_2)
+                            window_ai_entry_2_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_4,tags=('aientry20'))
+                            
+
+                            ai_comb_P_2_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            ai_comb_P_2_2['values'] = ("Choose","28.0%\n GST(28%)","18.0%\n GST(18%)","12.0%\n GST(12%)","06.0%\n GST(06%)","05.0%\n GST(05%)","03.0%\n GST(03%)","0.25%\n GST(0.25%)","0.0%\n GST(0%)","Exempt GST(0%)","Out of Scope(0%)",)
+                            ai_comb_P_2_2.current(0)
+                            window_ai_comb_P_2_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_P_2_2,tags=('aicombo9'))
+
+
+                            label_2 = Label(inv_canvas_1,width=2,height=1,text="3", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel21'))
+
+                            ai_comb_p_3 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data)
+                            window_ai_comb_p_3 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_3,tags=('aicombo7'))
+                            ai_comb_p_3.bind("<<ComboboxSelected>>",i_details_3)
+
+                            ai_entry_3=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3,tags=('aientry9'))
+
+                            ai_entry_3_1=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
+                            window_ai_entry_3_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_1,tags=('aientry12'))
+
+                            
+
+                            ai_entry_3_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_3_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_3,tags=('aientry18'))
+
+                            def multiply_num_i3(event):
+                                num1= float(ai_entry_3_2.get())
+                                num2= float(ai_entry_3_3.get())
+                                mul_i= round(num1 * num2,2)
+                                ai_entry_3_4.delete(0, END)
+                                ai_entry_3_4.insert(0,mul_i)
+
+                                
+                                try:
+                                    n1 = float(en_str_1.get())
+                                except:
+                                    n1=0.0
+                                try:
+                                    n2 = float(en_str_2.get())
+                                except:
+                                    n2 = 0.0
+                                try:
+                                    n3 = float(en_str_3.get())
+                                except:
+                                    n3 = 0.0
+                                try:
+                                    n4 = float(en_str_4.get())
+                                except:
+                                    n4 = 0.0
+                                
+                                sum_i = n1+n2+n3+n4
+                                sub_entry_1.delete(0, END)
+                                sub_entry_1.insert(0,round(sum_i,2))
+                                
+                                global t1,t2,t3,t4
+                                if ai_comb_P_3_2.get() == '28.0% GST (28%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(28/100)
+                                elif ai_comb_P_3_2.get() == '28.0% IGST (28%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(28/100)
+                                elif ai_comb_P_3_2.get() == '18.0% GST (18%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(18/100)
+                                elif ai_comb_P_3_2.get() == '18.0% IGST (18%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(18/100)
+                                elif ai_comb_P_3_2.get() == '15.0% ST (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(15/100)
+                                elif ai_comb_P_3_2.get() == '14.5% ST (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(14.5/100)
+                                elif ai_comb_P_3_2.get() == '14.00% ST (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(14/100)
+                                elif ai_comb_P_3_2.get() == '14.0% VAT (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(14/100)
+                                elif ai_comb_P_3_2.get() == '12.36% ST (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(12.36/100)
+                                elif ai_comb_P_3_2.get() == '12.0% GST (12%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(12/100)
+                                elif ai_comb_P_3_2.get() == '12.0% IGST (12%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(12/100)
+                                elif ai_comb_P_3_2.get() == '6.0% GST (6%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(6/100)
+                                elif ai_comb_P_3_2.get() == '6.0% IGST (6%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(6/100)
+                                elif ai_comb_P_3_2.get() == '5.0% GST (5%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(5/100)
+                                elif ai_comb_P_3_2.get() == '5.0% IGST (5%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(5/100)
+                                elif ai_comb_P_3_2.get() == '5.0% VAT (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(5/100)
+                                elif ai_comb_P_3_2.get() == '4.0% VAT (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(4/100)
+                                elif ai_comb_P_3_2.get() == '3.0% GST (3%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(3/100)
+                                elif ai_comb_P_3_2.get() == '3.0% IGST (3%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(3/100)
+                                elif ai_comb_P_3_2.get() == '2.0% CST (100%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(2/100)
+                                elif ai_comb_P_3_2.get() == '0.25% GST (O.25%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0.25/100)
+                                elif ai_comb_P_3_2.get() == '0.25% IGST (0.25%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0.25/100)
+                                elif ai_comb_P_3_2.get() == '0% GST (0%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0/100)
+                                elif ai_comb_P_3_2.get() == '0% IGST (0%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0/100)
+                                elif ai_comb_P_3_2.get() == 'Exempt GST (0%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0/100)
+                                elif ai_comb_P_3_2.get() == 'Exempt IGST (0%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0/100)
+                                elif ai_comb_P_3_2.get() == 'Out of Scope(0%)':
+                                    y3 = float(en_str_3.get())
+                                    t3 = y3*(0/100)
+                                else:
+                                    pass
+
+                                try:
+                                    tm1  = t1
+                                except:
+                                    pass
+                                try:
+                                    tm2 = t2
+                                except:
+                                    pass
+                                try:
+                                    tm3 = t3
+                                except:
+                                    pass
+                                try:
+                                    tm4  = t4
+                                except:
+                                    tm4 = 0.0
+                                
+                                
+                                sum_ii = tm1+tm2+tm3+tm4
+                                tax_entry_1.delete(0, END)
+                                tax_entry_1.insert(0,round(sum_ii,2))
+
+                                try:
+                                    m1 = float(sub_str.get())
+                                except:
+                                    m1 =0.0
+                                try:
+                                    m2 = float(tax_str.get())
+                                except:
+                                    m2 =0.0
+
+                                sum_iii = m1+m2
+                                grand_entry_1.delete(0, END)
+                                grand_entry_1.insert(0,round(sum_iii,2))
+
+                                try:
+                                    x1 = float(grd_str.get())
+                                except:
+                                    x1 = 0.0
+                                try:
+                                    x2 = float(amount_entry_1.get())
+                                except:
+                                    x2 = 0.0
+                                sum_iv = x1-x2
+                                bal_entry_1.delete(0, END)
+                                bal_entry_1.insert(0,round(sum_iv,2))
+
+                                
+                            en_str_3 = StringVar()
+                            ai_entry_3_4=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_3)
+                            window_ai_entry_3_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_4,tags=('aientry21'))
+
+                            ai_entry_3_2=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_3_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_2,tags=('aientry15'))
+                            ai_entry_3_2.bind("<Button-1>",multiply_num_i3)
+                            
+
+                            ai_comb_P_3_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            ai_comb_P_3_2['values'] = ("Choose","28.0%\n GST(28%)","18.0%\n GST(18%)","12.0%\n GST(12%)","06.0%\n GST(06%)","05.0%\n GST(05%)","03.0%\n GST(03%)","0.25%\n GST(0.25%)","0.0%\n GST(0%)","Exempt GST(0%)","Out of Scope(0%)",)
+                            ai_comb_P_3_2.current(0)
+                            window_ai_comb_P_3_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_P_3_2,tags=('aicombo10'))
+
+                            label_2 = Label(inv_canvas_1,width=2,height=1,text="4", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel22'))
+
+                            ai_comb_p_4 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data)
+                            window_ai_comb_p_4 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_4,tags=('aicombo8'))
+                            ai_comb_p_4.bind("<<ComboboxSelected>>",i_details_4)
+
+                            ai_entry_4=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_4,tags=('aientry10'))
+
+                            ai_entry_4_1=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
+                            window_ai_entry_4_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_4_1,tags=('aientry13'))
+
+                            
+
+                            ai_entry_4_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_4_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_4_3,tags=('aientry19'))
+
+                            def multiply_num_i4(event):
+                                num1= float(ai_entry_4_2.get())
+                                num2= float(ai_entry_4_3.get())
+                                mul_i= round(num1 * num2,2)
+                                ai_entry_4_4.delete(0, END)
+                                ai_entry_4_4.insert(0,mul_i)
+
+                                
+                                try:
+                                    n1 = float(en_str_1.get())
+                                except:
+                                    n1=0.0
+                                try:
+                                    n2 = float(en_str_2.get())
+                                except:
+                                    n2 = 0.0
+                                try:
+                                    n3 = float(en_str_3.get())
+                                except:
+                                    n3 = 0.0
+                                try:
+                                    n4 = float(en_str_4.get())
+                                except:
+                                    n4 = 0.0
+                                
+                                sum_i = n1+n2+n3+n4
+                                sub_entry_1.delete(0, END)
+                                sub_entry_1.insert(0,round(sum_i,2))
+                                
+                                global t1,t2,t3,t4
+                                if ai_comb_P_4_2.get() == '28.0% GST (28%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(28/100)
+                                elif ai_comb_P_4_2.get() == '28.0% IGST (28%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(28/100)
+                                elif ai_comb_P_4_2.get() == '18.0% GST (18%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(18/100)
+                                elif ai_comb_P_4_2.get() == '18.0% IGST (18%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(18/100)
+                                elif ai_comb_P_4_2.get() == '15.0% ST (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(15/100)
+                                elif ai_comb_P_4_2.get() == '14.5% ST (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(14.5/100)
+                                elif ai_comb_P_4_2.get() == '14.00% ST (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(14/100)
+                                elif ai_comb_P_4_2.get() == '14.0% VAT (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(14/100)
+                                elif ai_comb_P_4_2.get() == '12.36% ST (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(12.36/100)
+                                elif ai_comb_P_4_2.get() == '12.0% GST (12%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(12/100)
+                                elif ai_comb_P_4_2.get() == '12.0% IGST (12%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(12/100)
+                                elif ai_comb_P_4_2.get() == '6.0% GST (6%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(6/100)
+                                elif ai_comb_P_4_2.get() == '6.0% IGST (6%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(6/100)
+                                elif ai_comb_P_4_2.get() == '5.0% GST (5%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(5/100)
+                                elif ai_comb_P_4_2.get() == '5.0% IGST (5%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(5/100)
+                                elif ai_comb_P_4_2.get() == '5.0% VAT (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(5/100)
+                                elif ai_comb_P_4_2.get() == '4.0% VAT (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(4/100)
+                                elif ai_comb_P_4_2.get() == '3.0% GST (3%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(3/100)
+                                elif ai_comb_P_4_2.get() == '3.0% IGST (3%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(3/100)
+                                elif ai_comb_P_4_2.get() == '2.0% CST (100%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(2/100)
+                                elif ai_comb_P_4_2.get() == '0.25% GST (O.25%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0.25/100)
+                                elif ai_comb_P_4_2.get() == '0.25% IGST (0.25%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0.25/100)
+                                elif ai_comb_P_4_2.get() == '0% GST (0%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0/100)
+                                elif ai_comb_P_4_2.get() == '0% IGST (0%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0/100)
+                                elif ai_comb_P_4_2.get() == 'Exempt GST (0%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0/100)
+                                elif ai_comb_P_4_2.get() == 'Exempt IGST (0%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0/100)
+                                elif ai_comb_P_4_2.get() == 'Out of Scope(0%)':
+                                    y4 = float(en_str_4.get())
+                                    t4 = y4*(0/100)
+                                else:
+                                    pass
+
+                                try:
+                                    tm1  = t1
+                                except:
+                                    pass
+                                try:
+                                    tm2 = t2
+                                except:
+                                    pass
+                                try:
+                                    tm3 = t3
+                                except:
+                                    pass
+                                try:
+                                    tm4  = t4
+                                except:
+                                    pass
+                                
+                                
+                                sum_ii = tm1+tm2+tm3+tm4
+                                tax_entry_1.delete(0, END)
+                                tax_entry_1.insert(0,round(sum_ii,2))
+
+                                try:
+                                    m1 = float(sub_str.get())
+                                except:
+                                    m1 =0.0
+                                try:
+                                    m2 = float(tax_str.get())
+                                except:
+                                    m2 =0.0
+
+                                sum_iii = m1+m2
+                                grand_entry_1.delete(0, END)
+                                grand_entry_1.insert(0,round(sum_iii,2))
+
+                                try:
+                                    x1 = float(grd_str.get())
+                                except:
+                                    x1 = 0.0
+                                try:
+                                    x2 = float(amount_entry_1.get())
+                                except:
+                                    x2 = 0.0
+                                sum_iv = x1-x2
+                                bal_entry_1.delete(0, END)
+                                bal_entry_1.insert(0,round(sum_iv,2))
+
+                            ai_entry_4_2=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                            window_ai_entry_4_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_4_2,tags=('aientry16'))
+                            ai_entry_4_2.bind("<Button-1>",multiply_num_i4)
+            
+                            en_str_4 = StringVar()
+                            ai_entry_4_4=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',foreground="white",textvariable=en_str_4)
+                            window_ai_entry_4_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_4_4,tags=('aientry22'))
+                            
+
+                            ai_comb_P_4_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            ai_comb_P_4_2['values'] = ("Choose","28.0%\n GST(28%)","18.0%\n GST(18%)","12.0%\n GST(12%)","06.0%\n GST(06%)","05.0%\n GST(05%)","03.0%\n GST(03%)","0.25%\n GST(0.25%)","0.0%\n GST(0%)","Exempt GST(0%)","Out of Scope(0%)",)
+                            ai_comb_P_4_2.current(0)
+                            window_ai_comb_P_4_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_P_4_2,tags=('aicombo11'))
+
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine16'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine17'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine18'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine19'))
+                            
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine21'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine22'))
+                            inv_canvas_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('ailine23'))
+                            
+                            
+
+                            label_5 = Label(inv_canvas_1,width=10,height=1,text="Sub Total", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('ailabel23'))
+
+                            label_5 = Label(inv_canvas_1,width=12,height=1,text="Tax Amount", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('ailabel24'))
+
+                            label_5 = Label(inv_canvas_1,width=12,height=1,text="Grand Total", font=('arial 10'),background="#1b3857",fg="white") 
+                            window_label_5 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_5,tags=('ailabel25'))
+
+                            
+
+                            
+                            sub_str=StringVar()
+                            sub_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white",textvariable=sub_str)
+                            window_sub_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=sub_entry_1,tags=('aientry23'))
+                            
+                            tax_str=StringVar()
+                            tax_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white",textvariable=tax_str)
+                            window_tax_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=tax_entry_1,tags=('aientry24'))
+
+                            grd_str=StringVar()
+                            grand_entry_1=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white",textvariable=grd_str)
+                            window_grand_entry_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=grand_entry_1,tags=('aientry25'))
+
+                            
+                           
+
+                            ai_save_btn1=Button(inv_canvas_1,text='Save', width=15,height=2,foreground="white",background="#1b3857",font='arial 12',command=sales_add_new_inv)
+                            window_ai_save_btn1 = inv_canvas_1.create_window(0, 0, anchor="nw", window=ai_save_btn1,tags=('aibutton2'))
+
+
+                            btn_pr_ed=Button(inv_canvas_1,text="← Back", command=back_exp1_add, bd=0, bg="#1b3857",fg="white",font=('Calibri 14 bold'))
+                            win_inv1 = inv_canvas_1.create_window(0, 0, anchor="center", window=btn_pr_ed,tag= ('aibutton3'))
 
                         elif add_exp_var.get()=="Time Activity": 
+                            exp_chld_scrl.grid_forget()
                             def res_tm_chld(event):
                                 dwidth = event.width
                                 dheight = event.height
@@ -6759,16 +12614,43 @@ def main_sign_in():
                                 dcanvas.coords("btn_pr_ed",dwidth/20,dheight/3)
                                 dcanvas.coords("leb_hdd",dwidth/2,dheight/7)
                                 dcanvas.coords("flow_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
+                                dcanvas.coords("img_exp",dwidth/63,dheight/2.5)
+                                
+                                dcanvas.coords("tm_dt_lb",dwidth/3.15,dheight/2.85)
+                                dcanvas.coords("tm_md_dt",dwidth/2.8,dheight/2.5)
+                                dcanvas.coords("tm_nm_lb",dwidth/1.58,dheight/2.85)
+                                dcanvas.coords("tm_md_nm",dwidth/1.5,dheight/2.5)
+                                dcanvas.coords("aicomb_1_4",dwidth/2.8,dheight/1.9)
+                                dcanvas.coords("tm_cust_lb",dwidth/3.05,dheight/2.05)
+
+                                dcanvas.coords("tm_bill_lb",dwidth/2.95,dheight/1.65)
+
+                                dcanvas.coords("aicomb_1_hg",dwidth/2.35,dheight/1.65)
+
+                                dcanvas.coords("spin_tm",dwidth/1.8,dheight/1.65)
+                                dcanvas.coords("tm_str_lb",dwidth/2.8,dheight/1.4)
+                                dcanvas.coords("trig_act",dwidth/2.05,dheight/1.4)
+                                dcanvas.coords("tm_tms_lb",dwidth/1.7,dheight/1.4)
+                                dcanvas.coords("tm_tms_dt",dwidth/1.55,dheight/1.4)
+                                dcanvas.coords("tm_end_lb",dwidth/1.32,dheight/1.4)
+                                dcanvas.coords("tm_end_dt",dwidth/1.23,dheight/1.4)
+                                dcanvas.coords("tm_tim_dt",dwidth/2.8,dheight/1.18)
+                                dcanvas.coords("tm_tim_lb",dwidth/2.8,dheight/1.25)
+                                dcanvas.coords("tm_scr_dt",dwidth/2.8,dheight/1)
+                                dcanvas.coords("tm_des_lb",dwidth/2.8,dheight/1.05)
+                                dcanvas.coords("sub_frm",dwidth/1.6,dheight/.8)
+                                
+                                
                                 
                             def back_exp1_add():
                                 tm_frm_chld.grid_forget()
                                 tm_chld_scrl.grid_forget()
-                                scrollPexp.grid(row=0,column=1,sticky='ns')
+                                exp_chld_scrl.grid(row=0,column=2,sticky='ns')
                                 
                                 
                             tm_frm_chld = Canvas(exp_mod_frm,height=700,bg='#2f516f',scrollregion=(0,0,700,900))
                             tm_chld_scrl = Scrollbar(exp_mod_frm,orient=VERTICAL)
-                            tm_chld_scrl.grid(row=0,column=2,sticky='ns')
+                            tm_chld_scrl.grid(row=0,column=1,sticky='ns')
                             tm_chld_scrl.config(command=tm_frm_chld.yview)
                             tm_frm_chld.bind("<Configure>", res_tm_chld)
                             tm_frm_chld.config(yscrollcommand=tm_chld_scrl.set)
@@ -6786,7 +12668,78 @@ def main_sign_in():
                             btn_pr_ed=Button(tm_frm_chld,text="← Back", command=back_exp1_add, bd=0, bg="#213b52",fg="white",font=('Calibri 14 bold'))
                             win_inv1 = tm_frm_chld.create_window(0, 0, anchor="center", window=btn_pr_ed,tag=("btn_pr_ed"))
 
+                            img = Label(tm_frm_chld, image = exp_tab,bg="#213b52",  justify=RIGHT)
+                            win_inv1 = tm_frm_chld.create_window(0, 0, anchor="nw", window=img, tag=("img_exp"))
+
+                            
+                            
+
+                            tm_dt_lb = Label(tm_frm_chld,width=15,height=1,text="Date", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_dt_lb, tags=("tm_dt_lb"))
+                            tm_md_dt=Entry(tm_frm_chld,width=65,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_5 = tm_frm_chld.create_window(0, 0, anchor="nw", height=30, window=tm_md_dt,tags=('tm_md_dt'))
+
+                            tm_nm_lb = Label(tm_frm_chld,width=15,height=1,text="Name", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_nm_lb, tags=("tm_nm_lb"))
+                            tm_md_nm=Entry(tm_frm_chld,width=65,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_5 = tm_frm_chld.create_window(0, 0, anchor="nw", height=30, window=tm_md_nm,tags=('tm_md_nm'))
+
+                            tm_cust_lb = Label(tm_frm_chld,width=15,height=1,text="Customer", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_cust_lb, tags=("tm_cust_lb"))
+
+                            aicomb_1_4 = ttk.Combobox(tm_frm_chld, width=66, font=('arial 16'))
+                            aicomb_1_4["values"] = ("jksdfn")
+                            aicomb_1_4 = tm_frm_chld.create_window(0, 0, anchor="nw",window=aicomb_1_4, tags=("aicomb_1_4"))
+
+                            tm_bill_lb = Label(tm_frm_chld,width=15,height=1,text="Billable(/hr)", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_bill_lb, tags=("tm_bill_lb"))
+
+                            aicomb_1_hg = ttk.Combobox(tm_frm_chld, width=12, font=('arial 16'))
+                            aicomb_1_hg["values"] = ("Yes","No")
+                            aicomb_1_hg = tm_frm_chld.create_window(0, 0, anchor="nw",window=aicomb_1_hg, tags=("aicomb_1_hg"))
+
+                            
+
+                            tm_bill_lb = Label(tm_frm_chld,text="Enter start and end time", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_bill_lb, tags=("tm_str_lb"))
+
+                            trig_act = ttk.Combobox(tm_frm_chld, width=8, font=('arial 16'))
+                            trig_act["values"] = ("Yes","No")
+                            trig_act = tm_frm_chld.create_window(0, 0, anchor="nw",window=trig_act, tags=("trig_act"))
+
+                            tm_tms_lb = Label(tm_frm_chld,text="Start Time", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_tms_lb, tags=("tm_tms_lb"))
+
+                            tm_tms_dt=Entry(tm_frm_chld,width=20,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_5 = tm_frm_chld.create_window(0, 0, anchor="nw", height=30, window=tm_tms_dt,tags=('tm_tms_dt'))
+
+                            tm_end_lb = Label(tm_frm_chld,text="End Time", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_end_lb, tags=("tm_end_lb"))
+
+                            tm_end_dt=Entry(tm_frm_chld,width=20,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_5 = tm_frm_chld.create_window(0, 0, anchor="nw", height=30, window=tm_end_dt,tags=('tm_end_dt'))
+
+                            tm_tim_lb = Label(tm_frm_chld,text="Time", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_tim_lb, tags=("tm_tim_lb"))
+
+                            tm_tim_dt=Entry(tm_frm_chld,width=135,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_5 = tm_frm_chld.create_window(0, 0, anchor="nw", height=30, window=tm_tim_dt,tags=('tm_tim_dt'))
+
+                            tm_des_lb = Label(tm_frm_chld,text="Description", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_des_lb, tags=("tm_des_lb"))
+
+                            tm_scr_dt=scrolledtext.ScrolledText(tm_frm_chld,width=98,height=5,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_scr_dt,tags=('tm_scr_dt'))
+
+                            ai_save_btn1=Button(tm_frm_chld,text='Submit Form', width=15,height=2,foreground="white",background="#1b3857",font='arial 12',command="sales_add_new_inv")
+                            window_ai_save_btn1 = tm_frm_chld.create_window(0, 0, anchor="nw", window=ai_save_btn1,tags=('sub_frm'))
+
+
+                            spin_tm=Spinbox(tm_frm_chld,width=25,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                            nmnmnm = tm_frm_chld.create_window(0, 0, anchor="nw", height=30, window=spin_tm,tags=('spin_tm'))
+     
                         elif add_exp_var.get()=="Advance Payment":
+                            exp_chld_scrl.grid_forget()
                             def res_ad_pm_chld(event):
                                 dwidth = event.width
                                 dheight = event.height
@@ -6858,6 +12811,26 @@ def main_sign_in():
                                 dcanvas.coords("btn_pr_ed",dwidth/20,dheight/3)
                                 dcanvas.coords("leb_hdd",dwidth/2,dheight/7)
                                 dcanvas.coords("flow_hr",dwidth/40,dheight/5.4,dwidth/1.03,dheight/5.4)
+                                dcanvas.coords("img_exp",dwidth/1.5,dheight/3)
+                                dcanvas.coords("aicomb_1_4",dwidth/33,dheight/2.3)
+                                dcanvas.coords("ad_cust_lb",dwidth/63,dheight/2.6)
+                                dcanvas.coords("ad_bnk_en",dwidth/3,dheight/2.3)
+                                dcanvas.coords("ad_bnk_lb",dwidth/3,dheight/2.6)
+                                dcanvas.coords("tm_scr_ml",dwidth/33,dheight/1.8)
+                                dcanvas.coords("ad_ml_lb",dwidth/63,dheight/1.97)
+                                dcanvas.coords("spin_tm",dwidth/2.8,dheight/1.8)
+                                dcanvas.coords("ad_am_lb",dwidth/3.1,dheight/1.97)
+                                dcanvas.coords("ad_dt_nm",dwidth/33,dheight/1.3)
+                                dcanvas.coords("ad_dt_lb",dwidth/63,dheight/1.38)
+                                dcanvas.coords("ad_ref_lb",dwidth/3.3,dheight/1.38)
+                                
+                                dcanvas.coords("ad_ref_nm",dwidth/3,dheight/1.3)
+                                
+                                dcanvas.coords("ad_scr_ml",dwidth/33,dheight/1.1)
+
+                                dcanvas.coords("ad_mm_lb",dwidth/21,dheight/1.13)
+                                dcanvas.coords("sub_frm",dwidth/3.9,dheight/.92)
+   
                                 
                             def back_exp1_add():
                                 ad_pm_frm_chld.grid_forget()
@@ -6883,6 +12856,57 @@ def main_sign_in():
 
                             btn_pr_ed=Button(ad_pm_frm_chld,text="← Back", command=back_exp1_add, bd=0, bg="#213b52",fg="white",font=('Calibri 14 bold'))
                             win_inv1 = ad_pm_frm_chld.create_window(0, 0, anchor="center", window=btn_pr_ed,tag=("btn_pr_ed"))
+
+                            img = Label(ad_pm_frm_chld, image = advance,bg="#213b52",  justify=RIGHT)
+                            win_inv1 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", window=img, tag=("img_exp"))
+
+                            
+
+                            ad_cust_lb = Label(ad_pm_frm_chld,width=15,height=1,text="Payee", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", window=ad_cust_lb, tags=("ad_cust_lb"))
+
+                            aicomb_1_4 = ttk.Combobox(ad_pm_frm_chld, width=30, font=('arial 16'))
+                            aicomb_1_4["values"] = ("jksdfn")
+                            aicomb_1_4 = ad_pm_frm_chld.create_window(0, 0, anchor="nw",window=aicomb_1_4, tags=("aicomb_1_4"))
+
+                            ad_bnk_lb = Label(ad_pm_frm_chld,width=15,height=1,text="Bank/Credit account", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", window=ad_bnk_lb, tags=("ad_bnk_lb"))
+
+                            ad_bnk_en = ttk.Combobox(ad_pm_frm_chld, width=30, font=('arial 16'))
+                            ad_bnk_en["values"] = ("jksdfn")
+                            ad_bnk_en = ad_pm_frm_chld.create_window(0, 0, anchor="nw",window=ad_bnk_en, tags=("ad_bnk_en"))
+
+                            ad_ml_lb = Label(ad_pm_frm_chld,width=15,height=1,text="Mailing address", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", window=ad_ml_lb, tags=("ad_ml_lb"))
+
+                            tm_scr_ml=scrolledtext.ScrolledText(ad_pm_frm_chld,width=50,height=5,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_2 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", window=tm_scr_ml,tags=('tm_scr_ml'))
+
+                            ad_am_lb = Label(ad_pm_frm_chld,width=15,height=1,text="Amount", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", window=ad_am_lb, tags=("ad_am_lb"))
+
+                            spin_tm=Spinbox(ad_pm_frm_chld,width=50,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                            tm_frm_chld = ad_pm_frm_chld.create_window(0, 0, anchor="nw", height=30, window=spin_tm,tags=('spin_tm'))
+
+                            ad_dt_lb = Label(ad_pm_frm_chld,width=15,height=1,text="Payment Date", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", window=ad_dt_lb, tags=("ad_dt_lb"))
+                            ad_dt_nm=Entry(ad_pm_frm_chld,width=60,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_5 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", height=30, window=ad_dt_nm,tags=('ad_dt_nm'))
+
+                            ad_ref_lb = Label(ad_pm_frm_chld,width=15,height=1,text="Ref No:", font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", window=ad_ref_lb, tags=("ad_ref_lb"))
+                            ad_ref_nm=Entry(ad_pm_frm_chld,width=60,justify=LEFT,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_5 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", height=30, window=ad_ref_nm,tags=('ad_ref_nm'))
+
+
+                            ad_mm_lb = Label(ad_pm_frm_chld,height=1,text="Memo",justify=LEFT, font=('arial 12'),background="#213b52",fg="white") 
+                            window_label_2 = ad_pm_frm_chld.create_window(0, 0, anchor="center", window=ad_mm_lb, tags=("ad_mm_lb"))
+
+                            ad_scr_ml=scrolledtext.ScrolledText(ad_pm_frm_chld,width=98,height=5,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_2 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", window=ad_scr_ml,tags=('ad_scr_ml'))
+
+                            ai_save_btn1=Button(ad_pm_frm_chld,text='Submit Form', width=15,height=2,foreground="white",background="#1b3857",font='arial 12',command="sales_add_new_inv")
+                            window_ai_save_btn1 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", window=ai_save_btn1,tags=('sub_frm'))
                         else:
                             pass
 
@@ -8935,7 +14959,7 @@ def main_sign_in():
                     
 
                     #----------------------------------------------------------4 th row
-                    lv_name=Label(frm_analiz, text="Billable Expense Income",bg="#213b52", width=42, fg="White", anchor="nw",font=('Calibri 12 bold'))
+                    lv_name=Label(frm_analiz, text="tmsable Expense Income",bg="#213b52", width=42, fg="White", anchor="nw",font=('Calibri 12 bold'))
                     win_inv1 = frm_analiz.create_window(0, 0, anchor="center", window=lv_name,tag=("r4c1"))
 
                     today6 = date.today()
