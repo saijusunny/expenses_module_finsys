@@ -2629,7 +2629,7 @@ def main_sign_in():
 
                             def add_inv_customer():
                                 
-                                inv_canvas_1.grid_forget()
+                                vertibar.grid_forget()
                                
 
                                 def inc_responsive_widgets2(event):
@@ -2764,12 +2764,12 @@ def main_sign_in():
                                 
 
                                 
-                                vertibar=Scrollbar(exp_mod_frm, orient=VERTICAL)
-                                vertibar.grid(row=0,column=1,sticky='ns')
-                                vertibar.config(command=inv_canvas_2.yview)
+                                vertibars=Scrollbar(exp_mod_frm, orient=VERTICAL)
+                                vertibars.grid(row=0,column=1,sticky='ns')
+                                vertibars.config(command=inv_canvas_2.yview)
 
                                 inv_canvas_2.bind("<Configure>", inc_responsive_widgets2)
-                                inv_canvas_2.config(yscrollcommand=vertibar.set)
+                                inv_canvas_2.config(yscrollcommand=vertibars.set)
                                 inv_canvas_2.grid(row=0,column=0,sticky='nsew')
 
                                 def sales_add_inv_cus():
@@ -2813,36 +2813,8 @@ def main_sign_in():
                                         fbcursor.execute(cus_sql,cus_val)
                                         finsysdb.commit()
 
-                                        #----------Refresh Insert Tree--------#
-
-                                        for record in cus_tree.get_children():
-                                                cus_tree.delete(record)
-
-                                        sql_pr="select * from auth_user where username=%s"
-                                        sql_pr_val=(nm_ent.get(),)
-                                        fbcursor.execute(sql_pr,sql_pr_val,)
-                                        pr_dtl=fbcursor.fetchone()
-
-                                        sql = "select * from app1_company where id_id=%s"
-                                        val = (pr_dtl[0],)
-                                        fbcursor.execute(sql, val,)
-                                        cmp_dtl=fbcursor.fetchone()
-
-                                        c_sql_1 = "SELECT * FROM app1_customer where cid_id=%s"
-                                        c_val_1 = (cmp_dtl[0],)
-                                        fbcursor.execute(c_sql_1,c_val_1,)
-                                        c_data_1 = fbcursor.fetchall()
-
-                                        count0 = 0
-                                        for i in c_data_1:
-                                            if True:
-                                                cus_tree.insert(parent='',index='end',iid=i,text='',values=('',i[2]+" "+i[3],i[6],i[7],i[8],i[9],i[11])) 
-                                            else:
-                                                pass
-                                        count0 += 1
-
-                                        inv_frame_2.destroy()
-                                        inv_frame_1.grid(row=0,column=0,sticky='nsew')
+                                        inv_canvas_2.destroy()
+                                        vertibar.grid(row=0,column=1,sticky='ns')
                                     
                                     else:
                                         pass
@@ -5592,7 +5564,7 @@ def main_sign_in():
 
  
                                  
-                                    dcanvas.coords("ailabel5",dwidth/63,dheight/2.1)
+                                    dcanvas.coords("ailabel5",dwidth/33,dheight/1.98)
                                
                                     dcanvas.coords("ailabel11",dwidth/16.50,dheight/0.638)
                                     dcanvas.coords("ailabel12",dwidth/8.40,dheight/0.638)
@@ -5640,7 +5612,13 @@ def main_sign_in():
                                     dcanvas.coords("aientry26",dwidth/1.33,dheight/0.407)
                                     dcanvas.coords("aientry27",dwidth/1.33,dheight/0.393)
 
+                                    
+
+                                    dcanvas.coords("ailabel5548",dwidth/28,dheight/2.4)
+                                    dcanvas.coords("aicombo187",dwidth/28,dheight/2.2)
                                     dcanvas.coords("aicombo1",dwidth/28,dheight/1.8)
+                                    dcanvas.coords("aicomb_114",dwidth/2.6,dheight/1.8)
+                                    
                                     dcanvas.coords("hd_date",dwidth/28,dheight/1.55)
                                     dcanvas.coords("hd_lbs",dwidth/50,dheight/1.65)
 
@@ -5725,7 +5703,7 @@ def main_sign_in():
                                     dcanvas.coords("aicombo10",dwidth/1.21,dheight/0.526)
                                     dcanvas.coords("aicombo11",dwidth/1.21,dheight/0.496)
 
-                                    dcanvas.coords("aibutton1",dwidth/2.95,dheight/1.9)
+                                    dcanvas.coords("aibutton1",dwidth/1.37,dheight/1.8)
                                     dcanvas.coords("aibutton2",dwidth/1.28,dheight/0.395)
                                     dcanvas.coords("aibutton3",dwidth/20,dheight/2.6)
 
@@ -5960,7 +5938,7 @@ def main_sign_in():
                             inv_canvas_1.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("aipoly2"))
 
 
-                            label_2 = Label(inv_canvas_1,width=15,height=1,text="Payee", font=('arial 12'),background="#1b3857",fg="white") 
+                            label_2 = Label(inv_canvas_1,height=1,text="Payee", font=('arial 12'),background="#1b3857",fg="white") 
                             window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2, tags=("ailabel5"))
 
                             def inv_c_details(event):
@@ -5997,12 +5975,24 @@ def main_sign_in():
                                 p_i1.append(str(i[0])+" "+str(i[1]))
                                 
 
+                            label_2 = Label(inv_canvas_1,height=1,text="Choose Ref. No", font=('arial 12'),background="#1b3857",fg="white") 
+                            window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2, tags=("ailabel5548"))
+
+                            aicomb_1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            aicomb_1["values"] = p_i1
+                            aicomb_1.bind("<<ComboboxSelected>>",inv_c_details)
+                            window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=450, height=30,window=aicomb_1, tags=("aicombo187"))
                             
                             
                             aicomb_1 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
                             aicomb_1["values"] = p_i1
                             aicomb_1.bind("<<ComboboxSelected>>",inv_c_details)
-                            window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=400, height=30,window=aicomb_1, tags=("aicombo1"))
+                            window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=450, height=30,window=aicomb_1, tags=("aicombo1"))
+
+                            aicomb_114 = ttk.Combobox(inv_canvas_1, font=('arial 10'))
+                            aicomb_114["values"] = p_i1
+                            aicomb_114.bind("<<ComboboxSelected>>",inv_c_details)
+                            window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=450, height=30,window=aicomb_114, tags=("aicomb_114"))
                             
 
                             hd_date=Entry(inv_canvas_1,width=75,justify=LEFT,background='#2f516f',foreground="white")
@@ -6165,18 +6155,11 @@ def main_sign_in():
 
                             hd_lbsr21 = Label(inv_canvas_1,width=15,height=1,text="Item Details", font=('arial 18'),background="#1b3857",fg="white") 
                             window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=hd_lbsr21, tags=("hd_lbsr21"))
-                            
-
-                            
-
-                            
-
-                            def add_inv_customer():
-                                
+                            def inv_acc_create_1():
                                 inv_canvas_1.grid_forget()
-                               
-
-                                def inc_responsive_widgets2(event):
+                                pro_frame_2_1 = Frame(tab4_1)
+                                pro_frame_2_1.grid(row=0,column=0,sticky='nsew')
+                                def pro_responsive_widgets_2_1(event):
                                     dwidth = event.width
                                     dheight = event.height
                                     dcanvas = event.widget
@@ -6187,7 +6170,7 @@ def main_sign_in():
                                     y1 = dheight/14 
                                     y2 = dheight/3.505
 
-                                    dcanvas.coords("acpoly1",x1 + r1,y1,
+                                    dcanvas.coords("iapoly1",x1 + r1,y1,
                                     x1 + r1,y1,
                                     x2 - r1,y1,
                                     x2 - r1,y1,     
@@ -6212,17 +6195,17 @@ def main_sign_in():
                                     x1,y1,
                                     )
 
-                                    dcanvas.coords("aclabel1",dwidth/2.5,dheight/8.24)
-                                    dcanvas.coords("achline",dwidth/21,dheight/4.67,dwidth/1.055,dheight/4.67)
+                                    dcanvas.coords("ialabel1",dwidth/3,dheight/8.24)
+                                    dcanvas.coords("iahline",dwidth/21,dheight/4.67,dwidth/1.055,dheight/4.67)
 
                                     r2 = 25
                                     x11 = dwidth/63
                                     x21 = dwidth/1.021
                                     y11 = dheight/2.8
-                                    y21 = dheight/0.45
+                                    y21 = dheight/0.52
 
 
-                                    dcanvas.coords("acpoly2",x11 + r2,y11,
+                                    dcanvas.coords("iapoly2",x11 + r2,y11,
                                     x11 + r2,y11,
                                     x21 - r2,y11,
                                     x21 - r2,y11,     
@@ -6247,416 +6230,208 @@ def main_sign_in():
                                     x11,y11,
                                     )
 
-                                    dcanvas.coords("aclabel2",dwidth/17.0,dheight/2.35)
-                                    dcanvas.coords("achline1",dwidth/21,dheight/1.95,dwidth/1.055,dheight/1.95)
-                                    dcanvas.coords("aclabel3",dwidth/20.2,dheight/1.69)
-                                    dcanvas.coords("aclabel4",dwidth/3.35,dheight/1.69)
-                                    dcanvas.coords("aclabel5",dwidth/1.8,dheight/1.69)
-                                    dcanvas.coords("aclabel6",dwidth/20.2,dheight/1.32)
-                                    dcanvas.coords("aclabel7",dwidth/3.375,dheight/1.32)
-                                    dcanvas.coords("aclabel8",dwidth/20.2,dheight/1.088)
-                                    dcanvas.coords("aclabel9",dwidth/3.48,dheight/1.088)
-                                    dcanvas.coords("aclabel10",dwidth/1.82,dheight/1.088)
-                                    dcanvas.coords("aclabel11",dwidth/18.7,dheight/0.92)
-                                    dcanvas.coords("aclabel12",dwidth/3.40,dheight/0.92)
-                                    dcanvas.coords("aclabel13",dwidth/1.83,dheight/0.92)
-                                    dcanvas.coords("aclabel14",dwidth/55.5,dheight/0.79)
-                                    dcanvas.coords("aclabel15",dwidth/2.09,dheight/0.79)
-                                    dcanvas.coords("aclabel16",dwidth/19.5,dheight/0.74)
-                                    dcanvas.coords("aclabel17",dwidth/1.97,dheight/0.74)
-                                    dcanvas.coords("aclabel18",dwidth/19.49,dheight/0.645)
-                                    dcanvas.coords("aclabel19",dwidth/3.40,dheight/0.645)
-                                    dcanvas.coords("aclabel20",dwidth/2.0,dheight/0.645)
-                                    dcanvas.coords("aclabel21",dwidth/1.33,dheight/0.645)
-                                    dcanvas.coords("aclabel22",dwidth/21.0,dheight/0.58)
-                                    dcanvas.coords("aclabel23",dwidth/3.42,dheight/0.58)
-                                    dcanvas.coords("aclabel24",dwidth/2.0,dheight/0.58)
-                                    dcanvas.coords("aclabel25",dwidth/1.34,dheight/0.58)
+                                    dcanvas.coords("iabutton3",dwidth/23,dheight/3.415)
 
-                                    dcanvas.coords("accombo1",dwidth/18.5,dheight/1.55)
-                                    dcanvas.coords("accombo2",dwidth/18.5,dheight/1.027)
+                                    dcanvas.coords("ialabel2",dwidth/23,dheight/1.91)
+                                    dcanvas.coords("ialabel3",dwidth/1.9,dheight/1.91)
+                                    dcanvas.coords("ialabel4",dwidth/23.3,dheight/1.41)
+                                    dcanvas.coords("ialabel5",dwidth/1.9,dheight/1.41)
+                                    dcanvas.coords("ialabel6",dwidth/1.9,dheight/0.95)
 
-                                    dcanvas.coords("acentry1",dwidth/3.30,dheight/1.55)
-                                    dcanvas.coords("acentry2",dwidth/1.785,dheight/1.55)
-                                    dcanvas.coords("acentry3",dwidth/18.5,dheight/1.24)
-                                    dcanvas.coords("acentry4",dwidth/3.30,dheight/1.24)
-                                    dcanvas.coords("acentry5",dwidth/3.30,dheight/1.027)
-                                    dcanvas.coords("acentry6",dwidth/1.785,dheight/1.027)
-                                    dcanvas.coords("acentry7",dwidth/18.5,dheight/0.88)
-                                    dcanvas.coords("acentry8",dwidth/3.30,dheight/0.88)
-                                    dcanvas.coords("acentry9",dwidth/1.785,dheight/0.88)
-                                    dcanvas.coords("acentry10",dwidth/18.5,dheight/0.715)
-                                    dcanvas.coords("acentry11",dwidth/1.97,dheight/0.715)
-                                    dcanvas.coords("acentry12",dwidth/18.5,dheight/0.625)
-                                    dcanvas.coords("acentry13",dwidth/3.40,dheight/0.625)
-                                    dcanvas.coords("acentry14",dwidth/1.98,dheight/0.625)
-                                    dcanvas.coords("acentry15",dwidth/1.33,dheight/0.625)
-                                    dcanvas.coords("acentry16",dwidth/19.51,dheight/0.565)
-                                    dcanvas.coords("acentry17",dwidth/3.40,dheight/0.565)
-                                    dcanvas.coords("acentry18",dwidth/1.98,dheight/0.565)
-                                    dcanvas.coords("acentry19",dwidth/1.33,dheight/0.565)
+                                    dcanvas.coords("iaentry1",dwidth/1.9,dheight/1.74)
+                                    dcanvas.coords("iaentry2",dwidth/1.9,dheight/1.32)
 
-                                    dcanvas.coords("accheck1",dwidth/1.55,dheight/0.79)
-                                    dcanvas.coords("accheck2",dwidth/19.0,dheight/0.546)
+                                    dcanvas.coords("iacombo1",dwidth/23,dheight/1.74)
+                                    dcanvas.coords("iacombo2",dwidth/23,dheight/1.32)
+                                    dcanvas.coords("iacombo3",dwidth/1.9,dheight/1.09)
+                                    dcanvas.coords("iacombo4",dwidth/1.9,dheight/0.91)
 
-                                    dcanvas.coords("acbutton1",dwidth/2.5,dheight/0.5)
-                                    dcanvas.coords("acbutton2",dwidth/23,dheight/3.415)
+                                    dcanvas.coords("iatext1",dwidth/23,dheight/1.15)
+                                    dcanvas.coords("iacheck1",dwidth/1.9,dheight/1.155)
 
+                                    dcanvas.coords("iabutton1",dwidth/2.3,dheight/0.73)
 
-                                inv_canvas_2=Canvas(exp_mod_frm, bg='#2f516f', width=953, height=600, scrollregion=(0,0,700,1600))
+                                p_canvas_2_1=Canvas(pro_frame_2_1, bg='#2f516f', width=953, height=600, scrollregion=(0,0,700,2050))
 
+                                pro_frame_2_1.grid_columnconfigure(0,weight=1)
+                                pro_frame_2_1.grid_rowconfigure(0,weight=1)
                                 
-
-                                
-                                vertibar=Scrollbar(exp_mod_frm, orient=VERTICAL)
+                                vertibar=Scrollbar(pro_frame_2_1, orient=VERTICAL)
                                 vertibar.grid(row=0,column=1,sticky='ns')
-                                vertibar.config(command=inv_canvas_2.yview)
+                                vertibar.config(command=p_canvas_2_1.yview)
 
-                                inv_canvas_2.bind("<Configure>", inc_responsive_widgets2)
-                                inv_canvas_2.config(yscrollcommand=vertibar.set)
-                                inv_canvas_2.grid(row=0,column=0,sticky='nsew')
+                                p_canvas_2_1.bind("<Configure>", pro_responsive_widgets_2_1)
+                                p_canvas_2_1.config(yscrollcommand=vertibar.set)
+                                p_canvas_2_1.grid(row=0,column=0,sticky='nsew')
 
-                                def sales_add_inv_cus():
-                                    title = ic_comb_cus_1.get()
-                                    firstname = ic_entry_cus_1.get()
-                                    lastname = ic_entry_cus_2.get()
-                                    company = ic_entry_cus_3.get()
-                                    location = ic_cus_4.get()
-                                    gsttype = ic_comb_cus_2.get()
-                                    gstin = ic_entry_cus_5.get()
-                                    panno = ic_entry_cus_6.get()
-                                    email = ic_entry_cus_7.get()
-                                    website = ic_entry_cus_8.get()
-                                    mobile = ic_entry_cus_9.get()
-                                    street = ic_entry_cus_10.get()
-                                    city = ic_entry_cus_12.get()
-                                    state = ic_entry_cus_13.get()
-                                    pincode = ic_entry_cus_p12.get()
-                                    country = ic_entry_cus_c13.get()
-                                    shipstreet = ic_entry_cus_11.get()
-                                    shipcity = ic_entry_cus_14.get()
-                                    shipstate = ic_entry_cus_15.get()
-                                    shippincode = ic_entry_cus_p14.get()
-                                    shipcountry = ic_entry_cus_c15.get()
+                                def inv_ass_acc_create_1():
+                                    acctype = comb_inv_1_1.get()
+                                    detype = comb_inv_1_2.get()
+                                    name = entry_inv_1_2.get()
+                                    description = entry_inv_1_4.get()
+                                    gst = comb_inv_1_3.get()
+                                    deftaxcode = comb_inv_1_4.get()
+                                    balance = 0
+                                    today = date.today()
+                                    asof = today.strftime("%Y-%m-%d")
+                                    balfordisp = 0
 
-                                    usri_sql = "SELECT id FROM auth_user WHERE username=%s"
-                                    usri_val = (nm_ent.get(),)
-                                    fbcursor.execute(usri_sql,usri_val)
-                                    usri_data = fbcursor.fetchone()
+                                    #----------------------
+                                    usrp_sql = "SELECT id FROM auth_user WHERE username=%s"
+                                    usrp_val = (nm_ent.get(),)
+                                    fbcursor.execute(usrp_sql,usrp_val)
+                                    usrp_data = fbcursor.fetchone()
 
-                                    cmpi_sql = "SELECT cid FROM app1_company WHERE id_id=%s"
-                                    cmpi_val = (usri_data[0],)
-                                    fbcursor.execute(cmpi_sql,cmpi_val)
-                                    cmpi_data = fbcursor.fetchone()
-                                    cid = cmpi_data[0]
+                                    cmpp_sql = "SELECT cid FROM app1_company WHERE id_id=%s"
+                                    cmpp_val = (usrp_data[0],)
+                                    fbcursor.execute(cmpp_sql,cmpp_val)
+                                    cmpp_data = fbcursor.fetchone()
+                                    cid = cmpp_data[0]
 
-                                    if ic_chk_str_1.get() == True:
+                                    #product id --------------
+                                    if acctype == "Current Assets":
+                                        pro_sql = "SELECT * FROM producttable WHERE Pid=%s"
+                                        pro_val = (2,)
+                                        fbcursor.execute(pro_sql,pro_val)
+                                        product_data = fbcursor.fetchone()
+                                    else:
+                                        pass
+                                    
+                                    productid = product_data[0]
 
-                                        cus_sql = "INSERT INTO app1_customer (title,firstname,lastname,company,location,gsttype,gstin,panno,email,website,mobile,street,city,state,pincode,country,shipstreet,shipcity,shipstate,shippincode,shipcountry,cid_id) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-                                        cus_val=(title,firstname,lastname,company,location,gsttype,gstin,panno,email,website,mobile,street,city,state,pincode,country,shipstreet,shipcity,shipstate,shippincode,shipcountry,cid)
-                                        fbcursor.execute(cus_sql,cus_val)
+                                    #-------------------------
+                                    acctype_sql = "SELECT accountname FROM app1_accountype WHERE accountname=%s"
+                                    acctype_val = (comb_inv_1_2.get(),)
+                                    fbcursor.execute(acctype_sql,acctype_val)
+                                    acctype_data = fbcursor.fetchone()
+
+                                    acct_sql = "SELECT name,cid_id FROM app1_accounts WHERE name=%s AND cid_id=%s"
+                                    acct_val = (entry_inv_1_2.get(),cmpp_data[0])
+                                    fbcursor.execute(acct_sql,acct_val)
+                                    acct_data = fbcursor.fetchone()
+
+                                    acct1_sql = "SELECT name,cid_id FROM app1_accounts1 WHERE name=%s AND cid_id=%s"
+                                    acct1_val = (entry_inv_1_2.get(),cmpp_data[0])
+                                    fbcursor.execute(acct1_sql,acct1_val)
+                                    acct1_data = fbcursor.fetchone()
+                                
+
+                                    if not acctype_data and not acct_data or not acct1_data:
+                                        ins_acctype_sql = "INSERT INTO app1_accountype(cid_id,accountname,accountbal) VALUES(%s,%s,%s)"
+                                        ins_acctype_val= (cmpp_data[0],detype,balance)
+                                        fbcursor.execute(ins_acctype_sql,ins_acctype_val)
                                         finsysdb.commit()
 
-                                        #----------Refresh Insert Tree--------#
+                                        if acctype == "Current Assets":
+                                            #pro id ------------
+                                            pro_sql = "SELECT * FROM app1_accountype WHERE accountypeid=%s"
+                                            pro_val = (2,)
+                                            fbcursor.execute(pro_sql,pro_val)
+                                            pro_data = fbcursor.fetchone()
+                                            
 
-                                        for record in cus_tree.get_children():
-                                                cus_tree.delete(record)
+                                            #--------------------------
+                                            i_ac_sql = "INSERT INTO app1_accounts(acctype,detype,name,description,gst,deftaxcode,balance,asof,balfordisp,cid_id,proid_id,productid_id) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                                            i_ac_val = (2,detype,name,description,gst,deftaxcode,balance,asof,balfordisp,cid,pro_data[0],productid)
+                                            fbcursor.execute(i_ac_sql,i_ac_val)
+                                            finsysdb.commit()
+                                        else:
+                                            pass
 
-                                        sql_pr="select * from auth_user where username=%s"
-                                        sql_pr_val=(nm_ent.get(),)
-                                        fbcursor.execute(sql_pr,sql_pr_val,)
-                                        pr_dtl=fbcursor.fetchone()
+                                        sel_accts1_sql = "SELECT * FROM app1_accounts1 WHERE cid_id=%s"
+                                        sel_accts1_val = (cid,)
+                                        fbcursor.execute(sel_accts1_sql,sel_accts1_val)
+                                        sel_accts1_data = fbcursor.fetchone()
 
-                                        sql = "select * from app1_company where id_id=%s"
-                                        val = (pr_dtl[0],)
-                                        fbcursor.execute(sql, val,)
-                                        cmp_dtl=fbcursor.fetchone()
+                                        bal = sel_accts1_data[7] + float(balance)
+                                        upd_accts1_sql = "UPDATE app1_accounts1 SET balance=%s WHERE cid_id=%s"
+                                        upd_accts1_val = (bal,cid,)
+                                        fbcursor.execute(upd_accts1_sql,upd_accts1_val)
+                                        finsysdb.commit()
 
-                                        c_sql_1 = "SELECT * FROM app1_customer where cid_id=%s"
-                                        c_val_1 = (cmp_dtl[0],)
-                                        fbcursor.execute(c_sql_1,c_val_1,)
-                                        c_data_1 = fbcursor.fetchall()
+                                        pro_frame_2_1.destroy()
+                                        vertibar.destroy()
+                                        inv_canvas_1.grid(row=0,column=0,sticky='nsew')
 
-                                        count0 = 0
-                                        for i in c_data_1:
-                                            if True:
-                                                cus_tree.insert(parent='',index='end',iid=i,text='',values=('',i[2]+" "+i[3],i[6],i[7],i[8],i[9],i[11])) 
-                                            else:
-                                                pass
-                                        count0 += 1
+                                p_canvas_2_1.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=('iapoly1'))
 
-                                        inv_frame_2.destroy()
-                                        inv_frame_1.grid(row=0,column=0,sticky='nsew')
+                                label_1 = Label(p_canvas_2_1,width=30,height=1,text="ACCOUNT CREATE", font=('arial 20'),background="#1b3857",fg="white") 
+                                window_label_1 = p_canvas_2_1.create_window(0, 0, anchor="nw", window=label_1, tags=('ialabel1'))
+
+                                p_canvas_2_1.create_line(0, 0, 0, 0, fill='gray',width=1, tags=('iahline'))
+
+                                p_canvas_2_1.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=('iapoly2'))
+
+                                label_1 = Label(p_canvas_2_1,width=10,height=1,text="Account Type", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_1 = p_canvas_2_1.create_window(0, 0, anchor="nw", window=label_1,tags=('ialabel2'))
+
+                                comb_inv_1_1 = ttk.Combobox(p_canvas_2_1, font=('arial 10'))
+                                comb_inv_1_1['values'] = ("Current Assets",)
+                                comb_inv_1_1.current(0)
+                                window_comb_inv_1_1 = p_canvas_2_1.create_window(0, 0, anchor="nw", width=540, height=30,window=comb_inv_1_1,tags=('iacombo1'))         
+
+                                label_1 = Label(p_canvas_2_1,width=10,height=1,text="*Detail Type", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_1 = p_canvas_2_1.create_window(0, 0, anchor="nw", window=label_1,tags=('ialabel4'))
+
+                                def entry_text_1(event):
+                                    if comb_inv_1_2.get() == 'Inventory':
+                                        entry_inv_1_2.delete(0,END)
+                                        entry_inv_1_2.insert(0,'Inventory')
+
+                                comb_inv_1_2 = ttk.Combobox(p_canvas_2_1, font=('arial 10'))
+                                comb_inv_1_2['values'] = ("Inventory",)
+                                comb_inv_1_2.bind("<<ComboboxSelected>>",entry_text_1)
+                                window_comb_inv_1_2 = p_canvas_2_1.create_window(0, 0, anchor="nw", width=540, height=30,window=comb_inv_1_2,tags=('iacombo2'))
+
+                                label_1 = Label(p_canvas_2_1,width=5,height=1,text="*Name", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_1 = p_canvas_2_1.create_window(0, 0, anchor="nw", window=label_1,tags=('ialabel3'))
+
+
+                                entry_inv_1_2=Entry(p_canvas_2_1,width=90,justify=LEFT,background='#2f516f',foreground="white")
+                                window_entry_inv_1_2 = p_canvas_2_1.create_window(0, 0, anchor="nw", height=30,window=entry_inv_1_2,tags=('iaentry1'))
+
+                                label_1 = Label(p_canvas_2_1,width=10,height=1,text="Description", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_1 = p_canvas_2_1.create_window(0, 0, anchor="nw", window=label_1,tags=('ialabel5'))
+
+                                entry_inv_1_4=Entry(p_canvas_2_1,width=90,justify=LEFT,background='#2f516f',foreground="white")
+                                window_entry_inv_1_4 = p_canvas_2_1.create_window(0, 0, anchor="nw", height=30,window=entry_inv_1_4,tags=('iaentry2'))
+
+                                inv_text_1 = Text(p_canvas_2_1,width=67, height=14, background='black',foreground='white')
+                                inv_text_1.insert(END, 'Use Cash and Cash Equivalents to track cash or assets that can be converted into cash immediately. For example, marketable securities and Treasury bills.')
+                                window_inv_text_1 = p_canvas_2_1.create_window(0, 0, anchor="nw",window=inv_text_1,tags=('iatext1'))
+
+                                def sub_check_1():
+                                    comb_inv_1_3.config(state=NORMAL if chk_str_inv_1_1.get() else DISABLED)
                                     
-                                    else:
-                                        pass
+
+                                chk_str_inv_1_1 = IntVar()
+                                chkbtn_inv_1_1 = Checkbutton(p_canvas_2_1, text = "Is sub-account", variable = chk_str_inv_1_1, font=("arial", 12),background="#1b3857",foreground="white",selectcolor="#2f516f",command=sub_check_1)
+                                window_chkbtn_inv_1_1 = p_canvas_2_1.create_window(0, 0, anchor="nw", window=chkbtn_inv_1_1,tags=('iacheck1'))
+
+                                comb_inv_1_3 = ttk.Combobox(p_canvas_2_1, font=('arial 10'),state=DISABLED)
+                                comb_inv_1_3['values'] = ("Deferred CGST","Deferred GST Input Credit","Deferred IGST","Deferred Krishi Kalyan Cess Input Credit","Deferred Service Tax Input Credit","Deferred SGST","Deferred VAT Input Credit","GST Refund","Inventory Asset","Paid Insurance","Service Tax Refund","TDS Receivable","Uncategorised Asset","Accumulated Depreciation","Building and Improvements","Furniture and Equipment","Land","Leasehold Improvements","CGST Payable","CST Payable","CST Suspense","GST Payable","GST Suspense","IGST Payable","Input CGST","Input CGST Tax RCM","Input IGST","Input IGST Tax RCM","Input Krishi Kalyan Cess","Input Krishi Kalyan Cess RCM","Input Service Tax","Input Service Tax RCM","Input SGST","Input SGST Tax RCM","Input VAT 14%","Input VAT 4%","Input VAT 5%","Krishi Kalyan Cess Payable","Krishi Kalyan Cess Suspense","Output CGST","Output CGST Tax RCM","Output CST 2%","Output IGST","Output IGST Tax RCM","Output Krishi Kalyan Cess","Output Krishi Kalyan Cess RCM","Output Service Tax","Output Sevice Tax RCM","Output SGST","Output SGST Tax RCM","Output VAT 14%","Output VAT 4%","Output VAT 5%","Service Tax Payable","service Tax Suspense","SGST Payable","SGST Suspense","Swachh Barath Cess Payable" ,"Swachh Barath Cess Suspense" ,"TDS Payable" ,"VAT Payable","VAT Suspense","Opening Balance","Equity",)
+                                window_comb_inv_1_3 = p_canvas_2_1.create_window(0, 0, anchor="nw", width=540, height=30,window=comb_inv_1_3,tags=('iacombo3'))
+
+                                label_1 = Label(p_canvas_2_1,width=15,height=1,text="Default Tax Code", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_1 = p_canvas_2_1.create_window(0, 0, anchor="nw", window=label_1,tags=('ialabel6'))
+
                                 
+                                comb_inv_1_4 = ttk.Combobox(p_canvas_2_1, font=('arial 10'))
+                                comb_inv_1_4['values'] = ("18.0% IGST","14.00% ST","0% IGST","Out of Scope","0% GST","14.5% ST","14.0% VAT","6.0% IGST","28.0% IGST","15.0% ST","28.0% GST","12.0% GST","18.0% GST","3.0% GST","0.2% IGST","5.0% GST","6.0% GST","0.2% GST","Exempt IGST","3.0% IGST","4.0% VAT","5.0% IGST","12.36% ST","5.0% VAT","Exempt GST","12.0% IGST","2.0% CST",)
+                                window_comb_inv_1_4 = p_canvas_2_1.create_window(0, 0, anchor="nw", width=540, height=30,window=comb_inv_1_4,tags=('iacombo4'))
 
-                                inv_canvas_2.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("acpoly1"))
 
-                                label_1 = Label(inv_canvas_2,width=15,height=1,text="ADD CUSTOMER", font=('arial 20'),background="#1b3857",fg="white") 
-                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel1"))
+                                inv_sub_btn_1_1=Button(p_canvas_2_1,text='Create', width=20,height=2,foreground="white",background="#1b3857",font='arial 12',command=inv_ass_acc_create_1)
+                                window_inv_sub_btn_1_1 = p_canvas_2_1.create_window(0, 0, anchor="nw", window=inv_sub_btn_1_1,tags=('iabutton1'))
 
-                                inv_canvas_2.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("achline"))
+                                def i_back_1_():
+                                    pro_frame_2_1.grid_forget()
+                                    pro_frame_2.grid(row=0,column=0,sticky='nsew')
 
-                                inv_canvas_2.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("acpoly2"))
+                                bck_btn1=Button(p_canvas_2_1,text='← Back', bd=0, foreground="white",background="#2f516f",font='arial 10 bold',activebackground="#1b3857",command=i_back_1_)
+                                window_bck_btn1 = p_canvas_2_1.create_window(0, 0, anchor="nw", window=bck_btn1,tags=('iabutton3'))
 
-                                label_1 = Label(inv_canvas_2,width=20,height=1,text="Customer Information", font=('arial 20'),background="#1b3857",fg="white") 
-                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel2"))
-
-                                inv_canvas_2.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("achline1"))
-
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Title", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel3"))
-
-                                ic_comb_cus_1 = ttk.Combobox(inv_canvas_2, font=('arial 10'),foreground="white")
-                                ic_comb_cus_1['values'] = ("Mr","Mrs","Miss","Ms",)
-                                ic_comb_cus_1.current(0)
-                                window_ic_comb_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", width=245, height=30,window=ic_comb_cus_1, tags=("accombo1"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="First name", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel4"))
-
-                                ic_entry_cus_1=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_1, tags=("acentry1"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Last name", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel5"))
-
-                                ic_entry_cus_2=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_2 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_2, tags=("acentry2"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Company", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel6"))
-
-                                ic_entry_cus_3=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_3 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_3, tags=("acentry3"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Location", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel7"))
-
-                                ic_cus_4=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_cus_4 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_cus_4, tags=("acentry4"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="GST type", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel8"))
-
-                                ic_comb_cus_2 = ttk.Combobox(inv_canvas_2, font=('arial 10'),foreground="white")
-                                ic_comb_cus_2['values'] = ("Choose...","GST registered Regular","GST registered-Composition","GST unregistered","Consumer","Overseas","SEZ","Deemed exports-EOU's STP's EHTP's etc",)
-                                ic_comb_cus_2.current(0)
-                                window_ic_comb_cus_2 = inv_canvas_2.create_window(0, 0, anchor="nw", width=245, height=30,window=ic_comb_cus_2, tags=("accombo2"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="GSTIN", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel9"))
-
-                                def igst_validate(value):
-                
-                                    """
-                                    Validat the email entry
-                                    :param value:
-                                    :return:
-                                    """
-                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-                                    if re.fullmatch(pattern, value) is None:
-                                        
-                                        return False
-
-                                    ic_entry_cus_5.config(fg="white")
-                                    return True
-
-                                def igst_invalidate():
-                                    ic_entry_cus_5.config(fg="red")
-
-
-                                def ic_gst_in(event):
-                                    if ic_entry_cus_5.get()=="29APPCK7465F1Z1":
-                                        ic_entry_cus_5.delete(0,END)
-                                    else:
-                                        pass
-                                
-                                ic_entry_cus_5=Entry(inv_canvas_2,width=34,justify=LEFT,background='#2f516f',font=('arial 10'))
-                                ival_gst = (inv_canvas_2.register(igst_validate), '%P')
-                                iival_gst = (inv_canvas_2.register(igst_invalidate),)
-                                ic_entry_cus_5.config(validate='focusout', validatecommand=ival_gst, invalidcommand=iival_gst)
-                                window_ic_entry_cus_5 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_5, tags=("acentry5"))
-                                ic_entry_cus_5.insert(0,"29APPCK7465F1Z1")
-                                ic_entry_cus_5.bind("<Button-1>",ic_gst_in)
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="PAN NO", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel10"))
-
-                                def ic_pan_no(event):
-                                    if ic_entry_cus_6.get()=="APPCK7465F":
-                                        ic_entry_cus_6.delete(0,END)
-                                    else:
-                                        pass
-
-                                def ipan_validate(value):
-                
-                                    """
-                                    Validat the email entry
-                                    :param value:
-                                    :return:
-                                    """
-                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-                                    if re.fullmatch(pattern, value) is None:
-                                        
-                                        return False
-
-                                    ic_entry_cus_6.config(fg="white")
-                                    return True
-
-                                def ipan_invalidate():
-                                    ic_entry_cus_6.config(fg="red")
-
-                                ic_entry_cus_6=Entry(inv_canvas_2,width=34,justify=LEFT,background='#2f516f',font=('arial 10'))
-                                ival_pan = (inv_canvas_2.register(ipan_validate), '%P')
-                                iival_pan = (inv_canvas_2.register(ipan_invalidate),)
-                                ic_entry_cus_6.config(validate='focusout', validatecommand=ival_pan, invalidcommand=iival_pan)
-                                window_ic_entry_cus_6 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_6, tags=("acentry6"))
-                                ic_entry_cus_6.insert(0,"APPCK7465F")
-                                ic_entry_cus_6.bind("<Button-1>",ic_pan_no)
-
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Email", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel11"))
-
-                                def iemail_validate(value):
-                
-                                    """
-                                    Validat the email entry
-                                    :param value:
-                                    :return:
-                                    """
-                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-                                    if re.fullmatch(pattern, value) is None:
-                                        
-                                        return False
-
-                                    ic_entry_cus_7.config(fg="white")
-                                    return True
-
-                                def iemail_invalidate():
-                                    ic_entry_cus_7.config(fg="red")
-
-                                ic_entry_cus_7=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f')
-                                ival_email = (inv_canvas_2.register(iemail_validate), '%P')
-                                iival_email = (inv_canvas_2.register(iemail_invalidate),)
-                                ic_entry_cus_7.config(validate='focusout', validatecommand=ival_email, invalidcommand=iival_email)
-                                window_ic_entry_cus_7 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_7, tags=("acentry7"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Website", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel12"))
-
-                                ic_entry_cus_8=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_8 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_8, tags=("acentry8"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Mobile", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel13"))
-
-                                ic_entry_cus_9=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_9 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_9, tags=("acentry9"))
-
-                                def copy_icus_details():
-                                    ic_entry_cus_11.delete(0, END)
-                                    ic_entry_cus_11.insert(0,ic_entry_cus_10.get())
-                                    ic_entry_cus_14.delete(0, END)
-                                    ic_entry_cus_14.insert(0,ic_entry_cus_12.get())
-                                    ic_entry_cus_15.delete(0, END)
-                                    ic_entry_cus_15.insert(0,ic_entry_cus_13.get())
-                                    ic_entry_cus_p14.delete(0, END)
-                                    ic_entry_cus_p14.insert(0,ic_entry_cus_p12.get())
-                                    ic_entry_cus_c15.delete(0, END)
-                                    ic_entry_cus_c15.insert(0,ic_entry_cus_c13.get())
-
-                                label_1 = Label(inv_canvas_2,width=20,height=1,text="Billing Address", font=('arial 16'),background="#1b3857",fg="white") 
-                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel14"))
-
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Street", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel16"))
-
-                                ic_entry_cus_10=Entry(inv_canvas_2,width=95,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_10 = inv_canvas_2.create_window(0, 0, anchor="nw", height=60,window=ic_entry_cus_10, tags=("acentry10"))
-
-                                label_1 = Label(inv_canvas_2,width=20,height=1,text="Shipping Address", font=('arial 16'),background="#1b3857",fg="white") 
-                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel15"))
-
-                                ic_chk_str = StringVar()
-                                ic_chkbtn1 = Checkbutton(inv_canvas_2, text = "Same As Billing Address", variable = ic_chk_str, onvalue = 1, offvalue = 0, font=("arial", 10),background="#1b3857",foreground="white",selectcolor="#2f516f",command=copy_icus_details)
-                                ic_chkbtn1.select()
-                                window_ic_chkbtn_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_chkbtn1, tags=("accheck1"))
-
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Street", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel17"))
-
-                                ic_entry_cus_11=Entry(inv_canvas_2,width=95,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_11 = inv_canvas_2.create_window(0, 0, anchor="nw", height=60,window=ic_entry_cus_11, tags=("acentry11"))
-
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="City", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel18"))
-
-                                ic_entry_cus_12=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_12 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_12, tags=("acentry12"))
-                                
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="State", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel19"))
-
-                                ic_entry_cus_13=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_13 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_13, tags=("acentry13"))
-
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="City", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2,tags=("aclabel20"))
-
-                                ic_entry_cus_14=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_14 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_14, tags=("acentry14"))
-
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="State", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2,tags=("aclabel21"))
-
-                                ic_entry_cus_15=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_15 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_15, tags=("acentry15"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Pin Code", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel22"))
-
-                                ic_entry_cus_p12=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_p12 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_p12, tags=("acentry16"))
-                                
-                                label_2 = Label(inv_canvas_2,width=8,height=1,text="Country", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel23"))
-
-                                ic_entry_cus_c13=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_c13 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_c13, tags=("acentry17"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Pin Code", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel24"))
-
-                                ic_entry_cus_p14=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_p14 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_p14, tags=("acentry18"))
-
-                                label_2 = Label(inv_canvas_2,width=8,height=1,text="Country", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel25"))
-
-                                ic_entry_cus_c15=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_c15 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_c15, tags=("acentry19"))
-
-                                ic_chk_str_1 = BooleanVar()
-                                ic_chkbtn2 = Checkbutton(inv_canvas_2, text = "Agree to terms and conditions", variable = ic_chk_str_1, font=("arial", 10),background="#1b3857",foreground="white",selectcolor="#2f516f")
-                                window_ic_chkbtn_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_chkbtn2,tags=("accheck2"))
-
-                                ic_cus_btn2=Button(inv_canvas_2,text='Submit Form', width=25,height=2,foreground="white",background="#1b3857",font='arial 12',command=sales_add_inv_cus)
-                                window_ic_cus_btn2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_cus_btn2,tags=("acbutton1"))
-
-                                def inv_back_1_():
-                                    inv_canvas_1.grid_forget()
-                                    vertibar.grid_forget()
-                                    exp_chld_scrl.grid(row=0,column=2,sticky='ns')
-
-                                bck_btn1=Button(inv_canvas_2,text='← Back', bd=0, foreground="white",background="#2f516f",font='arial 10 bold',activebackground="#1b3857",command=inv_back_1_)
-                                window_bck_btn1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=bck_btn1,tags=('acbutton2'))
-                                
-
-
-                            aibtn2=Button(inv_canvas_1,text='+', width=5,height=1,foreground="white",background="#1b3857",font='arial 12',command=add_inv_customer)
+                            aibtn2=Button(inv_canvas_1,text='+', width=5,height=1,foreground="white",background="#1b3857",font='arial 12',command=inv_acc_create_1)
                             window_aibtn2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=aibtn2, tags=('aibutton1'))
 
                             
@@ -9682,10 +9457,6 @@ def main_sign_in():
                             window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=hd_lbsr21, tags=("hd_lbsr21"))
                             
 
-                            
-
-                            
-
                             def add_inv_customer():
                                 
                                 inv_canvas_1.grid_forget()
@@ -9764,65 +9535,88 @@ def main_sign_in():
 
                                     dcanvas.coords("aclabel2",dwidth/17.0,dheight/2.35)
                                     dcanvas.coords("achline1",dwidth/21,dheight/1.95,dwidth/1.055,dheight/1.95)
-                                    dcanvas.coords("aclabel3",dwidth/20.2,dheight/1.69)
-                                    dcanvas.coords("aclabel4",dwidth/3.35,dheight/1.69)
-                                    dcanvas.coords("aclabel5",dwidth/1.8,dheight/1.69)
-                                    dcanvas.coords("aclabel6",dwidth/20.2,dheight/1.32)
-                                    dcanvas.coords("aclabel7",dwidth/3.375,dheight/1.32)
-                                    dcanvas.coords("aclabel8",dwidth/20.2,dheight/1.088)
-                                    dcanvas.coords("aclabel9",dwidth/3.48,dheight/1.088)
-                                    dcanvas.coords("aclabel10",dwidth/1.82,dheight/1.088)
-                                    dcanvas.coords("aclabel11",dwidth/18.7,dheight/0.92)
-                                    dcanvas.coords("aclabel12",dwidth/3.40,dheight/0.92)
-                                    dcanvas.coords("aclabel13",dwidth/1.83,dheight/0.92)
-                                    dcanvas.coords("aclabel14",dwidth/55.5,dheight/0.79)
-                                    dcanvas.coords("aclabel15",dwidth/2.09,dheight/0.79)
-                                    dcanvas.coords("aclabel16",dwidth/19.5,dheight/0.74)
-                                    dcanvas.coords("aclabel17",dwidth/1.97,dheight/0.74)
-                                    dcanvas.coords("aclabel18",dwidth/19.49,dheight/0.645)
-                                    dcanvas.coords("aclabel19",dwidth/3.40,dheight/0.645)
-                                    dcanvas.coords("aclabel20",dwidth/2.0,dheight/0.645)
-                                    dcanvas.coords("aclabel21",dwidth/1.33,dheight/0.645)
-                                    dcanvas.coords("aclabel22",dwidth/21.0,dheight/0.58)
-                                    dcanvas.coords("aclabel23",dwidth/3.42,dheight/0.58)
-                                    dcanvas.coords("aclabel24",dwidth/2.0,dheight/0.58)
-                                    dcanvas.coords("aclabel25",dwidth/1.34,dheight/0.58)
 
-                                    dcanvas.coords("accombo1",dwidth/18.5,dheight/1.55)
-                                    dcanvas.coords("accombo2",dwidth/18.5,dheight/1.027)
+                                    dcanvas.coords("tt_nm",dwidth/33,dheight/1.85)
+                                    dcanvas.coords("fr_nm_lb",dwidth/2.9,dheight/1.85)
+                                    dcanvas.coords("sc_nm_lb",dwidth/1.5,dheight/1.85)
+                                    dcanvas.coords("cmb1",dwidth/33,dheight/1.7)
+                                    dcanvas.coords("fr_nm",dwidth/2.9,dheight/1.7)
+                                    dcanvas.coords("ls_nm",dwidth/1.5,dheight/1.7)
 
-                                    dcanvas.coords("acentry1",dwidth/3.30,dheight/1.55)
-                                    dcanvas.coords("acentry2",dwidth/1.785,dheight/1.55)
-                                    dcanvas.coords("acentry3",dwidth/18.5,dheight/1.24)
-                                    dcanvas.coords("acentry4",dwidth/3.30,dheight/1.24)
-                                    dcanvas.coords("acentry5",dwidth/3.30,dheight/1.027)
-                                    dcanvas.coords("acentry6",dwidth/1.785,dheight/1.027)
-                                    dcanvas.coords("acentry7",dwidth/18.5,dheight/0.88)
-                                    dcanvas.coords("acentry8",dwidth/3.30,dheight/0.88)
-                                    dcanvas.coords("acentry9",dwidth/1.785,dheight/0.88)
-                                    dcanvas.coords("acentry10",dwidth/18.5,dheight/0.715)
-                                    dcanvas.coords("acentry11",dwidth/1.97,dheight/0.715)
-                                    dcanvas.coords("acentry12",dwidth/18.5,dheight/0.625)
-                                    dcanvas.coords("acentry13",dwidth/3.40,dheight/0.625)
-                                    dcanvas.coords("acentry14",dwidth/1.98,dheight/0.625)
-                                    dcanvas.coords("acentry15",dwidth/1.33,dheight/0.625)
-                                    dcanvas.coords("acentry16",dwidth/19.51,dheight/0.565)
-                                    dcanvas.coords("acentry17",dwidth/3.40,dheight/0.565)
-                                    dcanvas.coords("acentry18",dwidth/1.98,dheight/0.565)
-                                    dcanvas.coords("acentry19",dwidth/1.33,dheight/0.565)
+                                    dcanvas.coords("cmp_nm_ent",dwidth/33,dheight/1.4)
+                                    dcanvas.coords("cmb_nm_lb",dwidth/33,dheight/1.5)
+                                    dcanvas.coords("em_nm_lb",dwidth/4,dheight/1.5)
+                                    dcanvas.coords("em_nm_ent",dwidth/4,dheight/1.4)
+                                    dcanvas.coords("mb_nm_lb",dwidth/2.1,dheight/1.5)
+                                    dcanvas.coords("mb_nm_ent",dwidth/2.1,dheight/1.4)
+                                    dcanvas.coords("wb_nm_lb",dwidth/1.42,dheight/1.5)
+                                    dcanvas.coords("wb_nm_ent",dwidth/1.42,dheight/1.4)
 
-                                    dcanvas.coords("accheck1",dwidth/1.55,dheight/0.79)
-                                    dcanvas.coords("accheck2",dwidth/19.0,dheight/0.546)
+                                
+                                    
+                                    dcanvas.coords("rt_nm_lb",dwidth/33,dheight/1.28)
+                                    dcanvas.coords("rt_nm_ent",dwidth/33,dheight/1.2)
+                                    dcanvas.coords("tr_nm_lb",dwidth/4,dheight/1.28)
+                                    dcanvas.coords("cmb1_trm",dwidth/4,dheight/1.2) 
+                                    dcanvas.coords("nw_nm_lb",dwidth/2.1,dheight/1.28)
+                                    dcanvas.coords("nw_nm_ent",dwidth/2.1,dheight/1.2)
+                                    dcanvas.coords("op_nm_lb",dwidth/1.42,dheight/1.28)
+                                    dcanvas.coords("op_nm_ent",dwidth/1.42,dheight/1.2)
 
-                                    dcanvas.coords("acbutton1",dwidth/2.5,dheight/0.5)
-                                    dcanvas.coords("acbutton2",dwidth/23,dheight/3.415)
+                                    dcanvas.coords("ac_nm_lb",dwidth/33,dheight/1.1)
+                                    dcanvas.coords("gst_nm_lb",dwidth/2.9,dheight/1.1)
+                                    dcanvas.coords("ini_nm_lb",dwidth/1.5,dheight/1.1)
+                                    dcanvas.coords("ac_nm",dwidth/33,dheight/1.05)
+                                    dcanvas.coords("cmb1ts",dwidth/2.9,dheight/1.05)
+                                    dcanvas.coords("in_nm",dwidth/1.5,dheight/1.05)
 
+                                    dcanvas.coords("tx_nm_lb",dwidth/33,dheight/0.96)
+                                    dcanvas.coords("tx_nm_ent",dwidth/33,dheight/0.92)
+                                    dcanvas.coords("ef_nm_lb",dwidth/4,dheight/0.96)
+                                    dcanvas.coords("ai_comb_P_ef",dwidth/4,dheight/0.92) 
+                                    dcanvas.coords("ai_comb_P_df",dwidth/2.1,dheight/0.92)
+                                    dcanvas.coords("df_nm_lb",dwidth/2.1,dheight/0.96)
+                                    dcanvas.coords("tds_nm_lb",dwidth/1.42,dheight/0.96)
+                                    dcanvas.coords("ai_comb_P_tds",dwidth/1.42,dheight/0.92)
+ 
+                                    dcanvas.coords("third",dwidth/21,dheight/0.86,dwidth/1.055,dheight/0.86)
+
+                                    dcanvas.coords("add_nm_lb",dwidth/33,dheight/0.84)
+                                    dcanvas.coords("strt_nm_lb",dwidth/33,dheight/0.79)
+                                    dcanvas.coords("scrldf",dwidth/33,dheight/0.77)
+
+                                    dcanvas.coords("cty_nm_lb",dwidth/33,dheight/0.7)
+                                    dcanvas.coords("cty_nm_ent",dwidth/33,dheight/0.68)
+
+                                    dcanvas.coords("st_nm_lb",dwidth/2,dheight/0.7)
+                                    dcanvas.coords("st_nm_ent",dwidth/2,dheight/0.68)
+
+                                    dcanvas.coords("pin_nm_lb",dwidth/33,dheight/0.65)
+                                    dcanvas.coords("pin_nm_ent",dwidth/33,dheight/0.63)
+
+                                    dcanvas.coords("cou_nm_lb",dwidth/2,dheight/0.65)
+                                    dcanvas.coords("ai_comb_P_cou",dwidth/2,dheight/0.63)
+
+                                    dcanvas.coords("nte_nm_lb",dwidth/33,dheight/0.6)
+                                    dcanvas.coords("scrldf_not",dwidth/33,dheight/0.58)
+
+                                    dcanvas.coords("agr_chk",dwidth/33,dheight/0.55)
+                                    dcanvas.coords("sub_btn",dwidth/2.5,dheight/0.52)
+                                 
+                                def add_sup():
+                                    print(scrldf.get(1.0,END))
+                                    if ic_chk_str.get()==1:
+                                        
+                                        
+                                        signup_cmp_sql="insert into app1_supplier(title,firstname,lastname,company,	mobile,email,website,billingrate,terms,addterms,openingbalance,accountno,	gsttype,gstin,taxregistrationno,effectivedate,defaultexpenceaccount,tds,street,city,state,pincode,country,notes,cid_id) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)" #adding values into db
+                                        signup_cmp_sql_val=(ttl_var.get(),fr_nm.get(),ls_nm.get(),cmp_nm_ent.get(),mb_nm_ent.get(),em_nm_ent.get(),wb_nm_ent.get(),rt_nm_ent.get(),trm_var.get(),nw_nm_ent.get(),op_nm_ent.get(),ac_nm.get(),gs_tp_var.get(),in_nm.get(),tx_nm_ent.get(),ai_comb_P_ef.get(),df_ac_var.get(),tds_var.get(),scrldf.get(1.0,END),cty_nm_ent.get(),st_nm_ent.get(),pin_nm_ent.get(),con_var.get(),scrldf_not.get(1.0,END),dtl_cmp_pro[0],)
+                                        fbcursor.execute(signup_cmp_sql,signup_cmp_sql_val,)
+                                        finsysdb.commit()
+                                    else:
+                                        messagebox.showerror("Company Creation Failed","Enter your company details")
 
                                 inv_canvas_2=Canvas(exp_mod_frm, bg='#2f516f', width=953, height=600, scrollregion=(0,0,700,1600))
-
-                                
-
-                                
+   
                                 vertibar=Scrollbar(exp_mod_frm, orient=VERTICAL)
                                 vertibar.grid(row=0,column=1,sticky='ns')
                                 vertibar.config(command=inv_canvas_2.yview)
@@ -9831,82 +9625,7 @@ def main_sign_in():
                                 inv_canvas_2.config(yscrollcommand=vertibar.set)
                                 inv_canvas_2.grid(row=0,column=0,sticky='nsew')
 
-                                def sales_add_inv_cus():
-                                    title = ic_comb_cus_1.get()
-                                    firstname = ic_entry_cus_1.get()
-                                    lastname = ic_entry_cus_2.get()
-                                    company = ic_entry_cus_3.get()
-                                    location = ic_cus_4.get()
-                                    gsttype = ic_comb_cus_2.get()
-                                    gstin = ic_entry_cus_5.get()
-                                    panno = ic_entry_cus_6.get()
-                                    email = ic_entry_cus_7.get()
-                                    website = ic_entry_cus_8.get()
-                                    mobile = ic_entry_cus_9.get()
-                                    street = ic_entry_cus_10.get()
-                                    city = ic_entry_cus_12.get()
-                                    state = ic_entry_cus_13.get()
-                                    pincode = ic_entry_cus_p12.get()
-                                    country = ic_entry_cus_c13.get()
-                                    shipstreet = ic_entry_cus_11.get()
-                                    shipcity = ic_entry_cus_14.get()
-                                    shipstate = ic_entry_cus_15.get()
-                                    shippincode = ic_entry_cus_p14.get()
-                                    shipcountry = ic_entry_cus_c15.get()
-
-                                    usri_sql = "SELECT id FROM auth_user WHERE username=%s"
-                                    usri_val = (nm_ent.get(),)
-                                    fbcursor.execute(usri_sql,usri_val)
-                                    usri_data = fbcursor.fetchone()
-
-                                    cmpi_sql = "SELECT cid FROM app1_company WHERE id_id=%s"
-                                    cmpi_val = (usri_data[0],)
-                                    fbcursor.execute(cmpi_sql,cmpi_val)
-                                    cmpi_data = fbcursor.fetchone()
-                                    cid = cmpi_data[0]
-
-                                    if ic_chk_str_1.get() == True:
-
-                                        cus_sql = "INSERT INTO app1_customer (title,firstname,lastname,company,location,gsttype,gstin,panno,email,website,mobile,street,city,state,pincode,country,shipstreet,shipcity,shipstate,shippincode,shipcountry,cid_id) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-                                        cus_val=(title,firstname,lastname,company,location,gsttype,gstin,panno,email,website,mobile,street,city,state,pincode,country,shipstreet,shipcity,shipstate,shippincode,shipcountry,cid)
-                                        fbcursor.execute(cus_sql,cus_val)
-                                        finsysdb.commit()
-
-                                        #----------Refresh Insert Tree--------#
-
-                                        for record in cus_tree.get_children():
-                                                cus_tree.delete(record)
-
-                                        sql_pr="select * from auth_user where username=%s"
-                                        sql_pr_val=(nm_ent.get(),)
-                                        fbcursor.execute(sql_pr,sql_pr_val,)
-                                        pr_dtl=fbcursor.fetchone()
-
-                                        sql = "select * from app1_company where id_id=%s"
-                                        val = (pr_dtl[0],)
-                                        fbcursor.execute(sql, val,)
-                                        cmp_dtl=fbcursor.fetchone()
-
-                                        c_sql_1 = "SELECT * FROM app1_customer where cid_id=%s"
-                                        c_val_1 = (cmp_dtl[0],)
-                                        fbcursor.execute(c_sql_1,c_val_1,)
-                                        c_data_1 = fbcursor.fetchall()
-
-                                        count0 = 0
-                                        for i in c_data_1:
-                                            if True:
-                                                cus_tree.insert(parent='',index='end',iid=i,text='',values=('',i[2]+" "+i[3],i[6],i[7],i[8],i[9],i[11])) 
-                                            else:
-                                                pass
-                                        count0 += 1
-
-                                        inv_frame_2.destroy()
-                                        inv_frame_1.grid(row=0,column=0,sticky='nsew')
-                                    
-                                    else:
-                                        pass
                                 
-
                                 inv_canvas_2.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("acpoly1"))
 
                                 label_1 = Label(inv_canvas_2,width=15,height=1,text="ADD CUSTOMER", font=('arial 20'),background="#1b3857",fg="white") 
@@ -9921,253 +9640,248 @@ def main_sign_in():
 
                                 inv_canvas_2.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("achline1"))
 
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Title", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel3"))
+                                tt_nm = Label(inv_canvas_2,height=1,text="Title", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=tt_nm, tags=("tt_nm"))
 
-                                ic_comb_cus_1 = ttk.Combobox(inv_canvas_2, font=('arial 10'),foreground="white")
-                                ic_comb_cus_1['values'] = ("Mr","Mrs","Miss","Ms",)
-                                ic_comb_cus_1.current(0)
-                                window_ic_comb_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", width=245, height=30,window=ic_comb_cus_1, tags=("accombo1"))
+                                ttl_var=StringVar()
+                                ai_comb_P_2_2 = ttk.Combobox(inv_canvas_2, width=33,textvariable=ttl_var, font=('arial 14'))
+                                ai_comb_P_2_2['values'] = ("Mr","Mrs","Miss","Ms")
+                                ai_comb_P_2_2.current(0)
+                                window_ai_comb_P_2_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ai_comb_P_2_2,tags=('cmb1'))
 
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="First name", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel4"))
-
-                                ic_entry_cus_1=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_1, tags=("acentry1"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Last name", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel5"))
-
-                                ic_entry_cus_2=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_2 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_2, tags=("acentry2"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Company", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel6"))
-
-                                ic_entry_cus_3=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_3 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_3, tags=("acentry3"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Location", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel7"))
-
-                                ic_cus_4=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_cus_4 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_cus_4, tags=("acentry4"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="GST type", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel8"))
-
-                                ic_comb_cus_2 = ttk.Combobox(inv_canvas_2, font=('arial 10'),foreground="white")
-                                ic_comb_cus_2['values'] = ("Choose...","GST registered Regular","GST registered-Composition","GST unregistered","Consumer","Overseas","SEZ","Deemed exports-EOU's STP's EHTP's etc",)
-                                ic_comb_cus_2.current(0)
-                                window_ic_comb_cus_2 = inv_canvas_2.create_window(0, 0, anchor="nw", width=245, height=30,window=ic_comb_cus_2, tags=("accombo2"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="GSTIN", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel9"))
-
-                                def igst_validate(value):
-                
-                                    """
-                                    Validat the email entry
-                                    :param value:
-                                    :return:
-                                    """
-                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-                                    if re.fullmatch(pattern, value) is None:
-                                        
-                                        return False
-
-                                    ic_entry_cus_5.config(fg="white")
-                                    return True
-
-                                def igst_invalidate():
-                                    ic_entry_cus_5.config(fg="red")
-
-
-                                def ic_gst_in(event):
-                                    if ic_entry_cus_5.get()=="29APPCK7465F1Z1":
-                                        ic_entry_cus_5.delete(0,END)
-                                    else:
-                                        pass
+                                fr_nm_lb = Label(inv_canvas_2,height=1,text="First Name", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=fr_nm_lb, tags=("fr_nm_lb"))
                                 
-                                ic_entry_cus_5=Entry(inv_canvas_2,width=34,justify=LEFT,background='#2f516f',font=('arial 10'))
-                                ival_gst = (inv_canvas_2.register(igst_validate), '%P')
-                                iival_gst = (inv_canvas_2.register(igst_invalidate),)
-                                ic_entry_cus_5.config(validate='focusout', validatecommand=ival_gst, invalidcommand=iival_gst)
-                                window_ic_entry_cus_5 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_5, tags=("acentry5"))
-                                ic_entry_cus_5.insert(0,"29APPCK7465F1Z1")
-                                ic_entry_cus_5.bind("<Button-1>",ic_gst_in)
 
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="PAN NO", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel10"))
+                                fr_nm=Entry(inv_canvas_2,width=66,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=fr_nm, tags=("fr_nm"))
 
-                                def ic_pan_no(event):
-                                    if ic_entry_cus_6.get()=="APPCK7465F":
-                                        ic_entry_cus_6.delete(0,END)
-                                    else:
-                                        pass
+                                
+                                sc_nm_lb = Label(inv_canvas_2,height=1,text="Last Name", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=sc_nm_lb, tags=("sc_nm_lb"))
+                                
 
-                                def ipan_validate(value):
-                
-                                    """
-                                    Validat the email entry
-                                    :param value:
-                                    :return:
-                                    """
-                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-                                    if re.fullmatch(pattern, value) is None:
-                                        
-                                        return False
+                                ls_nm=Entry(inv_canvas_2,width=66,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ls_nm, tags=("ls_nm"))
 
-                                    ic_entry_cus_6.config(fg="white")
-                                    return True
+                                cmb_nm_lb = Label(inv_canvas_2,height=1,text="Company", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=cmb_nm_lb, tags=("cmb_nm_lb"))
+                                
 
-                                def ipan_invalidate():
-                                    ic_entry_cus_6.config(fg="red")
+                                cmp_nm_ent=Entry(inv_canvas_2,width=45,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=cmp_nm_ent, tags=("cmp_nm_ent"))
 
-                                ic_entry_cus_6=Entry(inv_canvas_2,width=34,justify=LEFT,background='#2f516f',font=('arial 10'))
-                                ival_pan = (inv_canvas_2.register(ipan_validate), '%P')
-                                iival_pan = (inv_canvas_2.register(ipan_invalidate),)
-                                ic_entry_cus_6.config(validate='focusout', validatecommand=ival_pan, invalidcommand=iival_pan)
-                                window_ic_entry_cus_6 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_6, tags=("acentry6"))
-                                ic_entry_cus_6.insert(0,"APPCK7465F")
-                                ic_entry_cus_6.bind("<Button-1>",ic_pan_no)
+                                em_nm_lb = Label(inv_canvas_2,height=1,text="Email", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=em_nm_lb, tags=("em_nm_lb"))
+                                
+                                em_nm_ent=Entry(inv_canvas_2,width=45,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=em_nm_ent, tags=("em_nm_ent"))
 
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Email", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel11"))
+                                mb_nm_lb = Label(inv_canvas_2,height=1,text="Mobile", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=mb_nm_lb, tags=("mb_nm_lb"))
+                                
+                                mb_nm_ent=Entry(inv_canvas_2,width=45,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=mb_nm_ent, tags=("mb_nm_ent"))
 
-                                def iemail_validate(value):
-                
-                                    """
-                                    Validat the email entry
-                                    :param value:
-                                    :return:
-                                    """
-                                    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-                                    if re.fullmatch(pattern, value) is None:
-                                        
-                                        return False
+                                wb_nm_lb = Label(inv_canvas_2,height=1,text="Website", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=wb_nm_lb, tags=("wb_nm_lb"))
+                                
+                                wb_nm_ent=Entry(inv_canvas_2,width=45,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=wb_nm_ent, tags=("wb_nm_ent"))
 
-                                    ic_entry_cus_7.config(fg="white")
-                                    return True
+                                rt_nm_lb = Label(inv_canvas_2,height=1,text="Billing Rate", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=rt_nm_lb, tags=("rt_nm_lb"))
+                                
+                                rt_nm_ent=Entry(inv_canvas_2,width=45,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=rt_nm_ent, tags=("rt_nm_ent"))
 
-                                def iemail_invalidate():
-                                    ic_entry_cus_7.config(fg="red")
+                                tr_nm_lb = Label(inv_canvas_2,height=1,text="Terms", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=tr_nm_lb, tags=("tr_nm_lb"))
+                                
+                                trm_var=StringVar()
+                                ai_comb_P_2_2 = ttk.Combobox(inv_canvas_2, width=23,textvariable=trm_var, font=('arial 14'))
+                                ai_comb_P_2_2['values'] = (" ADD NEW TERMS"," Due on Receipt","NET15","NET30","NET60")
+                                ai_comb_P_2_2.current(0)
+                                window_ai_comb_P_2_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ai_comb_P_2_2,tags=('cmb1_trm'))
 
-                                ic_entry_cus_7=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f')
-                                ival_email = (inv_canvas_2.register(iemail_validate), '%P')
-                                iival_email = (inv_canvas_2.register(iemail_invalidate),)
-                                ic_entry_cus_7.config(validate='focusout', validatecommand=ival_email, invalidcommand=iival_email)
-                                window_ic_entry_cus_7 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_7, tags=("acentry7"))
+                                nw_nm_lb = Label(inv_canvas_2,height=1,text="ADD NEW TERM", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=nw_nm_lb, tags=("nw_nm_lb"))
+                                
+                                nw_nm_ent=Entry(inv_canvas_2,width=45,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=nw_nm_ent, tags=("nw_nm_ent"))
 
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Website", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel12"))
+                                op_nm_lb = Label(inv_canvas_2,height=1,text="Opening Balance", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=op_nm_lb, tags=("op_nm_lb"))
+                                
+                                op_nm_ent=Entry(inv_canvas_2,width=45,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=op_nm_ent, tags=("op_nm_ent"))
 
-                                ic_entry_cus_8=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_8 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_8, tags=("acentry8"))
+                                #----------------------------------------------------
+                                ac_nm_lb = Label(inv_canvas_2,height=1,text="Account No", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ac_nm_lb, tags=("ac_nm_lb"))
 
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Mobile", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel13"))
 
-                                ic_entry_cus_9=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_9 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_9, tags=("acentry9"))
+                                
 
-                                def copy_icus_details():
-                                    ic_entry_cus_11.delete(0, END)
-                                    ic_entry_cus_11.insert(0,ic_entry_cus_10.get())
-                                    ic_entry_cus_14.delete(0, END)
-                                    ic_entry_cus_14.insert(0,ic_entry_cus_12.get())
-                                    ic_entry_cus_15.delete(0, END)
-                                    ic_entry_cus_15.insert(0,ic_entry_cus_13.get())
-                                    ic_entry_cus_p14.delete(0, END)
-                                    ic_entry_cus_p14.insert(0,ic_entry_cus_p12.get())
-                                    ic_entry_cus_c15.delete(0, END)
-                                    ic_entry_cus_c15.insert(0,ic_entry_cus_c13.get())
+                                ac_nm=Entry(inv_canvas_2,width=66,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ac_nm, tags=("ac_nm"))
 
-                                label_1 = Label(inv_canvas_2,width=20,height=1,text="Billing Address", font=('arial 16'),background="#1b3857",fg="white") 
-                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel14"))
+                                gst_nm_lb = Label(inv_canvas_2,height=1,text="GST Type", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=gst_nm_lb, tags=("gst_nm_lb"))
+                                
+                                gs_tp_var=StringVar()
+                                ai_comb_P_2_2 = ttk.Combobox(inv_canvas_2, width=33,textvariable=gs_tp_var, font=('arial 14'))
+                                ai_comb_P_2_2['values'] = ("Choose...","GST registered- Regular","GST registered- Composition","GST unregistered")
+                                ai_comb_P_2_2.current(0)
+                                window_ai_comb_P_2_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ai_comb_P_2_2,tags=('cmb1ts'))
 
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Street", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel16"))
+                                
+                                ini_nm_lb = Label(inv_canvas_2,height=1,text="GSTIN", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ini_nm_lb, tags=("ini_nm_lb"))
+                                
 
-                                ic_entry_cus_10=Entry(inv_canvas_2,width=95,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_10 = inv_canvas_2.create_window(0, 0, anchor="nw", height=60,window=ic_entry_cus_10, tags=("acentry10"))
+                                in_nm=Entry(inv_canvas_2,width=66,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=in_nm, tags=("in_nm"))
 
-                                label_1 = Label(inv_canvas_2,width=20,height=1,text="Shipping Address", font=('arial 16'),background="#1b3857",fg="white") 
-                                window_label_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_1, tags=("aclabel15"))
+                                #----------------------------------------------------------
+                                
 
-                                ic_chk_str = StringVar()
-                                ic_chkbtn1 = Checkbutton(inv_canvas_2, text = "Same As Billing Address", variable = ic_chk_str, onvalue = 1, offvalue = 0, font=("arial", 10),background="#1b3857",foreground="white",selectcolor="#2f516f",command=copy_icus_details)
+                                tx_nm_lb = Label(inv_canvas_2,height=1,text="Tax Registration No", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=tx_nm_lb, tags=("tx_nm_lb"))
+                                
+                                tx_nm_ent=Entry(inv_canvas_2,width=45,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=tx_nm_ent, tags=("tx_nm_ent"))
+
+                                ef_nm_lb = Label(inv_canvas_2,height=1,text="Effective Date", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ef_nm_lb, tags=("ef_nm_lb"))
+                                #######
+                                
+
+                                df_nm_lb = Label(inv_canvas_2,height=1,text="Default Expence Account", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=df_nm_lb, tags=("df_nm_lb"))
+                                
+                                df_ac_var=StringVar()
+                                ai_comb_P_df = ttk.Combobox(inv_canvas_2,textvariable=df_ac_var, width=23, font=('arial 14'))
+                                ai_comb_P_df['values'] = ("Choose Account","Advertising /Promotional"
+                                    ,"Bank Charges"
+                                    ,"Business Licenses and Permits"
+                                    ,"Charitable Contributions"
+                                    ,"Computer and Internet Expense"
+                                    ,"Continuing Education"
+                                    ,"Depreciation Expense"
+                                    ,"Dues and Subscriptions"
+                                    ,"Housekeeping Charges"
+                                    ,"Insurance Expense"
+                                    ,"Insurance Expense-General Liability Insurance"
+                                    ,"Insurance Expense-Health Insurance"
+                                    ,"Insurance Expense-Life and disability Insurance"
+                                    ,"Insurance Expense-Professional Liability"
+                                    ,"Internet Expense"
+                                    ,"Meals and Entertainment"
+                                    ,"Office Supplies"
+                                    ,"Postage and delivery"
+                                    ,"Printing and Reproduction"
+                                    ,"Professional Fees"
+                                    ,"Purchases"
+                                    ,"Rent Expense"
+                                    ,"Repair and Maintenance"
+                                    ,"Small Tools and Equipment"
+                                    ,"Swachh Bharat Cess Expense"
+                                    ,"Taxes-Property"
+                                    ,"Telephone Expense"
+                                    ,"Travel Expense"
+                                    ,"Uncategorised Expense"
+                                    ,"Utilities"
+                                    ,"Ask My Accountant"
+                                    ,"CGST write-off"
+                                    ,"GST write-off"
+                                    ,"IGST write-off"
+                                    ,"Miscellaneous Expense"
+                                    ,"Political Contributions"
+                                    ,"Reconciliation Discrepancies"
+                                    ,"SGST write-off"
+                                    ,"Tax Write-off"
+                                    ,"Vehicle Expenses"
+                                    ,"Cost of sales"
+                                    ,"Equipment Rental for Jobs"
+                                    ,"Freight and shipping Costs"
+                                    ,"Merchant Account Fees"
+                                    ,"Purchases - Hardware For Resale"
+                                    ,"Purchases - Software For Resale"
+                                    ,"SubContracted Services"
+                                    ,"Tools and Craft Supplies")
+                                ai_comb_P_df.current(0)
+                                window_ai_comb_P_2_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ai_comb_P_df,tags=('ai_comb_P_df'))
+
+                                tds_nm_lb = Label(inv_canvas_2,height=1,text="Apply TDS For Supplier", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=tds_nm_lb, tags=("tds_nm_lb"))
+                                
+                                tds_var=StringVar()
+
+                                ai_comb_P_tds = ttk.Combobox(inv_canvas_2,textvariable=tds_var, width=23, font=('arial 14'))
+                                ai_comb_P_tds['values'] = ("Choose","Yes","No")
+                                ai_comb_P_tds.current(0)
+                                window_ai_comb_P_2_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ai_comb_P_tds,tags=('ai_comb_P_tds'))
+
+                                inv_canvas_2.create_line(0, 0, 0, 0, fill='gray',width=1, tags=("third"))
+
+                                #33333333333333333333333333333333333333333333333address
+
+                                add_nm_lb = Label(inv_canvas_2,height=1,text="Address", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=add_nm_lb, tags=("add_nm_lb"))
+
+                                strt_nm_lb = Label(inv_canvas_2,height=1,text="Street", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=strt_nm_lb, tags=("strt_nm_lb"))
+
+                                scrldf=scrolledtext.ScrolledText(inv_canvas_2,width=155,height=3,background='#2f516f',foreground="white")
+                                window_ai_entry_p_1_2 = inv_canvas_2.create_window(0, 0, anchor="nw",  window=scrldf,tags=('scrldf'))
+                                
+                                cty_nm_lb = Label(inv_canvas_2,height=1,text="City", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=cty_nm_lb, tags=("cty_nm_lb"))
+                                
+                                cty_nm_ent=Entry(inv_canvas_2,width=100,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=cty_nm_ent, tags=("cty_nm_ent"))
+                                
+
+                                st_nm_lb = Label(inv_canvas_2,height=1,text="State", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=st_nm_lb, tags=("st_nm_lb"))
+                                
+                                st_nm_ent=Entry(inv_canvas_2,width=100,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=st_nm_ent, tags=("st_nm_ent"))
+
+                                #333333333333333333333333333333333333333333333333333333
+                                
+                                pin_nm_lb = Label(inv_canvas_2,height=1,text="Pin Code", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=pin_nm_lb, tags=("pin_nm_lb"))
+                                
+                                pin_nm_ent=Entry(inv_canvas_2,width=100,justify=LEFT,background='#2f516f',foreground="white")
+                                window_ic_entry_cus_1 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=pin_nm_ent, tags=("pin_nm_ent"))
+
+                                cou_nm_lb = Label(inv_canvas_2,height=1,text="Country", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=cou_nm_lb, tags=("cou_nm_lb"))
+                                
+                                con_var=StringVar()
+                                ai_comb_P_cou = ttk.Combobox(inv_canvas_2, width=53,textvariable=con_var, font=('arial 14'))
+                                ai_comb_P_cou['values'] = ('Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Anguilla', 'Antigua And Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia And Herzegovina', 'Botswana', 'Bouvet Island', 'Brazil', 'British Virgin Islands', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo', 'Cook Islands', 'Costa Rica', 'Croatia', 'Curacao', 'Cyprus', 'Czech Republic', 'Democratic Republic Of The Congo', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Estonia', 'Ethiopia', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'French Guiana', 'French Polynesia', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Isle Of Man', 'Israel', 'Italy', 'Ivory Coast', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Libyan Arab Jamahiriya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macao', 'Macau', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Martinique', 'Mauritania', 'Mauritius', 'Mexico', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Norway', 'Oman', 'Pakistan', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russia', 'Russian Federation', 'Rwanda', 'Saint Kitts And Nevis', 'Saint Lucia', 'Saint Martin', 'Saint Pierre And Miquelon', 'Saint Vincent And The Grenadines', 'Samoa', 'San Marino', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Taiwan', 'Tajikistan', 'Tanzania', 'Tanzania, United Republic Of', 'Thailand', 'Togo', 'Tonga', 'Trinidad And Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks And Caicos Islands', 'U.S. Virgin Islands', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela', 'Vietnam', 'Wallis And Futuna', 'Yemen', 'Zambia', 'Zimbabwe')
+                                ai_comb_P_cou.current(0)
+                                window_ai_comb_P_2_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ai_comb_P_cou,tags=('ai_comb_P_cou'))
+
+                                nte_nm_lb = Label(inv_canvas_2,height=1,text="Note", font=('arial 12'),background="#1b3857",fg="white") 
+                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=nte_nm_lb, tags=("nte_nm_lb"))
+
+                                scrldf_not=scrolledtext.ScrolledText(inv_canvas_2,width=155,height=3,background='#2f516f',foreground="white")
+                                window_ai_entry_p_1_2 = inv_canvas_2.create_window(0, 0, anchor="nw",  window=scrldf_not,tags=('scrldf_not'))
+
+                                ic_chk_str = IntVar()
+                                ic_chkbtn1 = Checkbutton(inv_canvas_2, text = "Agree to terms and conditions", variable = ic_chk_str, onvalue = 1, offvalue = 0, font=("arial", 10),background="#1b3857",foreground="white",selectcolor="#2f516f",command="copy_icus_details")
                                 ic_chkbtn1.select()
-                                window_ic_chkbtn_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_chkbtn1, tags=("accheck1"))
+                                window_ic_chkbtn_1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_chkbtn1, tags=("agr_chk"))
 
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="Street", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel17"))
+                                ai_save_btn1=Button(inv_canvas_2,text='Submit', width=15,height=2,foreground="white",background="#1b3857",font='arial 12',command=add_sup)
+                                window_ai_save_btn1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ai_save_btn1,tags=('sub_btn'))
 
-                                ic_entry_cus_11=Entry(inv_canvas_2,width=95,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_11 = inv_canvas_2.create_window(0, 0, anchor="nw", height=60,window=ic_entry_cus_11, tags=("acentry11"))
-
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="City", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel18"))
-
-                                ic_entry_cus_12=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_12 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_12, tags=("acentry12"))
-                                
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="State", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel19"))
-
-                                ic_entry_cus_13=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_13 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_13, tags=("acentry13"))
-
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="City", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2,tags=("aclabel20"))
-
-                                ic_entry_cus_14=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_14 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_14, tags=("acentry14"))
-
-                                label_2 = Label(inv_canvas_2,width=5,height=1,text="State", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2,tags=("aclabel21"))
-
-                                ic_entry_cus_15=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_15 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_15, tags=("acentry15"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Pin Code", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel22"))
-
-                                ic_entry_cus_p12=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_p12 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_p12, tags=("acentry16"))
-                                
-                                label_2 = Label(inv_canvas_2,width=8,height=1,text="Country", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel23"))
-
-                                ic_entry_cus_c13=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_c13 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_c13, tags=("acentry17"))
-
-                                label_2 = Label(inv_canvas_2,width=10,height=1,text="Pin Code", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel24"))
-
-                                ic_entry_cus_p14=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_p14 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_p14, tags=("acentry18"))
-
-                                label_2 = Label(inv_canvas_2,width=8,height=1,text="Country", font=('arial 12'),background="#1b3857",fg="white") 
-                                window_label_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=label_2, tags=("aclabel25"))
-
-                                ic_entry_cus_c15=Entry(inv_canvas_2,width=40,justify=LEFT,background='#2f516f',foreground="white")
-                                window_ic_entry_cus_c15 = inv_canvas_2.create_window(0, 0, anchor="nw", height=30,window=ic_entry_cus_c15, tags=("acentry19"))
-
-                                ic_chk_str_1 = BooleanVar()
-                                ic_chkbtn2 = Checkbutton(inv_canvas_2, text = "Agree to terms and conditions", variable = ic_chk_str_1, font=("arial", 10),background="#1b3857",foreground="white",selectcolor="#2f516f")
-                                window_ic_chkbtn_2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_chkbtn2,tags=("accheck2"))
-
-                                ic_cus_btn2=Button(inv_canvas_2,text='Submit Form', width=25,height=2,foreground="white",background="#1b3857",font='arial 12',command=sales_add_inv_cus)
-                                window_ic_cus_btn2 = inv_canvas_2.create_window(0, 0, anchor="nw", window=ic_cus_btn2,tags=("acbutton1"))
-
-                                def inv_back_1_():
-                                    inv_canvas_1.grid_forget()
-                                    vertibar.grid_forget()
-                                    exp_chld_scrl.grid(row=0,column=2,sticky='ns')
-
-                                bck_btn1=Button(inv_canvas_2,text='← Back', bd=0, foreground="white",background="#2f516f",font='arial 10 bold',activebackground="#1b3857",command=inv_back_1_)
-                                window_bck_btn1 = inv_canvas_2.create_window(0, 0, anchor="nw", window=bck_btn1,tags=('acbutton2'))
+                                ai_comb_P_ef = DateEntry(inv_canvas_2, width=23, font=('arial 14'))
+                                window_ai_comb_P_2_2 = inv_canvas_2.create_window(340, 670, anchor="nw", window=ai_comb_P_ef,tags=('ai_comb_P_ef'))
                                 
 
 
@@ -12676,8 +12390,7 @@ def main_sign_in():
 
                             tm_dt_lb = Label(tm_frm_chld,width=15,height=1,text="Date", font=('arial 12'),background="#213b52",fg="white") 
                             window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_dt_lb, tags=("tm_dt_lb"))
-                            tm_md_dt=Entry(tm_frm_chld,width=65,justify=LEFT,background='#2f516f',foreground="white")
-                            window_ai_entry_p_1_5 = tm_frm_chld.create_window(0, 0, anchor="nw", height=30, window=tm_md_dt,tags=('tm_md_dt'))
+                            
 
                             tm_nm_lb = Label(tm_frm_chld,width=15,height=1,text="Name", font=('arial 12'),background="#213b52",fg="white") 
                             window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_nm_lb, tags=("tm_nm_lb"))
@@ -12687,8 +12400,15 @@ def main_sign_in():
                             tm_cust_lb = Label(tm_frm_chld,width=15,height=1,text="Customer", font=('arial 12'),background="#213b52",fg="white") 
                             window_label_2 = tm_frm_chld.create_window(0, 0, anchor="nw", window=tm_cust_lb, tags=("tm_cust_lb"))
 
+                            vgh="select company from app1_customer where cid_id=%s"
+                            vld_vgh=(dtl_cmp_pro[0],)
+                            fbcursor.execute(vgh,vld_vgh)
+                            vghu=fbcursor.fetchall()
+                            vghus=[] 
+                            for i in vghu:
+                                vghus.append(i[0])
                             aicomb_1_4 = ttk.Combobox(tm_frm_chld, width=66, font=('arial 16'))
-                            aicomb_1_4["values"] = ("jksdfn")
+                            aicomb_1_4["values"] = vghus
                             aicomb_1_4 = tm_frm_chld.create_window(0, 0, anchor="nw",window=aicomb_1_4, tags=("aicomb_1_4"))
 
                             tm_bill_lb = Label(tm_frm_chld,width=15,height=1,text="Billable(/hr)", font=('arial 12'),background="#213b52",fg="white") 
@@ -12737,6 +12457,9 @@ def main_sign_in():
 
                             spin_tm=Spinbox(tm_frm_chld,width=25,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
                             nmnmnm = tm_frm_chld.create_window(0, 0, anchor="nw", height=30, window=spin_tm,tags=('spin_tm'))
+
+                            tm_md_dt=DateEntry(tm_frm_chld,width=65,background='#2f516f',foreground="white")
+                            window_ai_entry_p_1_5 = tm_frm_chld.create_window(480,248, anchor="nw", height=30, window=tm_md_dt,tags=('tm_md_dt'))
      
                         elif add_exp_var.get()=="Advance Payment":
                             exp_chld_scrl.grid_forget()
