@@ -2320,77 +2320,7 @@ def main_sign_in():
                                     inv_canvas_1.config(yscrollcommand=vertibar.set)
                                     inv_canvas_1.grid(row=0,column=0,sticky='nsew')
 
-                                    def multiplymain():
-                                        
-                                        num1= float(ai_entry_2_2.get())
-                                        num2= float(ai_entry_2_3.get())
-                                        mul_i= round(num1 * num2,2)
-                                        ai_entry_2_4.delete(0, END)
-                                        ai_entry_2_4.insert(0,mul_i)
-
-                                        
-                                        try:
-                                            n1 = float(ai_entry_p_1_5.get())
-                                        except:
-                                            n1=0.0
-                                        try:
-                                            n2 = float(en_str_2.get())
-                                        except:
-                                            n2 = 0.0
-                                        try:
-                                            n3 = float(en_str_3.get())
-                                        except:
-                                            n3 = 0.0
-                                        try:
-                                            n4 = float(en_str_4.get())
-                                        except:
-                                            n4 = 0.0
-
-                                        if ents_r1_c5.get()=='':
-                                            r1=0.0
-                                            
-                                        else:
-                                            r1=ents_r1_c5.get()
-                                        if ents_r2_c5.get()=='':
-                                            r2=0.0
-                                            
-                                        else:
-                                            r2=ents_r2_c5.get()
-
-                                        if ents_r3_c5.get()=='':
-                                            r3=0.0
-                                        else:
-                                            r3=ents_r3_c5.get()
-                                            
-                                        if ents_r4_c5.get()=='':
-                                            r4=0.0
-                                        else:
-                                            r4=ents_r4_c5.get()
-                                            
-
-                                        
-                                        
-                                        sum_i = n1+n2+n3+n4+float(r1)+float(r2)+float(r3)+float(r4)
-                                        sub_entry_1.delete(0, END)
-                                        sub_entry_1.insert(0,round(sum_i,2))
-                                        multiplymain()
-                                        cmb_sltd_main()
-                                    def cmb_sltd_main():
-                                        
-                                        
-
-                                        try:
-                                            m1 = float(sub_str.get())
-                                        except:
-                                            m1 =0.0
-                                        try:
-                                            m2 = float(tax_str.get())
-                                        except:
-                                            m2 =0.0
-
-                                        sum_iii = m1+m2
-                                        grand_entry_1.delete(0, END)
-                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                    
 
                                     def add_new_expense():
                                         payee=payee_vars.get()
@@ -2600,6 +2530,7 @@ def main_sign_in():
                                     payee_vars=StringVar()
                                     aicomb_1 = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=payee_vars)
                                     aicomb_1["values"] = p_i1
+                                    aicomb_1.delete(0,END)
                                     aicomb_1.insert(0,exp_dtls[1])
                                     window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=400, height=30,window=aicomb_1, tags=("aicombo1"))
                                     
@@ -2614,6 +2545,7 @@ def main_sign_in():
 
                                     aicomb_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=cas_tp)
                                     aicomb_2["values"] = ("Cash","Cheque","Debit cards","Credit cards")
+                                    aicomb_2.delete(0,END)
                                     aicomb_2.insert(0,exp_dtls[3])
                                     window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=400, height=30,window=aicomb_2, tags=("aicomb_2"))
 
@@ -2685,12 +2617,14 @@ def main_sign_in():
 
                                     cmbost_r1_c1 = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=cat_var1)
                                     cmbost_r1_c1["values"] =xtr_dt
+                                    cmbost_r1_c1.delete(0,END)
                                     cmbost_r1_c1.insert(0,exp_dtls[6])
                                     window_ai_comb_p_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=250, height=30,window=cmbost_r1_c1,tags=('cmbost_r1_c1'))
                                     cmbost_r1_c1.bind("<<ComboboxSelected>>","i_details_1")
 
                                     
                                     ents_r1_c2=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white")
+                                    ents_r1_c2.delete(0,END)
                                     ents_r1_c2.insert(0,exp_dtls[7])
                                     window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c2,tags=('ents_r1_c2'))
 
@@ -2700,6 +2634,78 @@ def main_sign_in():
                                     ents_r1_c3.delete(0,END)
                                     ents_r1_c3.insert(0,exp_dtls[8])
                                     window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c3,tags=('ents_r1_c3'))
+
+                                    def multiplymain():
+                                        
+                                        # num1= float(ai_entry_2_2.get())
+                                        # num2= float(ai_entry_2_3.get())
+                                        # mul_i= round(num1 * num2,2)
+                                        # ai_entry_2_4.delete(0, END)
+                                        # ai_entry_2_4.insert(0,mul_i)
+
+                                        
+                                        try:
+                                            n1 = float(ai_entry_p_1_5.get())
+                                        except:
+                                            n1=0.0
+                                        try:
+                                            n2 = float(en_str_2.get())
+                                        except:
+                                            n2 = 0.0
+                                        try:
+                                            n3 = float(en_str_3.get())
+                                        except:
+                                            n3 = 0.0
+                                        try:
+                                            n4 = float(en_str_4.get())
+                                        except:
+                                            n4 = 0.0
+
+                                        if ents_r1_c5.get()=='':
+                                            r1=0.0
+                                            
+                                        else:
+                                            r1=ents_r1_c5.get()
+                                        if ents_r2_c5.get()=='':
+                                            r2=0.0
+                                            
+                                        else:
+                                            r2=ents_r2_c5.get()
+
+                                        if ents_r3_c5.get()=='':
+                                            r3=0.0
+                                        else:
+                                            r3=ents_r3_c5.get()
+                                            
+                                        if ents_r4_c5.get()=='':
+                                            r4=0.0
+                                        else:
+                                            r4=ents_r4_c5.get()
+                                            
+
+                                        
+                                        
+                                        sum_i = n1+n2+n3+n4+float(r1)+float(r2)+float(r3)+float(r4)
+                                        sub_entry_1.delete(0, END)
+                                        sub_entry_1.insert(0,round(sum_i,2))
+                                        multiplymain()
+                                        cmb_sltd_main()
+                                    def cmb_sltd_main():
+                                        
+                                        
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
                                     
                                     def cat_calcu_r1(event):
                                         
@@ -2715,11 +2721,13 @@ def main_sign_in():
 
                                     
                                     ents_r1_c4=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white")
+                                    ents_r1_c4.delete(0,END)
                                     ents_r1_c4.insert(0,exp_dtls[9])
                                     ents_r1_c4.bind('<KeyRelease>',cat_calcu_r1)
                                     window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c4,tags=('ents_r1_c4'))
 
                                     ents_r1_c5=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white")
+                                    ents_r1_c5.delete(0,END)
                                     ents_r1_c5.insert(0,exp_dtls[10])
                                     window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ents_r1_c5,tags=('ents_r1_c5'))
                                     
@@ -4214,9 +4222,6 @@ def main_sign_in():
                                     
                                     def cmb_sltd_1(event):
                                         
-                                        global t1,t2,t3,t4
-                                        
-
                                         if tax_p_1_2.get() =='Choose':
                                             t1=0.0
                                             pass
@@ -4319,139 +4324,6 @@ def main_sign_in():
                                         sum_iii = m1+m2
                                         grand_entry_1.delete(0, END)
                                         grand_entry_1.insert(0,round(sum_iii,2))
-
-
-                                        
-
-                                        
-                                    ai_entry_p_1_3=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f', 
-                                    command=multiply_num_i1,foreground='white')
-                                    ai_entry_p_1_3.delete(0,END)
-                                    ai_entry_p_1_3.insert(0,exp_dtls[29])
-                                    window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_3,tags=('aientry5'))
-                                    
-                                    
-                                    en_str_1=StringVar()
-                                    
-                                    ai_entry_p_1_5=Entry(inv_canvas_1,width=16,justify=LEFT,textvariable=en_str_1,background='#2f516f',foreground="white")
-                                    ai_entry_p_1_5.insert(0,exp_dtls[31])
-                                    window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_5,tags=('aientry7'))
-                                    
-
-                                    tax_p_1_2=StringVar()
-
-                                    ai_comb_p_1_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=tax_p_1_2)
-                                    ai_comb_p_1_2['values'] = ('Choose',
-                                                        '28.0% GST(28%)',
-                                                        '18.0% GST(18%)',
-                                                        '12.0% GST(12%)',
-                                                        '06.0% GST(06%)',
-                                                        '05.0% GST(05%)',
-                                                        '03.0% GST(03%)',
-                                                        '0.25% GST(0.25%)',
-                                                        '0.0% GST(0%)',
-                                                        'Exempt GST(0%)',
-                                                        'Out of Scope(0%)',
-                                                        
-                                                        '28.0% IGST(28%)',
-                                                        '18.0% IGST(18%)',
-                                                        '12.0% IGST(12%)',
-                                                        '06.0% IGST(06%)',
-                                                        '05.0% IGST(05%)',
-                                                        '03.0% IGST(03%)',
-                                                        '0.25% IGST(0.25%)',
-                                                        '0.0% IGST(0%)',
-                                                        'Exempt IGST(0%)',
-                                                        'Out of Scope(0%)')
-                                    
-                                    ai_comb_p_1_2.current(0)
-                                    ai_comb_p_1_2.insert(0,exp_dtls[51])
-                                    ai_comb_p_1_2.bind("<<ComboboxSelected>>",cmb_sltd_1)
-                                    window_ai_comb_p_1_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_p_1_2,tags=('aicombo5'))
-
-
-                                    label_2 = Label(inv_canvas_1,width=2,height=1,text="2", font=('arial 10'),background="#1b3857",fg="white") 
-                                    window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel20'))
-
-                                    cmb_prd_r2=StringVar()
-
-                                    ai_comb_p_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data,textvariable=cmb_prd_r2)
-                                    ai_comb_p_2.insert(0,exp_dtls[32])
-                                    window_ai_comb_p_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_2,tags=('aicombo6'))
-                                    ai_comb_p_2.bind("<<ComboboxSelected>>",i_details_2)
-
-                                    ai_entry_p_2=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                                    ai_entry_p_2.insert(0,exp_dtls[33])
-                                    window_ai_entry_p_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_2,tags=('aientry8'))
-
-                                    ai_entry_p_2_1=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
-                                    ai_entry_p_2_1.insert(1.0,exp_dtls[34])
-                                    window_ai_entry_p_2_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_2_1,tags=('aientry11'))
-
-                                    
-
-                                    ai_entry_2_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
-                                    ai_entry_2_3.delete(0,END)
-                                    ai_entry_2_3.insert(0,exp_dtls[36])
-                                    window_ai_entry_2_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_3,tags=('aientry17'))
-
-                                    def multiply_num_i2():
-                                        num1= float(ai_entry_2_2.get())
-                                        num2= float(ai_entry_2_3.get())
-                                        mul_i= round(num1 * num2,2)
-                                        ai_entry_2_4.delete(0, END)
-                                        ai_entry_2_4.insert(0,mul_i)
-
-                                        
-                                        try:
-                                            n1 = float(ai_entry_p_1_5.get())
-                                        except:
-                                            n1=0.0
-                                        try:
-                                            n2 = float(en_str_2.get())
-                                        except:
-                                            n2 = 0.0
-                                        try:
-                                            n3 = float(en_str_3.get())
-                                        except:
-                                            n3 = 0.0
-                                        try:
-                                            n4 = float(en_str_4.get())
-                                        except:
-                                            n4 = 0.0
-
-                                        if ents_r1_c5.get()=='':
-                                            r1=0.0
-                                            
-                                        else:
-                                            r1=ents_r1_c5.get()
-                                        if ents_r2_c5.get()=='':
-                                            r2=0.0
-                                            
-                                        else:
-                                            r2=ents_r2_c5.get()
-
-                                        if ents_r3_c5.get()=='':
-                                            r3=0.0
-                                        else:
-                                            r3=ents_r3_c5.get()
-                                            
-                                        if ents_r4_c5.get()=='':
-                                            r4=0.0
-                                        else:
-                                            r4=ents_r4_c5.get()
-                                            
-
-                                        
-                                        
-                                        sum_i = n1+n2+n3+n4+float(r1)+float(r2)+float(r3)+float(r4)
-                                        sub_entry_1.delete(0, END)
-                                        sub_entry_1.insert(0,round(sum_i,2))
-
-                                        cmb_sltd_main()
-                                        
-                                    def cmb_sltd_2(event):
-                                        global t1,t2,t3,t4
 
                                         if tax_p_2_2.get() =='Choose':
                                             t2=0.0
@@ -4558,22 +4430,244 @@ def main_sign_in():
                                         grand_entry_1.delete(0, END)
                                         grand_entry_1.insert(0,round(sum_iii,2))
 
+                                        if tax_p_3_2.get() =='Choose':
+                                            t3=0.0
+                                            pass
+                                        elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        
+                                        elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        else:
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+
                                         
 
-                                    ai_entry_2_2=Spinbox(inv_canvas_1,width=13,command=multiply_num_i2,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
-                                    ai_entry_2_2.delete(0,END)
-                                    ai_entry_2_2.insert(0,exp_dtls[35])
-                                    window_ai_entry_2_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_2,tags=('aientry14'))
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        
+
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        multiplymain()
+
+
+                                        
+
+                                        
+                                    ai_entry_p_1_3=Spinbox(inv_canvas_1,width=13,from_=0 ,to=1000,justify=LEFT,background='#2f516f', 
+                                    command=multiply_num_i1,foreground='white')
+                                    ai_entry_p_1_3.delete(0,END)
+                                    ai_entry_p_1_3.insert(0,exp_dtls[29])
+                                    window_ai_entry_p_1_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_3,tags=('aientry5'))
                                     
-                    
-                                    en_str_2=StringVar()
-                                    ai_entry_2_4=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',textvariable=en_str_2,foreground="white")
-                                    ai_entry_2_4.insert(0,exp_dtls[37])
-                                    window_ai_entry_2_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_4,tags=('aientry20'))
                                     
-                                    tax_p_2_2=StringVar()
-                                    ai_comb_P_2_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=tax_p_2_2)
-                                    ai_comb_P_2_2['values'] = ('Choose',
+                                    en_str_1=StringVar()
+                                    
+                                    ai_entry_p_1_5=Entry(inv_canvas_1,width=16,justify=LEFT,textvariable=en_str_1,background='#2f516f',foreground="white")
+                                    ai_entry_p_1_5.insert(0,exp_dtls[31])
+                                    window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_5,tags=('aientry7'))
+                                    
+
+                                    tax_p_1_2=StringVar()
+
+                                    ai_comb_p_1_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=tax_p_1_2)
+                                    ai_comb_p_1_2['values'] = ('Choose',
                                                         '28.0% GST(28%)',
                                                         '18.0% GST(18%)',
                                                         '12.0% GST(12%)',
@@ -4596,43 +4690,44 @@ def main_sign_in():
                                                         'Exempt IGST(0%)',
                                                         'Out of Scope(0%)')
                                     
-                                    ai_comb_P_2_2.current(0)
-                                    ai_comb_P_2_2.insert(0,exp_dtls[52])
-                                    ai_comb_P_2_2.bind("<<ComboboxSelected>>",cmb_sltd_2)
-                                    window_ai_comb_P_2_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_P_2_2,tags=('aicombo9'))
+                                    ai_comb_p_1_2.current(0)
+                                    ai_comb_p_1_2.delete(0,END)
+                                    ai_comb_p_1_2.insert(0,exp_dtls[51])
+                                    ai_comb_p_1_2.bind("<<ComboboxSelected>>",cmb_sltd_1)
+                                    window_ai_comb_p_1_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_p_1_2,tags=('aicombo5'))
 
 
-                                    label_2 = Label(inv_canvas_1,width=2,height=1,text="3", font=('arial 10'),background="#1b3857",fg="white") 
-                                    window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel21'))
-                                        
-                                    cmb_prd_r3=StringVar()
+                                    label_2 = Label(inv_canvas_1,width=2,height=1,text="2", font=('arial 10'),background="#1b3857",fg="white") 
+                                    window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel20'))
 
-                                    ai_comb_p_3 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data,textvariable=cmb_prd_r3)
-                                    ai_comb_p_3.insert(0,exp_dtls[38])
-                                    window_ai_comb_p_3 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_3,tags=('aicombo7'))
-                                    ai_comb_p_3.bind("<<ComboboxSelected>>",i_details_3)
+                                    cmb_prd_r2=StringVar()
 
-                                    ai_entry_3=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
-                                    ai_entry_3.insert(0,exp_dtls[39])
-                                    window_ai_entry_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3,tags=('aientry9'))
+                                    ai_comb_p_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data,textvariable=cmb_prd_r2)
+                                    ai_comb_p_2.insert(0,exp_dtls[32])
+                                    window_ai_comb_p_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_2,tags=('aicombo6'))
+                                    ai_comb_p_2.bind("<<ComboboxSelected>>",i_details_2)
 
-                                    ai_entry_3_1=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
-                                    ai_entry_3_1.insert(1.0,exp_dtls[40])
-                                    window_ai_entry_3_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_1,tags=('aientry12'))
+                                    ai_entry_p_2=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
+                                    ai_entry_p_2.insert(0,exp_dtls[33])
+                                    window_ai_entry_p_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_2,tags=('aientry8'))
+
+                                    ai_entry_p_2_1=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
+                                    ai_entry_p_2_1.insert(1.0,exp_dtls[34])
+                                    window_ai_entry_p_2_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_2_1,tags=('aientry11'))
 
                                     
 
-                                    ai_entry_3_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
-                                    ai_entry_3_3.delete(0,END)
-                                    ai_entry_3_3.insert(0,exp_dtls[42])#price
-                                    window_ai_entry_3_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_3,tags=('aientry18'))
+                                    ai_entry_2_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                                    ai_entry_2_3.delete(0,END)
+                                    ai_entry_2_3.insert(0,exp_dtls[36])
+                                    window_ai_entry_2_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_3,tags=('aientry17'))
 
-                                    def multiply_num_i3():
-                                        num1= float(ai_entry_3_2.get())
-                                        num2= float(ai_entry_3_3.get())
+                                    def multiply_num_i2():
+                                        num1= float(ai_entry_2_2.get())
+                                        num2= float(ai_entry_2_3.get())
                                         mul_i= round(num1 * num2,2)
-                                        ai_entry_3_4.delete(0, END)
-                                        ai_entry_3_4.insert(0,mul_i)
+                                        ai_entry_2_4.delete(0, END)
+                                        ai_entry_2_4.insert(0,mul_i)
 
                                         
                                         try:
@@ -4676,15 +4771,220 @@ def main_sign_in():
 
                                         
                                         
-                                    
-                                        
                                         sum_i = n1+n2+n3+n4+float(r1)+float(r2)+float(r3)+float(r4)
                                         sub_entry_1.delete(0, END)
                                         sub_entry_1.insert(0,round(sum_i,2))
 
                                         cmb_sltd_main()
-                                    def cmb_sltd_3(event):
-                                        global t1,t2,t3,t4
+                                        
+                                    def cmb_sltd_2(event):
+                                        if tax_p_1_2.get() =='Choose':
+                                            t1=0.0
+                                            pass
+                                        elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        else:
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            tm2 = 0.0
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_2_2.get() =='Choose':
+                                            t2=0.0
+                                            pass
+                                        elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        
+                                        elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        else:
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+
+
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
 
                                         if tax_p_3_2.get() =='Choose':
                                             t3=0.0
@@ -4790,6 +5090,668 @@ def main_sign_in():
                                         sum_iii = m1+m2
                                         grand_entry_1.delete(0, END)
                                         grand_entry_1.insert(0,round(sum_iii,2))
+                                        
+
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        multiplymain()
+
+                                        
+
+                                    ai_entry_2_2=Spinbox(inv_canvas_1,width=13,command=multiply_num_i2,from_=0 ,to=1000,justify=LEFT,background='#2f516f',foreground='white')
+                                    ai_entry_2_2.delete(0,END)
+                                    ai_entry_2_2.insert(0,exp_dtls[35])
+                                    window_ai_entry_2_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_2,tags=('aientry14'))
+                                    
+                    
+                                    en_str_2=StringVar()
+                                    ai_entry_2_4=Entry(inv_canvas_1,width=16,justify=LEFT,background='#2f516f',textvariable=en_str_2,foreground="white")
+                                    ai_entry_2_4.insert(0,exp_dtls[37])
+                                    window_ai_entry_2_4 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_2_4,tags=('aientry20'))
+                                    
+                                    tax_p_2_2=StringVar()
+                                    ai_comb_P_2_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=tax_p_2_2)
+                                    ai_comb_P_2_2['values'] = ('Choose',
+                                                        '28.0% GST(28%)',
+                                                        '18.0% GST(18%)',
+                                                        '12.0% GST(12%)',
+                                                        '06.0% GST(06%)',
+                                                        '05.0% GST(05%)',
+                                                        '03.0% GST(03%)',
+                                                        '0.25% GST(0.25%)',
+                                                        '0.0% GST(0%)',
+                                                        'Exempt GST(0%)',
+                                                        'Out of Scope(0%)',
+                                                        
+                                                        '28.0% IGST(28%)',
+                                                        '18.0% IGST(18%)',
+                                                        '12.0% IGST(12%)',
+                                                        '06.0% IGST(06%)',
+                                                        '05.0% IGST(05%)',
+                                                        '03.0% IGST(03%)',
+                                                        '0.25% IGST(0.25%)',
+                                                        '0.0% IGST(0%)',
+                                                        'Exempt IGST(0%)',
+                                                        'Out of Scope(0%)')
+                                    
+                                    ai_comb_P_2_2.current(0)
+                                    ai_comb_P_2_2.delete(0,END)
+                                    ai_comb_P_2_2.insert(0,exp_dtls[52])
+                                    ai_comb_P_2_2.bind("<<ComboboxSelected>>",cmb_sltd_2)
+                                    window_ai_comb_P_2_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_P_2_2,tags=('aicombo9'))
+
+
+                                    label_2 = Label(inv_canvas_1,width=2,height=1,text="3", font=('arial 10'),background="#1b3857",fg="white") 
+                                    window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2,tags=('ailabel21'))
+                                        
+                                    cmb_prd_r3=StringVar()
+
+                                    ai_comb_p_3 = ttk.Combobox(inv_canvas_1, font=('arial 10'),values=inv_data,textvariable=cmb_prd_r3)
+                                    ai_comb_p_3.insert(0,exp_dtls[38])
+                                    window_ai_comb_p_3 = inv_canvas_1.create_window(0, 0, anchor="nw", width=180, height=30,window=ai_comb_p_3,tags=('aicombo7'))
+                                    ai_comb_p_3.bind("<<ComboboxSelected>>",i_details_3)
+
+                                    ai_entry_3=Entry(inv_canvas_1,width=30,justify=LEFT,background='#2f516f',foreground="white")
+                                    ai_entry_3.insert(0,exp_dtls[39])
+                                    window_ai_entry_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3,tags=('aientry9'))
+
+                                    ai_entry_3_1=scrolledtext.ScrolledText(inv_canvas_1,width=21,background='#2f516f',foreground="white")
+                                    ai_entry_3_1.insert(1.0,exp_dtls[40])
+                                    window_ai_entry_3_1 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_1,tags=('aientry12'))
+
+                                    
+
+                                    ai_entry_3_3=Spinbox(inv_canvas_1,width=16,from_=0 ,to=1000000,justify=LEFT,background='#2f516f',foreground='white')
+                                    ai_entry_3_3.delete(0,END)
+                                    ai_entry_3_3.insert(0,exp_dtls[42])#price
+                                    window_ai_entry_3_3 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_3_3,tags=('aientry18'))
+
+                                    def multiply_num_i3():
+                                        num1= float(ai_entry_3_2.get())
+                                        num2= float(ai_entry_3_3.get())
+                                        mul_i= round(num1 * num2,2)
+                                        ai_entry_3_4.delete(0, END)
+                                        ai_entry_3_4.insert(0,mul_i)
+
+                                        
+                                        try:
+                                            n1 = float(ai_entry_p_1_5.get())
+                                        except:
+                                            n1=0.0
+                                        try:
+                                            n2 = float(en_str_2.get())
+                                        except:
+                                            n2 = 0.0
+                                        try:
+                                            n3 = float(en_str_3.get())
+                                        except:
+                                            n3 = 0.0
+                                        try:
+                                            n4 = float(en_str_4.get())
+                                        except:
+                                            n4 = 0.0
+
+                                        if ents_r1_c5.get()=='':
+                                            r1=0.0
+                                            
+                                        else:
+                                            r1=ents_r1_c5.get()
+                                        if ents_r2_c5.get()=='':
+                                            r2=0.0
+                                            
+                                        else:
+                                            r2=ents_r2_c5.get()
+
+                                        if ents_r3_c5.get()=='':
+                                            r3=0.0
+                                        else:
+                                            r3=ents_r3_c5.get()
+                                            
+                                        if ents_r4_c5.get()=='':
+                                            r4=0.0
+                                        else:
+                                            r4=ents_r4_c5.get()
+                                            
+
+                                        
+                                        
+                                    
+                                        
+                                        sum_i = n1+n2+n3+n4+float(r1)+float(r2)+float(r3)+float(r4)
+                                        sub_entry_1.delete(0, END)
+                                        sub_entry_1.insert(0,round(sum_i,2))
+
+                                        cmb_sltd_main()
+                                    def cmb_sltd_3(event):
+                                        if tax_p_1_2.get() =='Choose':
+                                            t1=0.0
+                                            pass
+                                        elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        else:
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            tm2 = 0.0
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_2_2.get() =='Choose':
+                                            t2=0.0
+                                            pass
+                                        elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        
+                                        elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        else:
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+
+
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_3_2.get() =='Choose':
+                                            t3=0.0
+                                            pass
+                                        elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        
+                                        elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        else:
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+
+                                        
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        
+
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        multiplymain()
 
                                         
 
@@ -4831,6 +5793,7 @@ def main_sign_in():
                                                         'Out of Scope(0%)')
                                     
                                     ai_comb_P_3_2.current(0)
+                                    ai_comb_P_3_2.delete(0,END)
                                     ai_comb_P_3_2.insert(0,exp_dtls[53])
                                     ai_comb_P_3_2.bind("<<ComboboxSelected>>",cmb_sltd_3)
                                     window_ai_comb_P_3_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_P_3_2,tags=('aicombo10'))
@@ -4917,111 +5880,429 @@ def main_sign_in():
 
                                     def cmb_slt_4(event):
                                         
-                                            global t1,t2,t3,t4
+                                        if tax_p_1_2.get() =='Choose':
+                                            t1=0.0
+                                            pass
+                                        elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        else:
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            tm2 = 0.0
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
 
-                                            if tax_p_4_2.get() =='Choose':
-                                                t4=0.0
-                                                pass
-                                            elif tax_p_4_2.get() =='28.0% GST(28%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(28/100)
-                                            elif tax_p_4_2.get() =='18.0% GST(18%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(18/100)
-                                            elif tax_p_4_2.get() =='12.0% GST(12%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(12/100)
-                                            elif tax_p_4_2.get() =='06.0% GST(06%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(06.0/100)
-                                            elif tax_p_4_2.get() =='05.0% GST(05%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(05.0/100)
-                                            elif tax_p_4_2.get() =='03.0% GST(03%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(03.0/100)
-                                            elif tax_p_4_2.get() =='0.25% GST(0.25%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0.25/100)
-                                            elif tax_p_4_2.get() =='0.0% GST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() == 'Exempt GST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() =='Out of Scope(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            
-                                            elif tax_p_4_2.get() =='28.0% IGST(28%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(28/100)
-                                            elif tax_p_4_2.get() =='18.0% IGST(18%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(18/100)
-                                            elif tax_p_4_2.get() =='12.0% IGST(12%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(12/100)
-                                            elif tax_p_4_2.get() =='06.0% IGST(06%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(06.0/100)
-                                            elif tax_p_4_2.get() =='05.0% IGST(05%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(05.0/100)
-                                            elif tax_p_4_2.get() =='03.0% IGST(03%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(03.0/100)
-                                            elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0.25/100)
-                                            elif tax_p_4_2.get() =='0.0% IGST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() =='Exempt IGST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() =='Out of Scope(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            else:
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                                
-                                            
-                                            try:
-                                                tm1  = t1
-                                            except:
-                                                pass
-                                            try:
-                                                tm2 = t2
-                                            except:
-                                                pass
-                                            try:
-                                                tm3 = t3
-                                            except:
-                                                pass
-                                            try:
-                                                tm4  = t4
-                                            except:
-                                                pass
-                                            
-                                            
-                                            sum_ii = tm1+tm2+tm3+tm4
-                                            tax_entry_1.delete(0, END)
-                                            tax_entry_1.insert(0,round(sum_ii,2))
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
 
-                                            try:
-                                                m1 = float(sub_str.get())
-                                            except:
-                                                m1 =0.0
-                                            try:
-                                                m2 = float(tax_str.get())
-                                            except:
-                                                m2 =0.0
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
 
-                                            sum_iii = m1+m2
-                                            grand_entry_1.delete(0, END)
-                                            grand_entry_1.insert(0,round(sum_iii,2))
+                                        if tax_p_2_2.get() =='Choose':
+                                            t2=0.0
+                                            pass
+                                        elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        
+                                        elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        else:
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+
+
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_3_2.get() =='Choose':
+                                            t3=0.0
+                                            pass
+                                        elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        
+                                        elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        else:
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+
+                                        
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        
+
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        multiplymain()
 
                                             
 
@@ -5062,6 +6343,7 @@ def main_sign_in():
                                                         'Out of Scope(0%)')
                                     
                                     ai_comb_P_4_2.current(0)
+                                    ai_comb_P_4_2.delete(0,END)
                                     ai_comb_P_4_2.insert(0,exp_dtls[54])
                                     ai_comb_P_4_2.bind('<<ComboboxSelected>>',cmb_slt_4)
                                     window_ai_comb_P_4_2 = inv_canvas_1.create_window(0, 0, anchor="nw", width=150, height=30,window=ai_comb_P_4_2,tags=('aicombo11'))
@@ -5730,6 +7012,16 @@ def main_sign_in():
                                         fbcursor.execute(inv_sql_1,inv_val_1)
                                         finsysdb.commit()
 
+                                        c_sql_lkj = "SELECT * FROM app1_expences  where expencesid=%s"
+                                        c_val_lkj = (ref,)
+                                        fbcursor.execute(c_sql_lkj,c_val_lkj,)
+                                        c_data_lkj = fbcursor.fetchone()
+                                        
+                                        inv_sql_12 = "update app1_expences set grandtotal=%s where expencesid=%s"
+                                        inv_val_12=(float(grandtotal)-float(c_data_lkj[56]),ref)
+                                        fbcursor.execute(inv_sql_12,inv_val_12)
+                                        finsysdb.commit()
+
                                         for record in exp_tree.get_children():
                                                     exp_tree.delete(record)
 
@@ -5848,15 +7140,160 @@ def main_sign_in():
 
                                     for i in pr_cmp_dtl:
                                         p_i1.append(str(i[0])+" "+str(i[1]))
+
+                                    def pay_vals(event):
+                                        ref=aicomb_1s.get()
+                                        sql_paym_cmp="select * from app1_expences where cid_id=%s and expencesid=%s"
+                                        sql_paym_cmp_val=(cmp_dtl[0],ref)
+                                        fbcursor.execute(sql_paym_cmp,sql_paym_cmp_val,)
+                                        pay_cm_dt=fbcursor.fetchone()
+
+
+                                        # payment_account=aicomb_114.insert(0,pay_cm_dt[])
+                                        aicomb_1.delete(0,END)
+                                        aicomb_1.insert(0,pay_cm_dt[1])
+                                        aicomb_2.delete(0,END)
+                                        aicomb_2.insert(0,pay_cm_dt[3])
                                         
+                                        cmbost_r1_c1.delete(0,END)
+                                        cmbost_r1_c1.insert(0,pay_cm_dt[6])
+                                        ents_r1_c2.delete(0,END)
+                                        ents_r1_c2.insert(0,pay_cm_dt[7])
+                                        ents_r1_c3.delete(0,END)
+                                        ents_r1_c3.insert(0,pay_cm_dt[8])
+                                        ents_r1_c4.delete(0,END)
+                                        ents_r1_c4.insert(0,pay_cm_dt[9])
+                                        ents_r1_c5.delete(0,END)
+                                        ents_r1_c5.insert(0,pay_cm_dt[10])
+
+                                        cmbost_r2_c1.delete(0,END)
+                                        cmbost_r2_c1.insert(0,pay_cm_dt[11])
+                                        ents_r2_c2.delete(0,END)
+                                        ents_r2_c2.insert(0,pay_cm_dt[12])
+                                        ents_r2_c3.delete(0,END)
+                                        ents_r2_c3.insert(0,pay_cm_dt[13])
+                                        ents_r2_c4.delete(0,END)
+                                        ents_r2_c4.insert(0,pay_cm_dt[14])
+                                        ents_r2_c5.delete(0,END)
+                                        ents_r2_c5.insert(0,pay_cm_dt[15])
+
+                                        cmbost_r3_c1.delete(0,END)
+                                        cmbost_r3_c1.insert(0,pay_cm_dt[16])
+                                        ents_r3_c2.delete(0,END)
+                                        ents_r3_c2.insert(0,pay_cm_dt[17])
+                                        ents_r3_c3.delete(0,END)
+                                        ents_r3_c3.insert(0,pay_cm_dt[18])
+                                        ents_r3_c4.delete(0,END)
+                                        ents_r3_c4.insert(0,pay_cm_dt[19])
+                                        ents_r3_c5.delete(0,END)
+                                        ents_r3_c5.insert(0,pay_cm_dt[20])
+
+                                        cmbost_r4_c1.delete(0,END)
+                                        cmbost_r4_c1.insert(0,pay_cm_dt[21])
+                                        ents_r4_c2.delete(0,END)
+                                        ents_r4_c2.insert(0,pay_cm_dt[22])
+                                        ents_r4_c3.delete(0,END)
+                                        ents_r4_c3.insert(0,pay_cm_dt[23])
+                                        ents_r4_c4.delete(0,END)
+                                        ents_r4_c4.insert(0,pay_cm_dt[24])
+                                        ents_r4_c5.delete(0,END)
+                                        ents_r4_c5.insert(0,pay_cm_dt[25])
+
+                                        ai_comb_p_1.delete(0,END)
+                                        ai_comb_p_1.insert(0,pay_cm_dt[26])
+                                        ai_entry_p_1.delete(0,END)
+                                        ai_entry_p_1.insert(0,pay_cm_dt[27])
+                                        ai_entry_p_1_2.delete(1.0,END)
+                                        ai_entry_p_1_2.insert(1.0,pay_cm_dt[28])
+                                        ai_entry_p_1_3.delete(0,END)
+                                        ai_entry_p_1_3.insert(0,pay_cm_dt[29]) 
+                                        ai_entry_p_1_4.delete(0,END)
+                                        ai_entry_p_1_4.insert(0,pay_cm_dt[30])
+                                        ai_entry_p_1_5.delete(0,END)
+                                        ai_entry_p_1_5.insert(0,pay_cm_dt[31])
+                                        ai_comb_p_1_2.delete(0,END)
+                                        ai_comb_p_1_2.insert(0,pay_cm_dt[51])
+                                        
+                                        ai_comb_p_2.delete(0,END)
+                                        ai_comb_p_2.insert(0,pay_cm_dt[32])
+                                        ai_entry_p_2.delete(0,END)
+                                        ai_entry_p_2.insert(0,pay_cm_dt[33])
+                                        ai_entry_p_2_1.delete(1.0,END)
+                                        ai_entry_p_2_1.insert(1.0,pay_cm_dt[34])
+                                        ai_entry_2_2.delete(0,END)
+                                        ai_entry_2_2.insert(0,pay_cm_dt[35])
+                                        ai_entry_2_3.delete(0,END)
+                                        ai_entry_2_3.insert(0,pay_cm_dt[36])
+                                        ai_entry_2_4.delete(0,END)
+                                        ai_entry_2_4.insert(0,pay_cm_dt[37])
+                                        ai_comb_P_2_2.delete(0,END)
+                                        ai_comb_P_2_2.insert(0,pay_cm_dt[52])
+
+                                        ai_comb_p_3.delete(0,END)
+                                        ai_comb_p_3.insert(0,pay_cm_dt[38])
+                                        ai_entry_3.delete(0,END)
+                                        ai_entry_3.insert(0,pay_cm_dt[39])
+                                        ai_entry_3_1.delete(1.0,END)
+                                        ai_entry_3_1.insert(1.0,pay_cm_dt[40])
+                                        ai_entry_3_2.delete(0,END)
+                                        ai_entry_3_2.insert(0,pay_cm_dt[41])
+                                        ai_entry_3_3.delete(0,END)
+                                        ai_entry_3_3.insert(0,pay_cm_dt[42]) 
+                                        ai_entry_3_4.delete(0,END)
+                                        ai_entry_3_4.insert(0,pay_cm_dt[43])   
+                                        ai_comb_P_3_2.delete(0,END)       
+                                        ai_comb_P_3_2.insert(0,pay_cm_dt[53])
+
+                                        ai_comb_p_4.delete(0,END)
+                                        ai_comb_p_4.insert(0,pay_cm_dt[44])   
+                                        ai_entry_4.delete(0,END)
+                                        ai_entry_4.insert(0,pay_cm_dt[45])
+                                        ai_entry_4_1.delete(1.0,END)
+                                        ai_entry_4_1.insert(1.0,pay_cm_dt[46])
+                                        ai_entry_4_2.delete(0,END)
+                                        ai_entry_4_2.insert(0,pay_cm_dt[47])
+                                        ai_entry_4_3.delete(0,END)
+                                        ai_entry_4_3.insert(0,pay_cm_dt[48]) 
+                                        ai_entry_4_4.delete(0,END)
+                                        ai_entry_4_4.insert(0,pay_cm_dt[49])
+                                        ai_comb_P_4_2.delete(0,END)
+                                        ai_comb_P_4_2.insert(0,pay_cm_dt[54])
+
+                                        sub_entry_1.delete(0,END)
+                                        sub_entry_1.insert(0,pay_cm_dt[50])
+                                        tax_entry_1.delete(0,END)
+                                        tax_entry_1.insert(0,pay_cm_dt[55])
+                                        c_sql_12 = "SELECT * FROM app1_advancepayment  where refno=%s"
+                                        c_val_12 = (ref,)
+                                        fbcursor.execute(c_sql_12,c_val_12,)
+                                        c_data_12 = fbcursor.fetchone()
+                                        if c_data_12 is not None:
+                                            vals=float(c_data_12[4])-float(pay_cm_dt[56])
+
+                                            grand_entry_1.delete(0,END)
+                                            grand_entry_1.insert(0,vals)  
+                                        else:
+                                            grand_entry_1.delete(0,END)
+                                            grand_entry_1.insert(0,pay_cm_dt[56])
+                                        
+
+                                    
+
+                                    sql_ref_cmp="select distinct expencesid from app1_expences where cid_id=%s"
+                                    sql_ref_cmp_val=(cmp_dtl[0],)
+                                    fbcursor.execute(sql_ref_cmp,sql_ref_cmp_val,)
+                                    pay_ref_dt=fbcursor.fetchall()
+
+                            
 
                                     label_2 = Label(inv_canvas_1,height=1,text="Choose Ref. No", font=('arial 12'),background="#1b3857",fg="white") 
                                     window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2, tags=("ailabel5548"))
 
                                     re_var=StringVar()
-                                    aicomb_1 = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=re_var)
-                                    aicomb_1["values"] = p_i1
-                                    aicomb_1.insert(0,paym_dtls[2])
+                                    aicomb_1s = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=re_var)
+                                    aicomb_1s["values"] = p_i1
+                                    aicomb_1s.insert(0,paym_dtls[2])
+                                    aicomb_1s.bind("<<ComboboxSelected>>", pay_vals)
                                     window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=450, height=30,window=aicomb_1, tags=("aicombo187"))
                                     
                                     
@@ -6860,9 +8297,6 @@ def main_sign_in():
                                     
                                     def cmb_sltd_1(event):
                                         
-                                        global t1,t2,t3,t4
-                                        
-
                                         if tax_p_1_2.get() =='Choose':
                                             t1=0.0
                                             pass
@@ -6965,6 +8399,326 @@ def main_sign_in():
                                         sum_iii = m1+m2
                                         grand_entry_1.delete(0, END)
                                         grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_2_2.get() =='Choose':
+                                            t2=0.0
+                                            pass
+                                        elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        
+                                        elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        else:
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+
+
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_3_2.get() =='Choose':
+                                            t3=0.0
+                                            pass
+                                        elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        
+                                        elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        else:
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+
+                                        
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        
+
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        multiplymain()
 
 
                                         
@@ -7101,7 +8855,108 @@ def main_sign_in():
                                         cmb_sltd_main()
                                         
                                     def cmb_sltd_2(event):
-                                        global t1,t2,t3,t4
+                                        if tax_p_1_2.get() =='Choose':
+                                            t1=0.0
+                                            pass
+                                        elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        else:
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            tm2 = 0.0
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
 
                                         if tax_p_2_2.get() =='Choose':
                                             t2=0.0
@@ -7207,6 +9062,222 @@ def main_sign_in():
                                         sum_iii = m1+m2
                                         grand_entry_1.delete(0, END)
                                         grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_3_2.get() =='Choose':
+                                            t3=0.0
+                                            pass
+                                        elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        
+                                        elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        else:
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+
+                                        
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        
+
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        multiplymain()
 
                                         
 
@@ -7339,7 +9410,213 @@ def main_sign_in():
 
                                         cmb_sltd_main()
                                     def cmb_sltd_3(event):
-                                        global t1,t2,t3,t4
+                                        if tax_p_1_2.get() =='Choose':
+                                            t1=0.0
+                                            pass
+                                        elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        else:
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            tm2 = 0.0
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_2_2.get() =='Choose':
+                                            t2=0.0
+                                            pass
+                                        elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        
+                                        elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        else:
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+
+
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
 
                                         if tax_p_3_2.get() =='Choose':
                                             t3=0.0
@@ -7445,6 +9722,117 @@ def main_sign_in():
                                         sum_iii = m1+m2
                                         grand_entry_1.delete(0, END)
                                         grand_entry_1.insert(0,round(sum_iii,2))
+                                        
+
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        multiplymain()
 
                                         
 
@@ -7577,111 +9965,429 @@ def main_sign_in():
 
                                     def cmb_slt_4(event):
                                         
-                                            global t1,t2,t3,t4
+                                        if tax_p_1_2.get() =='Choose':
+                                            t1=0.0
+                                            pass
+                                        elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        else:
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            tm2 = 0.0
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
 
-                                            if tax_p_4_2.get() =='Choose':
-                                                t4=0.0
-                                                pass
-                                            elif tax_p_4_2.get() =='28.0% GST(28%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(28/100)
-                                            elif tax_p_4_2.get() =='18.0% GST(18%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(18/100)
-                                            elif tax_p_4_2.get() =='12.0% GST(12%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(12/100)
-                                            elif tax_p_4_2.get() =='06.0% GST(06%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(06.0/100)
-                                            elif tax_p_4_2.get() =='05.0% GST(05%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(05.0/100)
-                                            elif tax_p_4_2.get() =='03.0% GST(03%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(03.0/100)
-                                            elif tax_p_4_2.get() =='0.25% GST(0.25%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0.25/100)
-                                            elif tax_p_4_2.get() =='0.0% GST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() == 'Exempt GST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() =='Out of Scope(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            
-                                            elif tax_p_4_2.get() =='28.0% IGST(28%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(28/100)
-                                            elif tax_p_4_2.get() =='18.0% IGST(18%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(18/100)
-                                            elif tax_p_4_2.get() =='12.0% IGST(12%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(12/100)
-                                            elif tax_p_4_2.get() =='06.0% IGST(06%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(06.0/100)
-                                            elif tax_p_4_2.get() =='05.0% IGST(05%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(05.0/100)
-                                            elif tax_p_4_2.get() =='03.0% IGST(03%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(03.0/100)
-                                            elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0.25/100)
-                                            elif tax_p_4_2.get() =='0.0% IGST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() =='Exempt IGST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() =='Out of Scope(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            else:
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                                
-                                            
-                                            try:
-                                                tm1  = t1
-                                            except:
-                                                pass
-                                            try:
-                                                tm2 = t2
-                                            except:
-                                                pass
-                                            try:
-                                                tm3 = t3
-                                            except:
-                                                pass
-                                            try:
-                                                tm4  = t4
-                                            except:
-                                                pass
-                                            
-                                            
-                                            sum_ii = tm1+tm2+tm3+tm4
-                                            tax_entry_1.delete(0, END)
-                                            tax_entry_1.insert(0,round(sum_ii,2))
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
 
-                                            try:
-                                                m1 = float(sub_str.get())
-                                            except:
-                                                m1 =0.0
-                                            try:
-                                                m2 = float(tax_str.get())
-                                            except:
-                                                m2 =0.0
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
 
-                                            sum_iii = m1+m2
-                                            grand_entry_1.delete(0, END)
-                                            grand_entry_1.insert(0,round(sum_iii,2))
+                                        if tax_p_2_2.get() =='Choose':
+                                            t2=0.0
+                                            pass
+                                        elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        
+                                        elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        else:
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+
+
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_3_2.get() =='Choose':
+                                            t3=0.0
+                                            pass
+                                        elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        
+                                        elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        else:
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+
+                                        
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        
+
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        multiplymain()
 
                                             
 
@@ -8293,6 +10999,16 @@ def main_sign_in():
                                         fbcursor.execute(inv_sql_1,inv_val_1)
                                         finsysdb.commit()
 
+                                        sql_sp_cmp="select * from app1_expences where cid_id=%s and payee=%s"
+                                        sql_sp_cmp_val=(cmp_dtl[0],su_var.get())
+                                        fbcursor.execute(sql_sp_cmp,sql_sp_cmp_val,)
+                                        pay_id_dt=fbcursor.fetchone()
+
+                                        inv_sql_1 = "update app1_expences set category1=%s,descrptin1=%s,catqty1=%s,catprice1=%s,cattotal1=%s,category2=%s,descrptin2=%s,catqty2=%s,catprice2=%s,cattotal2=%s,category3=%s,descrptin3=%s,catqty3=%s,catprice3=%s,cattotal3=%s,category4=%s,descrptin4=%s,catqty4=%s,catprice4=%s,cattotal4=%s,product=%s,hsn=%s,description=%s,	qty=%s,price=%s,total=%s,product2=%s,hsn2=%s,description2=%s,qty2=%s,price2=%s,total2=%s,product3=%s,hsn3=%s,description3=%s,qty3=%s,price3=%s,total3=%s,product4=%s,hsn4=%s,description4=%s,qty4=%s,price4=%s,total4=%s,tax=%s,tax2=%s,tax3=%s,tax4=%s,subtotal=%s,taxamount=%s,grandtotal=%s where expencesid=%s"
+                                        inv_val_1=(category1,descrptin1,catqty1,catprice1,cattotal1,category2,descrptin2,catqty2,catprice2,cattotal2,category3,descrptin3,catqty3,catprice3,cattotal3,category4,descrptin4,catqty4,catprice4,cattotal4,product,hsn,description,	qty,price,total,product2,hsn2,description2,qty2,price2,total2,product3,hsn3,description3,qty3,price3,total3,product4,hsn4,description4,qty4,price4,total4,tax,tax2,tax3,tax4,subtotal,taxamount,grandtotal,pay_id_dt[0])
+                                        fbcursor.execute(inv_sql_1,inv_val_1)
+                                        finsysdb.commit()
+
                                         for record in exp_tree.get_children():
                                                     exp_tree.delete(record)
 
@@ -8507,15 +11223,144 @@ def main_sign_in():
                                     for i in pr_cmp_dtl:
                                         p_i1.append(str(i[0])+" "+str(i[1]))
 
-                                    def cus_dtlits(event):
+                                    
+                                    def pay_vals(event):
                                         vbhu=su_var.get().split(" ")
-                                        sql_pr_cmp="select * from app1_customer where firstname=%s"
-                                        sql_pr_cmp_val=(vbhu[0],)
+                                        sql_pr_cmp="select * from app1_supplier where firstname=%s and lastname=%s"
+                                        sql_pr_cmp_val=(vbhu[0],vbhu[1],)
                                         fbcursor.execute(sql_pr_cmp,sql_pr_cmp_val,)
                                         pr_cmp_dtls=fbcursor.fetchone()
 
                                         aicomb_2.delete(1.0,END)
-                                        aicomb_2.insert(1.0,str(pr_cmp_dtls[2])+str(pr_cmp_dtls[3])+"\n"+str(pr_cmp_dtls[4])+"\n"+str(pr_cmp_dtls[11])+"\n"+str(pr_cmp_dtls[12])+"\n"+str(pr_cmp_dtls[13])+"\n"+str(pr_cmp_dtls[14])+"\n"+str(pr_cmp_dtls[15])+"\n"+str(pr_cmp_dtls[16]))
+                                        aicomb_2.insert(1.0,str(pr_cmp_dtls[2])+str(pr_cmp_dtls[3])+"\n"+str(pr_cmp_dtls[4])+"\n"+str(pr_cmp_dtls[5])+"\n"+str(pr_cmp_dtls[19])+"\n"+str(pr_cmp_dtls[20])+"\n"+str(pr_cmp_dtls[21])+"\n"+str(pr_cmp_dtls[22])+"\n"+str(pr_cmp_dtls[23]))
+
+                                        
+                                        sql_sp_cmp="select * from app1_expences where cid_id=%s and payee=%s"
+                                        sql_sp_cmp_val=(cmp_dtl[0],su_var.get())
+                                        fbcursor.execute(sql_sp_cmp,sql_sp_cmp_val,)
+                                        pay_id_dt=fbcursor.fetchone()
+
+                                        ref=su_var.get()
+                                        sql_paym_cmp="select * from app1_expences where cid_id=%s and expencesid=%s"
+                                        sql_paym_cmp_val=(cmp_dtl[0],pay_id_dt[0])
+                                        fbcursor.execute(sql_paym_cmp,sql_paym_cmp_val,)
+                                        pay_cm_dt=fbcursor.fetchone()
+
+
+                                        
+                                        
+                                        cmbost_r1_c1.delete(0,END)
+                                        cmbost_r1_c1.insert(0,pay_cm_dt[6])
+                                        ents_r1_c2.delete(0,END)
+                                        ents_r1_c2.insert(0,pay_cm_dt[7])
+                                        ents_r1_c3.delete(0,END)
+                                        ents_r1_c3.insert(0,pay_cm_dt[8])
+                                        ents_r1_c4.delete(0,END)
+                                        ents_r1_c4.insert(0,pay_cm_dt[9])
+                                        ents_r1_c5.delete(0,END)
+                                        ents_r1_c5.insert(0,pay_cm_dt[10])
+
+                                        cmbost_r2_c1.delete(0,END)
+                                        cmbost_r2_c1.insert(0,pay_cm_dt[11])
+                                        ents_r2_c2.delete(0,END)
+                                        ents_r2_c2.insert(0,pay_cm_dt[12])
+                                        ents_r2_c3.delete(0,END)
+                                        ents_r2_c3.insert(0,pay_cm_dt[13])
+                                        ents_r2_c4.delete(0,END)
+                                        ents_r2_c4.insert(0,pay_cm_dt[14])
+                                        ents_r2_c5.delete(0,END)
+                                        ents_r2_c5.insert(0,pay_cm_dt[15])
+
+                                        cmbost_r3_c1.delete(0,END)
+                                        cmbost_r3_c1.insert(0,pay_cm_dt[16])
+                                        ents_r3_c2.delete(0,END)
+                                        ents_r3_c2.insert(0,pay_cm_dt[17])
+                                        ents_r3_c3.delete(0,END)
+                                        ents_r3_c3.insert(0,pay_cm_dt[18])
+                                        ents_r3_c4.delete(0,END)
+                                        ents_r3_c4.insert(0,pay_cm_dt[19])
+                                        ents_r3_c5.delete(0,END)
+                                        ents_r3_c5.insert(0,pay_cm_dt[20])
+
+                                        cmbost_r4_c1.delete(0,END)
+                                        cmbost_r4_c1.insert(0,pay_cm_dt[21])
+                                        ents_r4_c2.delete(0,END)
+                                        ents_r4_c2.insert(0,pay_cm_dt[22])
+                                        ents_r4_c3.delete(0,END)
+                                        ents_r4_c3.insert(0,pay_cm_dt[23])
+                                        ents_r4_c4.delete(0,END)
+                                        ents_r4_c4.insert(0,pay_cm_dt[24])
+                                        ents_r4_c5.delete(0,END)
+                                        ents_r4_c5.insert(0,pay_cm_dt[25])
+
+                                        ai_comb_p_1.delete(0,END)
+                                        ai_comb_p_1.insert(0,pay_cm_dt[26])
+                                        ai_entry_p_1.delete(0,END)
+                                        ai_entry_p_1.insert(0,pay_cm_dt[27])
+                                        ai_entry_p_1_2.delete(1.0,END)
+                                        ai_entry_p_1_2.insert(1.0,pay_cm_dt[28])
+                                        ai_entry_p_1_3.delete(0,END)
+                                        ai_entry_p_1_3.insert(0,pay_cm_dt[29]) 
+                                        ai_entry_p_1_4.delete(0,END)
+                                        ai_entry_p_1_4.insert(0,pay_cm_dt[30])
+                                        ai_entry_p_1_5.delete(0,END)
+                                        ai_entry_p_1_5.insert(0,pay_cm_dt[31])
+                                        ai_comb_p_1_2.delete(0,END)
+                                        ai_comb_p_1_2.insert(0,pay_cm_dt[51])
+                                        
+                                        ai_comb_p_2.delete(0,END)
+                                        ai_comb_p_2.insert(0,pay_cm_dt[32])
+                                        ai_entry_p_2.delete(0,END)
+                                        ai_entry_p_2.insert(0,pay_cm_dt[33])
+                                        ai_entry_p_2_1.delete(1.0,END)
+                                        ai_entry_p_2_1.insert(1.0,pay_cm_dt[34])
+                                        ai_entry_2_2.delete(0,END)
+                                        ai_entry_2_2.insert(0,pay_cm_dt[35])
+                                        ai_entry_2_3.delete(0,END)
+                                        ai_entry_2_3.insert(0,pay_cm_dt[36])
+                                        ai_entry_2_4.delete(0,END)
+                                        ai_entry_2_4.insert(0,pay_cm_dt[37])
+                                        ai_comb_P_2_2.delete(0,END)
+                                        ai_comb_P_2_2.insert(0,pay_cm_dt[52])
+
+                                        ai_comb_p_3.delete(0,END)
+                                        ai_comb_p_3.insert(0,pay_cm_dt[38])
+                                        ai_entry_3.delete(0,END)
+                                        ai_entry_3.insert(0,pay_cm_dt[39])
+                                        ai_entry_3_1.delete(1.0,END)
+                                        ai_entry_3_1.insert(1.0,pay_cm_dt[40])
+                                        ai_entry_3_2.delete(0,END)
+                                        ai_entry_3_2.insert(0,pay_cm_dt[41])
+                                        ai_entry_3_3.delete(0,END)
+                                        ai_entry_3_3.insert(0,pay_cm_dt[42]) 
+                                        ai_entry_3_4.delete(0,END)
+                                        ai_entry_3_4.insert(0,pay_cm_dt[43])   
+                                        ai_comb_P_3_2.delete(0,END)       
+                                        ai_comb_P_3_2.insert(0,pay_cm_dt[53])
+
+                                        ai_comb_p_4.delete(0,END)
+                                        ai_comb_p_4.insert(0,pay_cm_dt[44])   
+                                        ai_entry_4.delete(0,END)
+                                        ai_entry_4.insert(0,pay_cm_dt[45])
+                                        ai_entry_4_1.delete(1.0,END)
+                                        ai_entry_4_1.insert(1.0,pay_cm_dt[46])
+                                        ai_entry_4_2.delete(0,END)
+                                        ai_entry_4_2.insert(0,pay_cm_dt[47])
+                                        ai_entry_4_3.delete(0,END)
+                                        ai_entry_4_3.insert(0,pay_cm_dt[48]) 
+                                        ai_entry_4_4.delete(0,END)
+                                        ai_entry_4_4.insert(0,pay_cm_dt[49])
+                                        ai_comb_P_4_2.delete(0,END)
+                                        ai_comb_P_4_2.insert(0,pay_cm_dt[54])
+
+                                        sub_entry_1.delete(0,END)
+                                        sub_entry_1.insert(0,pay_cm_dt[50])
+                                        tax_entry_1.delete(0,END)
+                                        tax_entry_1.insert(0,pay_cm_dt[55])
+                                        grand_entry_1.delete(0,END)
+                                        grand_entry_1.insert(0,pay_cm_dt[56])  
+                                    
+
                                         
 
                                     su_var=StringVar()
@@ -8524,7 +11369,7 @@ def main_sign_in():
                                     aicomb_1["values"] = p_i1
                                     aicomb_1.delete(0,END)
                                     aicomb_1.insert(0,deb_dtls[1])
-                                    aicomb_1.bind("<<ComboboxSelected>>",cus_dtlits)
+                                    aicomb_1.bind("<<ComboboxSelected>>",pay_vals)
                                     window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=400, height=30,window=aicomb_1, tags=("aicombo1"))
                                     
 
@@ -9697,9 +12542,6 @@ def main_sign_in():
                                     
                                     def cmb_sltd_1(event):
                                         
-                                        global t1,t2,t3,t4
-                                        
-
                                         if tax_p_1_2.get() =='Choose':
                                             t1=0.0
                                             pass
@@ -9802,6 +12644,326 @@ def main_sign_in():
                                         sum_iii = m1+m2
                                         grand_entry_1.delete(0, END)
                                         grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_2_2.get() =='Choose':
+                                            t2=0.0
+                                            pass
+                                        elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        
+                                        elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        else:
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+
+
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_3_2.get() =='Choose':
+                                            t3=0.0
+                                            pass
+                                        elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        
+                                        elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        else:
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+
+                                        
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        
+
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        multiplymain()
 
 
                                         
@@ -9937,7 +13099,108 @@ def main_sign_in():
                                         cmb_sltd_main()
                                         
                                     def cmb_sltd_2(event):
-                                        global t1,t2,t3,t4
+                                        if tax_p_1_2.get() =='Choose':
+                                            t1=0.0
+                                            pass
+                                        elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        else:
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            tm2 = 0.0
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
 
                                         if tax_p_2_2.get() =='Choose':
                                             t2=0.0
@@ -10043,6 +13306,221 @@ def main_sign_in():
                                         sum_iii = m1+m2
                                         grand_entry_1.delete(0, END)
                                         grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_3_2.get() =='Choose':
+                                            t3=0.0
+                                            pass
+                                        elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        
+                                        elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        else:
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+
+                                        
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        
+
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        multiplymain()
 
                                         
 
@@ -10175,7 +13653,213 @@ def main_sign_in():
 
                                         cmb_sltd_main()
                                     def cmb_sltd_3(event):
-                                        global t1,t2,t3,t4
+                                        if tax_p_1_2.get() =='Choose':
+                                            t1=0.0
+                                            pass
+                                        elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        else:
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            tm2 = 0.0
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_2_2.get() =='Choose':
+                                            t2=0.0
+                                            pass
+                                        elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        
+                                        elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        else:
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+
+
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
 
                                         if tax_p_3_2.get() =='Choose':
                                             t3=0.0
@@ -10281,7 +13965,117 @@ def main_sign_in():
                                         sum_iii = m1+m2
                                         grand_entry_1.delete(0, END)
                                         grand_entry_1.insert(0,round(sum_iii,2))
+                                        
 
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        multiplymain()
                                         
 
                                         
@@ -10412,111 +14206,429 @@ def main_sign_in():
 
                                     def cmb_slt_4(event):
                                         
-                                            global t1,t2,t3,t4
+                                        if tax_p_1_2.get() =='Choose':
+                                            t1=0.0
+                                            pass
+                                        elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(28/100)
+                                        elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(18/100)
+                                        elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(12/100)
+                                        elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(06.0/100)
+                                        elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(05.0/100)
+                                        elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(03.0/100)
+                                        elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0.25/100)
+                                        elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        else:
+                                            y1 = float(ai_entry_p_1_5.get())
+                                            t1 = y1*(0/100)
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            tm2 = 0.0
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
 
-                                            if tax_p_4_2.get() =='Choose':
-                                                t4=0.0
-                                                pass
-                                            elif tax_p_4_2.get() =='28.0% GST(28%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(28/100)
-                                            elif tax_p_4_2.get() =='18.0% GST(18%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(18/100)
-                                            elif tax_p_4_2.get() =='12.0% GST(12%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(12/100)
-                                            elif tax_p_4_2.get() =='06.0% GST(06%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(06.0/100)
-                                            elif tax_p_4_2.get() =='05.0% GST(05%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(05.0/100)
-                                            elif tax_p_4_2.get() =='03.0% GST(03%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(03.0/100)
-                                            elif tax_p_4_2.get() =='0.25% GST(0.25%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0.25/100)
-                                            elif tax_p_4_2.get() =='0.0% GST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() == 'Exempt GST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() =='Out of Scope(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            
-                                            elif tax_p_4_2.get() =='28.0% IGST(28%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(28/100)
-                                            elif tax_p_4_2.get() =='18.0% IGST(18%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(18/100)
-                                            elif tax_p_4_2.get() =='12.0% IGST(12%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(12/100)
-                                            elif tax_p_4_2.get() =='06.0% IGST(06%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(06.0/100)
-                                            elif tax_p_4_2.get() =='05.0% IGST(05%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(05.0/100)
-                                            elif tax_p_4_2.get() =='03.0% IGST(03%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(03.0/100)
-                                            elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0.25/100)
-                                            elif tax_p_4_2.get() =='0.0% IGST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() =='Exempt IGST(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            elif tax_p_4_2.get() =='Out of Scope(0%)':
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                            else:
-                                                y4 = float(en_str_4.get())
-                                                t4 = y4*(0/100)
-                                                
-                                            
-                                            try:
-                                                tm1  = t1
-                                            except:
-                                                pass
-                                            try:
-                                                tm2 = t2
-                                            except:
-                                                pass
-                                            try:
-                                                tm3 = t3
-                                            except:
-                                                pass
-                                            try:
-                                                tm4  = t4
-                                            except:
-                                                pass
-                                            
-                                            
-                                            sum_ii = tm1+tm2+tm3+tm4
-                                            tax_entry_1.delete(0, END)
-                                            tax_entry_1.insert(0,round(sum_ii,2))
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
 
-                                            try:
-                                                m1 = float(sub_str.get())
-                                            except:
-                                                m1 =0.0
-                                            try:
-                                                m2 = float(tax_str.get())
-                                            except:
-                                                m2 =0.0
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
 
-                                            sum_iii = m1+m2
-                                            grand_entry_1.delete(0, END)
-                                            grand_entry_1.insert(0,round(sum_iii,2))
+                                        if tax_p_2_2.get() =='Choose':
+                                            t2=0.0
+                                            pass
+                                        elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        
+                                        elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(28/100)
+                                        elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(18/100)
+                                        elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(12/100)
+                                        elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(06.0/100)
+                                        elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(05.0/100)
+                                        elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(03.0/100)
+                                        elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0.25/100)
+                                        elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+                                        else:
+                                            y2 = float(en_str_2.get())
+                                            t2 = y2*(0/100)
+
+
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            tm3 = 0.0
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        if tax_p_3_2.get() =='Choose':
+                                            t3=0.0
+                                            pass
+                                        elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        
+                                        elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(28/100)
+                                        elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(18/100)
+                                        elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(12/100)
+                                        elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(06.0/100)
+                                        elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(05.0/100)
+                                        elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(03.0/100)
+                                        elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0.25/100)
+                                        elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+                                        else:
+                                            y3 = float(en_str_3.get())
+                                            t3 = y3*(0/100)
+
+                                        
+
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            tm4 = 0.0
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+                                        
+
+                                        if tax_p_4_2.get() =='Choose':
+                                            t4=0.0
+                                            pass
+                                        elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        
+                                        elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(28/100)
+                                        elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(18/100)
+                                        elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(12/100)
+                                        elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(06.0/100)
+                                        elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(05.0/100)
+                                        elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(03.0/100)
+                                        elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0.25/100)
+                                        elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                        else:
+                                            y4 = float(en_str_4.get())
+                                            t4 = y4*(0/100)
+                                            
+                                        
+                                        try:
+                                            tm1  = t1
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm2 = t2
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm3 = t3
+                                        except:
+                                            
+                                            pass
+                                        try:
+                                            tm4  = t4
+                                        except:
+                                            
+                                            pass
+                                        
+                                        
+                                        sum_ii = tm1+tm2+tm3+tm4
+                                        tax_entry_1.delete(0, END)
+                                        tax_entry_1.insert(0,round(sum_ii,2))
+
+                                        try:
+                                            m1 = float(sub_str.get())
+                                        except:
+                                            m1 =0.0
+                                        try:
+                                            m2 = float(tax_str.get())
+                                        except:
+                                            m2 =0.0
+
+                                        sum_iii = m1+m2
+                                        grand_entry_1.delete(0, END)
+                                        grand_entry_1.insert(0,round(sum_iii,2))
+
+                                        multiplymain()
 
                                             
 
@@ -11170,15 +15282,33 @@ def main_sign_in():
                                         tm_scr_ml.delete(1.0,END)
 
                                         tm_scr_ml.insert(1.0,str(vghu[0])+str(vghu[1])+'\n'+str(vghu[2])+"\n"+str(vghu[3])+"\n"+str(vghu[4])+"\n"+str(vghu[5])+"\n"+str(vghu[6])+"\n"+str(vghu[7]))
+                                        sql_sp_cmp="select * from app1_expences where cid_id=%s and payee=%s"
+                                        sql_sp_cmp_val=(dtl_cmp_pro[0],py_var.get())
+                                        fbcursor.execute(sql_sp_cmp,sql_sp_cmp_val,)
+                                        pay_id_dt=fbcursor.fetchone()
+
+                                        
+                                        sql_paym_cmp="select * from app1_expences where cid_id=%s and expencesid=%s"
+                                        sql_paym_cmp_val=(dtl_cmp_pro[0],pay_id_dt[0])
+                                        fbcursor.execute(sql_paym_cmp,sql_paym_cmp_val,)
+                                        pay_cm_dt=fbcursor.fetchone()
+
+                                        ad_ref_nm.delete(0,END)
+                                        ad_ref_nm.insert(0,pay_cm_dt[0])
 
 
-                                    vgh="select company from app1_customer where cid_id=%s"
+
+
+                                    vgh="select * from app1_supplier where cid_id=%s"
                                     vld_vgh=(dtl_cmp_pro[0],)
                                     fbcursor.execute(vgh,vld_vgh)
                                     vghu=fbcursor.fetchall()
                                     vghus=[] 
                                     for i in vghu:
-                                        vghus.append(i[0])
+                                        vghus.append(str(i[2])+" "+str(i[3]))
+
+
+                                    
 
                                     py_var=StringVar()
                                     aicomb_1_4 = ttk.Combobox(ad_pm_frm_chld, width=30,textvariable=py_var, font=('arial 16'))
@@ -11727,7 +15857,7 @@ def main_sign_in():
   
                             def back_exp1_add():
                                 inv_canvas_1.grid_forget()
-                                vertibar.grid_forget()
+                                vertibars.grid_forget()
                                 exp_chld_scrl.grid(row=0,column=2,sticky='ns')
                                 
                             def inv_responsive_widgets2(event):
@@ -14636,6 +18766,8 @@ def main_sign_in():
 
                                     
 
+                                    
+
                             ai_entry_4_2=Spinbox(inv_canvas_1,width=13,from_=0 ,command=multiply_num_i4,to=1000,justify=LEFT,background='#2f516f',foreground='white')
                             window_ai_entry_4_2 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_4_2,tags=('aientry16'))
                             
@@ -15189,6 +19321,7 @@ def main_sign_in():
                                 payee=paye_vars.get()
                                 paymdate=hd_date.get_date()
                                 paymmethod=cas_tp.get()
+
                                 category1=cat_var1.get()
                                 descrptin1=ents_r1_c2.get()
                                 catqty1=ents_r1_c3.get()
@@ -15253,6 +19386,16 @@ def main_sign_in():
                                 inv_sql_1 = "INSERT INTO  payments (ref,payee,paymdate,payment_account,payment_method,ccatego,cdescrip,cqty,cprice,ctotal,ccatego2,cdescrip2,cqty2,cprice2,ctotal2,ccatego3,cdescrip3,cqty3,cprice3,ctotal3,ccatego4,cdescrip4,cqty4,cprice4,ctotal4,product,hsn,description,	qty,price,total,product2,hsn2,description2,qty2,price2,total2,product3,hsn3,description3,qty3,price3,total3,product4,hsn4,description4,qty4,price4,total4,tax,tax2,tax3,tax4,subtotal,taxamount,grandtotal,cid_id) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
                                 inv_val_1=(ref,payee,paymdate,payment_account,paymmethod,category1,descrptin1,catqty1,catprice1,cattotal1,category2,descrptin2,catqty2,catprice2,cattotal2,category3,descrptin3,catqty3,catprice3,cattotal3,category4,descrptin4,catqty4,catprice4,cattotal4,product,hsn,description,	qty,price,total,product2,hsn2,description2,qty2,price2,total2,product3,hsn3,description3,qty3,price3,total3,product4,hsn4,description4,qty4,price4,total4,tax,tax2,tax3,tax4,subtotal,taxamount,grandtotal,dtl_cmp_pro[0],)
                                 fbcursor.execute(inv_sql_1,inv_val_1)
+                                finsysdb.commit()
+
+                                c_sql_lkj = "SELECT * FROM app1_expences  where expencesid=%s"
+                                c_val_lkj = (ref,)
+                                fbcursor.execute(c_sql_lkj,c_val_lkj,)
+                                c_data_lkj = fbcursor.fetchone()
+                                
+                                inv_sql_12 = "update app1_expences set grandtotal=%s where expencesid=%s"
+                                inv_val_12=(float(grandtotal)-float(c_data_lkj[56]),ref)
+                                fbcursor.execute(inv_sql_12,inv_val_12)
                                 finsysdb.commit()
 
                                 for record in exp_tree.get_children():
@@ -15373,16 +19516,159 @@ def main_sign_in():
 
                             for i in pr_cmp_dtl:
                                 p_i1.append(str(i[0])+" "+str(i[1]))
+
+                            def pay_vals(event):
+                                ref=aicomb_1s.get()
+                                sql_paym_cmp="select * from app1_expences where cid_id=%s and expencesid=%s"
+                                sql_paym_cmp_val=(cmp_dtl[0],ref)
+                                fbcursor.execute(sql_paym_cmp,sql_paym_cmp_val,)
+                                pay_cm_dt=fbcursor.fetchone()
+
+
+                                # payment_account=aicomb_114.insert(0,pay_cm_dt[])
+                                aicomb_1.delete(0,END)
+                                aicomb_1.insert(0,pay_cm_dt[1])
+                                aicomb_2.delete(0,END)
+                                aicomb_2.insert(0,pay_cm_dt[3])
+                                
+                                cmbost_r1_c1.delete(0,END)
+                                cmbost_r1_c1.insert(0,pay_cm_dt[6])
+                                ents_r1_c2.delete(0,END)
+                                ents_r1_c2.insert(0,pay_cm_dt[7])
+                                ents_r1_c3.delete(0,END)
+                                ents_r1_c3.insert(0,pay_cm_dt[8])
+                                ents_r1_c4.delete(0,END)
+                                ents_r1_c4.insert(0,pay_cm_dt[9])
+                                ents_r1_c5.delete(0,END)
+                                ents_r1_c5.insert(0,pay_cm_dt[10])
+
+                                cmbost_r2_c1.delete(0,END)
+                                cmbost_r2_c1.insert(0,pay_cm_dt[11])
+                                ents_r2_c2.delete(0,END)
+                                ents_r2_c2.insert(0,pay_cm_dt[12])
+                                ents_r2_c3.delete(0,END)
+                                ents_r2_c3.insert(0,pay_cm_dt[13])
+                                ents_r2_c4.delete(0,END)
+                                ents_r2_c4.insert(0,pay_cm_dt[14])
+                                ents_r2_c5.delete(0,END)
+                                ents_r2_c5.insert(0,pay_cm_dt[15])
+
+                                cmbost_r3_c1.delete(0,END)
+                                cmbost_r3_c1.insert(0,pay_cm_dt[16])
+                                ents_r3_c2.delete(0,END)
+                                ents_r3_c2.insert(0,pay_cm_dt[17])
+                                ents_r3_c3.delete(0,END)
+                                ents_r3_c3.insert(0,pay_cm_dt[18])
+                                ents_r3_c4.delete(0,END)
+                                ents_r3_c4.insert(0,pay_cm_dt[19])
+                                ents_r3_c5.delete(0,END)
+                                ents_r3_c5.insert(0,pay_cm_dt[20])
+
+                                cmbost_r4_c1.delete(0,END)
+                                cmbost_r4_c1.insert(0,pay_cm_dt[21])
+                                ents_r4_c2.delete(0,END)
+                                ents_r4_c2.insert(0,pay_cm_dt[22])
+                                ents_r4_c3.delete(0,END)
+                                ents_r4_c3.insert(0,pay_cm_dt[23])
+                                ents_r4_c4.delete(0,END)
+                                ents_r4_c4.insert(0,pay_cm_dt[24])
+                                ents_r4_c5.delete(0,END)
+                                ents_r4_c5.insert(0,pay_cm_dt[25])
+
+                                ai_comb_p_1.delete(0,END)
+                                ai_comb_p_1.insert(0,pay_cm_dt[26])
+                                ai_entry_p_1.delete(0,END)
+                                ai_entry_p_1.insert(0,pay_cm_dt[27])
+                                ai_entry_p_1_2.delete(1.0,END)
+                                ai_entry_p_1_2.insert(1.0,pay_cm_dt[28])
+                                ai_entry_p_1_3.delete(0,END)
+                                ai_entry_p_1_3.insert(0,pay_cm_dt[29]) 
+                                ai_entry_p_1_4.delete(0,END)
+                                ai_entry_p_1_4.insert(0,pay_cm_dt[30])
+                                ai_entry_p_1_5.delete(0,END)
+                                ai_entry_p_1_5.insert(0,pay_cm_dt[31])
+                                ai_comb_p_1_2.delete(0,END)
+                                ai_comb_p_1_2.insert(0,pay_cm_dt[51])
+                                
+                                ai_comb_p_2.delete(0,END)
+                                ai_comb_p_2.insert(0,pay_cm_dt[32])
+                                ai_entry_p_2.delete(0,END)
+                                ai_entry_p_2.insert(0,pay_cm_dt[33])
+                                ai_entry_p_2_1.delete(1.0,END)
+                                ai_entry_p_2_1.insert(1.0,pay_cm_dt[34])
+                                ai_entry_2_2.delete(0,END)
+                                ai_entry_2_2.insert(0,pay_cm_dt[35])
+                                ai_entry_2_3.delete(0,END)
+                                ai_entry_2_3.insert(0,pay_cm_dt[36])
+                                ai_entry_2_4.delete(0,END)
+                                ai_entry_2_4.insert(0,pay_cm_dt[37])
+                                ai_comb_P_2_2.delete(0,END)
+                                ai_comb_P_2_2.insert(0,pay_cm_dt[52])
+
+                                ai_comb_p_3.delete(0,END)
+                                ai_comb_p_3.insert(0,pay_cm_dt[38])
+                                ai_entry_3.delete(0,END)
+                                ai_entry_3.insert(0,pay_cm_dt[39])
+                                ai_entry_3_1.delete(1.0,END)
+                                ai_entry_3_1.insert(1.0,pay_cm_dt[40])
+                                ai_entry_3_2.delete(0,END)
+                                ai_entry_3_2.insert(0,pay_cm_dt[41])
+                                ai_entry_3_3.delete(0,END)
+                                ai_entry_3_3.insert(0,pay_cm_dt[42]) 
+                                ai_entry_3_4.delete(0,END)
+                                ai_entry_3_4.insert(0,pay_cm_dt[43])   
+                                ai_comb_P_3_2.delete(0,END)       
+                                ai_comb_P_3_2.insert(0,pay_cm_dt[53])
+
+                                ai_comb_p_4.delete(0,END)
+                                ai_comb_p_4.insert(0,pay_cm_dt[44])   
+                                ai_entry_4.delete(0,END)
+                                ai_entry_4.insert(0,pay_cm_dt[45])
+                                ai_entry_4_1.delete(1.0,END)
+                                ai_entry_4_1.insert(1.0,pay_cm_dt[46])
+                                ai_entry_4_2.delete(0,END)
+                                ai_entry_4_2.insert(0,pay_cm_dt[47])
+                                ai_entry_4_3.delete(0,END)
+                                ai_entry_4_3.insert(0,pay_cm_dt[48]) 
+                                ai_entry_4_4.delete(0,END)
+                                ai_entry_4_4.insert(0,pay_cm_dt[49])
+                                ai_comb_P_4_2.delete(0,END)
+                                ai_comb_P_4_2.insert(0,pay_cm_dt[54])
+
+                                sub_entry_1.delete(0,END)
+                                sub_entry_1.insert(0,pay_cm_dt[50])
+                                tax_entry_1.delete(0,END)
+                                tax_entry_1.insert(0,pay_cm_dt[55])
+
+                                c_sql_12 = "SELECT * FROM app1_advancepayment  where refno=%s"
+                                c_val_12 = (ref,)
+                                fbcursor.execute(c_sql_12,c_val_12,)
+                                c_data_12 = fbcursor.fetchone()
+                                if c_data_12 is not None:
+                                    vals=float(c_data_12[4])-float(pay_cm_dt[56])
+
+                                    grand_entry_1.delete(0,END)
+                                    grand_entry_1.insert(0,vals)  
+                                else:
+                                    grand_entry_1.delete(0,END)
+                                    grand_entry_1.insert(0,pay_cm_dt[56])
+
+
                                 
 
                             label_2 = Label(inv_canvas_1,height=1,text="Choose Ref. No", font=('arial 12'),background="#1b3857",fg="white") 
                             window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2, tags=("ailabel5548"))
 
+                            sql_ref_cmp="select distinct expencesid from app1_expences where cid_id=%s"
+                            sql_ref_cmp_val=(cmp_dtl[0],)
+                            fbcursor.execute(sql_ref_cmp,sql_ref_cmp_val,)
+                            pay_ref_dt=fbcursor.fetchall()
+
                             re_var=StringVar()
-                            aicomb_1 = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=re_var)
-                            aicomb_1["values"] = p_i1
-                            
-                            window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=450, height=30,window=aicomb_1, tags=("aicombo187"))
+                            aicomb_1s = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=re_var)
+                            aicomb_1s["values"] = pay_ref_dt
+                            aicomb_1s.bind("<<ComboboxSelected>>", pay_vals)
+                            window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=450, height=30,window=aicomb_1s, tags=("aicombo187"))
                             
                             
                             paye_vars=StringVar()
@@ -16446,7 +20732,6 @@ def main_sign_in():
                             ai_entry_p_1_5=Entry(inv_canvas_1,width=16,justify=LEFT,textvariable=en_str_1,background='#2f516f',foreground="white")
                             window_ai_entry_p_1_5 = inv_canvas_1.create_window(0, 0, anchor="nw", height=30, window=ai_entry_p_1_5,tags=('aientry7'))
                             
-
                             tax_p_1_2=StringVar()
 
                             ai_comb_p_1_2 = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=tax_p_1_2)
@@ -16879,7 +21164,7 @@ def main_sign_in():
                                 grand_entry_1.delete(0, END)
                                 grand_entry_1.insert(0,round(sum_iii,2))
 
-                                
+                         
 
                                 
                             en_str_3 = StringVar()
@@ -17098,6 +21383,8 @@ def main_sign_in():
                                     sum_iii = m1+m2
                                     grand_entry_1.delete(0, END)
                                     grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    
 
                                     
 
@@ -17694,6 +21981,16 @@ def main_sign_in():
                                 fbcursor.execute(inv_sql_1,inv_val_1)
                                 finsysdb.commit()
 
+                                sql_sp_cmp="select * from app1_expences where cid_id=%s and payee=%s"
+                                sql_sp_cmp_val=(cmp_dtl[0],su_var.get())
+                                fbcursor.execute(sql_sp_cmp,sql_sp_cmp_val,)
+                                pay_id_dt=fbcursor.fetchone()
+
+                                inv_sql_1 = "update app1_expences set category1=%s,descrptin1=%s,catqty1=%s,catprice1=%s,cattotal1=%s,category2=%s,descrptin2=%s,catqty2=%s,catprice2=%s,cattotal2=%s,category3=%s,descrptin3=%s,catqty3=%s,catprice3=%s,cattotal3=%s,category4=%s,descrptin4=%s,catqty4=%s,catprice4=%s,cattotal4=%s,product=%s,hsn=%s,description=%s,	qty=%s,price=%s,total=%s,product2=%s,hsn2=%s,description2=%s,qty2=%s,price2=%s,total2=%s,product3=%s,hsn3=%s,description3=%s,qty3=%s,price3=%s,total3=%s,product4=%s,hsn4=%s,description4=%s,qty4=%s,price4=%s,total4=%s,tax=%s,tax2=%s,tax3=%s,tax4=%s,subtotal=%s,taxamount=%s,grandtotal=%s where expencesid=%s"
+                                inv_val_1=(category1,descrptin1,catqty1,catprice1,cattotal1,category2,descrptin2,catqty2,catprice2,cattotal2,category3,descrptin3,catqty3,catprice3,cattotal3,category4,descrptin4,catqty4,catprice4,cattotal4,product,hsn,description,	qty,price,total,product2,hsn2,description2,qty2,price2,total2,product3,hsn3,description3,qty3,price3,total3,product4,hsn4,description4,qty4,price4,total4,tax,tax2,tax3,tax4,subtotal,taxamount,grandtotal,pay_id_dt[0])
+                                fbcursor.execute(inv_sql_1,inv_val_1)
+                                finsysdb.commit()
+
                                 for record in exp_tree.get_children():
                                             exp_tree.delete(record)
 
@@ -17782,11 +22079,81 @@ def main_sign_in():
                                 vertibar.grid_forget()
                                 exp_chld_scrl.grid(row=0,column=2,sticky='ns')
 
-                            
+                            def multiplymain():
+                                        
+                                num1= float(ai_entry_2_2.get())
+                                num2= float(ai_entry_2_3.get())
+                                mul_i= round(num1 * num2,2)
+                                ai_entry_2_4.delete(0, END)
+                                ai_entry_2_4.insert(0,mul_i)
+
+                                
+                                try:
+                                    n1 = float(ai_entry_p_1_5.get())
+                                except:
+                                    n1=0.0
+                                try:
+                                    n2 = float(en_str_2.get())
+                                except:
+                                    n2 = 0.0
+                                try:
+                                    n3 = float(en_str_3.get())
+                                except:
+                                    n3 = 0.0
+                                try:
+                                    n4 = float(en_str_4.get())
+                                except:
+                                    n4 = 0.0
+
+                                if ents_r1_c5.get()=='':
+                                    r1=0.0
+                                    
+                                else:
+                                    r1=ents_r1_c5.get()
+                                if ents_r2_c5.get()=='':
+                                    r2=0.0
+                                    
+                                else:
+                                    r2=ents_r2_c5.get()
+
+                                if ents_r3_c5.get()=='':
+                                    r3=0.0
+                                else:
+                                    r3=ents_r3_c5.get()
+                                    
+                                if ents_r4_c5.get()=='':
+                                    r4=0.0
+                                else:
+                                    r4=ents_r4_c5.get()
+                                    
+
+                                
+                                
+                                sum_i = n1+n2+n3+n4+float(r1)+float(r2)+float(r3)+float(r4)
+                                sub_entry_1.delete(0, END)
+                                sub_entry_1.insert(0,round(sum_i,2))
+                                
+                            def cmb_sltd_main():
+                                
+                                
+
+                                try:
+                                    m1 = float(sub_str.get())
+                                except:
+                                    m1 =0.0
+                                try:
+                                    m2 = float(tax_str.get())
+                                except:
+                                    m2 =0.0
+
+                                sum_iii = m1+m2
+                                grand_entry_1.delete(0, END)
+                                grand_entry_1.insert(0,round(sum_iii,2))
 
                             inv_canvas_1.create_polygon(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,smooth=True,fill="#1b3857",tags=("aipoly1"))
 
                             
+
                             label_1 = Label(inv_canvas_1,width=10,height=1,text="Debit Note", font=('arial 20'),background="#1b3857",fg="white") 
                             window_label_1 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_1, tags=("ailabel1"))
 
@@ -17798,17 +22165,144 @@ def main_sign_in():
                             label_2 = Label(inv_canvas_1,width=15,height=1,text="Payee", font=('arial 12'),background="#1b3857",fg="white") 
                             window_label_2 = inv_canvas_1.create_window(0, 0, anchor="nw", window=label_2, tags=("ailabel5"))
 
-                            def inv_c_details(event):
-                                inv_to_str = aicomb_1.get()
-                                x = inv_to_str.split(" ", 1)
-                                sql = "select * from app1_customer where firstname=%s  and cid_id=%s"
-                                val = (x[0],cmp_dtl[0],)
-                                fbcursor.execute(sql,val)
-                                inv_c_sel = fbcursor.fetchone()
-                                aientry_1.delete(0,END)
-                                aientry_1.insert(0,inv_c_sel[9])
-                                ai_b_entry_1.delete('1.0',END)
-                                ai_b_entry_1.insert('1.0',inv_c_sel[2]+" "+inv_c_sel[3]+ '\n' +inv_c_sel[4]+ '\n' +inv_c_sel[12]+ '\n' +inv_c_sel[13]+ '\n' +inv_c_sel[14]+ '\n' +inv_c_sel[15]+ '\n' +inv_c_sel[16])
+                            
+                                
+                            
+                            def pay_vals(event):
+                                vbhu=su_var.get().split(" ")
+                                sql_pr_cmp="select * from app1_supplier where firstname=%s and lastname=%s"
+                                sql_pr_cmp_val=(vbhu[0],vbhu[1],)
+                                fbcursor.execute(sql_pr_cmp,sql_pr_cmp_val,)
+                                pr_cmp_dtls=fbcursor.fetchone()
+
+                                aicomb_2.delete(1.0,END)
+                                aicomb_2.insert(1.0,str(pr_cmp_dtls[2])+str(pr_cmp_dtls[3])+"\n"+str(pr_cmp_dtls[4])+"\n"+str(pr_cmp_dtls[5])+"\n"+str(pr_cmp_dtls[19])+"\n"+str(pr_cmp_dtls[20])+"\n"+str(pr_cmp_dtls[21])+"\n"+str(pr_cmp_dtls[22])+"\n"+str(pr_cmp_dtls[23]))
+
+                                
+                                sql_sp_cmp="select * from app1_expences where cid_id=%s and payee=%s"
+                                sql_sp_cmp_val=(cmp_dtl[0],su_var.get())
+                                fbcursor.execute(sql_sp_cmp,sql_sp_cmp_val,)
+                                pay_id_dt=fbcursor.fetchone()
+
+                                ref=su_var.get()
+                                sql_paym_cmp="select * from app1_expences where cid_id=%s and expencesid=%s"
+                                sql_paym_cmp_val=(cmp_dtl[0],pay_id_dt[0])
+                                fbcursor.execute(sql_paym_cmp,sql_paym_cmp_val,)
+                                pay_cm_dt=fbcursor.fetchone()
+
+
+                                
+                                
+                                cmbost_r1_c1.delete(0,END)
+                                cmbost_r1_c1.insert(0,pay_cm_dt[6])
+                                ents_r1_c2.delete(0,END)
+                                ents_r1_c2.insert(0,pay_cm_dt[7])
+                                ents_r1_c3.delete(0,END)
+                                ents_r1_c3.insert(0,pay_cm_dt[8])
+                                ents_r1_c4.delete(0,END)
+                                ents_r1_c4.insert(0,pay_cm_dt[9])
+                                ents_r1_c5.delete(0,END)
+                                ents_r1_c5.insert(0,pay_cm_dt[10])
+
+                                cmbost_r2_c1.delete(0,END)
+                                cmbost_r2_c1.insert(0,pay_cm_dt[11])
+                                ents_r2_c2.delete(0,END)
+                                ents_r2_c2.insert(0,pay_cm_dt[12])
+                                ents_r2_c3.delete(0,END)
+                                ents_r2_c3.insert(0,pay_cm_dt[13])
+                                ents_r2_c4.delete(0,END)
+                                ents_r2_c4.insert(0,pay_cm_dt[14])
+                                ents_r2_c5.delete(0,END)
+                                ents_r2_c5.insert(0,pay_cm_dt[15])
+
+                                cmbost_r3_c1.delete(0,END)
+                                cmbost_r3_c1.insert(0,pay_cm_dt[16])
+                                ents_r3_c2.delete(0,END)
+                                ents_r3_c2.insert(0,pay_cm_dt[17])
+                                ents_r3_c3.delete(0,END)
+                                ents_r3_c3.insert(0,pay_cm_dt[18])
+                                ents_r3_c4.delete(0,END)
+                                ents_r3_c4.insert(0,pay_cm_dt[19])
+                                ents_r3_c5.delete(0,END)
+                                ents_r3_c5.insert(0,pay_cm_dt[20])
+
+                                cmbost_r4_c1.delete(0,END)
+                                cmbost_r4_c1.insert(0,pay_cm_dt[21])
+                                ents_r4_c2.delete(0,END)
+                                ents_r4_c2.insert(0,pay_cm_dt[22])
+                                ents_r4_c3.delete(0,END)
+                                ents_r4_c3.insert(0,pay_cm_dt[23])
+                                ents_r4_c4.delete(0,END)
+                                ents_r4_c4.insert(0,pay_cm_dt[24])
+                                ents_r4_c5.delete(0,END)
+                                ents_r4_c5.insert(0,pay_cm_dt[25])
+
+                                ai_comb_p_1.delete(0,END)
+                                ai_comb_p_1.insert(0,pay_cm_dt[26])
+                                ai_entry_p_1.delete(0,END)
+                                ai_entry_p_1.insert(0,pay_cm_dt[27])
+                                ai_entry_p_1_2.delete(1.0,END)
+                                ai_entry_p_1_2.insert(1.0,pay_cm_dt[28])
+                                ai_entry_p_1_3.delete(0,END)
+                                ai_entry_p_1_3.insert(0,pay_cm_dt[29]) 
+                                ai_entry_p_1_4.delete(0,END)
+                                ai_entry_p_1_4.insert(0,pay_cm_dt[30])
+                                ai_entry_p_1_5.delete(0,END)
+                                ai_entry_p_1_5.insert(0,pay_cm_dt[31])
+                                ai_comb_p_1_2.delete(0,END)
+                                ai_comb_p_1_2.insert(0,pay_cm_dt[51])
+                                
+                                ai_comb_p_2.delete(0,END)
+                                ai_comb_p_2.insert(0,pay_cm_dt[32])
+                                ai_entry_p_2.delete(0,END)
+                                ai_entry_p_2.insert(0,pay_cm_dt[33])
+                                ai_entry_p_2_1.delete(1.0,END)
+                                ai_entry_p_2_1.insert(1.0,pay_cm_dt[34])
+                                ai_entry_2_2.delete(0,END)
+                                ai_entry_2_2.insert(0,pay_cm_dt[35])
+                                ai_entry_2_3.delete(0,END)
+                                ai_entry_2_3.insert(0,pay_cm_dt[36])
+                                ai_entry_2_4.delete(0,END)
+                                ai_entry_2_4.insert(0,pay_cm_dt[37])
+                                ai_comb_P_2_2.delete(0,END)
+                                ai_comb_P_2_2.insert(0,pay_cm_dt[52])
+
+                                ai_comb_p_3.delete(0,END)
+                                ai_comb_p_3.insert(0,pay_cm_dt[38])
+                                ai_entry_3.delete(0,END)
+                                ai_entry_3.insert(0,pay_cm_dt[39])
+                                ai_entry_3_1.delete(1.0,END)
+                                ai_entry_3_1.insert(1.0,pay_cm_dt[40])
+                                ai_entry_3_2.delete(0,END)
+                                ai_entry_3_2.insert(0,pay_cm_dt[41])
+                                ai_entry_3_3.delete(0,END)
+                                ai_entry_3_3.insert(0,pay_cm_dt[42]) 
+                                ai_entry_3_4.delete(0,END)
+                                ai_entry_3_4.insert(0,pay_cm_dt[43])   
+                                ai_comb_P_3_2.delete(0,END)       
+                                ai_comb_P_3_2.insert(0,pay_cm_dt[53])
+
+                                ai_comb_p_4.delete(0,END)
+                                ai_comb_p_4.insert(0,pay_cm_dt[44])   
+                                ai_entry_4.delete(0,END)
+                                ai_entry_4.insert(0,pay_cm_dt[45])
+                                ai_entry_4_1.delete(1.0,END)
+                                ai_entry_4_1.insert(1.0,pay_cm_dt[46])
+                                ai_entry_4_2.delete(0,END)
+                                ai_entry_4_2.insert(0,pay_cm_dt[47])
+                                ai_entry_4_3.delete(0,END)
+                                ai_entry_4_3.insert(0,pay_cm_dt[48]) 
+                                ai_entry_4_4.delete(0,END)
+                                ai_entry_4_4.insert(0,pay_cm_dt[49])
+                                ai_comb_P_4_2.delete(0,END)
+                                ai_comb_P_4_2.insert(0,pay_cm_dt[54])
+
+                                sub_entry_1.delete(0,END)
+                                sub_entry_1.insert(0,pay_cm_dt[50])
+                                tax_entry_1.delete(0,END)
+                                tax_entry_1.insert(0,pay_cm_dt[55])
+                                grand_entry_1.delete(0,END)
+                                grand_entry_1.insert(0,pay_cm_dt[56])  
                                 
 
                             sql_pr="select * from auth_user where username=%s"
@@ -17831,23 +22325,12 @@ def main_sign_in():
                             for i in pr_cmp_dtl:
                                 p_i1.append(str(i[0])+" "+str(i[1]))
                             
-                            def cus_dtlits(event):
-                                vbhu=su_var.get().split(" ")
-                                sql_pr_cmp="select * from app1_customer where firstname=%s"
-                                sql_pr_cmp_val=(vbhu[0],)
-                                fbcursor.execute(sql_pr_cmp,sql_pr_cmp_val,)
-                                pr_cmp_dtls=fbcursor.fetchone()
-
-                                aicomb_2.delete(1.0,END)
-                                aicomb_2.insert(1.0,str(pr_cmp_dtls[2])+str(pr_cmp_dtls[3])+"\n"+str(pr_cmp_dtls[4])+"\n"+str(pr_cmp_dtls[11])+"\n"+str(pr_cmp_dtls[12])+"\n"+str(pr_cmp_dtls[13])+"\n"+str(pr_cmp_dtls[14])+"\n"+str(pr_cmp_dtls[15])+"\n"+str(pr_cmp_dtls[16]))
-
-                                
-
+                
                             su_var=StringVar()
                             
                             aicomb_1 = ttk.Combobox(inv_canvas_1, font=('arial 10'),textvariable=su_var)
                             aicomb_1["values"] = p_i1
-                            aicomb_1.bind("<<ComboboxSelected>>","cus_dtlits")
+                            aicomb_1.bind("<<ComboboxSelected>>",pay_vals)
                             window_aicomb_1 = inv_canvas_1.create_window(0, 0, anchor="nw", width=400, height=30,window=aicomb_1, tags=("aicombo1"))
                             
 
@@ -18461,6 +22944,8 @@ def main_sign_in():
                                 tot_r1=int(prc)*int(qty)
                                 ents_r1_c5.delete(0,END)
                                 ents_r1_c5.insert(0,tot_r1)
+                                multiplymain()
+                                cmb_sltd_main()
 
                             
                             ents_r1_c4=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white")
@@ -18499,6 +22984,8 @@ def main_sign_in():
                                 tot_r2=int(prc)*int(qty)
                                 ents_r2_c5.delete(0,END)
                                 ents_r2_c5.insert(0,tot_r2)
+                                multiplymain()
+                                cmb_sltd_main()
                             
                             ents_r2_c4=Entry(inv_canvas_1,width=35,justify=LEFT,background='#2f516f',foreground="white")
                             ents_r2_c4.bind('<KeyRelease>',cat_calcu_r2)
@@ -18533,6 +23020,8 @@ def main_sign_in():
                                 tot_r3=int(prc)*int(qty)
                                 ents_r3_c5.delete(0,END)
                                 ents_r3_c5.insert(0,tot_r3)
+                                multiplymain()
+                                cmb_sltd_main()
                             
                                 
                             
@@ -18571,6 +23060,8 @@ def main_sign_in():
                                 tot_r4=int(prc)*int(qty)
                                 ents_r4_c5.delete(0,END)
                                 ents_r4_c5.insert(0,tot_r4)
+                                multiplymain()
+                                cmb_sltd_main()
                             
                                 
                             
@@ -18983,114 +23474,433 @@ def main_sign_in():
                                 sum_i = n1+n2+n3+n4+float(r1)+float(r2)+float(r3)+float(r4)
                                 sub_entry_1.delete(0, END)
                                 sub_entry_1.insert(0,round(sum_i,2))
+                                cmb_sltd_main()
                             
                             def cmb_sltd_1(event):
                                 
-                                global t1,t2,t3,t4
-                                
+                                    if tax_p_1_2.get() =='Choose':
+                                        t1=0.0
+                                        pass
+                                    elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(28/100)
+                                    elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(18/100)
+                                    elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(12/100)
+                                    elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(06.0/100)
+                                    elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(05.0/100)
+                                    elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(03.0/100)
+                                    elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0.25/100)
+                                    elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    
+                                    elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(28/100)
+                                    elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(18/100)
+                                    elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(12/100)
+                                    elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(06.0/100)
+                                    elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(05.0/100)
+                                    elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(03.0/100)
+                                    elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0.25/100)
+                                    elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    else:
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        tm2 = 0.0
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        tm3 = 0.0
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
 
-                                if tax_p_1_2.get() =='Choose':
-                                    t1=0.0
-                                    pass
-                                elif tax_p_1_2.get() =='28.0% GST(28%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(28/100)
-                                elif tax_p_1_2.get() =='18.0% GST(18%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(18/100)
-                                elif tax_p_1_2.get() =='12.0% GST(12%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(12/100)
-                                elif tax_p_1_2.get() =='06.0% GST(06%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(06.0/100)
-                                elif tax_p_1_2.get() =='05.0% GST(05%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(05.0/100)
-                                elif tax_p_1_2.get() =='03.0% GST(03%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(03.0/100)
-                                elif tax_p_1_2.get() =='0.25% GST(0.25%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(0.25/100)
-                                elif tax_p_1_2.get() =='0.0% GST(0%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(0/100)
-                                elif tax_p_1_2.get() == 'Exempt GST(0%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(0/100)
-                                elif tax_p_1_2.get() =='Out of Scope(0%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(0/100)
-                                
-                                elif tax_p_1_2.get() =='28.0% IGST(28%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(28/100)
-                                elif tax_p_1_2.get() =='18.0% IGST(18%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(18/100)
-                                elif tax_p_1_2.get() =='12.0% IGST(12%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(12/100)
-                                elif tax_p_1_2.get() =='06.0% IGST(06%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(06.0/100)
-                                elif tax_p_1_2.get() =='05.0% IGST(05%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(05.0/100)
-                                elif tax_p_1_2.get() =='03.0% IGST(03%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(03.0/100)
-                                elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(0.25/100)
-                                elif tax_p_1_2.get() =='0.0% IGST(0%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(0/100)
-                                elif tax_p_1_2.get() =='Exempt IGST(0%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(0/100)
-                                elif tax_p_1_2.get() =='Out of Scope(0%)':
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(0/100)
-                                else:
-                                    y1 = float(ai_entry_p_1_5.get())
-                                    t1 = y1*(0/100)
-                                
-                                try:
-                                    tm1  = t1
-                                except:
-                                    pass
-                                try:
-                                    tm2 = t2
-                                except:
-                                    tm2 = 0.0
-                                try:
-                                    tm3 = t3
-                                except:
-                                    tm3 = 0.0
-                                try:
-                                    tm4  = t4
-                                except:
-                                    tm4 = 0.0
-                                
-                                
-                                sum_ii = tm1+tm2+tm3+tm4
-                                tax_entry_1.delete(0, END)
-                                tax_entry_1.insert(0,round(sum_ii,2))
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
 
-                                try:
-                                    m1 = float(sub_str.get())
-                                except:
-                                    m1 =0.0
-                                try:
-                                    m2 = float(tax_str.get())
-                                except:
-                                    m2 =0.0
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
 
-                                sum_iii = m1+m2
-                                grand_entry_1.delete(0, END)
-                                grand_entry_1.insert(0,round(sum_iii,2))
+                                    if tax_p_2_2.get() =='Choose':
+                                        t2=0.0
+                                        pass
+                                    elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(28/100)
+                                    elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(18/100)
+                                    elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(12/100)
+                                    elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(06.0/100)
+                                    elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(05.0/100)
+                                    elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(03.0/100)
+                                    elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0.25/100)
+                                    elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    
+                                    elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(28/100)
+                                    elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(18/100)
+                                    elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(12/100)
+                                    elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(06.0/100)
+                                    elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(05.0/100)
+                                    elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(03.0/100)
+                                    elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0.25/100)
+                                    elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    else:
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+
+
+
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        pass
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        tm3 = 0.0
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
+
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    if tax_p_3_2.get() =='Choose':
+                                        t3=0.0
+                                        pass
+                                    elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(28/100)
+                                    elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(18/100)
+                                    elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(12/100)
+                                    elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(06.0/100)
+                                    elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(05.0/100)
+                                    elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(03.0/100)
+                                    elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0.25/100)
+                                    elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    
+                                    elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(28/100)
+                                    elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(18/100)
+                                    elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(12/100)
+                                    elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(06.0/100)
+                                    elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(05.0/100)
+                                    elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(03.0/100)
+                                    elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0.25/100)
+                                    elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    else:
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+
+                                    
+
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        pass
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        pass
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
+
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+                                    
+
+                                    if tax_p_4_2.get() =='Choose':
+                                        t4=0.0
+                                        pass
+                                    elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(28/100)
+                                    elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(18/100)
+                                    elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(12/100)
+                                    elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(06.0/100)
+                                    elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(05.0/100)
+                                    elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(03.0/100)
+                                    elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0.25/100)
+                                    elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    
+                                    elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(28/100)
+                                    elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(18/100)
+                                    elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(12/100)
+                                    elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(06.0/100)
+                                    elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(05.0/100)
+                                    elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(03.0/100)
+                                    elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0.25/100)
+                                    elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    else:
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                        
+                                    
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        
+                                        pass
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        
+                                        pass
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        
+                                        pass
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
+
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    multiplymain()
 
 
                                 
@@ -19208,114 +24018,432 @@ def main_sign_in():
                                 sum_i = n1+n2+n3+n4+float(r1)+float(r2)+float(r3)+float(r4)
                                 sub_entry_1.delete(0, END)
                                 sub_entry_1.insert(0,round(sum_i,2))
+                                cmb_sltd_main()
                                 
                             def cmb_sltd_2(event):
-                                global t1,t2,t3,t4
+                                    if tax_p_1_2.get() =='Choose':
+                                        t1=0.0
+                                        pass
+                                    elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(28/100)
+                                    elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(18/100)
+                                    elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(12/100)
+                                    elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(06.0/100)
+                                    elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(05.0/100)
+                                    elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(03.0/100)
+                                    elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0.25/100)
+                                    elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    
+                                    elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(28/100)
+                                    elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(18/100)
+                                    elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(12/100)
+                                    elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(06.0/100)
+                                    elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(05.0/100)
+                                    elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(03.0/100)
+                                    elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0.25/100)
+                                    elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    else:
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        tm2 = 0.0
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        tm3 = 0.0
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
 
-                                if tax_p_2_2.get() =='Choose':
-                                    t2=0.0
-                                    pass
-                                elif tax_p_2_2.get() =='28.0% GST(28%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(28/100)
-                                elif tax_p_2_2.get() =='18.0% GST(18%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(18/100)
-                                elif tax_p_2_2.get() =='12.0% GST(12%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(12/100)
-                                elif tax_p_2_2.get() =='06.0% GST(06%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(06.0/100)
-                                elif tax_p_2_2.get() =='05.0% GST(05%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(05.0/100)
-                                elif tax_p_2_2.get() =='03.0% GST(03%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(03.0/100)
-                                elif tax_p_2_2.get() =='0.25% GST(0.25%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(0.25/100)
-                                elif tax_p_2_2.get() =='0.0% GST(0%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(0/100)
-                                elif tax_p_2_2.get() == 'Exempt GST(0%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(0/100)
-                                elif tax_p_2_2.get() =='Out of Scope(0%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(0/100)
-                                
-                                elif tax_p_2_2.get() =='28.0% IGST(28%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(28/100)
-                                elif tax_p_2_2.get() =='18.0% IGST(18%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(18/100)
-                                elif tax_p_2_2.get() =='12.0% IGST(12%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(12/100)
-                                elif tax_p_2_2.get() =='06.0% IGST(06%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(06.0/100)
-                                elif tax_p_2_2.get() =='05.0% IGST(05%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(05.0/100)
-                                elif tax_p_2_2.get() =='03.0% IGST(03%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(03.0/100)
-                                elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(0.25/100)
-                                elif tax_p_2_2.get() =='0.0% IGST(0%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(0/100)
-                                elif tax_p_2_2.get() =='Exempt IGST(0%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(0/100)
-                                elif tax_p_2_2.get() =='Out of Scope(0%)':
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(0/100)
-                                else:
-                                    y2 = float(en_str_2.get())
-                                    t2 = y2*(0/100)
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    if tax_p_2_2.get() =='Choose':
+                                        t2=0.0
+                                        pass
+                                    elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(28/100)
+                                    elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(18/100)
+                                    elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(12/100)
+                                    elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(06.0/100)
+                                    elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(05.0/100)
+                                    elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(03.0/100)
+                                    elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0.25/100)
+                                    elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    
+                                    elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(28/100)
+                                    elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(18/100)
+                                    elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(12/100)
+                                    elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(06.0/100)
+                                    elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(05.0/100)
+                                    elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(03.0/100)
+                                    elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0.25/100)
+                                    elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    else:
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
 
 
 
-                                try:
-                                    tm1  = t1
-                                except:
-                                    pass
-                                try:
-                                    tm2 = t2
-                                except:
-                                    pass
-                                try:
-                                    tm3 = t3
-                                except:
-                                    tm3 = 0.0
-                                try:
-                                    tm4  = t4
-                                except:
-                                    tm4 = 0.0
-                                
-                                
-                                sum_ii = tm1+tm2+tm3+tm4
-                                tax_entry_1.delete(0, END)
-                                tax_entry_1.insert(0,round(sum_ii,2))
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        pass
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        tm3 = 0.0
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
 
-                                try:
-                                    m1 = float(sub_str.get())
-                                except:
-                                    m1 =0.0
-                                try:
-                                    m2 = float(tax_str.get())
-                                except:
-                                    m2 =0.0
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
 
-                                sum_iii = m1+m2
-                                grand_entry_1.delete(0, END)
-                                grand_entry_1.insert(0,round(sum_iii,2))
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    if tax_p_3_2.get() =='Choose':
+                                        t3=0.0
+                                        pass
+                                    elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(28/100)
+                                    elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(18/100)
+                                    elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(12/100)
+                                    elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(06.0/100)
+                                    elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(05.0/100)
+                                    elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(03.0/100)
+                                    elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0.25/100)
+                                    elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    
+                                    elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(28/100)
+                                    elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(18/100)
+                                    elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(12/100)
+                                    elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(06.0/100)
+                                    elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(05.0/100)
+                                    elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(03.0/100)
+                                    elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0.25/100)
+                                    elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    else:
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+
+                                    
+
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        pass
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        pass
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
+
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+                                    
+
+                                    if tax_p_4_2.get() =='Choose':
+                                        t4=0.0
+                                        pass
+                                    elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(28/100)
+                                    elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(18/100)
+                                    elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(12/100)
+                                    elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(06.0/100)
+                                    elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(05.0/100)
+                                    elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(03.0/100)
+                                    elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0.25/100)
+                                    elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    
+                                    elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(28/100)
+                                    elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(18/100)
+                                    elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(12/100)
+                                    elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(06.0/100)
+                                    elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(05.0/100)
+                                    elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(03.0/100)
+                                    elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0.25/100)
+                                    elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    else:
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                        
+                                    
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        
+                                        pass
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        
+                                        pass
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        
+                                        pass
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
+
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    multiplymain()
 
                                 
 
@@ -19430,113 +24558,431 @@ def main_sign_in():
                                 sum_i = n1+n2+n3+n4+float(r1)+float(r2)+float(r3)+float(r4)
                                 sub_entry_1.delete(0, END)
                                 sub_entry_1.insert(0,round(sum_i,2))
+                                cmb_sltd_main()
                             def cmb_sltd_3(event):
-                                global t1,t2,t3,t4
+                                    if tax_p_1_2.get() =='Choose':
+                                        t1=0.0
+                                        pass
+                                    elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(28/100)
+                                    elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(18/100)
+                                    elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(12/100)
+                                    elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(06.0/100)
+                                    elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(05.0/100)
+                                    elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(03.0/100)
+                                    elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0.25/100)
+                                    elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    
+                                    elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(28/100)
+                                    elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(18/100)
+                                    elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(12/100)
+                                    elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(06.0/100)
+                                    elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(05.0/100)
+                                    elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(03.0/100)
+                                    elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0.25/100)
+                                    elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    else:
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        tm2 = 0.0
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        tm3 = 0.0
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
 
-                                if tax_p_3_2.get() =='Choose':
-                                    t3=0.0
-                                    pass
-                                elif tax_p_3_2.get() =='28.0% GST(28%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(28/100)
-                                elif tax_p_3_2.get() =='18.0% GST(18%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(18/100)
-                                elif tax_p_3_2.get() =='12.0% GST(12%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(12/100)
-                                elif tax_p_3_2.get() =='06.0% GST(06%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(06.0/100)
-                                elif tax_p_3_2.get() =='05.0% GST(05%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(05.0/100)
-                                elif tax_p_3_2.get() =='03.0% GST(03%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(03.0/100)
-                                elif tax_p_3_2.get() =='0.25% GST(0.25%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(0.25/100)
-                                elif tax_p_3_2.get() =='0.0% GST(0%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(0/100)
-                                elif tax_p_3_2.get() == 'Exempt GST(0%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(0/100)
-                                elif tax_p_3_2.get() =='Out of Scope(0%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(0/100)
-                                
-                                elif tax_p_3_2.get() =='28.0% IGST(28%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(28/100)
-                                elif tax_p_3_2.get() =='18.0% IGST(18%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(18/100)
-                                elif tax_p_3_2.get() =='12.0% IGST(12%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(12/100)
-                                elif tax_p_3_2.get() =='06.0% IGST(06%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(06.0/100)
-                                elif tax_p_3_2.get() =='05.0% IGST(05%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(05.0/100)
-                                elif tax_p_3_2.get() =='03.0% IGST(03%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(03.0/100)
-                                elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(0.25/100)
-                                elif tax_p_3_2.get() =='0.0% IGST(0%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(0/100)
-                                elif tax_p_3_2.get() =='Exempt IGST(0%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(0/100)
-                                elif tax_p_3_2.get() =='Out of Scope(0%)':
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(0/100)
-                                else:
-                                    y3 = float(en_str_3.get())
-                                    t3 = y3*(0/100)
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
 
-                                
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
 
-                                try:
-                                    tm1  = t1
-                                except:
-                                    pass
-                                try:
-                                    tm2 = t2
-                                except:
-                                    pass
-                                try:
-                                    tm3 = t3
-                                except:
-                                    pass
-                                try:
-                                    tm4  = t4
-                                except:
-                                    tm4 = 0.0
-                                
-                                
-                                sum_ii = tm1+tm2+tm3+tm4
-                                tax_entry_1.delete(0, END)
-                                tax_entry_1.insert(0,round(sum_ii,2))
+                                    if tax_p_2_2.get() =='Choose':
+                                        t2=0.0
+                                        pass
+                                    elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(28/100)
+                                    elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(18/100)
+                                    elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(12/100)
+                                    elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(06.0/100)
+                                    elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(05.0/100)
+                                    elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(03.0/100)
+                                    elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0.25/100)
+                                    elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    
+                                    elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(28/100)
+                                    elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(18/100)
+                                    elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(12/100)
+                                    elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(06.0/100)
+                                    elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(05.0/100)
+                                    elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(03.0/100)
+                                    elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0.25/100)
+                                    elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    else:
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
 
-                                try:
-                                    m1 = float(sub_str.get())
-                                except:
-                                    m1 =0.0
-                                try:
-                                    m2 = float(tax_str.get())
-                                except:
-                                    m2 =0.0
 
-                                sum_iii = m1+m2
-                                grand_entry_1.delete(0, END)
-                                grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        pass
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        tm3 = 0.0
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
+
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    if tax_p_3_2.get() =='Choose':
+                                        t3=0.0
+                                        pass
+                                    elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(28/100)
+                                    elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(18/100)
+                                    elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(12/100)
+                                    elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(06.0/100)
+                                    elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(05.0/100)
+                                    elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(03.0/100)
+                                    elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0.25/100)
+                                    elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    
+                                    elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(28/100)
+                                    elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(18/100)
+                                    elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(12/100)
+                                    elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(06.0/100)
+                                    elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(05.0/100)
+                                    elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(03.0/100)
+                                    elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0.25/100)
+                                    elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    else:
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+
+                                    
+
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        pass
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        pass
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
+
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+                                    
+
+                                    if tax_p_4_2.get() =='Choose':
+                                        t4=0.0
+                                        pass
+                                    elif tax_p_4_2.get() =='28.0% GST(28%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(28/100)
+                                    elif tax_p_4_2.get() =='18.0% GST(18%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(18/100)
+                                    elif tax_p_4_2.get() =='12.0% GST(12%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(12/100)
+                                    elif tax_p_4_2.get() =='06.0% GST(06%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(06.0/100)
+                                    elif tax_p_4_2.get() =='05.0% GST(05%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(05.0/100)
+                                    elif tax_p_4_2.get() =='03.0% GST(03%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(03.0/100)
+                                    elif tax_p_4_2.get() =='0.25% GST(0.25%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0.25/100)
+                                    elif tax_p_4_2.get() =='0.0% GST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() == 'Exempt GST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    
+                                    elif tax_p_4_2.get() =='28.0% IGST(28%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(28/100)
+                                    elif tax_p_4_2.get() =='18.0% IGST(18%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(18/100)
+                                    elif tax_p_4_2.get() =='12.0% IGST(12%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(12/100)
+                                    elif tax_p_4_2.get() =='06.0% IGST(06%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(06.0/100)
+                                    elif tax_p_4_2.get() =='05.0% IGST(05%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(05.0/100)
+                                    elif tax_p_4_2.get() =='03.0% IGST(03%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(03.0/100)
+                                    elif tax_p_4_2.get() =='0.25% IGST(0.25%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0.25/100)
+                                    elif tax_p_4_2.get() =='0.0% IGST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() =='Exempt IGST(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    elif tax_p_4_2.get() =='Out of Scope(0%)':
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                    else:
+                                        y4 = float(en_str_4.get())
+                                        t4 = y4*(0/100)
+                                        
+                                    
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        
+                                        pass
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        
+                                        pass
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        
+                                        pass
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
+
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    multiplymain()
 
                                 
 
@@ -19650,9 +25096,326 @@ def main_sign_in():
                                 sub_entry_1.delete(0, END)
                                 sub_entry_1.insert(0,round(sum_i,2))
 
+                                
+
+                                cmb_sltd_main()
+
                             def cmb_slt_4(event):
                                 
-                                    global t1,t2,t3,t4
+                                    
+                                    if tax_p_1_2.get() =='Choose':
+                                        t1=0.0
+                                        pass
+                                    elif tax_p_1_2.get() =='28.0% GST(28%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(28/100)
+                                    elif tax_p_1_2.get() =='18.0% GST(18%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(18/100)
+                                    elif tax_p_1_2.get() =='12.0% GST(12%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(12/100)
+                                    elif tax_p_1_2.get() =='06.0% GST(06%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(06.0/100)
+                                    elif tax_p_1_2.get() =='05.0% GST(05%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(05.0/100)
+                                    elif tax_p_1_2.get() =='03.0% GST(03%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(03.0/100)
+                                    elif tax_p_1_2.get() =='0.25% GST(0.25%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0.25/100)
+                                    elif tax_p_1_2.get() =='0.0% GST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() == 'Exempt GST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    
+                                    elif tax_p_1_2.get() =='28.0% IGST(28%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(28/100)
+                                    elif tax_p_1_2.get() =='18.0% IGST(18%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(18/100)
+                                    elif tax_p_1_2.get() =='12.0% IGST(12%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(12/100)
+                                    elif tax_p_1_2.get() =='06.0% IGST(06%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(06.0/100)
+                                    elif tax_p_1_2.get() =='05.0% IGST(05%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(05.0/100)
+                                    elif tax_p_1_2.get() =='03.0% IGST(03%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(03.0/100)
+                                    elif tax_p_1_2.get() =='0.25% IGST(0.25%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0.25/100)
+                                    elif tax_p_1_2.get() =='0.0% IGST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Exempt IGST(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    elif tax_p_1_2.get() =='Out of Scope(0%)':
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    else:
+                                        y1 = float(ai_entry_p_1_5.get())
+                                        t1 = y1*(0/100)
+                                    
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        tm2 = 0.0
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        tm3 = 0.0
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
+
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    if tax_p_2_2.get() =='Choose':
+                                        t2=0.0
+                                        pass
+                                    elif tax_p_2_2.get() =='28.0% GST(28%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(28/100)
+                                    elif tax_p_2_2.get() =='18.0% GST(18%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(18/100)
+                                    elif tax_p_2_2.get() =='12.0% GST(12%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(12/100)
+                                    elif tax_p_2_2.get() =='06.0% GST(06%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(06.0/100)
+                                    elif tax_p_2_2.get() =='05.0% GST(05%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(05.0/100)
+                                    elif tax_p_2_2.get() =='03.0% GST(03%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(03.0/100)
+                                    elif tax_p_2_2.get() =='0.25% GST(0.25%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0.25/100)
+                                    elif tax_p_2_2.get() =='0.0% GST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() == 'Exempt GST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    
+                                    elif tax_p_2_2.get() =='28.0% IGST(28%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(28/100)
+                                    elif tax_p_2_2.get() =='18.0% IGST(18%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(18/100)
+                                    elif tax_p_2_2.get() =='12.0% IGST(12%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(12/100)
+                                    elif tax_p_2_2.get() =='06.0% IGST(06%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(06.0/100)
+                                    elif tax_p_2_2.get() =='05.0% IGST(05%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(05.0/100)
+                                    elif tax_p_2_2.get() =='03.0% IGST(03%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(03.0/100)
+                                    elif tax_p_2_2.get() =='0.25% IGST(0.25%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0.25/100)
+                                    elif tax_p_2_2.get() =='0.0% IGST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Exempt IGST(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    elif tax_p_2_2.get() =='Out of Scope(0%)':
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+                                    else:
+                                        y2 = float(en_str_2.get())
+                                        t2 = y2*(0/100)
+
+
+
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        pass
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        tm3 = 0.0
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
+
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    if tax_p_3_2.get() =='Choose':
+                                        t3=0.0
+                                        pass
+                                    elif tax_p_3_2.get() =='28.0% GST(28%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(28/100)
+                                    elif tax_p_3_2.get() =='18.0% GST(18%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(18/100)
+                                    elif tax_p_3_2.get() =='12.0% GST(12%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(12/100)
+                                    elif tax_p_3_2.get() =='06.0% GST(06%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(06.0/100)
+                                    elif tax_p_3_2.get() =='05.0% GST(05%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(05.0/100)
+                                    elif tax_p_3_2.get() =='03.0% GST(03%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(03.0/100)
+                                    elif tax_p_3_2.get() =='0.25% GST(0.25%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0.25/100)
+                                    elif tax_p_3_2.get() =='0.0% GST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() == 'Exempt GST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    
+                                    elif tax_p_3_2.get() =='28.0% IGST(28%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(28/100)
+                                    elif tax_p_3_2.get() =='18.0% IGST(18%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(18/100)
+                                    elif tax_p_3_2.get() =='12.0% IGST(12%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(12/100)
+                                    elif tax_p_3_2.get() =='06.0% IGST(06%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(06.0/100)
+                                    elif tax_p_3_2.get() =='05.0% IGST(05%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(05.0/100)
+                                    elif tax_p_3_2.get() =='03.0% IGST(03%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(03.0/100)
+                                    elif tax_p_3_2.get() =='0.25% IGST(0.25%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0.25/100)
+                                    elif tax_p_3_2.get() =='0.0% IGST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Exempt IGST(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    elif tax_p_3_2.get() =='Out of Scope(0%)':
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+                                    else:
+                                        y3 = float(en_str_3.get())
+                                        t3 = y3*(0/100)
+
+                                    
+
+                                    try:
+                                        tm1  = t1
+                                    except:
+                                        pass
+                                    try:
+                                        tm2 = t2
+                                    except:
+                                        pass
+                                    try:
+                                        tm3 = t3
+                                    except:
+                                        pass
+                                    try:
+                                        tm4  = t4
+                                    except:
+                                        tm4 = 0.0
+                                    
+                                    
+                                    sum_ii = tm1+tm2+tm3+tm4
+                                    tax_entry_1.delete(0, END)
+                                    tax_entry_1.insert(0,round(sum_ii,2))
+
+                                    try:
+                                        m1 = float(sub_str.get())
+                                    except:
+                                        m1 =0.0
+                                    try:
+                                        m2 = float(tax_str.get())
+                                    except:
+                                        m2 =0.0
+
+                                    sum_iii = m1+m2
+                                    grand_entry_1.delete(0, END)
+                                    grand_entry_1.insert(0,round(sum_iii,2))
+                                    
 
                                     if tax_p_4_2.get() =='Choose':
                                         t4=0.0
@@ -19726,18 +25489,22 @@ def main_sign_in():
                                     try:
                                         tm1  = t1
                                     except:
+                                        
                                         pass
                                     try:
                                         tm2 = t2
                                     except:
+                                        
                                         pass
                                     try:
                                         tm3 = t3
                                     except:
+                                        
                                         pass
                                     try:
                                         tm4  = t4
                                     except:
+                                        
                                         pass
                                     
                                     
@@ -19757,6 +25524,8 @@ def main_sign_in():
                                     sum_iii = m1+m2
                                     grand_entry_1.delete(0, END)
                                     grand_entry_1.insert(0,round(sum_iii,2))
+
+                                    multiplymain()
 
                                     
 
@@ -20090,6 +25859,7 @@ def main_sign_in():
                             vghus=[] 
                             for i in vghu:
                                 vghus.append(i[0])
+                                
                             cust_var=StringVar()
                             aicomb_1_4 = ttk.Combobox(tm_frm_chld, width=66,textvariable=cust_var, font=('arial 16'))
                             aicomb_1_4["values"] = vghus
@@ -20370,8 +26140,9 @@ def main_sign_in():
                             window_label_2 = ad_pm_frm_chld.create_window(0, 0, anchor="nw", window=ad_cust_lb, tags=("ad_cust_lb"))
 
                             def ins_add(event):
-                                vghs="select firstname,lastname,company,street,city,state,pincode,country from app1_customer where cid_id=%s and company=%s"
-                                vld_vghs=(dtl_cmp_pro[0],py_var.get(),)
+                                vgy=py_var.get().split(" ")
+                                vghs="select firstname,lastname,company,street,city,state,pincode,country from app1_supplier where cid_id=%s and firstname=%s and lastname=%s"
+                                vld_vghs=(dtl_cmp_pro[0],vgy[0],vgy[1])
                                 fbcursor.execute(vghs,vld_vghs)
                                 vghu=fbcursor.fetchone()
 
@@ -20379,14 +26150,30 @@ def main_sign_in():
 
                                 tm_scr_ml.insert(1.0,str(vghu[0])+str(vghu[1])+'\n'+str(vghu[2])+"\n"+str(vghu[3])+"\n"+str(vghu[4])+"\n"+str(vghu[5])+"\n"+str(vghu[6])+"\n"+str(vghu[7]))
 
+                                sql_sp_cmp="select * from app1_expences where cid_id=%s and payee=%s"
+                                sql_sp_cmp_val=(dtl_cmp_pro[0],py_var.get())
+                                fbcursor.execute(sql_sp_cmp,sql_sp_cmp_val,)
+                                pay_id_dt=fbcursor.fetchone()
 
-                            vgh="select company from app1_customer where cid_id=%s"
+                                
+                                sql_paym_cmp="select * from app1_expences where cid_id=%s and expencesid=%s"
+                                sql_paym_cmp_val=(dtl_cmp_pro[0],pay_id_dt[0])
+                                fbcursor.execute(sql_paym_cmp,sql_paym_cmp_val,)
+                                pay_cm_dt=fbcursor.fetchone()
+
+                                ad_ref_nm.delete(0,END)
+                                ad_ref_nm.insert(0,pay_cm_dt[0])
+
+
+
+
+                            vgh="select * from app1_supplier where cid_id=%s"
                             vld_vgh=(dtl_cmp_pro[0],)
                             fbcursor.execute(vgh,vld_vgh)
                             vghu=fbcursor.fetchall()
                             vghus=[] 
                             for i in vghu:
-                                vghus.append(i[0])
+                                vghus.append(str(i[2])+" "+str(i[3]))
 
                             py_var=StringVar()
                             aicomb_1_4 = ttk.Combobox(ad_pm_frm_chld, width=30,textvariable=py_var, font=('arial 16'))
